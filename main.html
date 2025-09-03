@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AML Audit Screen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        select, input {
+            padding: 0.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .compliance-score {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr 350px;
+            height: calc(100vh - 140px);
+            gap: 1rem;
+            padding: 1rem 2rem;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background: #f1f5f9;
+            padding: 1rem;
+            font-weight: 600;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .regulatory-docs {
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .doc-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .doc-item:hover {
+            background: #f8fafc;
+        }
+
+        .doc-item.active {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .doc-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .doc-meta {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .content-area {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-header {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .content-title {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .clauses-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .clause {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            position: relative;
+        }
+
+        .clause:hover {
+            background: #f9fafb;
+        }
+
+        .clause-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .clause-id {
+            font-weight: 600;
+            color: #3b82f6;
+            font-size: 0.875rem;
+        }
+
+        .coverage-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .coverage-full {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .coverage-partial {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .coverage-none {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .clause-text {
+            margin-bottom: 1rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .clause-metadata {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .metadata-tag {
+            padding: 0.25rem 0.5rem;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .rules-panel {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .rules-header {
+            background: #f8fafc;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-weight: 600;
+        }
+
+        .rules-content {
+            padding: 1rem;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .rule-item {
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            background: #fafafa;
+        }
+
+        .rule-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .rule-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .evidence-count {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 0.125rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        .performance-indicator {
+            width: 100%;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .performance-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ef4444 0%, #f59e0b 50%, #10b981 100%);
+            transition: width 0.3s ease;
+        }
+
+        .no-rules {
+            text-align: center;
+            color: #94a3b8;
+            font-style: italic;
+            padding: 2rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+
+        .search-box {
+            width: 200px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 250px 1fr;
+            }
+            .rules-panel {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Regulatory Compliance Audit</h1>
+        <div class="header-controls">
+            <div class="filter-group">
+                <label>Jurisdiction:</label>
+                <select id="jurisdictionFilter">
+                    <option value="">All Jurisdictions</option>
+                    <option value="US" selected>United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="EU">European Union</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Product Type:</label>
+                <select id="productFilter">
+                    <option value="">All Products</option>
+                    <option value="retail-banking" selected>Retail Banking</option>
+                    <option value="commercial-banking">Commercial Banking</option>
+                    <option value="wealth-mgmt">Wealth Management</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Search:</label>
+                <input type="text" class="search-box" placeholder="Search clauses...">
+            </div>
+            <button class="btn btn-primary">Export Report</button>
+            <div class="compliance-score">
+                Overall Score: 87%
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <div class="sidebar-header">Regulatory Documents</div>
+            <div class="regulatory-docs">
+                <div class="doc-item active" onclick="selectDocument('bsa')">
+                    <div class="doc-title">Bank Secrecy Act</div>
+                    <div class="doc-meta">31 USC 5311 • Updated: 2023</div>
+                </div>
+                <div class="doc-item" onclick="selectDocument('patriot')">
+                    <div class="doc-title">USA PATRIOT Act</div>
+                    <div class="doc-meta">Section 326 • Updated: 2023</div>
+                </div>
+                <div class="doc-item" onclick="selectDocument('ofac')">
+                    <div class="doc-title">OFAC Sanctions</div>
+                    <div class="doc-meta">31 CFR 501 • Updated: 2024</div>
+                </div>
+                <div class="doc-item" onclick="selectDocument('cdd')">
+                    <div class="doc-title">CDD Final Rule</div>
+                    <div class="doc-meta">31 CFR 1010.230 • Updated: 2023</div>
+                </div>
+                <div class="doc-item" onclick="selectDocument('ctf')">
+                    <div class="doc-title">Counter Terrorist Financing</div>
+                    <div class="doc-meta">31 USC 5318A • Updated: 2023</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="content-header">
+                <div class="content-title">Bank Secrecy Act - Suspicious Activity Reporting</div>
+            </div>
+            <div class="clauses-container">
+                <div class="clause">
+                    <div class="clause-header">
+                        <div class="clause-id">BSA § 1020.320(a)(1)</div>
+                        <div class="coverage-badge coverage-full">Full Coverage</div>
+                    </div>
+                    <div class="clause-text">
+                        Each bank shall file a suspicious activity report with the appropriate federal law enforcement agencies and the Department of the Treasury when the bank detects a known or suspected violation of federal law or a suspicious transaction related to a money laundering activity or a violation of the Bank Secrecy Act.
+                    </div>
+                    <div class="clause-metadata">
+                        <span class="metadata-tag">US Retail Banking</span>
+                        <span class="metadata-tag">Transaction Monitoring</span>
+                        <span class="metadata-tag">SAR Filing</span>
+                        <span class="metadata-tag">All Customer Types</span>
+                    </div>
+                    <div style="font-size: 0.875rem; color: #3b82f6;">
+                        <strong>Linked Rules:</strong> Large Cash Transactions, Structuring Detection, Cross-Border Monitoring
+                    </div>
+                </div>
+
+                <div class="clause" onclick="selectClause('bsa-320-a-2')">
+                    <div class="clause-header">
+                        <div class="clause-id">BSA § 1020.320(a)(2)</div>
+                        <div class="coverage-badge coverage-partial">Partial Coverage</div>
+                    </div>
+                    <div class="clause-text">
+                        A bank shall file a suspicious activity report no later than 30 calendar days after the date of initial detection by the bank of facts that may constitute a basis for filing a suspicious activity report.
+                    </div>
+                    <div class="clause-metadata">
+                        <span class="metadata-tag">US Retail Banking</span>
+                        <span class="metadata-tag">SAR Timing</span>
+                        <span class="metadata-tag">Workflow Management</span>
+                    </div>
+                    <div style="font-size: 0.875rem; color: #f59e0b;">
+                        <strong>Linked Rules:</strong> Case Management Workflow <em>(Alert escalation timing needs review)</em>
+                    </div>
+                </div>
+
+                <div class="clause">
+                    <div class="clause-header">
+                        <div class="clause-id">BSA § 1020.320(b)</div>
+                        <div class="coverage-badge coverage-full">Full Coverage</div>
+                    </div>
+                    <div class="clause-text">
+                        A suspicious activity report shall be filed for any transaction conducted or attempted by, at, or through the bank that involves or aggregates at least $5,000 in funds or other assets, if the bank knows, suspects, or has reason to suspect certain specified conditions.
+                    </div>
+                    <div class="clause-metadata">
+                        <span class="metadata-tag">US All Products</span>
+                        <span class="metadata-tag">$5K+ Threshold</span>
+                        <span class="metadata-tag">Aggregation Logic</span>
+                    </div>
+                    <div style="font-size: 0.875rem; color: #3b82f6;">
+                        <strong>Linked Rules:</strong> Aggregation Engine, Threshold Monitoring, Multi-Day Accumulation
+                    </div>
+                </div>
+
+                <div class="clause">
+                    <div class="clause-header">
+                        <div class="clause-id">BSA § 1010.311</div>
+                        <div class="coverage-badge coverage-none">No Coverage</div>
+                    </div>
+                    <div class="clause-text">
+                        For purposes of this section, a person is the beneficiary of a trust if the person has the right to receive mandatory distributions of income from the trust or the right to receive, or the discretion to make, distributions from the trust.
+                    </div>
+                    <div class="clause-metadata">
+                        <span class="metadata-tag">US Trust Services</span>
+                        <span class="metadata-tag">Beneficial Ownership</span>
+                        <span class="metadata-tag">High Net Worth</span>
+                    </div>
+                    <div style="font-size: 0.875rem; color: #ef4444;">
+                        <strong>Gap Identified:</strong> No rules configured for trust beneficiary monitoring
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rules-panel">
+            <div class="rules-header">
+                Associated Monitoring Rules <span class="evidence-count">12</span>
+            </div>
+            <div class="rules-content" id="rulesContent">
+                <div class="rule-item">
+                    <div class="rule-name">Large Cash Transaction Detection</div>
+                    <div class="rule-stats">
+                        <div class="stat">Alerts: 2,847/month</div>
+                        <div class="stat">True Positive: 23%</div>
+                        <div class="stat">SARs Filed: 89</div>
+                        <div class="stat">Coverage: 100%</div>
+                    </div>
+                    <div class="performance-indicator">
+                        <div class="performance-bar" style="width: 78%;"></div>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-name">Structuring Pattern Analysis</div>
+                    <div class="rule-stats">
+                        <div class="stat">Alerts: 1,203/month</div>
+                        <div class="stat">True Positive: 31%</div>
+                        <div class="stat">SARs Filed: 45</div>
+                        <div class="stat">Coverage: 95%</div>
+                    </div>
+                    <div class="performance-indicator">
+                        <div class="performance-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-name">Cross-Border Wire Monitoring</div>
+                    <div class="rule-stats">
+                        <div class="stat">Alerts: 892/month</div>
+                        <div class="stat">True Positive: 18%</div>
+                        <div class="stat">SARs Filed: 23</div>
+                        <div class="stat">Coverage: 88%</div>
+                    </div>
+                    <div class="performance-indicator">
+                        <div class="performance-bar" style="width: 72%;"></div>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-name">Case Management Workflow</div>
+                    <div class="rule-stats">
+                        <div class="stat">Avg Resolution: 18 days</div>
+                        <div class="stat">SLA Compliance: 67%</div>
+                        <div class="stat">Auto-Closed: 34%</div>
+                        <div class="stat">Quality Score: 72%</div>
+                    </div>
+                    <div class="performance-indicator">
+                        <div class="performance-bar" style="width: 67%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectDocument(docId) {
+            // Remove active class from all documents
+            document.querySelectorAll('.doc-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to selected document
+            event.target.closest('.doc-item').classList.add('active');
+            
+            // Update content area based on selection
+            updateContentArea(docId);
+        }
+
+        function selectClause(clauseId) {
+            // Update rules panel based on selected clause
+            updateRulesPanel(clauseId);
+        }
+
+        function updateContentArea(docId) {
+            const contentTitle = document.querySelector('.content-title');
+            
+            const docTitles = {
+                'bsa': 'Bank Secrecy Act - Suspicious Activity Reporting',
+                'patriot': 'USA PATRIOT Act - Customer Identification',
+                'ofac': 'OFAC Sanctions - Screening Requirements',
+                'cdd': 'Customer Due Diligence - Final Rule',
+                'ctf': 'Counter Terrorist Financing - Monitoring'
+            };
+            
+            contentTitle.textContent = docTitles[docId] || 'Regulatory Document';
+        }
+
+        function openClauseModal(clauseId) {
+            const modal = document.getElementById('clauseModal');
+            modal.classList.add('show');
+            
+            // Update modal content based on clause
+            updateModalContent(clauseId);
+        }
+
+        function closeClauseModal() {
+            const modal = document.getElementById('clauseModal');
+            modal.classList.remove('show');
+        }
+
+        function updateModalContent(clauseId) {
+            const modalTitle = document.getElementById('modalTitle');
+            
+            const clauseData = {
+                'bsa-320-a-1': {
+                    title: 'BSA § 1020.320(a)(1) - Suspicious Activity Detection',
+                    subtitle: 'US Retail Banking • Transaction Monitoring • SAR Filing',
+                    score: '94%',
+                    rules: 3,
+                    avgTime: '12 days',
+                    evidence: 234
+                },
+                'bsa-320-a-2': {
+                    title: 'BSA § 1020.320(a)(2) - SAR Filing Timeline',
+                    subtitle: 'US Retail Banking • Transaction Monitoring • SAR Timing',
+                    score: '67%',
+                    rules: 2,
+                    avgTime: '18 days',
+                    evidence: 157
+                }
+            };
+            
+            const data = clauseData[clauseId] || clauseData['bsa-320-a-2'];
+            modalTitle.textContent = data.title;
+        }
+
+        // Initialize event listeners when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close modal when clicking outside
+            const clauseModal = document.getElementById('clauseModal');
+            if (clauseModal) {
+                clauseModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeClauseModal();
+                    }
+                });
+            }
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeClauseModal();
+                }
+            });
+
+            // Initialize with default document
+            updateContentArea('bsa');
+        });
+    </script>
+</body>
+</html>

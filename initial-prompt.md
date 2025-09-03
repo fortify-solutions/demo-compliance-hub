@@ -1,0 +1,3 @@
+As part of my AML Transaction monitoring product, I want there to be an audit screen where users can simply view all of the relevant regulatory documents that apply to them, and the clauses within the docs that give specific guidance that needs to be handled as part of the product. There is a way to associate evidence with clauses, via some metadata which logs the country, product type, customer type, etc with each clause, and links it with similar metadata attached to rules in the system - to allow things like rule backtests, performance, alert levels etc to be compiled and attached. This will then allow us to give an overall 'score' for the quality of the evidence on compliance, at the risk of an (internal or external) audit
+
+

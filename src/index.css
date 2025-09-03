@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom score styling classes */
+@layer components {
+  .score-excellent {
+    @apply bg-green-100 text-green-800 border border-green-200;
+  }
+  .score-good {
+    @apply bg-lime-100 text-lime-800 border border-lime-200;
+  }
+  .score-fair {
+    @apply bg-amber-100 text-amber-800 border border-amber-200;
+  }
+  .score-poor {
+    @apply bg-red-100 text-red-800 border border-red-200;
+  }
+  .score-critical {
+    @apply bg-red-200 text-red-900 border border-red-300;
+  }
+
+  .clause-score-excellent {
+    @apply bg-green-50 border-l-4 border-l-green-500;
+  }
+  .clause-score-good {
+    @apply bg-lime-50 border-l-4 border-l-lime-500;
+  }
+  .clause-score-fair {
+    @apply bg-amber-50 border-l-4 border-l-amber-500;
+  }
+  .clause-score-poor {
+    @apply bg-red-50 border-l-4 border-l-red-500;
+  }
+  .clause-score-critical {
+    @apply bg-red-100 border-l-4 border-l-red-600;
+  }
+}
