@@ -383,13 +383,38 @@ export const analystCapacity = {
     monthlyAlertVolume: 4942,
     utilizationRate: 87
   },
-  projectedCapacity: {
-    withAdditionalAnalyst: {
+  scenarios: {
+    '-2': {
+      staffCount: 6,
+      alertsPerDay: 33,
+      investigationThreshold: 100000, // Higher threshold due to reduced capacity
+      utilizationRate: 95,
+      additionalInvestigationsPerMonth: -94,
+      description: 'Reduced capacity scenario'
+    },
+    '-1': {
+      staffCount: 7,
+      alertsPerDay: 39,
+      investigationThreshold: 75000, // Higher threshold due to reduced capacity
+      utilizationRate: 92,
+      additionalInvestigationsPerMonth: -47,
+      description: 'Slightly reduced capacity'
+    },
+    '+1': {
       staffCount: 9,
       alertsPerDay: 51,
       investigationThreshold: 10000, // Could investigate $10k+ transactions
       utilizationRate: 78,
-      additionalInvestigationsPerMonth: 47
+      additionalInvestigationsPerMonth: 47,
+      description: 'Additional analyst scenario'
+    },
+    '+2': {
+      staffCount: 10,
+      alertsPerDay: 57,
+      investigationThreshold: 5000, // Even lower threshold with more capacity
+      utilizationRate: 71,
+      additionalInvestigationsPerMonth: 94,
+      description: 'Expanded team scenario'
     }
   },
   performanceMetrics: {
