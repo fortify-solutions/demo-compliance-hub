@@ -2,7 +2,12 @@
 
 ## Project Overview
 
-This is an advanced React application demonstrating a comprehensive AML (Anti-Money Laundering) transaction monitoring compliance system for financial institutions, branded as AMLBoost Audit. The system focuses specifically on transaction monitoring capabilities rather than case management or sanctions screening. The application was designed and built through collaborative sessions between a human product owner and Claude, with a focus on creating a Risk Manager-centric interface for ongoing compliance monitoring and audit readiness.
+AMLBoost Audit is an advanced React application demonstrating a comprehensive AML (Anti-Money Laundering) transaction monitoring compliance system for financial institutions. The system focuses specifically on **transaction monitoring capabilities** rather than case management or sanctions screening, providing a dedicated interface for monitoring rule performance, alert investigation workflows, and regulatory compliance tracking.
+
+**Live Application:** https://scaling-adventure-gg8gvqm.pages.github.io/  
+**Repository:** https://github.com/fortify-solutions/amlboost-audit (Internal)
+
+The application was designed and built through collaborative sessions between a human product owner and Claude, with a focus on creating a Risk Manager-centric interface for ongoing compliance monitoring and audit readiness.
 
 ## Key Design Decisions
 
@@ -19,10 +24,11 @@ This is an advanced React application demonstrating a comprehensive AML (Anti-Mo
 - **Dual Artifact Strategy**: Internal operational reports vs. formal audit packages
 
 ### Technical Stack Choices
-- **React 19 + Vite**: Modern development experience with fast HMR
-- **Tailwind CSS v4**: Utility-first styling (though we encountered configuration challenges)
+- **React 19.1.1 + Vite 7.1.2**: Modern development experience with fast HMR
+- **Tailwind CSS v3.4.4**: Utility-first styling (downgraded from v4 for compatibility)
 - **Lucide React**: Consistent, professional iconography
 - **Mock Data Services**: Comprehensive regulatory framework simulation
+- **GitHub Pages**: Hosted deployment with automated build process
 - **Component Architecture**: Modular, reusable components following established patterns
 
 ## Project Structure
@@ -56,10 +62,11 @@ src/
 - Linked to monitoring rules through metadata matching
 
 ### Monitoring Rules
-- Performance metrics: alerts/month, true positive rate, SAR filings
+- Performance metrics: alerts/month, true positive rate, alerts investigated
 - Backtest scores and coverage percentages
 - Linked to clauses through shared metadata
-- Support for different rule categories (Cash Monitoring, Behavioral Analytics, etc.)
+- Support for different rule categories (Cash Monitoring, Behavioral Analytics, Velocity Tracking, etc.)
+- **Focus**: Pure transaction monitoring (no SAR filing or sanctions screening)
 
 ### System Alerts
 - Types: Performance degradation, coverage gaps, AI insights, regulatory updates
@@ -81,9 +88,10 @@ src/
 - **Right Panel**: Real-time alerts and quick actions
 
 ### 🔍 Advanced Filtering System
-- Multi-dimensional filtering: jurisdiction, product type, customer type
+- Multi-dimensional filtering: jurisdiction, product type, customer type (Individual, Business, Corporate)
 - Real-time search across clause content
 - Dynamic result counting and context awareness
+- Cascading filter integration across all components
 
 ### 📊 Compliance Scoring Visualization
 - Overall compliance score (84% in mock data)
@@ -98,7 +106,8 @@ src/
 ### 👥 Capacity Planning Interface
 - Current state: 8 analysts, 87% utilization, $50K+ investigation threshold
 - Projected scenario: +1 analyst → 78% utilization, $10K+ threshold
-- ROI analysis: +15 additional SARs/month, better regulatory coverage
+- ROI analysis: +15 additional alerts investigated/month, better regulatory coverage
+- **Focus**: Investigation workflow optimization rather than SAR filing metrics
 
 ### 📋 Evidence Management
 - Quality-scored evidence (Excellent, Good, Fair)
@@ -107,22 +116,19 @@ src/
 
 ## Development Challenges Encountered
 
-### Tailwind CSS v4 Configuration Issues
-- **Problem**: Custom CSS classes not being processed correctly
-- **Root Cause**: Tailwind v4 has different configuration requirements vs. v3
-- **Attempted Solutions**:
-  1. Fixed PostCSS configuration to use `@tailwindcss/postcss`
-  2. Removed `@tailwindcss/typography` dependency
-  3. Converted custom classes to utility classes
-  4. Fallback to inline styles for critical styling
+### Tailwind CSS Configuration Resolution
+- **Problem**: Tailwind v4 utilities not being recognized, causing malformed appearance
+- **Root Cause**: Tailwind v4 has breaking changes in PostCSS integration
+- **Solution Applied**: Downgraded to Tailwind v3.4.4 with proper PostCSS configuration
+- **Custom Styling**: Added score styling classes in index.css for compliance visualization
+- **Result**: Fully functional styling with proper color schemes and layouts
 
-### Layout and Styling Problems
-- **Issue**: Text overlapping, missing colors, basic styling appearance
-- **Contributing Factors**:
-  - Tailwind config not fully compatible with Vite setup
-  - Custom CSS classes not being processed
-  - Height calculations causing overflow issues
-- **Resolution Status**: Partially resolved with inline styles approach
+### GitHub Pages Deployment Challenges
+- **Issue**: Internal repository deployment with incorrect base paths
+- **Root Cause**: Internal repos use different URL structure than public repos
+- **Solution**: Set Vite base to '/' instead of '/repo-name/' for internal repositories
+- **Cache Issues**: Required deleting and recreating gh-pages branch to clear old builds
+- **Final Result**: Successfully deployed to https://scaling-adventure-gg8gvqm.pages.github.io/
 
 ## Mock Data Highlights
 
@@ -184,7 +190,37 @@ npm run build
 
 # Preview production build
 npm run preview
+
+# Deploy to GitHub Pages
+npm run deploy
 ```
+
+## Recent Major Updates (v2.0)
+
+### Transaction Monitoring Focus Transformation
+- **Complete System Overhaul**: Transformed from general AML system to dedicated transaction monitoring
+- **Content Migration**: All SAR filing references replaced with alert investigation metrics
+- **Regulatory Framework Update**: Replaced OFAC Sanctions with FinCEN Transaction Monitoring requirements
+- **Internal Policy Integration**: Added "Internal Transaction Monitoring Policy" alongside regulatory documents
+- **Customer Type Filtering**: Implemented three-tier customer segmentation (Individual, Business, Corporate)
+
+### Deployment & Infrastructure
+- **Repository**: Created internal repository at fortify-solutions GitHub organization
+- **Live Hosting**: Successfully deployed to GitHub Pages with automated build process
+- **Configuration**: Resolved Tailwind v3/v4 compatibility and Vite base path issues
+- **Performance**: Optimized for production with proper asset loading and caching
+
+### Data Model Enhancements
+- **Monitoring Rules**: 12 transaction-focused rules with realistic performance metrics
+- **Alert System**: 5 alert types including policy compliance notifications
+- **Evidence Tracking**: Quality-scored evidence with audit trail capabilities
+- **Capacity Modeling**: Investigation threshold optimization with ROI calculations
+
+### User Experience Improvements
+- **Filter Integration**: Customer type dropdown flows through all system components
+- **Branding Update**: Rebranded from "Fortify AML Audit" to "AMLBoost Audit"
+- **Visual Consistency**: Proper color schemes and responsive layouts
+- **Navigation**: Seamless filtering across regulatory and internal policy documents
 
 ## Key Learning Outcomes
 
