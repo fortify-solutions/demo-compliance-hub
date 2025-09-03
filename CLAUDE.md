@@ -75,10 +75,11 @@ src/
 - Action recommendations and impact assessments
 
 ### Analyst Capacity Modeling
-- Current vs. projected staffing scenarios
-- Investigation threshold optimization ("with +1 analyst: investigate $10K+ vs current $50K+")
-- ROI calculations for additional resources
-- Utilization rate tracking and optimization
+- **Multi-scenario analysis**: -2, -1, current, +1, +2 analyst staffing options
+- **Dynamic threshold modeling**: Investigation thresholds from $5K (10 analysts) to $100K (6 analysts)
+- **Comprehensive ROI analysis**: Both investment costs and cost savings scenarios
+- **Utilization optimization**: Traffic light system (Green <75%, Yellow 75-85%, Red >85%)
+- **Impact visualization**: Positive/negative coverage and workload implications
 
 ## Key Features Implemented
 
@@ -103,10 +104,14 @@ src/
 - Context-aware filtering (show alerts for selected clause)
 - Action recommendations with business impact analysis
 
-### 👥 Capacity Planning Interface
-- Current state: 8 analysts, 87% utilization, $50K+ investigation threshold
-- Projected scenario: +1 analyst → 78% utilization, $10K+ threshold
-- ROI analysis: +15 additional alerts investigated/month, better regulatory coverage
+### 👥 Enhanced Capacity Planning Interface
+- **5-scenario modeling**: Full spectrum from -2 to +2 analyst adjustments
+- **Current baseline**: 8 analysts, 87% utilization, $50K+ investigation threshold
+- **Expansion scenarios**: +1 analyst (78% util, $10K threshold), +2 analysts (71% util, $5K threshold)
+- **Reduction scenarios**: -1 analyst (92% util, $75K threshold), -2 analysts (95% util, $100K threshold)
+- **Dynamic impact analysis**: Real-time coverage, cost, and risk assessment for each scenario
+- **Smart color coding**: Green/yellow/red indicators for utilization rates and impact metrics
+- **Comprehensive ROI modeling**: Investment costs vs. cost savings with investigation volume changes
 - **Focus**: Investigation workflow optimization rather than SAR filing metrics
 
 ### 📋 Evidence Management
@@ -214,7 +219,15 @@ npm run deploy
 - **Monitoring Rules**: 12 transaction-focused rules with realistic performance metrics
 - **Alert System**: 5 alert types including policy compliance notifications
 - **Evidence Tracking**: Quality-scored evidence with audit trail capabilities
-- **Capacity Modeling**: Investigation threshold optimization with ROI calculations
+- **Enhanced Capacity Modeling**: Multi-scenario analysis (-2 to +2 analysts) with comprehensive impact assessment
+
+### Capacity Planning System Overhaul (v2.1)
+- **Expanded Scenario Coverage**: From single +1 analyst to 5-scenario system (-2, -1, current, +1, +2)
+- **Realistic Modeling**: Investigation thresholds scale from $5K (10 analysts) to $100K (6 analysts)
+- **Utilization Optimization**: Traffic light system with 71-95% utilization range across scenarios  
+- **Bi-directional Analysis**: Both expansion investments and reduction savings scenarios
+- **Visual Enhancement**: Smart color coding for positive/negative impacts and risk levels
+- **Tailwind CSS Fixes**: Resolved compatibility issues with direct CSS implementation
 
 ### User Experience Improvements
 - **Filter Integration**: Customer type dropdown flows through all system components
