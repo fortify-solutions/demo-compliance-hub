@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronRight, FileText, Scale } from 'lucide-react';
 import { getScoreClass } from '../services/mockData';
 
-export function DocumentTree({ documents, selectedDocument, onDocumentSelect, filters }) {
+export function DocumentTree({ documents, selectedDocument, onDocumentSelect, onClauseSelect, filters }) {
   const [expandedDocs, setExpandedDocs] = useState(new Set([documents[0]?.id]));
 
   const toggleDocument = (docId) => {
@@ -78,6 +78,19 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, fi
                     toggleDocument(document.id);
                   }
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onDocumentSelect(document);
+                    if (!isExpanded) {
+                      toggleDocument(document.id);
+                    }
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`Select ${document.title} document, compliance score ${document.aggregateScore}%`}
+                aria-expanded={isExpanded}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
@@ -87,6 +100,7 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, fi
                         toggleDocument(document.id);
                       }}
                       className="p-1 hover:bg-gray-200 rounded"
+                      aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${document.title} clauses`}
                     >
                       {isExpanded ? (
                         <ChevronDown className="w-4 h-4 text-gray-500" />
@@ -123,6 +137,20 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, fi
                       <div
                         key={clause.id}
                         className={`p-2 rounded text-xs hover:bg-gray-50 cursor-pointer clause-score-${clauseScoreClass}`}
+                        onClick={() => {
+                          onDocumentSelect(document);
+                          onClauseSelect(clause);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            onDocumentSelect(document);
+                            onClauseSelect(clause);
+                          }
+                        }}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={`View clause ${clause.reference}: ${clause.title}`}
                       >
                         <div className="font-medium text-gray-800">{clause.reference}</div>
                         <div className="text-gray-600 mt-1">{clause.title}</div>

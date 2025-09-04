@@ -36,6 +36,7 @@ export function Header({ complianceScore, filters, onFilterChange, onCapacityCli
               value={filters.jurisdiction}
               onChange={(e) => onFilterChange({ jurisdiction: e.target.value })}
               className="px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Filter by jurisdiction"
             >
               <option value="">All Jurisdictions</option>
               <option value="US">US</option>
@@ -47,6 +48,7 @@ export function Header({ complianceScore, filters, onFilterChange, onCapacityCli
               value={filters.productType}
               onChange={(e) => onFilterChange({ productType: e.target.value })}
               className="px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Filter by product type"
             >
               <option value="">All Products</option>
               <option value="retail-banking">Retail</option>
@@ -58,6 +60,7 @@ export function Header({ complianceScore, filters, onFilterChange, onCapacityCli
               value={filters.customerType}
               onChange={(e) => onFilterChange({ customerType: e.target.value })}
               className="px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Filter by customer type"
             >
               <option value="">All Customers</option>
               <option value="individual">Individual</option>
@@ -73,6 +76,7 @@ export function Header({ complianceScore, filters, onFilterChange, onCapacityCli
                 value={filters.searchTerm}
                 onChange={(e) => onFilterChange({ searchTerm: e.target.value })}
                 className="pl-7 pr-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 w-32"
+                aria-label="Search clauses and documents"
               />
             </div>
           </div>
@@ -82,17 +86,25 @@ export function Header({ complianceScore, filters, onFilterChange, onCapacityCli
             <button
               onClick={onCapacityClick}
               className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors flex items-center space-x-1"
+              aria-label="Open capacity planning modal"
             >
               <Users className="w-3 h-3" />
               <span>Capacity</span>
             </button>
             
-            <button className="text-xs flex items-center space-x-1 px-2 py-1 rounded hover:opacity-90 transition-opacity" style={{backgroundColor: '#79189C', color: 'white'}}>
+            <button 
+              className="text-xs flex items-center space-x-1 px-2 py-1 rounded hover:opacity-90 transition-opacity" 
+              style={{backgroundColor: '#79189C', color: 'white'}}
+              aria-label="Export compliance report"
+            >
               <Download className="w-3 h-3" />
               <span>Export</span>
             </button>
             
-            <button className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors">
+            <button 
+              className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
+              aria-label="Open settings"
+            >
               <Settings className="w-3 h-3" />
             </button>
           </div>

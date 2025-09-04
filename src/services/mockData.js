@@ -1,5 +1,44 @@
 // Mock data for AML Audit Flow System
 
+// Data validation utilities
+export const validateDocumentData = (documents) => {
+  if (!Array.isArray(documents)) {
+    throw new Error('Documents must be an array');
+  }
+  
+  documents.forEach(doc => {
+    if (!doc.id || !doc.title || !doc.clauses) {
+      throw new Error(`Invalid document structure: ${doc.id || 'unknown'}`);
+    }
+    
+    if (!Array.isArray(doc.clauses)) {
+      throw new Error(`Document clauses must be an array: ${doc.id}`);
+    }
+    
+    doc.clauses.forEach(clause => {
+      if (!clause.id || !clause.title || !clause.metadata) {
+        throw new Error(`Invalid clause structure: ${clause.id || 'unknown'}`);
+      }
+    });
+  });
+  
+  return documents;
+};
+
+export const validateAlerts = (alerts) => {
+  if (!Array.isArray(alerts)) {
+    throw new Error('Alerts must be an array');
+  }
+  
+  alerts.forEach(alert => {
+    if (!alert.id || !alert.type || !alert.priority) {
+      throw new Error(`Invalid alert structure: ${alert.id || 'unknown'}`);
+    }
+  });
+  
+  return alerts;
+};
+
 // Regulatory Documents with hierarchical structure
 export const regulatoryDocuments = [
   {
@@ -209,6 +248,140 @@ export const regulatoryDocuments = [
         linkedRules: ['rule-1', 'rule-2']
       }
     ]
+  },
+  {
+    id: 'uk-money-laundering-regs',
+    title: 'UK Money Laundering Regulations 2017',
+    jurisdiction: 'UK',
+    lastUpdated: '2023-10-15',
+    aggregateScore: 91,
+    clauses: [
+      {
+        id: 'uk-mlr-2017-reg-28',
+        title: 'Ongoing Transaction Monitoring',
+        reference: 'MLR 2017 Regulation 28',
+        text: 'Relevant persons must conduct ongoing monitoring of their business relationship with a customer, including scrutiny of transactions undertaken throughout the course of that relationship to ensure that the transactions being conducted are consistent with the person\'s knowledge of the customer, their business and risk profile.',
+        score: 88,
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2024-01-18'
+        },
+        evidence: [
+          { id: 'ev20', type: 'rule-performance', description: 'UK Transaction Pattern Analysis', quality: 'excellent' },
+          { id: 'ev21', type: 'backtest-results', description: 'Cross-Border Transaction Monitoring', quality: 'good' },
+          { id: 'ev22', type: 'policy-documentation', description: 'UK Regulatory Compliance Procedures', quality: 'excellent' }
+        ],
+        linkedRules: ['rule-1', 'rule-2', 'rule-8']
+      },
+      {
+        id: 'uk-mlr-2017-reg-19',
+        title: 'Enhanced Due Diligence - High Risk Transactions',
+        reference: 'MLR 2017 Regulation 19',
+        text: 'Where relevant persons identify higher risk transactions or business relationships, they must conduct enhanced due diligence measures including enhanced ongoing monitoring to determine whether transactions are unusual or potentially suspicious.',
+        score: 95,
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['wealth-management', 'commercial-banking'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2024-01-22'
+        },
+        evidence: [
+          { id: 'ev23', type: 'enhanced-monitoring', description: 'High-Risk Customer Screening Process', quality: 'excellent' },
+          { id: 'ev24', type: 'audit-report', description: 'FCA Compliance Assessment 2023', quality: 'excellent' }
+        ],
+        linkedRules: ['rule-9', 'rule-10']
+      },
+      {
+        id: 'uk-proceeds-crime-act-s330',
+        title: 'Suspicious Activity Reporting Requirements', 
+        reference: 'POCA 2002 Section 330',
+        text: 'A person commits an offence if each of the following conditions is satisfied: they know or suspect that another person is engaged in money laundering, the information came to them in the course of business in the regulated sector, and they do not make the required disclosure as soon as is reasonably practicable after the information comes to them.',
+        score: 83,
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2024-01-15'
+        },
+        evidence: [
+          { id: 'ev25', type: 'sar-metrics', description: 'Suspicious Activity Report Filing Statistics', quality: 'good' },
+          { id: 'ev26', type: 'training-records', description: 'UK SAR Filing Training Completion', quality: 'fair' }
+        ],
+        linkedRules: ['rule-4', 'rule-5', 'rule-11']
+      }
+    ]
+  },
+  {
+    id: 'eu-aml-directive',
+    title: 'EU Anti-Money Laundering Directive (AMLD5)',
+    jurisdiction: 'EU',
+    lastUpdated: '2023-11-28',
+    aggregateScore: 86,
+    clauses: [
+      {
+        id: 'eu-amld5-art13',
+        title: 'Ongoing Customer Due Diligence and Monitoring',
+        reference: 'AMLD5 Article 13',
+        text: 'Obliged entities shall conduct ongoing monitoring of the business relationship including scrutiny of transactions undertaken throughout the course of that relationship to ensure that the transactions being conducted are consistent with their knowledge of the customer, their business and risk profile.',
+        score: 92,
+        metadata: {
+          jurisdiction: ['EU'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2024-01-20'
+        },
+        evidence: [
+          { id: 'ev27', type: 'rule-performance', description: 'EU Cross-Border Transaction Analysis', quality: 'excellent' },
+          { id: 'ev28', type: 'regulatory-mapping', description: 'AMLD5 Compliance Framework', quality: 'excellent' },
+          { id: 'ev29', type: 'backtest-results', description: 'EU Payment Pattern Recognition', quality: 'good' }
+        ],
+        linkedRules: ['rule-1', 'rule-6', 'rule-12']
+      },
+      {
+        id: 'eu-amld5-art18a',
+        title: 'Enhanced Due Diligence for High-Risk Third Countries',
+        reference: 'AMLD5 Article 18a',
+        text: 'Member States shall require obliged entities to apply enhanced due diligence measures when dealing with natural persons or legal entities established in high-risk third countries identified by the Commission, including enhanced ongoing monitoring.',
+        score: 89,
+        metadata: {
+          jurisdiction: ['EU'],
+          productType: ['commercial-banking', 'wealth-management'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2024-01-25'
+        },
+        evidence: [
+          { id: 'ev30', type: 'geographic-screening', description: 'High-Risk Country Monitoring Rules', quality: 'excellent' },
+          { id: 'ev31', type: 'policy-documentation', description: 'EU Enhanced Due Diligence Procedures', quality: 'good' }
+        ],
+        linkedRules: ['rule-9', 'rule-12']
+      },
+      {
+        id: 'eu-amld5-art33',
+        title: 'Reporting of Suspicious Transactions',
+        reference: 'AMLD5 Article 33',
+        text: 'Member States shall require obliged entities to promptly inform the financial intelligence unit when they know, suspect or have reasonable grounds to suspect that funds, regardless of the amount involved, are the proceeds of criminal activity or are related to terrorist financing.',
+        score: 78,
+        metadata: {
+          jurisdiction: ['EU'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2024-01-12'
+        },
+        evidence: [
+          { id: 'ev32', type: 'str-metrics', description: 'Suspicious Transaction Report Statistics', quality: 'fair' },
+          { id: 'ev33', type: 'workflow-documentation', description: 'EU STR Filing Process Documentation', quality: 'good' }
+        ],
+        linkedRules: ['rule-4', 'rule-5']
+      }
+    ]
   }
 ];
 
@@ -301,6 +474,86 @@ export const rules = [
       backtestScore: 67
     },
     linkedClauses: ['bsa-1020-320-a-2']
+  },
+  {
+    id: 'rule-8',
+    name: 'UK Enhanced Transaction Monitoring',
+    description: 'Monitors high-value and cross-border transactions for UK regulatory compliance',
+    category: 'Geographic Risk Monitoring',
+    status: 'active',
+    performance: {
+      alertsPerMonth: 145,
+      truePositiveRate: 18,
+      alertsInvestigated: 145,
+      coverage: 94,
+      lastBacktest: '2024-01-20',
+      backtestScore: 91
+    },
+    linkedClauses: ['uk-mlr-2017-reg-28', 'uk-mlr-2017-reg-19']
+  },
+  {
+    id: 'rule-9', 
+    name: 'Enhanced Due Diligence Monitoring',
+    description: 'Automated monitoring for high-risk customers requiring enhanced due diligence procedures',
+    category: 'Risk-Based Monitoring',
+    status: 'active',
+    performance: {
+      alertsPerMonth: 78,
+      truePositiveRate: 31,
+      alertsInvestigated: 78,
+      coverage: 97,
+      lastBacktest: '2024-01-25',
+      backtestScore: 89
+    },
+    linkedClauses: ['uk-mlr-2017-reg-19', 'eu-amld5-art18a']
+  },
+  {
+    id: 'rule-10',
+    name: 'UK High-Risk Relationship Monitoring', 
+    description: 'Continuous monitoring of politically exposed persons and high-risk business relationships',
+    category: 'PEP and High-Risk Monitoring',
+    status: 'active',
+    performance: {
+      alertsPerMonth: 34,
+      truePositiveRate: 41,
+      alertsInvestigated: 34,
+      coverage: 89,
+      lastBacktest: '2024-01-15',
+      backtestScore: 93
+    },
+    linkedClauses: ['uk-mlr-2017-reg-19']
+  },
+  {
+    id: 'rule-11',
+    name: 'UK SAR Filing Compliance Monitor',
+    description: 'Monitors compliance with UK suspicious activity reporting requirements and timelines',
+    category: 'Regulatory Reporting',
+    status: 'active', 
+    performance: {
+      alertsPerMonth: 23,
+      truePositiveRate: 67,
+      alertsInvestigated: 23,
+      coverage: 92,
+      lastBacktest: '2024-01-18',
+      backtestScore: 85
+    },
+    linkedClauses: ['uk-proceeds-crime-act-s330']
+  },
+  {
+    id: 'rule-12',
+    name: 'EU Cross-Border Transaction Analysis',
+    description: 'Monitors transactions involving EU high-risk third countries and cross-border patterns',
+    category: 'Geographic Risk Monitoring',
+    status: 'active',
+    performance: {
+      alertsPerMonth: 189,
+      truePositiveRate: 22,
+      alertsInvestigated: 189,
+      coverage: 96,
+      lastBacktest: '2024-01-22',
+      backtestScore: 88
+    },
+    linkedClauses: ['eu-amld5-art13', 'eu-amld5-art18a']
   }
 ];
 
@@ -370,6 +623,45 @@ export const alerts = [
     status: 'active',
     impact: 'Reduced monitoring effectiveness for high-risk customer segments',
     recommendation: 'Prioritize risk profile refresh for commercial banking customers above $5M assets'
+  },
+  {
+    id: 'alert-6',
+    type: 'regulatory-compliance',
+    priority: 'high',
+    title: 'UK MLR 2017 Enhanced Due Diligence Coverage Gap',
+    description: 'Enhanced due diligence monitoring coverage for UK high-risk customers has dropped to 89%, below the 95% target required by MLR 2017',
+    relatedClause: 'uk-mlr-2017-reg-19',
+    relatedRule: 'rule-9',
+    createdAt: '2024-01-29T08:20:00Z',
+    status: 'active',
+    impact: 'Potential regulatory compliance risk for UK FCA supervision',
+    recommendation: 'Review customer risk classification and enhance automated screening for UK high-risk segments'
+  },
+  {
+    id: 'alert-7',
+    type: 'performance-degradation',
+    priority: 'medium', 
+    title: 'EU Cross-Border Transaction False Positives Rising',
+    description: 'EU cross-border transaction monitoring showing 24% increase in false positives over past 45 days, impacting analyst efficiency',
+    relatedClause: 'eu-amld5-art13',
+    relatedRule: 'rule-12',
+    createdAt: '2024-01-27T16:45:00Z',
+    status: 'investigating',
+    impact: 'Analyst capacity strain and potential delay in genuine suspicious activity detection',
+    recommendation: 'Calibrate EU geographic risk scoring parameters and review third-country classifications'
+  },
+  {
+    id: 'alert-8',
+    type: 'coverage-gap',
+    priority: 'high',
+    title: 'AMLD5 High-Risk Third Country Monitoring Incomplete',
+    description: 'Monitoring coverage for transactions with EU-designated high-risk third countries only covers 73% of applicable customer base',
+    relatedClause: 'eu-amld5-art18a',
+    relatedRule: 'rule-12',
+    createdAt: '2024-01-30T12:30:00Z',
+    status: 'active',
+    impact: 'Non-compliance risk with AMLD5 enhanced due diligence requirements',
+    recommendation: 'Expand customer segmentation to include all EU high-risk third country exposure'
   }
 ];
 
@@ -482,3 +774,13 @@ export const getClauseScoreStyles = (score) => {
   if (score >= 60) return 'bg-red-50 border-l-4 border-l-red-500';
   return 'bg-red-100 border-l-4 border-l-red-600';
 };
+
+// Validate data on module load to catch issues early
+try {
+  validateDocumentData(regulatoryDocuments);
+  validateAlerts(alerts);
+  console.log('✅ Mock data validation passed');
+} catch (error) {
+  console.error('❌ Mock data validation failed:', error);
+  throw error;
+}

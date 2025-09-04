@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, XCircle, Clock } from 'lucide-react';
 import { getScoreClass, getRuleById } from '../services/mockData';
 
-export function ClauseContent({ document, clauses, selectedClause, onClauseSelect }) {
+export function ClauseContent({ document, clauses, selectedClause, onClauseSelect, onRuleSelect }) {
   if (!document) {
     return (
       <div className="h-full flex items-center justify-center text-gray-500">
@@ -207,7 +207,20 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               const performanceClass = getScoreClass(performanceScore);
               
               return (
-                <div key={rule.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                <div 
+                  key={rule.id} 
+                  className="border border-gray-200 rounded-lg p-4 hover:shadow-sm transition-shadow cursor-pointer hover:bg-gray-50"
+                  onClick={() => onRuleSelect?.(rule)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      onRuleSelect?.(rule);
+                    }
+                  }}
+                  aria-label={`View coverage details for ${rule.name}`}
+                >
                   <div className="flex items-start justify-between mb-2">
                     <div>
                       <h4 className="font-medium text-gray-900">{rule.name}</h4>

@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Header } from './components/Header';
 import { DocumentTree } from './components/DocumentTree';
 import { ClauseContent } from './components/ClauseContent';
 import { AlertsPanel } from './components/AlertsPanel';
 import { CapacityModal } from './components/CapacityModal';
+import { RuleCoveragePanel } from './components/RuleCoveragePanel';
+import ErrorBoundary from './components/ErrorBoundary';
 import { regulatoryDocuments, alerts, complianceMetrics } from './services/mockData';
+import { useDebounce } from './hooks/useDebounce';
 
 function App() {
   const [selectedDocument, setSelectedDocument] = useState(regulatoryDocuments[0]);
   const [selectedClause, setSelectedClause] = useState(null);
+  const [selectedRule, setSelectedRule] = useState(null);
   const [showCapacityModal, setShowCapacityModal] = useState(false);
+  const [showRuleCoveragePanel, setShowRuleCoveragePanel] = useState(false);
   const [filters, setFilters] = useState({
     jurisdiction: 'US',
     productType: '',
@@ -17,21 +22,34 @@ function App() {
     searchTerm: ''
   });
 
-  const handleDocumentSelect = (document) => {
+  // Debounce search term for better performance
+  const debouncedSearchTerm = useDebounce(filters.searchTerm, 300);
+
+  const handleDocumentSelect = useCallback((document) => {
     setSelectedDocument(document);
     setSelectedClause(null); // Reset clause selection when changing documents
-  };
+  }, []);
 
-  const handleClauseSelect = (clause) => {
+  const handleClauseSelect = useCallback((clause) => {
     setSelectedClause(clause);
-  };
+  }, []);
 
-  const handleFilterChange = (newFilters) => {
-    setFilters({ ...filters, ...newFilters });
-  };
+  const handleFilterChange = useCallback((newFilters) => {
+    setFilters(prevFilters => ({ ...prevFilters, ...newFilters }));
+  }, []);
 
-  // Filter clauses based on current filters
-  const getFilteredClauses = () => {
+  const handleRuleSelect = useCallback((rule) => {
+    setSelectedRule(rule);
+    setShowRuleCoveragePanel(true);
+  }, []);
+
+  const handleRulePanelClose = useCallback(() => {
+    setShowRuleCoveragePanel(false);
+    setSelectedRule(null);
+  }, []);
+
+  // Filter clauses based on current filters - memoized for performance
+  const filteredClauses = useMemo(() => {
     if (!selectedDocument) return [];
     
     return selectedDocument.clauses.filter(clause => {
@@ -51,8 +69,8 @@ function App() {
       }
       
       // Search term filter
-      if (filters.searchTerm) {
-        const searchLower = filters.searchTerm.toLowerCase();
+      if (debouncedSearchTerm) {
+        const searchLower = debouncedSearchTerm.toLowerCase();
         return clause.title.toLowerCase().includes(searchLower) ||
                clause.text.toLowerCase().includes(searchLower) ||
                clause.reference.toLowerCase().includes(searchLower);
@@ -60,10 +78,11 @@ function App() {
       
       return true;
     });
-  };
+  }, [selectedDocument, filters.jurisdiction, filters.productType, filters.customerType, debouncedSearchTerm]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <ErrorBoundary>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <Header 
         complianceScore={complianceMetrics.overallScore}
         filters={filters}
@@ -71,44 +90,54 @@ function App() {
         onCapacityClick={() => setShowCapacityModal(true)}
       />
       
-      <div className="flex pt-20" style={{height: '100vh'}}> {/* Add top padding for fixed header */}
+      <div className="flex pt-20" style={{height: '100vh'}} role="main"> {/* Add top padding for fixed header */}
         {/* Left Panel: Document Tree */}
-        <div className="w-80 bg-white border-r border-gray-200 overflow-y-auto">
+        <nav className="w-80 bg-white border-r border-gray-200 overflow-y-auto" aria-label="Regulatory document navigation">
           <DocumentTree 
             documents={regulatoryDocuments}
             selectedDocument={selectedDocument}
             onDocumentSelect={handleDocumentSelect}
+            onClauseSelect={handleClauseSelect}
             filters={filters}
           />
-        </div>
+        </nav>
         
         {/* Center Panel: Clause Content */}
-        <div className="flex-1 bg-white overflow-y-auto">
+        <main className="flex-1 bg-white overflow-y-auto" aria-label="Clause content and details">
           <ClauseContent 
             document={selectedDocument}
-            clauses={getFilteredClauses()}
+            clauses={filteredClauses}
             selectedClause={selectedClause}
             onClauseSelect={handleClauseSelect}
+            onRuleSelect={handleRuleSelect}
           />
-        </div>
+        </main>
         
         {/* Right Panel: Alerts */}
-        <div className="w-96 bg-gray-50 border-l border-gray-200 overflow-y-auto">
+        <aside className="w-96 bg-gray-50 border-l border-gray-200 overflow-y-auto" aria-label="System alerts and recommendations">
           <AlertsPanel 
             alerts={alerts}
             selectedClause={selectedClause}
           />
-        </div>
+        </aside>
       </div>
       
-      {/* Modals */}
+      {/* Application Modals */}
       {showCapacityModal && (
         <CapacityModal 
           isOpen={showCapacityModal}
           onClose={() => setShowCapacityModal(false)}
         />
       )}
-    </div>
+      
+      {/* Rule Coverage Panel */}
+      <RuleCoveragePanel 
+        rule={selectedRule}
+        isOpen={showRuleCoveragePanel}
+        onClose={handleRulePanelClose}
+      />
+      </div>
+    </ErrorBoundary>
   );
 }
 
