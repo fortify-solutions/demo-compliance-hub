@@ -19,7 +19,7 @@ export function Header({ complianceScore, filters, onFilterChange, onCapacityCli
               />
               <div>
                 <h1 className="text-lg font-bold font-serif" style={{color: '#79189C'}}>
-                  AMLBoost Audit
+                  AMLBoost Audit v3.1
                 </h1>
               </div>
             </div>
