@@ -3,7 +3,7 @@ import { Search, Settings, BarChart3, Users, Download, FileText } from 'lucide-r
 import { getScoreStyles } from '../services/mockData';
 
 export function Header({ complianceScore, filters, onFilterChange, onCapacityClick }) {
-  const scoreStyles = getScoreStyles(complianceScore);
+  const scoreClass = getScoreStyles(complianceScore);
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm h-20">
@@ -25,8 +25,8 @@ export function Header({ complianceScore, filters, onFilterChange, onCapacityCli
             </div>
             
             {/* Compliance Score Badge */}
-            <div className="px-4 py-2 rounded-lg font-semibold" style={scoreStyles}>
-              Score: {complianceScore}%
+            <div className={`px-4 py-2 rounded-lg font-semibold ${scoreClass}`}>
+              Score: {complianceScore}
             </div>
           </div>
 

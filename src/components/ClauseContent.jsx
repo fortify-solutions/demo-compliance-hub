@@ -30,7 +30,7 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
           <div className="mt-3 flex items-center space-x-2">
             <span className="text-sm font-medium text-gray-700">Overall Document Score:</span>
             <span className={`px-3 py-1 rounded-full text-sm font-semibold score-${getScoreClass(document.aggregateScore)}`}>
-              {document.aggregateScore}%
+              {document.aggregateScore}
             </span>
           </div>
         </div>
@@ -64,7 +64,7 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
                     </div>
                     <div className="flex items-center space-x-2">
                       <span className={`px-3 py-1 rounded-full text-sm font-semibold score-${scoreClass}`}>
-                        {clause.score}%
+                        {clause.score}
                       </span>
                       <ExternalLink className="w-4 h-4 text-gray-400" />
                     </div>
@@ -139,7 +139,7 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               <h2 className="text-xl font-semibold text-gray-800">{selectedClause.title}</h2>
             </div>
             <div className={`px-4 py-2 rounded-lg text-lg font-bold score-${scoreClass}`}>
-              {selectedClause.score}%
+              {selectedClause.score}
             </div>
           </div>
 
@@ -221,17 +221,14 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
                   }}
                   aria-label={`View coverage details for ${rule.name}`}
                 >
-                  <div className="flex items-start justify-between mb-2">
+                  <div className="mb-2">
                     <div>
                       <h4 className="font-medium text-gray-900">{rule.name}</h4>
                       <p className="text-sm text-gray-600">{rule.description}</p>
                     </div>
-                    <span className={`px-2 py-1 rounded text-xs font-medium score-${performanceClass}`}>
-                      {performanceScore}%
-                    </span>
                   </div>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-3 text-sm">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-3 text-sm">
                     <div>
                       <span className="text-gray-500">Monthly Alerts</span>
                       <div className="font-medium">{rule.performance.alertsPerMonth.toLocaleString()}</div>
@@ -244,21 +241,17 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
                       <span className="text-gray-500">Alerts Investigated</span>
                       <div className="font-medium">{rule.performance.alertsInvestigated}</div>
                     </div>
-                    <div>
-                      <span className="text-gray-500">Coverage</span>
-                      <div className="font-medium">{rule.performance.coverage}%</div>
-                    </div>
                   </div>
                   
                   <div className="mt-3">
                     <div className="flex justify-between text-xs text-gray-500 mb-1">
                       <span>Performance Score</span>
-                      <span>{performanceScore}%</span>
+                      <span>{performanceScore}</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div 
                         className={`h-2 rounded-full score-${performanceClass}`} 
-                        style={{ width: `${performanceScore}%` }}
+                        style={{ width: `${(performanceScore / 5) * 100}%` }}
                       ></div>
                     </div>
                   </div>

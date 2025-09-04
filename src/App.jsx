@@ -6,6 +6,7 @@ import { AlertsPanel } from './components/AlertsPanel';
 import { CapacityModal } from './components/CapacityModal';
 import { RuleCoveragePanel } from './components/RuleCoveragePanel';
 import ErrorBoundary from './components/ErrorBoundary';
+import { ScoreSafelist } from './components/ScoreSafelist';
 import { regulatoryDocuments, alerts, complianceMetrics } from './services/mockData';
 import { useDebounce } from './hooks/useDebounce';
 
@@ -82,6 +83,7 @@ function App() {
 
   return (
     <ErrorBoundary>
+      <ScoreSafelist />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <Header 
         complianceScore={complianceMetrics.overallScore}

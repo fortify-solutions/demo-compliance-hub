@@ -89,7 +89,7 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
                 }}
                 tabIndex={0}
                 role="button"
-                aria-label={`Select ${document.title} document, compliance score ${document.aggregateScore}%`}
+                aria-label={`Select ${document.title} document, compliance score ${document.aggregateScore}`}
                 aria-expanded={isExpanded}
               >
                 <div className="flex items-center justify-between">
@@ -117,7 +117,7 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
                     </div>
                   </div>
                   <div className={`px-2 py-1 rounded-full text-xs font-medium score-${scoreClass}`}>
-                    {document.aggregateScore}%
+                    {document.aggregateScore}
                   </div>
                 </div>
 
@@ -168,7 +168,7 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
                             )}
                           </div>
                           <span className={`px-2 py-0.5 rounded text-xs font-medium score-${clauseScoreClass}`}>
-                            {clause.score}%
+                            {clause.score}
                           </span>
                         </div>
                       </div>

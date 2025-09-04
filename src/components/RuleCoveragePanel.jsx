@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Activity, Users, Globe, CreditCard, Clock, TrendingUp, AlertTriangle, CheckCircle } from 'lucide-react';
-import { getScoreClass } from '../services/mockData';
+import { getScoreClass, getProgressBarClass } from '../services/mockData';
 
 export function RuleCoveragePanel({ rule, isOpen, onClose }) {
   if (!isOpen || !rule) return null;
@@ -12,52 +12,52 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
     transactionCoverage: {
       total: rule.performance.coverage,
       breakdown: {
-        'High Value (>$50K)': 98,
-        'Cross-Border': 92,
-        'Domestic Retail': 89,
-        'Business Banking': 95
+        'High Value (>$50K)': 5,
+        'Cross-Border': 5,
+        'Domestic Retail': 4,
+        'Business Banking': 5
       }
     },
     customerCoverage: {
-      total: 87,
+      total: 4,
       breakdown: {
-        'Individual': 91,
-        'Business': 85,
-        'Corporate': 83,
-        'High-Risk PEPs': 96
+        'Individual': 5,
+        'Business': 4,
+        'Corporate': 4,
+        'High-Risk PEPs': 5
       }
     },
     geographicCoverage: {
-      total: 94,
+      total: 5,
       regions: {
-        'Domestic': 99,
-        'EU/EEA': 93,
-        'High-Risk Countries': 78,
-        'OFAC Jurisdictions': 100
+        'Domestic': 5,
+        'EU/EEA': 5,
+        'High-Risk Countries': 3,
+        'OFAC Jurisdictions': 5
       }
     },
     operationalCoverage: {
-      dailyProcessing: 99.7,
-      weekendProcessing: 98.2,
-      monthlyBacktest: 100
+      dailyProcessing: 5,
+      weekendProcessing: 5,
+      monthlyBacktest: 5
     },
     gaps: [
-      { area: 'Small Value Aggregation (<$5K)', impact: 'Medium', coverage: 67 },
-      { area: 'Weekend Cross-Border Wires', impact: 'Low', coverage: 34 },
-      { area: 'Cryptocurrency Exchanges', impact: 'High', coverage: 12 }
+      { area: 'Small Value Aggregation (<$5K)', impact: 'Medium', coverage: 2 },
+      { area: 'Weekend Cross-Border Wires', impact: 'Low', coverage: 1 },
+      { area: 'Cryptocurrency Exchanges', impact: 'High', coverage: 1 }
     ]
   };
 
-  const CoverageBar = ({ label, percentage, className = '' }) => (
+  const CoverageBar = ({ label, score, className = '' }) => (
     <div className="mb-3">
       <div className="flex justify-between items-center mb-1">
         <span className="text-sm font-medium text-gray-700">{label}</span>
-        <span className="text-sm font-semibold text-gray-900">{percentage}%</span>
+        <span className="text-sm font-semibold text-gray-900">{score}</span>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2">
         <div 
           className={`h-2 rounded-full transition-all duration-300 ${className || 'bg-blue-500'}`}
-          style={{ width: `${percentage}%` }}
+          style={{ width: `${(score / 5) * 100}%` }}
         ></div>
       </div>
     </div>
@@ -91,7 +91,7 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
               <p className="text-sm text-gray-600 mt-1">{rule.category}</p>
               <div className="flex items-center space-x-2 mt-2">
                 <span className={`px-2 py-1 rounded text-xs font-medium score-${scoreClass}`}>
-                  {rule.performance.backtestScore}% Performance
+                  {rule.performance.backtestScore} Performance
                 </span>
                 <span className={`px-2 py-1 rounded text-xs font-medium ${
                   rule.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
@@ -146,15 +146,15 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
               </h3>
               <div className="bg-gray-50 rounded-lg p-4">
                 <div className="text-center mb-4">
-                  <span className="text-3xl font-bold text-gray-900">{coverageDetails.transactionCoverage.total}%</span>
+                  <span className="text-3xl font-bold text-gray-900">{coverageDetails.transactionCoverage.total}</span>
                   <p className="text-sm text-gray-600">Overall Coverage</p>
                 </div>
-                {Object.entries(coverageDetails.transactionCoverage.breakdown).map(([category, percentage]) => (
+                {Object.entries(coverageDetails.transactionCoverage.breakdown).map(([category, score]) => (
                   <CoverageBar 
                     key={category}
                     label={category}
-                    percentage={percentage}
-                    className={percentage >= 95 ? 'bg-green-500' : percentage >= 85 ? 'bg-yellow-500' : 'bg-red-500'}
+                    score={score}
+                    className={getProgressBarClass(score)}
                   />
                 ))}
               </div>
@@ -167,12 +167,12 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
                 Customer Segments
               </h3>
               <div className="space-y-3">
-                {Object.entries(coverageDetails.customerCoverage.breakdown).map(([segment, percentage]) => (
+                {Object.entries(coverageDetails.customerCoverage.breakdown).map(([segment, score]) => (
                   <CoverageBar 
                     key={segment}
                     label={segment}
-                    percentage={percentage}
-                    className={percentage >= 90 ? 'bg-green-500' : percentage >= 80 ? 'bg-yellow-500' : 'bg-red-500'}
+                    score={score}
+                    className={getProgressBarClass(score)}
                   />
                 ))}
               </div>
@@ -185,12 +185,12 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
                 Geographic Coverage
               </h3>
               <div className="space-y-3">
-                {Object.entries(coverageDetails.geographicCoverage.regions).map(([region, percentage]) => (
+                {Object.entries(coverageDetails.geographicCoverage.regions).map(([region, score]) => (
                   <CoverageBar 
                     key={region}
                     label={region}
-                    percentage={percentage}
-                    className={percentage >= 95 ? 'bg-green-500' : percentage >= 85 ? 'bg-yellow-500' : 'bg-red-500'}
+                    score={score}
+                    className={getProgressBarClass(score)}
                   />
                 ))}
               </div>
@@ -204,15 +204,15 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
               </h3>
               <div className="grid grid-cols-3 gap-3">
                 <div className="text-center p-3 bg-blue-50 rounded-lg">
-                  <p className="text-2xl font-bold text-blue-600">{coverageDetails.operationalCoverage.dailyProcessing}%</p>
+                  <p className="text-2xl font-bold text-blue-600">{coverageDetails.operationalCoverage.dailyProcessing}</p>
                   <p className="text-xs text-gray-600">Daily Processing</p>
                 </div>
                 <div className="text-center p-3 bg-purple-50 rounded-lg">
-                  <p className="text-2xl font-bold text-purple-600">{coverageDetails.operationalCoverage.weekendProcessing}%</p>
+                  <p className="text-2xl font-bold text-purple-600">{coverageDetails.operationalCoverage.weekendProcessing}</p>
                   <p className="text-xs text-gray-600">Weekend Processing</p>
                 </div>
                 <div className="text-center p-3 bg-green-50 rounded-lg">
-                  <p className="text-2xl font-bold text-green-600">{coverageDetails.operationalCoverage.monthlyBacktest}%</p>
+                  <p className="text-2xl font-bold text-green-600">{coverageDetails.operationalCoverage.monthlyBacktest}</p>
                   <p className="text-xs text-gray-600">Monthly Backtest</p>
                 </div>
               </div>
@@ -239,8 +239,8 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
                     </div>
                     <CoverageBar 
                       label="Current Coverage"
-                      percentage={gap.coverage}
-                      className={gap.coverage >= 70 ? 'bg-yellow-500' : 'bg-red-500'}
+                      score={gap.coverage}
+                      className={getProgressBarClass(gap.coverage)}
                     />
                   </div>
                 ))}
