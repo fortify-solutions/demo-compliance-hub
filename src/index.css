@@ -4,71 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ensure score classes are not purged by safelist */
-/* score-excellent score-good score-fair score-poor score-critical */
-/* clause-score-excellent clause-score-good clause-score-fair clause-score-poor clause-score-critical */
+/* Custom styling classes for application */
 
-/* Custom score styling classes - 1-5 scale with red-to-green color scheme */
-.score-excellent {
-  background-color: #dcfce7 !important;
-  color: #166534 !important;
-  border: 1px solid #bbf7d0 !important;
-}
-.score-good {
-  background-color: #ecfccb !important;
-  color: #365314 !important;
-  border: 1px solid #d9f99d !important;
-}
-.score-fair {
-  background-color: #fef3c7 !important;
-  color: #92400e !important;
-  border: 1px solid #fde68a !important;
-}
-.score-poor {
-  background-color: #fee2e2 !important;
-  color: #991b1b !important;
-  border: 1px solid #fecaca !important;
-}
-.score-critical {
-  background-color: #fecaca !important;
-  color: #7f1d1d !important;
-  border: 1px solid #fca5a5 !important;
+/* Internal policy document styling */
+.internal-policy-document {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+  border: 1px solid #6ee7b7 !important;
 }
 
-.clause-score-excellent {
+.internal-policy-document:hover {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%) !important;
+}
+
+.internal-policy-document.selected {
+  background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%) !important;
+  border: 2px solid #059669 !important;
+}
+
+/* Internal policy clause styling */
+.internal-policy-clause {
   background-color: #f0fdf4 !important;
-  border-left: 4px solid #22c55e !important;
-}
-.clause-score-good {
-  background-color: #f7fee7 !important;
-  border-left: 4px solid #84cc16 !important;
-}
-.clause-score-fair {
-  background-color: #fffbeb !important;
-  border-left: 4px solid #f59e0b !important;
-}
-.clause-score-poor {
-  background-color: #fef2f2 !important;
-  border-left: 4px solid #ef4444 !important;
-}
-.clause-score-critical {
-  background-color: #fee2e2 !important;
-  border-left: 4px solid #dc2626 !important;
+  border-left: 4px solid #059669 !important;
+  border-top: 1px solid #bbf7d0 !important;
+  border-right: 1px solid #bbf7d0 !important;
+  border-bottom: 1px solid #bbf7d0 !important;
 }
 
-/* Progress bar styling for consistency with score colors */
-.score-excellent.h-2 {
-  background-color: #10b981 !important;
-}
-.score-good.h-2 {
-  background-color: #84cc16 !important;
-}
-.score-fair.h-2 {
-  background-color: #f59e0b !important;
-}
-.score-poor.h-2 {
-  background-color: #ef4444 !important;
-}
-.score-critical.h-2 {
-  background-color: #dc2626 !important;
+.internal-policy-clause:hover {
+  background-color: #dcfce7 !important;
 }

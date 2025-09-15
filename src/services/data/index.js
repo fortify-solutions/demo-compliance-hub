@@ -7,8 +7,6 @@ export { ruleService, RuleService } from './ruleService';
 export {
   validateDocumentData,
   validateAlerts,
-  getScoreClass,
-  getScoreStyles,
   complianceMetrics
 } from '../mockData';
 

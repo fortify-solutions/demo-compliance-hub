@@ -19,9 +19,10 @@ The application was designed and built through collaborative sessions between a 
 
 ### Architecture Philosophy
 - **Alert-Driven Workflow**: AI-powered background monitoring triggers actionable insights
-- **Clause-Level Granularity**: All compliance tracking happens at the regulatory clause level
-- **Metadata-Driven Associations**: Rules linked to clauses through shared taxonomy (jurisdiction, product type, customer type, risk level)
+- **Requirement-Level Granularity**: All compliance tracking happens at the regulatory requirement level
+- **Metadata-Driven Associations**: Rules linked to requirements through shared taxonomy (jurisdiction, product type, customer type, risk level)
 - **Dual Artifact Strategy**: Internal operational reports vs. formal audit packages
+- **Performance-Focused Analytics**: System emphasizes operational metrics (alert volumes, true positive rates, coverage percentages) over subjective scoring
 
 ### Technical Stack Choices
 - **React 19.1.1 + Vite 7.1.2**: Modern development experience with fast HMR
@@ -36,17 +37,25 @@ The application was designed and built through collaborative sessions between a 
 ```
 src/
 ├── components/
-│   ├── Header.jsx               # Main navigation and filters with full accessibility
-│   ├── DocumentTree.jsx         # Regulatory document hierarchy with clickable navigation
-│   ├── ClauseContent.jsx        # Master/detail clause views with rule interactions
-│   ├── AlertsPanel.jsx          # System alerts and recommendations
+│   ├── Header.jsx               # Clean navigation and filters with full accessibility
+│   ├── DocumentTree.jsx         # Regulatory document hierarchy with internal/regulatory separation
+│   ├── ClauseContent.jsx        # Master/detail requirement views with taxonomy pills and simplified rule display
+│   ├── ComplianceInsights.jsx   # Success measures and risk calibration insights panel
 │   ├── CapacityModal.jsx        # Analyst capacity planning interface
-│   ├── RuleCoveragePanel.jsx    # Rule coverage analysis sliding panel
 │   └── ErrorBoundary.jsx        # Application-wide error handling
 ├── hooks/
-│   └── useDebounce.js           # Performance optimization for search
+│   ├── useDebounce.js           # Performance optimization for search
+│   └── useAppState.js           # Centralized state management hooks
 ├── services/
-│   └── mockData.js              # Comprehensive mock data with validation
+│   ├── mockData.js              # Core mock data with validation
+│   └── data/                    # Modular data services
+│       ├── documentService.js   # Document and requirement management
+│       ├── alertService.js      # Alert lifecycle and filtering
+│       └── ruleService.js       # Rule performance analytics
+├── config/
+│   └── layoutConfig.js          # Configurable panel and layout system
+└── utils/
+    └── eventBus.js              # Centralized event-driven communication
 ├── App.jsx                      # Main application layout and state management
 └── main.jsx                     # React entry point
 ```
@@ -54,14 +63,15 @@ src/
 ## Data Model Design
 
 ### Regulatory Documents
-- Hierarchical structure (Document → Clauses)
-- Each document has aggregate compliance score
+- Hierarchical structure (Document → Requirements)
+- Clear separation between regulatory frameworks and internal policies
 - Support for multiple jurisdictions (US, UK, EU) with comprehensive regulatory coverage
+- Document type classification (regulatory vs. internal)
 
-### Clauses
+### Requirements (formerly Clauses)
 - Individual regulatory requirements with full text
 - Metadata taxonomy: jurisdiction, product type, customer type, risk level
-- Scoring system (0-100%) with red-orange-green visualization
+- Performance-driven analysis focused on rule counts and coverage metrics
 - Evidence tracking with quality assessments
 - Linked to monitoring rules through metadata matching
 
@@ -88,20 +98,20 @@ src/
 ## Key Features Implemented
 
 ### 🎯 Three-Panel Dashboard Layout
-- **Left Panel**: Regulatory document tree with hierarchical navigation
-- **Center Panel**: Master/detail clause views with comprehensive analysis
+- **Left Panel**: Regulatory document tree with hierarchical navigation and internal policy separation
+- **Center Panel**: Master/detail requirement views with comprehensive analysis
 - **Right Panel**: Real-time alerts and quick actions
 
 ### 🔍 Advanced Filtering System
 - Multi-dimensional filtering: jurisdiction, product type, customer type (Individual, Business, Corporate)
-- Real-time search across clause content
+- Real-time search across requirement content
 - Dynamic result counting and context awareness
 - Cascading filter integration across all components
 
-### 📊 Compliance Scoring Visualization
-- Overall compliance score (84% in mock data)
-- Red-orange-green heat mapping for clause-level scores
-- Performance trending and historical comparison
+### 📊 Performance Analytics Dashboard
+- Operational metrics focus: rule counts, alert volumes, true positive rates
+- Coverage percentage visualization with color-coded indicators
+- Performance trending based on quantifiable data points
 
 ### 🚨 Intelligent Alert Management
 - Priority-based workflow (High/Medium/Low)
@@ -123,13 +133,37 @@ src/
 - Multiple evidence types: rule performance, backtest results, audit reports
 - Audit trail preparation for regulatory examinations
 
-### 🔍 Interactive Rule Coverage Analysis
-- **Clickable Rule Cards**: All monitoring rules in clause detail view are interactive
-- **Sliding Coverage Panel**: Comprehensive rule analysis in dedicated side panel
-- **Coverage Breakdown**: Transaction, customer, geographic, and operational coverage metrics
-- **Gap Identification**: Visual identification of coverage gaps with impact assessment
-- **Batch Processing Focus**: Daily processing, weekend coverage, and monthly backtesting metrics
-- **Performance Visualization**: Color-coded progress bars and metric cards
+### 📊 Compliance Insights Panel
+- **Success Measures Dashboard**: Four critical compliance metrics per requirement
+  - Associated rules count with zero-rule warnings
+  - Last assessment timing with color-coded status indicators
+  - Daily alert volume calculations across all linked rules
+  - Alert trend analysis with concern flagging
+- **Risk Calibration Parameters**: Dynamic transaction thresholds by customer segment
+  - Multi-tiered customer risk profiles (Low/Medium/High Risk Retail, Corporate, Private Banking)
+  - Rule-specific threshold multipliers and monitoring frequencies
+  - Configurable lookback periods and processing schedules
+- **Tabbed Interface**: Clean separation between operational metrics and risk parameters
+- **Real-Time Updates**: All insights recalculate dynamically based on requirement selection
+
+### 🏷️ Taxonomy Pills System
+- **Prominent Metadata Display**: Jurisdiction, product type, and customer type pills at top of each requirement
+- **Visual Categorization**: Color-coded pill system for immediate classification
+- **Professional Styling**: Clean, rounded pills with subtle borders and consistent spacing
+- **Risk Level Integration**: Dynamic color coding based on requirement risk assessment
+
+### 🔍 Streamlined Rule Display
+- **Simplified Rule Cards**: Clean, informational display of monitoring rules with essential metrics
+- **Essential Metrics Only**: Rule name, description, daily alerts, accuracy, and recent change percentage
+- **Performance-Based Indicators**: Color-coded accuracy and trend metrics for quick assessment
+- **No Overlay Complexity**: Inline display eliminates need for additional panels or modals
+- **Focus on Actionability**: Immediate visibility of rule performance without deep-dive complexity
+
+### 📋 Document Organization & Separation
+- **Regulatory Framework Section**: Formal regulations (BSA, PATRIOT Act, etc.) with slate-colored styling
+- **Internal Policies Section**: Organization-specific policies with emerald-colored styling
+- **Clear Visual Distinction**: Different color schemes to separate regulatory vs. internal requirements
+- **Unified Navigation**: Consistent interaction patterns across both document types
 
 ### ⚡ Performance & Accessibility Enhancements
 - **React Optimization**: Memoized filtering operations with `useMemo` and `useCallback`
@@ -144,7 +178,7 @@ src/
 - **Problem**: Tailwind v4 utilities not being recognized, causing malformed appearance
 - **Root Cause**: Tailwind v4 has breaking changes in PostCSS integration
 - **Solution Applied**: Downgraded to Tailwind v3.4.4 with proper PostCSS configuration
-- **Custom Styling**: Added score styling classes in index.css for compliance visualization
+- **Custom Styling**: Added internal policy styling and removed scoring classes in index.css
 - **Result**: Fully functional styling with proper color schemes and layouts
 
 ### GitHub Pages Deployment Challenges
@@ -159,7 +193,7 @@ src/
 The application includes comprehensive mock data representing:
 - **6 Major Regulatory Frameworks**: BSA, PATRIOT Act, FinCEN Transaction Monitoring, UK MLR 2017, POCA 2002, EU AMLD5
 - **1 Internal Policy Document**: Transaction Monitoring Policy with governance and procedures
-- **11 Detailed Clauses**: Comprehensive coverage across US, UK, and EU jurisdictions with full text, metadata, and linked rules
+- **11 Detailed Requirements**: Comprehensive coverage across US, UK, and EU jurisdictions with full text, metadata, and linked rules
 - **12 Monitoring Rules**: Realistic performance metrics including UK and EU-specific geographic risk monitoring
 - **Active Alert System**: 8 different alert types including jurisdiction-specific compliance alerts
 - **Capacity Modeling**: Current and projected analyst scenarios with comprehensive ROI analysis
@@ -179,7 +213,7 @@ The application includes comprehensive mock data representing:
    - Add hover states and transitions
 
 ### Feature Enhancements
-1. ✅ **Interactive Clause Selection**: Document tree now fully clickable with direct clause navigation
+1. ✅ **Interactive Requirement Selection**: Document tree now fully clickable with direct requirement navigation
 2. **Advanced Filtering**: Add date ranges, evidence quality filters
 3. **Export Functionality**: Implement actual report generation
 4. **Workflow Management**: Add alert resolution tracking
@@ -256,6 +290,29 @@ npm run deploy
 - **Visual Consistency**: Proper color schemes and responsive layouts
 - **Navigation**: Seamless filtering across regulatory and internal policy documents
 
+## Recent Major Updates (v3.1) - Extensible Architecture & Analytics Focus
+
+### Architectural Extensibility Improvements
+- **Modular State Management**: Extracted all state logic from App.jsx into specialized hooks (`useAppState.js`)
+- **Event-Driven Communication**: Implemented centralized event bus system for component communication
+- **Configurable Layout System**: Created flexible panel configuration system supporting responsive layouts
+- **Domain-Specific Services**: Separated data services into specialized modules (documentService, alertService, ruleService)
+- **Caching & Performance**: Added intelligent caching and data validation across service layer
+
+### Document Organization & Visual Separation
+- **Internal vs. Regulatory Distinction**: Clear separation between regulatory frameworks and internal policies
+- **Emerald Styling for Internal Policies**: Distinct green gradient styling for internal policy documents
+- **Slate Styling for Regulatory Framework**: Professional grey styling for formal regulatory documents
+- **Unified Navigation Patterns**: Consistent interaction behavior across both document types
+- **Type-Based Filtering**: Document classification system supporting future expansion
+
+### Analytics System Transformation
+- **Scoring System Removal**: Eliminated all subjective 1-5 rating systems across the application
+- **Performance Metrics Focus**: Emphasis on quantifiable data: alert counts, true positive rates, coverage percentages
+- **Operational Analytics**: Rule count tracking, investigation volume analysis, and capacity utilization
+- **Clean UI**: Removed "System Active" badges and simplified interface elements
+- **Terminology Standardization**: Changed "clauses" to "requirements" throughout the application
+
 ## Recent Major Updates (v3.0) - Production-Ready Enhancement
 
 ### Performance & Accessibility Overhaul
@@ -280,9 +337,9 @@ npm run deploy
 - **Performance Dashboard**: Color-coded progress bars, metric cards, and trend analysis
 
 ### Enhanced Navigation & Interaction
-- **Clickable Document Tree**: Complete navigation overhaul with direct clause access from document hierarchy
+- **Clickable Document Tree**: Complete navigation overhaul with direct requirement access from document hierarchy
 - **Keyboard Navigation**: Full keyboard accessibility across all interactive elements
-- **Context Preservation**: Rule analysis maintains clause context while providing detailed insights
+- **Context Preservation**: Rule analysis maintains requirement context while providing detailed insights
 - **Smooth Animations**: Professional slide-in panels and transitions for enhanced user experience
 
 ### Data Model & Architecture Improvements
@@ -291,6 +348,41 @@ npm run deploy
 - **State Management**: Optimized state handling with proper callback optimization
 - **Error Recovery**: Graceful error handling with reload and recovery options
 
+## Recent Major Updates (v4.0) - Compliance Insights & UX Refinement
+
+### Compliance Insights Panel Transformation
+- **Complete Right Panel Redesign**: Replaced AlertsPanel with comprehensive ComplianceInsights component
+- **Success Measures Dashboard**: Four key metrics for each regulatory requirement:
+  1. **Associated Rules Count**: Number of monitoring rules mapped to requirement (with warning for zero)
+  2. **Last Assessment**: Time since most recent rule update or evidence addition with color-coded status
+  3. **Daily Alert Volume**: Average alerts generated per day across all associated rules
+  4. **Alert Trends**: Directional analysis with percentage change and concern flagging
+- **Risk Calibration Parameters**: Dynamic transaction thresholds and monitoring parameters by customer segment
+- **Tabbed Interface**: Clean separation between Success Measures and Risk Calibration views
+- **Enhanced Mock Data**: Added assessment dates, evidence tracking, and realistic trend analysis
+
+### User Experience Improvements
+- **Taxonomy Pills**: Moved jurisdiction, product type, and customer type metadata to prominent pill display at top of requirement screens
+- **Simplified Rule Display**: Streamlined rule information to show only essential metrics:
+  - Rule name and description
+  - Daily alerts (calculated from monthly)
+  - Accuracy percentage with color coding
+  - Recent change percentage with performance-based calculations
+- **Removed Rule Coverage Overlay**: Eliminated complex overlay panel in favor of inline rule information
+- **Professional Styling**: Clean, color-coded pills with subtle borders and proper spacing
+
+### Technical Architecture Updates
+- **Component Consolidation**: Removed RuleCoveragePanel and AlertsPanel complexity
+- **Performance Optimization**: Intelligent trend calculation based on rule performance metrics
+- **Data Model Enhancement**: Extended mock data with lastUpdated dates and evidence timestamps
+- **Clean State Management**: Simplified component interactions by removing overlay state management
+
+### Design Philosophy Evolution
+- **Immediate Visibility**: Critical taxonomy information now prominently displayed
+- **Information Density**: Balanced detailed insights with scannable overview format
+- **Contextual Intelligence**: Smart color coding and trend analysis provide actionable insights
+- **Audit Readiness**: Success measures provide clear compliance status at requirement level
+
 ## Key Learning Outcomes
 
 1. **User-Centered Design**: Starting with persona definition (Risk Manager) led to much cleaner feature prioritization
@@ -298,6 +390,8 @@ npm run deploy
 3. **Alert-Driven UX**: Background AI monitoring with prioritized alerts creates proactive compliance management
 4. **Dual Artifact Strategy**: Separating internal operational reports from formal audit packages addresses different stakeholder needs
 5. **Capacity Planning Integration**: Showing business impact ("investigate $10K+ vs $50K+") makes technical decisions more compelling
+6. **Performance Over Perception**: Focusing on quantifiable metrics rather than subjective scores leads to more actionable insights
+7. **Extensible Architecture**: Modular design patterns enable rapid feature development without breaking existing functionality
 
 This project demonstrates how thoughtful UX design and comprehensive data modeling can create sophisticated compliance tools that actually help risk managers do their jobs more effectively, rather than just checking regulatory boxes.
 

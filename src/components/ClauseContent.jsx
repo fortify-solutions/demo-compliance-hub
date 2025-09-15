@@ -1,8 +1,8 @@
 import React from 'react';
 import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, XCircle, Clock } from 'lucide-react';
-import { getScoreClass, getRuleById } from '../services/mockData';
+import { getRuleById } from '../services/mockData';
 
-export function ClauseContent({ document, clauses, selectedClause, onClauseSelect, onRuleSelect }) {
+export function ClauseContent({ document, clauses, selectedClause, onClauseSelect }) {
   if (!document) {
     return (
       <div className="h-full flex items-center justify-center text-gray-500">
@@ -25,20 +25,13 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
             <span>•</span>
             <span>Last Updated: {new Date(document.lastUpdated).toLocaleDateString()}</span>
             <span>•</span>
-            <span>{clauses.length} clauses shown</span>
-          </div>
-          <div className="mt-3 flex items-center space-x-2">
-            <span className="text-sm font-medium text-gray-700">Overall Document Score:</span>
-            <span className={`px-3 py-1 rounded-full text-sm font-semibold score-${getScoreClass(document.aggregateScore)}`}>
-              {document.aggregateScore}
-            </span>
+            <span>{clauses.length} requirements shown</span>
           </div>
         </div>
 
         <div className="p-6">
           <div className="space-y-4">
             {clauses.map(clause => {
-              const scoreClass = getScoreClass(clause.score);
               const riskIcon = clause.metadata.riskLevel === 'critical' ? XCircle :
                               clause.metadata.riskLevel === 'high' ? AlertTriangle :
                               clause.metadata.riskLevel === 'medium' ? Clock : CheckCircle;
@@ -47,7 +40,7 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               return (
                 <div
                   key={clause.id}
-                  className={`p-4 rounded-lg border-2 cursor-pointer transition-all hover:shadow-md clause-score-${scoreClass}`}
+                  className="p-4 rounded-lg border-2 border-gray-200 cursor-pointer transition-all hover:shadow-md hover:border-blue-300"
                   onClick={() => onClauseSelect(clause)}
                 >
                   <div className="flex items-start justify-between mb-3">
@@ -63,8 +56,8 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
                       </div>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className={`px-3 py-1 rounded-full text-sm font-semibold score-${scoreClass}`}>
-                        {clause.score}
+                      <span className="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
+                        {clause.linkedRules.length} rules
                       </span>
                       <ExternalLink className="w-4 h-4 text-gray-400" />
                     </div>
@@ -114,7 +107,6 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
   }
 
   // Show detailed clause view
-  const scoreClass = getScoreClass(selectedClause.score);
   const linkedRules = selectedClause.linkedRules.map(ruleId => getRuleById(ruleId)).filter(Boolean);
 
   return (
@@ -138,18 +130,45 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               <h1 className="text-2xl font-bold text-gray-900 mb-2">{selectedClause.reference}</h1>
               <h2 className="text-xl font-semibold text-gray-800">{selectedClause.title}</h2>
             </div>
-            <div className={`px-4 py-2 rounded-lg text-lg font-bold score-${scoreClass}`}>
-              {selectedClause.score}
+            <div className="px-4 py-2 rounded-lg text-lg font-bold bg-blue-100 text-blue-800">
+              {selectedClause.linkedRules.length} Rules
             </div>
           </div>
 
-          {/* Metadata Tags */}
+          {/* Taxonomy Pills */}
           <div className="flex flex-wrap gap-2 mb-4">
-            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-              Risk Level: {selectedClause.metadata.riskLevel.toUpperCase()}
+            {/* Jurisdictions */}
+            {selectedClause.metadata.jurisdiction.map(jurisdiction => (
+              <span key={jurisdiction} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium border border-blue-200">
+                {jurisdiction}
+              </span>
+            ))}
+
+            {/* Product Types */}
+            {selectedClause.metadata.productType.map(type => (
+              <span key={type} className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium border border-green-200">
+                {type.replace('-', ' ')}
+              </span>
+            ))}
+
+            {/* Customer Types */}
+            {selectedClause.metadata.customerType.map(type => (
+              <span key={type} className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium border border-purple-200">
+                {type}
+              </span>
+            ))}
+
+            {/* Risk Level and Last Reviewed */}
+            <span className={`px-3 py-1 rounded-full text-sm font-medium border ${
+              selectedClause.metadata.riskLevel === 'critical' ? 'bg-red-100 text-red-800 border-red-200' :
+              selectedClause.metadata.riskLevel === 'high' ? 'bg-orange-100 text-orange-800 border-orange-200' :
+              selectedClause.metadata.riskLevel === 'medium' ? 'bg-yellow-100 text-yellow-800 border-yellow-200' :
+              'bg-green-100 text-green-800 border-green-200'
+            }`}>
+              Risk: {selectedClause.metadata.riskLevel.toUpperCase()}
             </span>
-            <span className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm font-medium">
-              Last Reviewed: {new Date(selectedClause.metadata.lastReviewed).toLocaleDateString()}
+            <span className="px-3 py-1 bg-slate-100 text-slate-800 rounded-full text-sm font-medium border border-slate-200">
+              Updated: {new Date(selectedClause.metadata.lastReviewed).toLocaleDateString()}
             </span>
           </div>
         </div>
@@ -162,97 +181,56 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
           </div>
         </div>
 
-        {/* Metadata Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Jurisdictions</h4>
-            <div className="space-y-1">
-              {selectedClause.metadata.jurisdiction.map(jurisdiction => (
-                <span key={jurisdiction} className="block px-2 py-1 bg-blue-50 text-blue-800 rounded text-sm">
-                  {jurisdiction}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Product Types</h4>
-            <div className="space-y-1">
-              {selectedClause.metadata.productType.map(type => (
-                <span key={type} className="block px-2 py-1 bg-green-50 text-green-800 rounded text-sm">
-                  {type.replace('-', ' ')}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-2">Customer Types</h4>
-            <div className="space-y-1">
-              {selectedClause.metadata.customerType.map(type => (
-                <span key={type} className="block px-2 py-1 bg-purple-50 text-purple-800 rounded text-sm">
-                  {type}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* Linked Rules */}
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Associated Monitoring Rules ({linkedRules.length})</h3>
           <div className="space-y-3">
             {linkedRules.map(rule => {
-              const performanceScore = rule.performance.backtestScore;
-              const performanceClass = getScoreClass(performanceScore);
-              
+              // Calculate daily alerts from monthly alerts
+              const dailyAlerts = (rule.performance.alertsPerMonth / 30).toFixed(1);
+
+              // Calculate accuracy (true positive rate as percentage)
+              const accuracy = Math.round(rule.performance.truePositiveRate * 100);
+
+              // Generate simulated recent change percentage based on rule performance
+              const baseChange = (rule.performance.truePositiveRate - 0.5) * 10; // Better performing rules tend to have smaller changes
+              const recentChange = (baseChange + (Math.random() * 10 - 5)).toFixed(1); // Some randomness but performance-influenced
+
               return (
-                <div 
-                  key={rule.id} 
-                  className="border border-gray-200 rounded-lg p-4 hover:shadow-sm transition-shadow cursor-pointer hover:bg-gray-50"
-                  onClick={() => onRuleSelect?.(rule)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      onRuleSelect?.(rule);
-                    }
-                  }}
-                  aria-label={`View coverage details for ${rule.name}`}
+                <div
+                  key={rule.id}
+                  className="border border-gray-200 rounded-lg p-4"
                 >
-                  <div className="mb-2">
-                    <div>
-                      <h4 className="font-medium text-gray-900">{rule.name}</h4>
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex-1">
+                      <h4 className="font-medium text-gray-900 mb-1">{rule.name}</h4>
                       <p className="text-sm text-gray-600">{rule.description}</p>
                     </div>
                   </div>
-                  
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-3 text-sm">
+
+                  <div className="grid grid-cols-3 gap-4 text-sm">
                     <div>
-                      <span className="text-gray-500">Monthly Alerts</span>
-                      <div className="font-medium">{rule.performance.alertsPerMonth.toLocaleString()}</div>
-                    </div>
-                    <div>
-                      <span className="text-gray-500">True Positive Rate</span>
-                      <div className="font-medium">{rule.performance.truePositiveRate}%</div>
+                      <span className="text-gray-500 text-xs">Daily Alerts</span>
+                      <div className="font-medium text-gray-900">{dailyAlerts}</div>
                     </div>
                     <div>
-                      <span className="text-gray-500">Alerts Investigated</span>
-                      <div className="font-medium">{rule.performance.alertsInvestigated}</div>
+                      <span className="text-gray-500 text-xs">Accuracy</span>
+                      <div className={`font-medium ${
+                        accuracy >= 80 ? 'text-green-600' :
+                        accuracy >= 60 ? 'text-yellow-600' :
+                        'text-red-600'
+                      }`}>{accuracy}%</div>
                     </div>
-                  </div>
-                  
-                  <div className="mt-3">
-                    <div className="flex justify-between text-xs text-gray-500 mb-1">
-                      <span>Performance Score</span>
-                      <span>{performanceScore}</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
-                        className={`h-2 rounded-full score-${performanceClass}`} 
-                        style={{ width: `${(performanceScore / 5) * 100}%` }}
-                      ></div>
+                    <div>
+                      <span className="text-gray-500 text-xs">Recent Change</span>
+                      <div className={`font-medium ${
+                        parseFloat(recentChange) > 0 ? 'text-green-600' :
+                        parseFloat(recentChange) < 0 ? 'text-red-600' :
+                        'text-gray-600'
+                      }`}>
+                        {parseFloat(recentChange) > 0 ? '+' : ''}{recentChange}%
+                      </div>
                     </div>
                   </div>
                 </div>

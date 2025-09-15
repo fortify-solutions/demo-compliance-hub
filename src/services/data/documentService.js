@@ -107,14 +107,14 @@ export class DocumentService {
   // Get compliance statistics
   getComplianceStats() {
     let totalClauses = 0;
-    let totalScore = 0;
     const jurisdictionStats = {};
     const riskStats = { critical: 0, high: 0, medium: 0, low: 0 };
+    let totalRules = 0;
 
     for (const document of this.documents) {
       document.clauses.forEach(clause => {
         totalClauses++;
-        totalScore += clause.score;
+        totalRules += clause.linkedRules ? clause.linkedRules.length : 0;
 
         // Jurisdiction stats
         clause.metadata.jurisdiction.forEach(jurisdiction => {
@@ -128,7 +128,7 @@ export class DocumentService {
 
     return {
       totalClauses,
-      averageScore: totalClauses > 0 ? (totalScore / totalClauses).toFixed(1) : 0,
+      totalRules,
       jurisdictionStats,
       riskStats,
       documentCount: this.documents.length

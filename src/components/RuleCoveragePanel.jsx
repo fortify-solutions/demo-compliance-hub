@@ -1,63 +1,72 @@
 import React from 'react';
 import { X, Activity, Users, Globe, CreditCard, Clock, TrendingUp, AlertTriangle, CheckCircle } from 'lucide-react';
-import { getScoreClass, getProgressBarClass } from '../services/mockData';
 
 export function RuleCoveragePanel({ rule, isOpen, onClose }) {
   if (!isOpen || !rule) return null;
 
-  const scoreClass = getScoreClass(rule.performance.backtestScore);
+  // Helper function to get progress bar styling based on coverage score
+  const getProgressBarClass = (score) => {
+    if (score >= 90) return 'bg-green-500';
+    if (score >= 80) return 'bg-yellow-500';
+    if (score >= 70) return 'bg-orange-500';
+    return 'bg-red-500';
+  };
 
   // Mock detailed coverage data - in real app this would come from API
   const coverageDetails = {
     transactionCoverage: {
       total: rule.performance.coverage,
       breakdown: {
-        'High Value (>$50K)': 5,
-        'Cross-Border': 5,
-        'Domestic Retail': 4,
-        'Business Banking': 5
+        'High Value (>$50K)': 95,
+        'Cross-Border': 88,
+        'Domestic Retail': 76,
+        'Business Banking': 92
       }
     },
     customerCoverage: {
-      total: 4,
+      total: 86,
       breakdown: {
-        'Individual': 5,
-        'Business': 4,
-        'Corporate': 4,
-        'High-Risk PEPs': 5
+        'Individual': 92,
+        'Business': 78,
+        'Corporate': 84,
+        'High-Risk PEPs': 95
       }
     },
     geographicCoverage: {
-      total: 5,
+      total: 87,
       regions: {
-        'Domestic': 5,
-        'EU/EEA': 5,
-        'High-Risk Countries': 3,
-        'OFAC Jurisdictions': 5
+        'Domestic': 95,
+        'EU/EEA': 89,
+        'High-Risk Countries': 72,
+        'OFAC Jurisdictions': 98
       }
     },
     operationalCoverage: {
-      dailyProcessing: 5,
-      weekendProcessing: 5,
-      monthlyBacktest: 5
+      dailyProcessing: 95,
+      weekendProcessing: 88,
+      monthlyBacktest: 91
     },
     gaps: [
-      { area: 'Small Value Aggregation (<$5K)', impact: 'Medium', coverage: 2 },
-      { area: 'Weekend Cross-Border Wires', impact: 'Low', coverage: 1 },
-      { area: 'Cryptocurrency Exchanges', impact: 'High', coverage: 1 }
+      { area: 'Small Value Aggregation (<$5K)', impact: 'Medium', coverage: 45 },
+      { area: 'Weekend Cross-Border Wires', impact: 'Low', coverage: 23 },
+      { area: 'Cryptocurrency Exchanges', impact: 'High', coverage: 15 }
     ]
   };
 
-  const CoverageBar = ({ label, score, className = '' }) => (
+  const CoverageBar = ({ label, percentage, className = '' }) => (
     <div className="mb-3">
       <div className="flex justify-between items-center mb-1">
         <span className="text-sm font-medium text-gray-700">{label}</span>
-        <span className="text-sm font-semibold text-gray-900">{score}</span>
+        <span className="text-sm font-semibold text-gray-900">{percentage}%</span>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2">
-        <div 
-          className={`h-2 rounded-full transition-all duration-300 ${className || 'bg-blue-500'}`}
-          style={{ width: `${(score / 5) * 100}%` }}
+        <div
+          className={`h-2 rounded-full transition-all duration-300 ${
+            percentage >= 90 ? 'bg-green-500' :
+            percentage >= 70 ? 'bg-blue-500' :
+            percentage >= 50 ? 'bg-yellow-500' : 'bg-red-500'
+          }`}
+          style={{ width: `${percentage}%` }}
         ></div>
       </div>
     </div>
@@ -90,8 +99,8 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
               <h2 className="text-lg font-semibold text-gray-900 truncate">{rule.name}</h2>
               <p className="text-sm text-gray-600 mt-1">{rule.category}</p>
               <div className="flex items-center space-x-2 mt-2">
-                <span className={`px-2 py-1 rounded text-xs font-medium score-${scoreClass}`}>
-                  {rule.performance.backtestScore} Performance
+                <span className="px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                  {Math.round(rule.performance.truePositiveRate * 100)}% TPR
                 </span>
                 <span className={`px-2 py-1 rounded text-xs font-medium ${
                   rule.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
@@ -149,12 +158,11 @@ export function RuleCoveragePanel({ rule, isOpen, onClose }) {
                   <span className="text-3xl font-bold text-gray-900">{coverageDetails.transactionCoverage.total}</span>
                   <p className="text-sm text-gray-600">Overall Coverage</p>
                 </div>
-                {Object.entries(coverageDetails.transactionCoverage.breakdown).map(([category, score]) => (
-                  <CoverageBar 
+                {Object.entries(coverageDetails.transactionCoverage.breakdown).map(([category, percentage]) => (
+                  <CoverageBar
                     key={category}
                     label={category}
-                    score={score}
-                    className={getProgressBarClass(score)}
+                    percentage={percentage}
                   />
                 ))}
               </div>

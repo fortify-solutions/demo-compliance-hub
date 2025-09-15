@@ -1,5 +1,5 @@
 // Rule Service - Monitoring Rules Data Management
-import { monitoringRules as rawRules } from '../mockData';
+import { rules as rawRules } from '../mockData';
 
 export class RuleService {
   constructor() {
@@ -22,6 +22,11 @@ export class RuleService {
     return this.rules.filter(rule =>
       rule.linkedClauses && rule.linkedClauses.includes(clauseId)
     );
+  }
+
+  // Alias for getRulesForClause to match component usage
+  getRulesByClauseId(clauseId) {
+    return this.getRulesForClause(clauseId);
   }
 
   // Get rules by category

@@ -2,14 +2,13 @@ import React, { useMemo } from 'react';
 import { Header } from './components/Header';
 import { DocumentTree } from './components/DocumentTree';
 import { ClauseContent } from './components/ClauseContent';
-import { AlertsPanel } from './components/AlertsPanel';
+import { ComplianceInsights } from './components/ComplianceInsights';
 import { CapacityModal } from './components/CapacityModal';
-import { RuleCoveragePanel } from './components/RuleCoveragePanel';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ScoreSafelist } from './components/ScoreSafelist';
 import { useDebounce } from './hooks/useDebounce';
 import { useAppState } from './hooks/useAppState';
-import { documentService, alertService, complianceMetrics } from './services/data';
+import { documentService, alertService } from './services/data';
 
 function App() {
   // Use centralized state management
@@ -76,8 +75,7 @@ function App() {
     <ErrorBoundary>
       <ScoreSafelist />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <Header 
-        complianceScore={complianceMetrics.overallScore}
+      <Header
         filters={filters}
         onFilterChange={handleFilterChange}
         onCapacityClick={openCapacityModal}
@@ -97,19 +95,17 @@ function App() {
         
         {/* Center Panel: Clause Content */}
         <main className="flex-1 bg-white overflow-y-auto" aria-label="Clause content and details">
-          <ClauseContent 
+          <ClauseContent
             document={selectedDocument}
             clauses={filteredClauses}
             selectedClause={selectedClause}
             onClauseSelect={handleClauseSelect}
-            onRuleSelect={handleRuleSelect}
           />
         </main>
         
-        {/* Right Panel: Alerts */}
-        <aside className="w-96 bg-gray-50 border-l border-gray-200 overflow-y-auto" aria-label="System alerts and recommendations">
-          <AlertsPanel
-            alerts={alertService.getAlerts()}
+        {/* Right Panel: Compliance Insights */}
+        <aside className="w-96 bg-gray-50 border-l border-gray-200 overflow-y-auto" aria-label="Compliance insights and risk calibration">
+          <ComplianceInsights
             selectedClause={selectedClause}
           />
         </aside>
@@ -123,12 +119,6 @@ function App() {
         />
       )}
       
-      {/* Rule Coverage Panel */}
-      <RuleCoveragePanel 
-        rule={selectedRule}
-        isOpen={showRuleCoveragePanel}
-        onClose={handleRulePanelClose}
-      />
       </div>
     </ErrorBoundary>
   );
