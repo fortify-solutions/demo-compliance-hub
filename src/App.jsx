@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import { Header } from './components/Header';
 import { DocumentTree } from './components/DocumentTree';
 import { ClauseContent } from './components/ClauseContent';
@@ -7,76 +7,67 @@ import { CapacityModal } from './components/CapacityModal';
 import { RuleCoveragePanel } from './components/RuleCoveragePanel';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ScoreSafelist } from './components/ScoreSafelist';
-import { regulatoryDocuments, alerts, complianceMetrics } from './services/mockData';
 import { useDebounce } from './hooks/useDebounce';
+import { useAppState } from './hooks/useAppState';
+import { documentService, alertService, complianceMetrics } from './services/data';
 
 function App() {
-  const [selectedDocument, setSelectedDocument] = useState(regulatoryDocuments[0]);
-  const [selectedClause, setSelectedClause] = useState(null);
-  const [selectedRule, setSelectedRule] = useState(null);
-  const [showCapacityModal, setShowCapacityModal] = useState(false);
-  const [showRuleCoveragePanel, setShowRuleCoveragePanel] = useState(false);
-  const [filters, setFilters] = useState({
-    jurisdiction: 'US',
-    productType: '',
-    customerType: '',
-    searchTerm: ''
-  });
+  // Use centralized state management
+  const {
+    selectedDocument,
+    selectedClause,
+    selectedRule,
+    showCapacityModal,
+    showRuleCoveragePanel,
+    filters,
+    handleDocumentSelect,
+    handleClauseSelect,
+    handleFilterChange,
+    handleRuleSelect,
+    handleRulePanelClose,
+    openCapacityModal,
+    closeCapacityModal
+  } = useAppState();
 
   // Debounce search term for better performance
   const debouncedSearchTerm = useDebounce(filters.searchTerm, 300);
 
-  const handleDocumentSelect = useCallback((document) => {
-    setSelectedDocument(document);
-    setSelectedClause(null); // Reset clause selection when changing documents
-  }, []);
-
-  const handleClauseSelect = useCallback((clause) => {
-    setSelectedClause(clause);
-  }, []);
-
-  const handleFilterChange = useCallback((newFilters) => {
-    setFilters(prevFilters => ({ ...prevFilters, ...newFilters }));
-  }, []);
-
-  const handleRuleSelect = useCallback((rule) => {
-    setSelectedRule(rule);
-    setShowRuleCoveragePanel(true);
-  }, []);
-
-  const handleRulePanelClose = useCallback(() => {
-    setShowRuleCoveragePanel(false);
-    setSelectedRule(null);
-  }, []);
-
-  // Filter clauses based on current filters - memoized for performance
+  // Filter clauses using the document service - memoized for performance
   const filteredClauses = useMemo(() => {
     if (!selectedDocument) return [];
-    
+
+    // Use document service for filtering with debounced search
+    const filterParams = {
+      jurisdiction: filters.jurisdiction,
+      productType: filters.productType,
+      customerType: filters.customerType,
+      searchTerm: debouncedSearchTerm
+    };
+
     return selectedDocument.clauses.filter(clause => {
       // Jurisdiction filter
-      if (filters.jurisdiction && !clause.metadata.jurisdiction.includes(filters.jurisdiction)) {
+      if (filterParams.jurisdiction && !clause.metadata.jurisdiction.includes(filterParams.jurisdiction)) {
         return false;
       }
-      
+
       // Product type filter
-      if (filters.productType && !clause.metadata.productType.includes(filters.productType)) {
+      if (filterParams.productType && !clause.metadata.productType.includes(filterParams.productType)) {
         return false;
       }
-      
+
       // Customer type filter
-      if (filters.customerType && !clause.metadata.customerType.includes(filters.customerType)) {
+      if (filterParams.customerType && !clause.metadata.customerType.includes(filterParams.customerType)) {
         return false;
       }
-      
+
       // Search term filter
-      if (debouncedSearchTerm) {
-        const searchLower = debouncedSearchTerm.toLowerCase();
+      if (filterParams.searchTerm) {
+        const searchLower = filterParams.searchTerm.toLowerCase();
         return clause.title.toLowerCase().includes(searchLower) ||
                clause.text.toLowerCase().includes(searchLower) ||
                clause.reference.toLowerCase().includes(searchLower);
       }
-      
+
       return true;
     });
   }, [selectedDocument, filters.jurisdiction, filters.productType, filters.customerType, debouncedSearchTerm]);
@@ -89,14 +80,14 @@ function App() {
         complianceScore={complianceMetrics.overallScore}
         filters={filters}
         onFilterChange={handleFilterChange}
-        onCapacityClick={() => setShowCapacityModal(true)}
+        onCapacityClick={openCapacityModal}
       />
       
       <div className="flex pt-20" style={{height: '100vh'}} role="main"> {/* Add top padding for fixed header */}
         {/* Left Panel: Document Tree */}
         <nav className="w-80 bg-white border-r border-gray-200 overflow-y-auto" aria-label="Regulatory document navigation">
-          <DocumentTree 
-            documents={regulatoryDocuments}
+          <DocumentTree
+            documents={documentService.getAllDocuments()}
             selectedDocument={selectedDocument}
             onDocumentSelect={handleDocumentSelect}
             onClauseSelect={handleClauseSelect}
@@ -117,8 +108,8 @@ function App() {
         
         {/* Right Panel: Alerts */}
         <aside className="w-96 bg-gray-50 border-l border-gray-200 overflow-y-auto" aria-label="System alerts and recommendations">
-          <AlertsPanel 
-            alerts={alerts}
+          <AlertsPanel
+            alerts={alertService.getAlerts()}
             selectedClause={selectedClause}
           />
         </aside>
@@ -126,9 +117,9 @@ function App() {
       
       {/* Application Modals */}
       {showCapacityModal && (
-        <CapacityModal 
+        <CapacityModal
           isOpen={showCapacityModal}
-          onClose={() => setShowCapacityModal(false)}
+          onClose={closeCapacityModal}
         />
       )}
       
