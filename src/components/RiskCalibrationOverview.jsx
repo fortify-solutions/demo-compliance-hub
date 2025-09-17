@@ -96,7 +96,7 @@ export function RiskCalibrationOverview({ onBack }) {
   return (
     <div className="h-full overflow-y-auto">
       {/* Header */}
-      <div className="p-6 border-b border-gray-200 bg-emerald-50">
+      <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-emerald-100 to-teal-50">
         <button
           onClick={onBack}
           className="flex items-center space-x-2 text-emerald-600 hover:text-emerald-500 transition-colors mb-4"
@@ -107,9 +107,17 @@ export function RiskCalibrationOverview({ onBack }) {
 
         <div className="flex items-center justify-between">
           <div>
+            <div className="flex items-center space-x-3 mb-2">
+              <div className="px-3 py-1 bg-emerald-200 text-emerald-800 text-xs font-semibold rounded-full">
+                CONFIGURATION INTERFACE
+              </div>
+              <div className="px-3 py-1 bg-teal-200 text-teal-800 text-xs font-semibold rounded-full">
+                LIVE PARAMETERS
+              </div>
+            </div>
             <h1 className="text-2xl font-bold text-emerald-900 mb-2">Risk Calibration Overview</h1>
             <p className="text-emerald-700">
-              Comprehensive view of risk parameters across all customer segments and regulatory requirements
+              Interactive configuration dashboard for transaction monitoring thresholds and risk parameters
             </p>
           </div>
           <div className="flex items-center space-x-2">
@@ -137,56 +145,6 @@ export function RiskCalibrationOverview({ onBack }) {
       </div>
 
       <div className="p-6">
-        {/* Summary Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Total Segments</p>
-                <p className="text-2xl font-bold text-gray-900">{summaryStats.totalSegments}</p>
-              </div>
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <Settings className="w-5 h-5 text-blue-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Average Base Amount</p>
-                <p className="text-2xl font-bold text-gray-900">${summaryStats.averageBaseAmount?.toLocaleString()}</p>
-              </div>
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">High Risk Segments</p>
-                <p className="text-2xl font-bold text-gray-900">{summaryStats.highRiskSegments}</p>
-              </div>
-              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                <AlertTriangle className="w-5 h-5 text-red-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Total Rules</p>
-                <p className="text-2xl font-bold text-gray-900">{summaryStats.totalRules}</p>
-              </div>
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-purple-600" />
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Detailed Risk Calibration Table */}
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -242,44 +200,29 @@ export function RiskCalibrationOverview({ onBack }) {
         </div>
 
         {/* Risk Insights */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-lg border border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <TrendingUp className="w-5 h-5 mr-2 text-green-600" />
-              Calibration Insights
-            </h3>
-            <div className="space-y-3">
-              <div className="p-3 bg-green-50 rounded-lg">
-                <p className="text-sm font-medium text-green-800">Active Monitoring</p>
-                <p className="text-xs text-green-600 mt-1">
-                  {enhancedCalibrationData.reduce((sum, item) => sum + item.ruleCount, 0)} total rules actively monitoring across all segments
-                </p>
-              </div>
-              <div className="p-3 bg-blue-50 rounded-lg">
-                <p className="text-sm font-medium text-blue-800">Corporate Focus</p>
-                <p className="text-xs text-blue-600 mt-1">
-                  Corporate and High Net Worth segments have the highest transaction thresholds
-                </p>
-              </div>
-            </div>
-          </div>
-
+        <div className="mt-8">
           <div className="bg-white p-6 rounded-lg border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
               <AlertTriangle className="w-5 h-5 mr-2 text-yellow-600" />
-              Attention Required
+              Calibration Issues & Insights
             </h3>
             <div className="space-y-3">
-              <div className="p-3 bg-yellow-50 rounded-lg">
-                <p className="text-sm font-medium text-yellow-800">Threshold Sensitivity</p>
-                <p className="text-xs text-yellow-600 mt-1">
-                  High Risk Retail has the most sensitive thresholds at 2.0x customer change detection
+              <div className="p-3 bg-red-50 rounded-lg border-l-4 border-red-400">
+                <p className="text-sm font-medium text-red-800">Sensitivity Analysis Overdue</p>
+                <p className="text-xs text-red-600 mt-1">
+                  High Net Worth Clients transaction threshold ($75,000) hasn't undergone sensitivity analysis in 14 months - last review: November 2023
                 </p>
               </div>
-              <div className="p-3 bg-red-50 rounded-lg">
-                <p className="text-sm font-medium text-red-800">High Risk Monitoring</p>
-                <p className="text-xs text-red-600 mt-1">
-                  International and High Risk Retail segments require enhanced monitoring
+              <div className="p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
+                <p className="text-sm font-medium text-yellow-800">Alert Generation Gap</p>
+                <p className="text-xs text-yellow-600 mt-1">
+                  Corporate Clients monthly cumulative threshold has generated zero alerts in the past 3 months - potential calibration issue or market shift
+                </p>
+              </div>
+              <div className="p-3 bg-orange-50 rounded-lg border-l-4 border-orange-400">
+                <p className="text-sm font-medium text-orange-800">Behaviour Delta Inconsistency</p>
+                <p className="text-xs text-orange-600 mt-1">
+                  Medium Risk Retail (3.0x) has higher behaviour delta than High Risk Retail (2.0x) - review risk tier alignment
                 </p>
               </div>
             </div>

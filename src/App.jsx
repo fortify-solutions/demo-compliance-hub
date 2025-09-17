@@ -42,6 +42,14 @@ function App() {
     setShowRiskCalibration(false);
   };
 
+  // Override document selection to exit risk calibration when any document is selected
+  const handleDocumentSelectWithRiskCalibrationExit = (document) => {
+    if (showRiskCalibration) {
+      setShowRiskCalibration(false);
+    }
+    handleDocumentSelect(document);
+  };
+
   // Debounce search term for better performance
   const debouncedSearchTerm = useDebounce(filters.searchTerm, 300);
 
@@ -101,7 +109,7 @@ function App() {
           <DocumentTree
             documents={documentService.getAllDocuments()}
             selectedDocument={selectedDocument}
-            onDocumentSelect={handleDocumentSelect}
+            onDocumentSelect={handleDocumentSelectWithRiskCalibrationExit}
             onClauseSelect={handleClauseSelect}
             onRiskCalibrationSelect={handleRiskCalibrationSelect}
             filters={filters}
