@@ -13,10 +13,12 @@ import {
   BarChart3,
   Settings
 } from 'lucide-react';
-import { ruleService } from '../services/data';
+import { ruleService, riskCalibrationService } from '../services/data';
+import { useRiskCalibrationState } from '../hooks/useAppState';
 
 export function ComplianceInsights({ selectedClause }) {
   const [activeTab, setActiveTab] = useState('measures');
+  const { calibrationData } = useRiskCalibrationState();
   // Force refresh
 
   // Helper functions
@@ -57,67 +59,9 @@ export function ComplianceInsights({ selectedClause }) {
     return { direction: 'stable', percentage: Math.floor(Math.random() * 10), concern: false };
   };
 
-  const getBaseAmountForSegment = (segment) => {
-    const amounts = {
-      'Low Risk Retail': 10000,
-      'Medium Risk Retail': 5000,
-      'High Risk Retail': 2500,
-      'Corporate': 50000,
-      'Private Banking': 100000
-    };
-    return amounts[segment] || 10000;
-  };
-
-  const getMultiplierForRule = (category) => {
-    const multipliers = {
-      'Cash Monitoring': 1.0,
-      'Behavioral Analytics': 0.5,
-      'Velocity Tracking': 0.8,
-      'Geographic Risk': 1.2,
-      'Account Activity': 0.6
-    };
-    return multipliers[category] || 1.0;
-  };
-
-  const getFrequencyForSegment = (segment, ruleCategory) => {
-    if (segment.includes('High Risk')) return 'Daily';
-    if (segment.includes('Corporate') || segment.includes('Private Banking')) return 'Real-time';
-    return 'Weekly';
-  };
-
-  const getLookbackForSegment = (segment) => {
-    if (segment.includes('High Risk')) return 7;
-    if (segment.includes('Corporate') || segment.includes('Private Banking')) return 30;
-    return 14;
-  };
-
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(amount);
-  };
-
+  // Get risk calibration data from shared service
   const getRiskCalibrationData = (rules) => {
-    // Generate risk calibration parameters for different customer segments
-    const segments = ['Low Risk Retail', 'Medium Risk Retail', 'High Risk Retail', 'Corporate', 'Private Banking'];
-
-    return segments.map(segment => {
-      const baseAmount = getBaseAmountForSegment(segment);
-      const parameters = rules.map(rule => ({
-        ruleName: rule.name,
-        threshold: formatCurrency(baseAmount * getMultiplierForRule(rule.category)),
-        frequency: getFrequencyForSegment(segment, rule.category),
-        lookbackDays: getLookbackForSegment(segment)
-      }));
-
-      return {
-        segment,
-        parameters
-      };
-    });
+    return riskCalibrationService.getRiskCalibrationData(rules);
   };
 
   const getDaysAgo = (date) => {
@@ -160,7 +104,7 @@ export function ComplianceInsights({ selectedClause }) {
     const alertsPerDay = calculateAlertsPerDay(associatedRules);
     const alertTrend = calculateAlertTrend(associatedRules);
 
-    // Get risk calibration parameters
+    // Get risk calibration parameters from shared service
     const riskCalibration = getRiskCalibrationData(associatedRules);
 
     return {

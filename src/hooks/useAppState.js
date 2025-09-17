@@ -1,8 +1,9 @@
 // Centralized Application State Management
 // Custom hooks for managing app-wide state with proper separation of concerns
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { regulatoryDocuments } from '../services/mockData';
+import { riskCalibrationService } from '../services/data';
 
 // Document and Clause Selection Hook
 export function useDocumentSelection() {
@@ -124,6 +125,62 @@ export function useLayoutState() {
   };
 }
 
+// Risk Calibration State Hook
+export function useRiskCalibrationState() {
+  const [calibrationData, setCalibrationData] = useState(
+    () => riskCalibrationService.getAllCalibrationData()
+  );
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  // Subscribe to calibration changes
+  useEffect(() => {
+    const unsubscribe = riskCalibrationService.addListener(({ segment, changes }) => {
+      // Refresh calibration data when changes occur
+      setCalibrationData(riskCalibrationService.getAllCalibrationData());
+    });
+
+    return unsubscribe;
+  }, []);
+
+  const updateSegmentCalibration = useCallback(async (segment, updates) => {
+    setIsUpdating(true);
+    try {
+      riskCalibrationService.updateSegmentCalibration(segment, updates);
+      // Data will be updated via listener
+    } catch (error) {
+      console.error('Failed to update risk calibration:', error);
+      throw error;
+    } finally {
+      setIsUpdating(false);
+    }
+  }, []);
+
+  const resetToDefaults = useCallback(async () => {
+    setIsUpdating(true);
+    try {
+      riskCalibrationService.resetToDefaults();
+      // Data will be updated via listener
+    } catch (error) {
+      console.error('Failed to reset risk calibration:', error);
+      throw error;
+    } finally {
+      setIsUpdating(false);
+    }
+  }, []);
+
+  const getSummaryStats = useCallback(() => {
+    return riskCalibrationService.getSummaryStats();
+  }, [calibrationData]);
+
+  return {
+    calibrationData,
+    isUpdating,
+    updateSegmentCalibration,
+    resetToDefaults,
+    getSummaryStats
+  };
+}
+
 // Combined App State Hook
 export function useAppState() {
   const documentSelection = useDocumentSelection();
@@ -131,12 +188,14 @@ export function useAppState() {
   const ruleAnalysis = useRuleAnalysis();
   const modalState = useModalState();
   const layoutState = useLayoutState();
+  const riskCalibrationState = useRiskCalibrationState();
 
   return {
     ...documentSelection,
     ...filterState,
     ...ruleAnalysis,
     ...modalState,
-    ...layoutState
+    ...layoutState,
+    ...riskCalibrationState
   };
 }

@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Header } from './components/Header';
 import { DocumentTree } from './components/DocumentTree';
 import { ClauseContent } from './components/ClauseContent';
 import { ComplianceInsights } from './components/ComplianceInsights';
+import { RiskCalibrationOverview } from './components/RiskCalibrationOverview';
 import { CapacityModal } from './components/CapacityModal';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ScoreSafelist } from './components/ScoreSafelist';
@@ -11,6 +12,9 @@ import { useAppState } from './hooks/useAppState';
 import { documentService, alertService } from './services/data';
 
 function App() {
+  // Risk calibration overview state
+  const [showRiskCalibration, setShowRiskCalibration] = useState(false);
+
   // Use centralized state management
   const {
     selectedDocument,
@@ -27,6 +31,16 @@ function App() {
     openCapacityModal,
     closeCapacityModal
   } = useAppState();
+
+  const handleRiskCalibrationSelect = () => {
+    setShowRiskCalibration(true);
+    handleDocumentSelect(null);
+    handleClauseSelect(null);
+  };
+
+  const handleBackFromRiskCalibration = () => {
+    setShowRiskCalibration(false);
+  };
 
   // Debounce search term for better performance
   const debouncedSearchTerm = useDebounce(filters.searchTerm, 300);
@@ -89,18 +103,23 @@ function App() {
             selectedDocument={selectedDocument}
             onDocumentSelect={handleDocumentSelect}
             onClauseSelect={handleClauseSelect}
+            onRiskCalibrationSelect={handleRiskCalibrationSelect}
             filters={filters}
           />
         </nav>
         
-        {/* Center Panel: Clause Content */}
+        {/* Center Panel: Clause Content or Risk Calibration Overview */}
         <main className="flex-1 bg-white overflow-y-auto" aria-label="Clause content and details">
-          <ClauseContent
-            document={selectedDocument}
-            clauses={filteredClauses}
-            selectedClause={selectedClause}
-            onClauseSelect={handleClauseSelect}
-          />
+          {showRiskCalibration ? (
+            <RiskCalibrationOverview onBack={handleBackFromRiskCalibration} />
+          ) : (
+            <ClauseContent
+              document={selectedDocument}
+              clauses={filteredClauses}
+              selectedClause={selectedClause}
+              onClauseSelect={handleClauseSelect}
+            />
+          )}
         </main>
         
         {/* Right Panel: Compliance Insights */}

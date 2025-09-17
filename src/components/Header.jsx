@@ -17,7 +17,7 @@ export function Header({ filters, onFilterChange, onCapacityClick }) {
               />
               <div>
                 <h1 className="text-lg font-bold font-serif" style={{color: '#79189C'}}>
-                  AMLBoost Audit v3.1
+                  Fortify AML Compliance Hub
                 </h1>
               </div>
             </div>
@@ -26,7 +26,7 @@ export function Header({ filters, onFilterChange, onCapacityClick }) {
 
           {/* Center Section: Filters */}
           <div className="flex items-center space-x-2">
-            <select 
+            <select
               value={filters.jurisdiction}
               onChange={(e) => onFilterChange({ jurisdiction: e.target.value })}
               className="px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -36,6 +36,13 @@ export function Header({ filters, onFilterChange, onCapacityClick }) {
               <option value="US">US</option>
               <option value="UK">UK</option>
               <option value="EU">EU</option>
+              <option value="CA">Canada</option>
+              <option value="AU">Australia</option>
+              <option value="SG">Singapore</option>
+              <option value="HK">Hong Kong</option>
+              <option value="JP">Japan</option>
+              <option value="CH">Switzerland</option>
+              <option value="AE">UAE</option>
             </select>
 
             <select 

@@ -37,21 +37,24 @@ The application was designed and built through collaborative sessions between a 
 ```
 src/
 ├── components/
-│   ├── Header.jsx               # Clean navigation and filters with full accessibility
-│   ├── DocumentTree.jsx         # Regulatory document hierarchy with internal/regulatory separation
-│   ├── ClauseContent.jsx        # Master/detail requirement views with taxonomy pills and simplified rule display
-│   ├── ComplianceInsights.jsx   # Success measures and risk calibration insights panel
-│   ├── CapacityModal.jsx        # Analyst capacity planning interface
-│   └── ErrorBoundary.jsx        # Application-wide error handling
+│   ├── Header.jsx                      # Clean navigation and filters with full accessibility
+│   ├── DocumentTree.jsx                # Regulatory document hierarchy with internal/regulatory separation
+│   ├── ClauseContent.jsx               # Master/detail requirement views with taxonomy pills and simplified rule display
+│   ├── ComplianceInsights.jsx          # Success measures and risk calibration insights panel
+│   ├── RiskCalibrationOverview.jsx     # Editable risk calibration parameters management
+│   ├── RiskCalibrationTableBody.jsx    # Modular table component for risk calibration display
+│   ├── CapacityModal.jsx               # Analyst capacity planning interface
+│   └── ErrorBoundary.jsx               # Application-wide error handling
 ├── hooks/
 │   ├── useDebounce.js           # Performance optimization for search
 │   └── useAppState.js           # Centralized state management hooks
 ├── services/
 │   ├── mockData.js              # Core mock data with validation
 │   └── data/                    # Modular data services
-│       ├── documentService.js   # Document and requirement management
-│       ├── alertService.js      # Alert lifecycle and filtering
-│       └── ruleService.js       # Rule performance analytics
+│       ├── documentService.js         # Document and requirement management
+│       ├── alertService.js            # Alert lifecycle and filtering
+│       ├── ruleService.js             # Rule performance analytics
+│       └── riskCalibrationService.js  # Editable risk parameter management
 ├── config/
 │   └── layoutConfig.js          # Configurable panel and layout system
 └── utils/
@@ -383,6 +386,81 @@ npm run deploy
 - **Contextual Intelligence**: Smart color coding and trend analysis provide actionable insights
 - **Audit Readiness**: Success measures provide clear compliance status at requirement level
 
+## Recent Major Updates (v5.0) - Editable Risk Calibration System
+
+### Interactive Risk Parameter Management
+- **Fully Editable Risk Calibration**: Complete transformation of Risk Calibration Overview from static display to interactive configuration system
+- **Real-time Parameter Updates**: Changes to risk thresholds propagate immediately across all clause sidebar pages through shared state management
+- **Persistent Configuration**: Risk calibration settings automatically save to localStorage for session persistence
+- **Input Validation**: Comprehensive validation for all editable parameters with user-friendly error messages
+
+### Risk Calibration Table Restructuring
+- **Streamlined Column Design**: Refined table to exact business requirements with 8 focused columns:
+  1. **Customer Segment** - Clean segment names without risk level badges
+  2. **Transaction Threshold** - Dollar amount thresholds with daily calculations
+  3. **Velocity Limit** - Transaction count limits per day
+  4. **Behaviour Delta** - Editable multipliers for behavioral change detection (1.0x-10.0x)
+  5. **Comparison to Peers** - Editable multipliers for peer group analysis (1.0x-10.0x)
+  6. **Monthly Cumulative** - Calculated monthly limits with weekly sub-totals
+  7. **Coverage** - Realistic coverage percentages (85%-94%) with progress visualization
+  8. **Last Updated** - Varied realistic dates (January 2025) with "by Risk Operations" attribution
+
+### Enhanced Data Architecture
+- **Risk Calibration Service**: New dedicated service (`riskCalibrationService.js`) for centralized parameter management
+- **Reactive State Management**: Enhanced `useAppState` hook with `useRiskCalibrationState` for real-time updates
+- **Event-Driven Updates**: Listener-based architecture ensures changes propagate across all consuming components
+- **Component Modularity**: Extracted `RiskCalibrationTableBody` component for maintainable table rendering
+- **Realistic Demo Data**: Non-random coverage values and varied update dates for authentic demonstration
+
+### User Experience Improvements
+- **Inline Editing**: Click-to-edit functionality with save/cancel controls directly in table rows
+- **Visual Feedback**: Loading states, validation errors, and success confirmations
+- **Keyboard Navigation**: Full accessibility support for all editing interactions
+- **Reset Functionality**: One-click reset to default parameters with confirmation
+- **Professional Styling**: Clean, consistent interface with emerald theme for internal policy sections
+
+### Technical Implementation
+- **Error Boundary Protection**: Comprehensive error handling prevents crashes from malformed data
+- **Hot Module Reload**: Seamless development experience with instant updates during parameter changes
+- **Build Optimization**: Maintained production build efficiency despite increased interactivity
+- **Type Safety**: Robust parameter validation prevents runtime errors from invalid input ranges
+- **Memory Management**: Efficient listener cleanup and state optimization for performance
+
+## Recent Major Updates (v6.0) - Enhanced Modal System & Detailed Views
+
+### Comprehensive Modal Architecture
+- **DetailModal Base Component**: Reusable modal foundation with consistent styling, keyboard navigation, and accessibility features
+- **EvidenceDetailModal**: Deep-dive evidence analysis with comprehensive metrics, file associations, and timeline tracking
+- **RuleDetailModal**: Detailed rule performance analysis with configuration details, coverage metrics, and trend analysis
+- **Modal System Features**:
+  - Escape key handling and background click dismissal
+  - Scroll lock when modal is open
+  - Full ARIA accessibility support
+  - Responsive design with proper mobile handling
+
+### Evidence Management Enhancement
+- **Detailed Evidence Views**: Click-through functionality from evidence items to comprehensive detail modals
+- **Evidence Type Intelligence**: Automatic content generation based on evidence type (backtest-results, performance-data, audit-report)
+- **Realistic Evidence Metrics**:
+  - Backtest results with 24-month analysis, precision/recall scores, F1 metrics
+  - Performance data with 90-day monitoring, alert volume trends, investigation rates
+  - Audit reports with regulatory body details, compliance scores, finding classifications
+- **Evidence Timeline**: Visual timeline showing evidence addition, analysis completion, and review scheduling
+- **File Association System**: Downloadable file references with realistic naming conventions
+
+### Rule Analysis Deep-Dive
+- **Performance Dashboard**: Comprehensive rule metrics including daily alerts, accuracy percentages, false positive rates, investigation loads
+- **Configuration Visualization**: Complete metadata display with jurisdiction, product type, customer type, and risk level tags
+- **Coverage Analysis Integration**: Rule-specific coverage metrics with color-coded progress indicators
+- **Trend Analysis**: Dynamic trend calculation with improving/declining/stable status indicators
+- **Interactive Rule Navigation**: Direct access to detailed rule analysis from any rule display
+
+### Technical Architecture Improvements
+- **Component Modularity**: Shared DetailModal component reduces code duplication and ensures consistency
+- **Smart Content Generation**: Context-aware content generation based on data types and business logic
+- **Performance Optimization**: Efficient modal rendering with proper cleanup and memory management
+- **Accessibility Excellence**: Full keyboard navigation, screen reader support, and WCAG compliance
+
 ## Key Learning Outcomes
 
 1. **User-Centered Design**: Starting with persona definition (Risk Manager) led to much cleaner feature prioritization
@@ -392,6 +470,9 @@ npm run deploy
 5. **Capacity Planning Integration**: Showing business impact ("investigate $10K+ vs $50K+") makes technical decisions more compelling
 6. **Performance Over Perception**: Focusing on quantifiable metrics rather than subjective scores leads to more actionable insights
 7. **Extensible Architecture**: Modular design patterns enable rapid feature development without breaking existing functionality
+8. **Interactive Configuration Systems**: Transforming static displays into editable interfaces dramatically improves user engagement and system utility
+9. **Reactive State Management**: Event-driven architecture with shared services enables seamless data propagation across complex component hierarchies
+10. **Realistic Demo Data**: Using varied, business-realistic values instead of random data significantly improves demonstration credibility
 
 This project demonstrates how thoughtful UX design and comprehensive data modeling can create sophisticated compliance tools that actually help risk managers do their jobs more effectively, rather than just checking regulatory boxes.
 

@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, XCircle, Clock } from 'lucide-react';
 import { getRuleById } from '../services/mockData';
+import { RuleDetailModal } from './RuleDetailModal';
+import { EvidenceDetailModal } from './EvidenceDetailModal';
 
 export function ClauseContent({ document, clauses, selectedClause, onClauseSelect }) {
+  const [selectedRule, setSelectedRule] = useState(null);
+  const [selectedEvidence, setSelectedEvidence] = useState(null);
+  const [isRuleModalOpen, setIsRuleModalOpen] = useState(false);
+  const [isEvidenceModalOpen, setIsEvidenceModalOpen] = useState(false);
+
+  const handleRuleClick = (rule) => {
+    setSelectedRule(rule);
+    setIsRuleModalOpen(true);
+  };
+
+  const handleEvidenceClick = (evidence) => {
+    setSelectedEvidence(evidence);
+    setIsEvidenceModalOpen(true);
+  };
+
+  const closeRuleModal = () => {
+    setIsRuleModalOpen(false);
+    setSelectedRule(null);
+  };
+
+  const closeEvidenceModal = () => {
+    setIsEvidenceModalOpen(false);
+    setSelectedEvidence(null);
+  };
   if (!document) {
     return (
       <div className="h-full flex items-center justify-center text-gray-500">
@@ -182,10 +208,26 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
         </div>
 
 
+        {/* Regulatory Linkage Overview */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Transaction Monitoring Implementation</h3>
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mb-4">
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5" />
+              <div>
+                <h4 className="font-medium text-blue-900 mb-1">Regulatory Compliance Status</h4>
+                <p className="text-sm text-blue-800">
+                  This requirement is implemented by <strong>{linkedRules.length} automated monitoring rule{linkedRules.length !== 1 ? 's' : ''}</strong> that provide continuous transaction surveillance and alert generation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Linked Rules */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Associated Monitoring Rules ({linkedRules.length})</h3>
-          <div className="space-y-3">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Implementing Monitoring Rules ({linkedRules.length})</h3>
+          <div className="space-y-4">
             {linkedRules.map(rule => {
               // Calculate daily alerts from monthly alerts
               const dailyAlerts = (rule.performance.alertsPerMonth / 30).toFixed(1);
@@ -200,16 +242,47 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               return (
                 <div
                   key={rule.id}
-                  className="border border-gray-200 rounded-lg p-4"
+                  className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-md hover:border-blue-300 transition-all"
+                  onClick={() => handleRuleClick(rule)}
                 >
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex-1">
-                      <h4 className="font-medium text-gray-900 mb-1">{rule.name}</h4>
-                      <p className="text-sm text-gray-600">{rule.description}</p>
+                      <div className="flex items-center space-x-2 mb-2">
+                        <h4 className="font-medium text-gray-900">{rule.name}</h4>
+                        <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">
+                          {rule.category}
+                        </span>
+                      </div>
+
+                      {/* Regulatory Basis */}
+                      {rule.regulatoryBasis && (
+                        <div className="mb-2">
+                          <span className="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-1 rounded">
+                            Implements: {rule.regulatoryBasis}
+                          </span>
+                        </div>
+                      )}
+
+                      <p className="text-sm text-gray-600 leading-relaxed">{rule.description}</p>
+
+                      {/* Specific Implementation Details */}
+                      {rule.implementedRequirements && rule.implementedRequirements.length > 0 && (
+                        <div className="mt-3">
+                          <h5 className="text-xs font-medium text-gray-700 mb-1">Specific Implementations:</h5>
+                          <ul className="text-xs text-gray-600 space-y-1">
+                            {rule.implementedRequirements.map((req, index) => (
+                              <li key={index} className="flex items-start space-x-1">
+                                <span className="text-blue-500 mt-1">•</span>
+                                <span>{req.description}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div className="grid grid-cols-3 gap-4 text-sm pt-3 border-t border-gray-100">
                     <div>
                       <span className="text-gray-500 text-xs">Daily Alerts</span>
                       <div className="font-medium text-gray-900">{dailyAlerts}</div>
@@ -237,6 +310,20 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               );
             })}
           </div>
+
+          {linkedRules.length === 0 && (
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+              <div className="flex items-start space-x-3">
+                <AlertTriangle className="w-5 h-5 text-yellow-500 mt-0.5" />
+                <div>
+                  <h4 className="font-medium text-yellow-900 mb-1">No Implementing Rules Found</h4>
+                  <p className="text-sm text-yellow-800">
+                    This regulatory requirement currently has no associated monitoring rules. Consider implementing automated systems to ensure compliance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Evidence Items */}
@@ -244,7 +331,11 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Supporting Evidence ({selectedClause.evidence.length})</h3>
           <div className="space-y-3">
             {selectedClause.evidence.map(evidence => (
-              <div key={evidence.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+              <div
+                key={evidence.id}
+                className="border border-gray-200 rounded-lg p-4 hover:shadow-md hover:border-blue-300 cursor-pointer transition-all"
+                onClick={() => handleEvidenceClick(evidence)}
+              >
                 <div className="flex items-start justify-between">
                   <div>
                     <h4 className="font-medium text-gray-900">{evidence.description}</h4>
@@ -263,6 +354,19 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
           </div>
         </div>
       </div>
+
+      {/* Modal Components */}
+      <RuleDetailModal
+        isOpen={isRuleModalOpen}
+        onClose={closeRuleModal}
+        rule={selectedRule}
+      />
+
+      <EvidenceDetailModal
+        isOpen={isEvidenceModalOpen}
+        onClose={closeEvidenceModal}
+        evidence={selectedEvidence}
+      />
     </div>
   );
 }
