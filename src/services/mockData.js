@@ -1922,14 +1922,14 @@ export const analystCapacity = {
     avgResolutionHours: 4.2,
     investigationThreshold: 50000, // $50k minimum investigation threshold
     monthlyAlertVolume: 4942,
-    utilizationRate: 4
+    utilizationRate: 87
   },
   scenarios: {
     '-2': {
       staffCount: 6,
       alertsPerDay: 33,
       investigationThreshold: 100000, // Higher threshold due to reduced capacity
-      utilizationRate: 5,
+      utilizationRate: 95,
       additionalInvestigationsPerMonth: -94,
       description: 'Reduced capacity scenario'
     },
@@ -1937,7 +1937,7 @@ export const analystCapacity = {
       staffCount: 7,
       alertsPerDay: 39,
       investigationThreshold: 75000, // Higher threshold due to reduced capacity
-      utilizationRate: 5,
+      utilizationRate: 92,
       additionalInvestigationsPerMonth: -47,
       description: 'Slightly reduced capacity'
     },
@@ -1945,7 +1945,7 @@ export const analystCapacity = {
       staffCount: 9,
       alertsPerDay: 51,
       investigationThreshold: 10000, // Could investigate $10k+ transactions
-      utilizationRate: 3,
+      utilizationRate: 78,
       additionalInvestigationsPerMonth: 47,
       description: 'Additional analyst scenario'
     },
@@ -1953,7 +1953,7 @@ export const analystCapacity = {
       staffCount: 10,
       alertsPerDay: 57,
       investigationThreshold: 5000, // Even lower threshold with more capacity
-      utilizationRate: 3,
+      utilizationRate: 71,
       additionalInvestigationsPerMonth: 94,
       description: 'Expanded team scenario'
     }
