@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, FileText, Scale, Building2, Settings } from 'lucide-react';
+import { ChevronDown, ChevronRight, FileText, Scale, Building2, Settings, Sliders } from 'lucide-react';
 
 export function DocumentTree({ documents, selectedDocument, onDocumentSelect, onClauseSelect, onRiskCalibrationSelect, filters }) {
-  const [expandedDocs, setExpandedDocs] = useState(new Set([documents[0]?.id]));
+  const [expandedDocs, setExpandedDocs] = useState(new Set());
 
   const toggleDocument = (docId) => {
     const newExpanded = new Set(expandedDocs);
@@ -205,55 +205,59 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
       )}
 
       {/* Internal Policies Section */}
-      {internalPolicies.length > 0 && (
-        <div className="mb-4">
-          <div className="p-3 border-b border-gray-200 bg-emerald-50">
-            <h3 className="font-semibold flex items-center space-x-2 text-emerald-900">
-              <Building2 className="w-5 h-5" />
-              <span>Internal Policies</span>
-            </h3>
-            <p className="text-sm text-gray-600 mt-1">
-              {internalPolicies.length + 1} document{internalPolicies.length !== 0 ? 's' : ''} • {internalPolicies.reduce((sum, doc) => sum + doc.matchCount, 0)} requirements
-            </p>
-          </div>
-          <div className="px-2 pb-2">
-            {/* Risk Calibration Overview Option */}
-            <div className="mb-2 mt-2">
-              <div
-                className="p-3 rounded-lg cursor-pointer transition-all internal-policy-document hover:shadow-md"
-                onClick={() => onRiskCalibrationSelect && onRiskCalibrationSelect()}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    onRiskCalibrationSelect && onRiskCalibrationSelect();
-                  }
-                }}
-                tabIndex={0}
-                role="button"
-                aria-label="View Risk Calibration Overview"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <Settings className="w-4 h-4 text-emerald-600" />
-                    <div>
-                      <h3 className="font-medium text-gray-900 text-sm">Risk Calibration Overview</h3>
-                      <p className="text-xs text-gray-500">
-                        System-wide risk parameters and thresholds
-                      </p>
-                    </div>
+      {internalPolicies.length > 0 && renderDocumentSection(
+        internalPolicies,
+        'Internal Policies',
+        <Building2 className="w-5 h-5" />,
+        'bg-emerald-50',
+        'text-emerald-900'
+      )}
+
+      {/* Risk Calibration Section */}
+      <div className="mb-4">
+        <div className="p-3 border-b border-gray-200 bg-violet-50">
+          <h3 className="font-semibold flex items-center space-x-2 text-violet-900">
+            <Sliders className="w-5 h-5" />
+            <span>Risk Calibration</span>
+          </h3>
+          <p className="text-sm text-gray-600 mt-1">
+            System-wide risk parameters and monitoring thresholds
+          </p>
+        </div>
+        <div className="px-2 pb-2">
+          {/* Risk Calibration Overview Option */}
+          <div className="mb-2 mt-2">
+            <div
+              className="p-3 rounded-lg cursor-pointer transition-all hover:shadow-md border border-violet-200 bg-violet-25 hover:bg-violet-50"
+              onClick={() => onRiskCalibrationSelect && onRiskCalibrationSelect()}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onRiskCalibrationSelect && onRiskCalibrationSelect();
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label="View Risk Calibration Overview"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <Settings className="w-4 h-4 text-violet-600" />
+                  <div>
+                    <h3 className="font-medium text-gray-900 text-sm">Risk Calibration Overview</h3>
+                    <p className="text-xs text-gray-500">
+                      Configure transaction thresholds and monitoring parameters
+                    </p>
                   </div>
-                  <div className="px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
-                    All segments
-                  </div>
+                </div>
+                <div className="px-2 py-1 rounded-full text-xs font-medium bg-violet-100 text-violet-800">
+                  All segments
                 </div>
               </div>
             </div>
-
-            {/* Regular Internal Policy Documents */}
-            {internalPolicies.map(document => renderDocument(document))}
           </div>
         </div>
-      )}
+      </div>
 
       {/* No documents message */}
       {filteredDocuments.length === 0 && (

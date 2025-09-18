@@ -70,9 +70,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-15'
         },
         evidence: [
-          { id: 'ev1', type: 'program-documentation', description: 'AML Program Written Policy and Procedures', quality: 'excellent' },
-          { id: 'ev2', type: 'independent-testing', description: '2023 Independent AML Program Testing Report', quality: 'good' },
-          { id: 'ev3', type: 'training-records', description: 'Annual AML Training Completion Records', quality: 'excellent' }
+          { id: 'ev1', type: 'rule-backtest', description: 'Cash Structuring Rule 24-Month Backtest Analysis', quality: 'excellent' },
+          { id: 'ev2', type: 'parallel-run', description: 'Parallel Run Validation - New vs Legacy TM Rules', quality: 'good' },
+          { id: 'ev3', type: 'threshold-sensitivity', description: 'Threshold Sensitivity Analysis - $10K CTR Rules', quality: 'excellent' }
         ],
         linkedRules: ['rule-1']
       },
@@ -89,9 +89,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-12'
         },
         evidence: [
-          { id: 'ev4', type: 'cip-procedures', description: 'Customer Identification Program Procedures', quality: 'excellent' },
-          { id: 'ev5', type: 'identity-verification', description: 'Identity Verification System Testing', quality: 'good' },
-          { id: 'ev6', type: 'sanctions-screening', description: 'Government List Screening Results', quality: 'excellent' }
+          { id: 'ev4', type: 'scenario-testing', description: 'CIP Bypass Scenario Testing - Known Typologies', quality: 'excellent' },
+          { id: 'ev5', type: 'model-validation', description: 'Identity Verification Algorithm Model Validation', quality: 'good' },
+          { id: 'ev6', type: 'coverage-analysis', description: 'Customer Risk Tier Coverage Gap Analysis', quality: 'excellent' }
         ],
         linkedRules: ['rule-2', 'rule-9']
       },
@@ -108,9 +108,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-18'
         },
         evidence: [
-          { id: 'ev7', type: 'sar-filing', description: 'SAR Filing Statistics and Quality Review', quality: 'good' },
-          { id: 'ev8', type: 'investigation-procedures', description: 'Suspicious Activity Investigation Procedures', quality: 'excellent' },
-          { id: 'ev9', type: 'regulatory-feedback', description: 'FinCEN SAR Filing Feedback Reports', quality: 'good' }
+          { id: 'ev7', type: 'alert-tuning', description: 'Suspicious Transaction Alert Tuning Performance', quality: 'good' },
+          { id: 'ev8', type: 'false-positive-analysis', description: 'Investigation False Positive Rate Analysis', quality: 'excellent' },
+          { id: 'ev9', type: 'regulatory-lookback', description: 'FinCEN Pattern Recognition Lookback Testing', quality: 'good' }
         ],
         linkedRules: ['rule-2']
       },
@@ -127,11 +127,11 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-22'
         },
         evidence: [
-          { id: 'ev10', type: 'filing-timeliness', description: 'SAR Filing Timeline Compliance Metrics', quality: 'excellent' },
-          { id: 'ev11', type: 'record-retention', description: 'SAR Supporting Documentation Audit', quality: 'good' },
-          { id: 'ev12', type: 'regulatory-access', description: 'Regulator Information Request Response Times', quality: 'excellent' }
+          { id: 'ev10', type: 'time-series-testing', description: 'Filing Timeline Impact on Alert Processing', quality: 'excellent' },
+          { id: 'ev11', type: 'data-lineage-audit', description: 'Transaction Data Lineage and Quality Audit', quality: 'good' },
+          { id: 'ev12', type: 'stress-testing', description: 'Peak Volume Transaction Processing Stress Test', quality: 'excellent' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: ["rule-1"]
       },
       {
         id: 'bsa-1020-320-c',
@@ -146,11 +146,11 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-08'
         },
         evidence: [
-          { id: 'ev13', type: 'confidentiality-training', description: 'SAR Confidentiality Training Documentation', quality: 'good' },
-          { id: 'ev14', type: 'access-controls', description: 'SAR System Access Control Reviews', quality: 'excellent' },
-          { id: 'ev15', type: 'policy-procedures', description: 'SAR Confidentiality Policy and Procedures', quality: 'good' }
+          { id: 'ev13', type: 'benchmark-testing', description: 'Transaction Confidentiality Rule Benchmark Testing', quality: 'good' },
+          { id: 'ev14', type: 'system-integration-test', description: 'TM System Integration Testing - Core Banking', quality: 'excellent' },
+          { id: 'ev15', type: 'data-quality-validation', description: 'Transaction Data Quality Validation Framework', quality: 'good' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       },
       {
         id: 'bsa-1010-313',
@@ -165,9 +165,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-25'
         },
         evidence: [
-          { id: 'ev16', type: 'ctr-filing', description: 'Currency Transaction Report Filing Statistics', quality: 'excellent' },
-          { id: 'ev17', type: 'aggregation-logic', description: 'Multiple Transaction Aggregation Testing', quality: 'good' },
-          { id: 'ev18', type: 'exemption-procedures', description: 'CTR Exemption Process Documentation', quality: 'excellent' }
+          { id: 'ev16', type: 'rule-performance-testing', description: 'CTR Auto-Generation Rule Performance Testing', quality: 'excellent' },
+          { id: 'ev17', type: 'aggregation-algorithm-test', description: 'Multi-Transaction Aggregation Algorithm Testing', quality: 'good' },
+          { id: 'ev18', type: 'exception-handling-test', description: 'CTR Exception Processing Logic Testing', quality: 'excellent' }
         ],
         linkedRules: ['rule-1']
       },
@@ -184,9 +184,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-20'
         },
         evidence: [
-          { id: 'ev19', type: 'correspondent-dd', description: 'Correspondent Account Due Diligence Procedures', quality: 'excellent' },
-          { id: 'ev20', type: 'risk-assessment', description: 'Foreign Institution Risk Assessment Framework', quality: 'good' },
-          { id: 'ev21', type: 'enhanced-procedures', description: 'High-Risk Jurisdiction Enhanced Due Diligence', quality: 'good' }
+          { id: 'ev19', type: 'geographic-risk-testing', description: 'Correspondent Account Geographic Risk Rule Testing', quality: 'excellent' },
+          { id: 'ev20', type: 'risk-scoring-validation', description: 'Foreign Institution Risk Scoring Model Validation', quality: 'good' },
+          { id: 'ev21', type: 'jurisdiction-rule-tuning', description: 'High-Risk Jurisdiction Rule Threshold Tuning', quality: 'good' }
         ],
         linkedRules: ['rule-3']
       },
@@ -203,9 +203,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-28'
         },
         evidence: [
-          { id: 'ev22', type: 'private-banking-dd', description: 'Private Banking Enhanced Due Diligence Procedures', quality: 'excellent' },
-          { id: 'ev23', type: 'beneficial-ownership', description: 'Beneficial Owner Identification Documentation', quality: 'good' },
-          { id: 'ev24', type: 'source-of-funds', description: 'Source of Funds Verification Procedures', quality: 'excellent' }
+          { id: 'ev22', type: 'transaction-pattern-analysis', description: 'Private Banking Transaction Pattern Analysis', quality: 'excellent' },
+          { id: 'ev23', type: 'entity-resolution-testing', description: 'Beneficial Owner Entity Resolution Algorithm Testing', quality: 'good' },
+          { id: 'ev24', type: 'velocity-threshold-testing', description: 'Source of Wealth Velocity Threshold Testing', quality: 'excellent' }
         ],
         linkedRules: ['rule-9', 'rule-10']
       },
@@ -222,9 +222,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-01'
         },
         evidence: [
-          { id: 'ev25', type: 'wire-records', description: 'Wire Transfer Record Retention Compliance', quality: 'excellent' },
-          { id: 'ev26', type: 'incomplete-wires', description: 'Incomplete Wire Transfer Monitoring Procedures', quality: 'good' },
-          { id: 'ev27', type: 'beneficiary-screening', description: 'Wire Transfer Beneficiary Screening Results', quality: 'good' }
+          { id: 'ev25', type: 'wire-monitoring-backtest', description: 'Wire Transfer Monitoring Rule 12-Month Backtest', quality: 'excellent' },
+          { id: 'ev26', type: 'incomplete-wire-testing', description: 'Incomplete Wire Data Pattern Recognition Testing', quality: 'good' },
+          { id: 'ev27', type: 'beneficiary-fuzzy-matching', description: 'Wire Beneficiary Fuzzy Matching Algorithm Testing', quality: 'good' }
         ],
         linkedRules: ['rule-3']
       },
@@ -241,9 +241,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-05'
         },
         evidence: [
-          { id: 'ev28', type: 'cdd-procedures', description: 'Customer Due Diligence Written Procedures', quality: 'excellent' },
-          { id: 'ev29', type: 'ongoing-monitoring', description: 'Ongoing Customer Monitoring System Performance', quality: 'good' },
-          { id: 'ev30', type: 'risk-based-approach', description: 'Risk-Based CDD Implementation Review', quality: 'excellent' }
+          { id: 'ev28', type: 'cdd-rule-optimization', description: 'Customer Due Diligence Rule Optimization Testing', quality: 'excellent' },
+          { id: 'ev29', type: 'behavior-baseline-testing', description: 'Customer Behavior Baseline Model Performance Testing', quality: 'good' },
+          { id: 'ev30', type: 'risk-tier-calibration', description: 'Risk-Based Monitoring Tier Calibration Analysis', quality: 'excellent' }
         ],
         linkedRules: ['rule-2', 'rule-9']
       },
@@ -260,9 +260,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-08'
         },
         evidence: [
-          { id: 'ev31', type: 'bo-procedures', description: 'Beneficial Owner Identification Procedures', quality: 'excellent' },
-          { id: 'ev32', type: 'verification-testing', description: 'Beneficial Owner Verification Testing Results', quality: 'good' },
-          { id: 'ev33', type: 'control-person', description: 'Control Person Identification Documentation', quality: 'good' }
+          { id: 'ev31', type: 'network-analysis-testing', description: 'Beneficial Owner Network Analysis Algorithm Testing', quality: 'excellent' },
+          { id: 'ev32', type: 'ownership-change-detection', description: 'Ownership Structure Change Detection Testing', quality: 'good' },
+          { id: 'ev33', type: 'control-relationship-mapping', description: 'Control Person Relationship Mapping Validation', quality: 'good' }
         ],
         linkedRules: ['rule-2', 'rule-9']
       },
@@ -279,11 +279,11 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-10'
         },
         evidence: [
-          { id: 'ev34', type: 'section311-compliance', description: 'Section 311 Special Measures Compliance Procedures', quality: 'excellent' },
-          { id: 'ev35', type: 'prohibited-transactions', description: 'Prohibited Transaction Blocking System Testing', quality: 'good' },
-          { id: 'ev36', type: 'regulatory-updates', description: 'FinCEN Special Measures Update Tracking', quality: 'excellent' }
+          { id: 'ev34', type: 'special-measures-testing', description: 'Section 311 Transaction Blocking Rule Testing', quality: 'excellent' },
+          { id: 'ev35', type: 'real-time-blocking-test', description: 'Real-Time Prohibited Transaction Blocking Testing', quality: 'good' },
+          { id: 'ev36', type: 'regulatory-rule-deployment', description: 'Emergency Regulatory Rule Deployment Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-6', 'rule-7']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-600',
@@ -298,11 +298,11 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-12'
         },
         evidence: [
-          { id: 'ev37', type: 'gto-compliance', description: 'Geographic Targeting Order Compliance Procedures', quality: 'good' },
-          { id: 'ev38', type: 'geographic-monitoring', description: 'Geographic Risk Monitoring System Performance', quality: 'excellent' },
-          { id: 'ev39', type: 'additional-reporting', description: 'GTO Additional Reporting Requirements Implementation', quality: 'good' }
+          { id: 'ev37', type: 'gto-rule-testing', description: 'Geographic Targeting Order Rule Implementation Testing', quality: 'good' },
+          { id: 'ev38', type: 'location-based-monitoring', description: 'Location-Based Transaction Monitoring Algorithm Testing', quality: 'excellent' },
+          { id: 'ev39', type: 'reporting-automation-test', description: 'GTO Automated Reporting System Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-6', 'rule-7', 'rule-8']
+        linkedRules: ["rule-8"]
       },
       {
         id: 'bsa-1020-700',
@@ -317,9 +317,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-15'
         },
         evidence: [
-          { id: 'ev40', type: 'training-programs', description: 'AML Training Program Content and Delivery Records', quality: 'excellent' },
-          { id: 'ev41', type: 'completion-tracking', description: 'Employee Training Completion Tracking System', quality: 'good' },
-          { id: 'ev42', type: 'effectiveness-testing', description: 'Training Effectiveness Assessment Results', quality: 'good' }
+          { id: 'ev40', type: 'user-acceptance-testing', description: 'TM System User Acceptance Testing Results', quality: 'excellent' },
+          { id: 'ev41', type: 'workflow-testing', description: 'Alert Investigation Workflow Testing', quality: 'good' },
+          { id: 'ev42', type: 'training-data-validation', description: 'ML Model Training Data Validation Testing', quality: 'good' }
         ],
         linkedRules: ['rule-1', 'rule-2']
       },
@@ -336,9 +336,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-18'
         },
         evidence: [
-          { id: 'ev43', type: 'independent-testing', description: 'Annual Independent AML Program Testing Report', quality: 'excellent' },
-          { id: 'ev44', type: 'testing-scope', description: 'Independent Testing Scope and Risk Assessment', quality: 'good' },
-          { id: 'ev45', type: 'remediation-tracking', description: 'Testing Finding Remediation Tracking', quality: 'excellent' }
+          { id: 'ev43', type: 'penetration-testing', description: 'AML System Security Penetration Testing Results', quality: 'excellent' },
+          { id: 'ev44', type: 'load-testing', description: 'Transaction Volume Load Testing Results', quality: 'good' },
+          { id: 'ev45', type: 'disaster-recovery-testing', description: 'TM System Disaster Recovery Testing', quality: 'excellent' }
         ],
         linkedRules: ['rule-1', 'rule-2', 'rule-3']
       },
@@ -355,9 +355,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-20'
         },
         evidence: [
-          { id: 'ev46', type: 'officer-designation', description: 'AML Compliance Officer Designation Documentation', quality: 'excellent' },
-          { id: 'ev47', type: 'authority-independence', description: 'Compliance Officer Authority and Independence Assessment', quality: 'good' },
-          { id: 'ev48', type: 'resource-adequacy', description: 'AML Program Resource Adequacy Review', quality: 'good' }
+          { id: 'ev46', type: 'governance-testing', description: 'AML Governance Framework Model Testing', quality: 'excellent' },
+          { id: 'ev47', type: 'escalation-testing', description: 'Alert Escalation Workflow Testing', quality: 'good' },
+          { id: 'ev48', type: 'capacity-testing', description: 'System Capacity and Resource Testing', quality: 'good' }
         ],
         linkedRules: ['rule-1', 'rule-2']
       },
@@ -374,9 +374,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-22'
         },
         evidence: [
-          { id: 'ev49', type: 'record-retention', description: 'BSA Record Retention Policy and Procedures', quality: 'excellent' },
-          { id: 'ev50', type: 'access-procedures', description: 'Regulator Record Access Procedures and Testing', quality: 'good' },
-          { id: 'ev51', type: 'retention-schedule', description: 'BSA Record Retention Schedule Compliance Review', quality: 'excellent' }
+          { id: 'ev49', type: 'data-retention-testing', description: 'Transaction Data Retention Rule Testing', quality: 'excellent' },
+          { id: 'ev50', type: 'api-testing', description: 'Regulatory Data Access API Testing', quality: 'good' },
+          { id: 'ev51', type: 'archival-testing', description: 'Historical Transaction Data Archival Testing', quality: 'excellent' }
         ],
         linkedRules: ['rule-1', 'rule-2']
       },
@@ -393,9 +393,9 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-25'
         },
         evidence: [
-          { id: 'ev52', type: 'internal-controls', description: 'AML Internal Controls Framework Documentation', quality: 'excellent' },
-          { id: 'ev53', type: 'segregation-duties', description: 'AML Function Segregation of Duties Review', quality: 'good' },
-          { id: 'ev54', type: 'management-oversight', description: 'AML Management Oversight and Reporting Structure', quality: 'excellent' }
+          { id: 'ev52', type: 'control-framework-testing', description: 'Internal Control Framework Validation Testing', quality: 'excellent' },
+          { id: 'ev53', type: 'access-control-testing', description: 'Role-Based Access Control Testing', quality: 'good' },
+          { id: 'ev54', type: 'reporting-automation-testing', description: 'Automated Management Reporting Testing', quality: 'excellent' }
         ],
         linkedRules: ['rule-1', 'rule-2', 'rule-3']
       }
@@ -466,8 +466,8 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-01'
         },
         evidence: [
-          { id: 'ev12', type: 'system-performance', description: 'Transaction Monitoring System Metrics', quality: 'good' },
-          { id: 'ev13', type: 'alert-analysis', description: 'Alert Quality Assessment Reports', quality: 'excellent' }
+          { id: 'ev12', type: 'performance-monitoring', description: 'Real-Time TM System Performance Monitoring', quality: 'good' },
+          { id: 'ev13', type: 'alert-quality-testing', description: 'Alert Generation Quality Assessment Testing', quality: 'excellent' }
         ],
         linkedRules: ['rule-12']
       }
@@ -475,7 +475,7 @@ export const regulatoryDocuments = [
   },
   {
     id: 'internal-tmp',
-    title: 'Internal Transaction Monitoring Policy',
+    title: 'US Business Operations Policy',
     type: 'internal',
     jurisdiction: 'US',
     lastUpdated: '2024-02-15',
@@ -493,14 +493,14 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-02-01'
         },
         evidence: [
-          { id: 'ev14', type: 'rule-performance', description: 'Crypto Exchange Block Rule Performance', quality: 'excellent' },
-          { id: 'ev15', type: 'audit-report', description: 'Q4 2023 Crypto Transaction Review', quality: 'good' }
+          { id: 'ev14', type: 'blocking-rule-testing', description: 'Crypto Exchange Blocking Rule Performance Testing', quality: 'excellent' },
+          { id: 'ev15', type: 'transaction-review-testing', description: 'Crypto Transaction Pattern Recognition Testing', quality: 'good' }
         ],
         linkedRules: ['rule-13']
       },
       {
         id: 'tmp-002',
-        title: 'Cash Intensive Business Restrictions',
+        title: 'High-Risk Industry Business Restrictions',
         reference: 'TMP-002',
         text: 'The Bank does not provide services to cash-intensive businesses including money service businesses, check cashers, payday lenders, precious metals dealers, or cannabis-related businesses. Enhanced monitoring for grandfathered accounts requires: (1) Daily cash transaction monitoring with alerts triggered for deposits exceeding $5,000, (2) Weekly analysis of cash-to-deposit ratios with alerts for ratios exceeding 40%, (3) Monthly review of transaction patterns for unusual timing such as after-hours or weekend deposits, (4) Automated screening against state cannabis licensing databases, and (5) Enhanced due diligence renewal every 6 months with documented business purpose verification.',
         metadata: {
@@ -511,14 +511,14 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-30'
         },
         evidence: [
-          { id: 'ev16', type: 'workflow-metrics', description: 'Cash Business Account Closure Tracking', quality: 'excellent' },
-          { id: 'ev17', type: 'training-records', description: 'Enhanced Due Diligence Training Completion', quality: 'good' }
+          { id: 'ev16', type: 'closure-workflow-testing', description: 'Cash Business Account Closure Workflow Testing', quality: 'excellent' },
+          { id: 'ev17', type: 'edd-process-testing', description: 'Enhanced Due Diligence Process Testing', quality: 'good' }
         ],
         linkedRules: ['rule-14']
       },
       {
         id: 'tmp-003',
-        title: 'High-Risk Geography Transaction Limits',
+        title: 'International Business Transaction Controls',
         reference: 'TMP-003',
         text: 'Transactions to/from high-risk jurisdictions (Iran, North Korea, Syria, Crimea region) are prohibited. Transaction monitoring systems must: (1) Automatically block transactions to/from sanctioned countries with immediate compliance notification, (2) Flag transactions above $5,000 to medium-risk countries (Pakistan, Myanmar, Cambodia, Panama) for manual review, (3) Apply enhanced screening for transactions to countries with FATF deficiencies using real-time country risk matrices, (4) Monitor for indirect routing through correspondent banks in prohibited jurisdictions, (5) Generate alerts for wire transfers with beneficiary addresses in high-risk border regions, and (6) Require compliance officer approval within 4 hours for transactions above $25,000 to any non-US jurisdiction.',
         metadata: {
@@ -529,8 +529,8 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-25'
         },
         evidence: [
-          { id: 'ev18', type: 'system-validation', description: 'Geographic Risk Filter Testing', quality: 'excellent' },
-          { id: 'ev19', type: 'compliance-review', description: 'OFAC Compliance Validation Report', quality: 'excellent' }
+          { id: 'ev18', type: 'geographic-filter-testing', description: 'Geographic Risk Filter Algorithm Testing', quality: 'excellent' },
+          { id: 'ev19', type: 'sanctions-screening-testing', description: 'OFAC Sanctions Screening Performance Testing', quality: 'excellent' }
         ],
         linkedRules: ['rule-15']
       },
@@ -547,10 +547,152 @@ export const regulatoryDocuments = [
           lastReviewed: '2024-01-20'
         },
         evidence: [
-          { id: 'ev22', type: 'data-analytics', description: 'Merchant Settlement Pattern Analysis', quality: 'good' },
-          { id: 'ev23', type: 'system-monitoring', description: 'Real-time Transaction Ratio Tracking', quality: 'excellent' }
+          { id: 'ev22', type: 'pattern-analysis-testing', description: 'Merchant Settlement Pattern Analysis Algorithm Testing', quality: 'good' },
+          { id: 'ev23', type: 'ratio-monitoring-testing', description: 'Real-Time Transaction Ratio Monitoring Testing', quality: 'excellent' }
         ],
         linkedRules: ['rule-16']
+      },
+      {
+        id: 'tmp-006',
+        title: 'US Corporate Account Approval Process',
+        reference: 'TMP-006',
+        text: 'Corporate accounts with complex ownership structures require enhanced approval processes. Business development teams must: (1) Obtain beneficial ownership disclosure for all entities with 25% or greater ownership, (2) Verify business purpose and expected transaction patterns during onboarding, (3) Document source of initial funding with supporting bank statements or financial records, (4) Conduct enhanced due diligence for shell companies or entities with nominee directors, and (5) Obtain senior management approval for any account with cross-border ownership exceeding $1 million in expected annual volume.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['commercial-banking'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2024-02-10'
+        },
+        evidence: [
+          { id: 'ev140', type: 'approval-workflow-testing', description: 'Corporate Account Approval Workflow Testing', quality: 'excellent' },
+          { id: 'ev141', type: 'ownership-verification-testing', description: 'Beneficial Ownership Verification Algorithm Testing', quality: 'good' },
+          { id: 'ev142', type: 'business-purpose-validation', description: 'Corporate Business Purpose Validation Testing', quality: 'excellent' }
+        ],
+        linkedRules: ['rule-2', 'rule-3']
+      }
+    ]
+  },
+  {
+    id: 'uk-internal-tmp',
+    title: 'UK Business Operations Policy',
+    type: 'internal',
+    jurisdiction: 'UK',
+    lastUpdated: '2024-01-30',
+    clauses: [
+      {
+        id: 'uktmp-001',
+        title: 'FCA Senior Managers Regime Compliance',
+        reference: 'UKTMP-001',
+        text: 'Senior Manager Function 17 (Money Laundering Reporting Officer) must maintain independent oversight of transaction monitoring effectiveness. Systems must: (1) Generate automated reports for MLRO review of alert disposition decisions within 48 hours, (2) Flag transactions above £50,000 requiring senior manager pre-approval, (3) Maintain audit trails demonstrating MLRO oversight of monitoring rule calibration, (4) Alert MLRO to system performance degradation exceeding 15% deviation from baseline, and (5) Provide MLRO dashboard access to real-time monitoring system status and performance metrics.',
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2024-01-30'
+        },
+        evidence: [
+          { id: 'ev120', type: 'governance-testing', description: 'SMR17 MLRO Oversight Framework Testing', quality: 'excellent' },
+          { id: 'ev121', type: 'compliance-testing', description: 'Transaction Monitoring SMR Compliance Testing', quality: 'good' },
+          { id: 'ev122', type: 'dashboard-testing', description: 'MLRO Performance Dashboard Testing', quality: 'excellent' }
+        ],
+        linkedRules: ['rule-8', 'rule-9']
+      },
+      {
+        id: 'uktmp-002',
+        title: 'Enhanced Due Diligence for EU/EEA Transactions Post-Brexit',
+        reference: 'UKTMP-002',
+        text: 'Post-Brexit enhanced monitoring for EU/EEA cross-border transactions requires additional scrutiny equivalent to third-country standards. Systems must: (1) Apply enhanced transaction monitoring to all EU/EEA wire transfers above £10,000, (2) Screen against UK-specific sanctions lists including Magnitsky sanctions, (3) Monitor for unusual patterns in EUR-denominated transactions exceeding historical baselines by 200%, (4) Flag correspondent banking relationships with EU institutions not subject to equivalent regulatory standards, and (5) Generate alerts for transactions to EU jurisdictions with enhanced CDD requirements under UK MLRs.',
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['commercial-banking', 'wealth-management'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2024-01-25'
+        },
+        evidence: [
+          { id: 'ev123', type: 'policy-documentation', description: 'Post-Brexit EU/EEA Transaction Monitoring Procedures', quality: 'excellent' },
+          { id: 'ev124', type: 'system-configuration', description: 'Enhanced Monitoring Rules for EU/EEA Transactions', quality: 'good' },
+          { id: 'ev125', type: 'compliance-testing', description: 'EU/EEA Enhanced Monitoring Effectiveness Testing', quality: 'excellent' }
+        ],
+        linkedRules: ['rule-8', 'rule-10']
+      },
+      {
+        id: 'uktmp-003',
+        title: 'UK Sanctions List Real-time Screening',
+        reference: 'UKTMP-003',
+        text: 'Real-time screening against UK sanctions lists including HM Treasury financial sanctions and NCA asset freezing orders. Systems must: (1) Screen all transactions against UK Sanctions List within 30 seconds of initiation, (2) Automatically block transactions to/from sanctioned entities with immediate MLRO notification, (3) Apply fuzzy name matching with 85% confidence threshold for sanctions screening, (4) Monitor for sanctions evasion techniques including name variations and shell company structures, and (5) Generate daily reports of sanctions screening activity for regulatory reporting.',
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2024-02-01'
+        },
+        evidence: [
+          { id: 'ev126', type: 'sanctions-screening', description: 'UK Sanctions List Screening System Documentation', quality: 'excellent' },
+          { id: 'ev127', type: 'blocking-procedures', description: 'Sanctioned Entity Transaction Blocking Procedures', quality: 'excellent' },
+          { id: 'ev128', type: 'reporting-metrics', description: 'UK Sanctions Screening Performance Metrics', quality: 'good' }
+        ],
+        linkedRules: ['rule-8', 'rule-9', 'rule-12']
+      },
+      {
+        id: 'uktmp-004',
+        title: 'GDPR-Compliant Transaction Data Retention',
+        reference: 'UKTMP-004',
+        text: 'Transaction monitoring data retention balancing AML requirements with GDPR data minimization principles. Systems must: (1) Retain transaction monitoring alerts and investigations for 5 years as required by UK MLRs, (2) Implement data anonymization for non-suspicious transactions after 7 years retention, (3) Maintain detailed audit logs of data access and processing for regulatory examination, (4) Enable data subject access requests for transaction monitoring data within 30 days, and (5) Ensure secure deletion of personal data beyond regulatory retention requirements.',
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'medium',
+          lastReviewed: '2024-01-20'
+        },
+        evidence: [
+          { id: 'ev129', type: 'data-governance', description: 'GDPR-Compliant AML Data Retention Policy', quality: 'excellent' },
+          { id: 'ev130', type: 'technical-controls', description: 'Automated Data Retention and Deletion Controls', quality: 'good' },
+          { id: 'ev131', type: 'privacy-assessment', description: 'Transaction Monitoring GDPR Impact Assessment', quality: 'excellent' }
+        ],
+        linkedRules: ['rule-8', 'rule-10']
+      },
+      {
+        id: 'uktmp-005',
+        title: 'PEP Monitoring for UK Politically Exposed Persons',
+        reference: 'UKTMP-005',
+        text: 'Enhanced monitoring for UK domestic and EU PEPs including MPs, senior civil servants, and judicial officials. Systems must: (1) Maintain real-time UK PEP database including family members and known close associates, (2) Apply enhanced transaction monitoring with 50% lower thresholds for UK PEPs, (3) Generate alerts for PEP transactions inconsistent with known source of wealth, (4) Require senior management approval for establishing UK PEP business relationships, and (5) Conduct enhanced periodic reviews of UK PEP accounts every 6 months.',
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual'],
+          riskLevel: 'high',
+          lastReviewed: '2024-01-28'
+        },
+        evidence: [
+          { id: 'ev132', type: 'pep-database', description: 'UK PEP Database and Screening System', quality: 'excellent' },
+          { id: 'ev133', type: 'enhanced-monitoring', description: 'UK PEP Enhanced Transaction Monitoring Rules', quality: 'good' },
+          { id: 'ev134', type: 'review-procedures', description: 'UK PEP Account Review and Approval Procedures', quality: 'excellent' }
+        ],
+        linkedRules: ['rule-9', 'rule-10']
+      },
+      {
+        id: 'uktmp-006',
+        title: 'UK Business Banking Relationship Management',
+        reference: 'UKTMP-006',
+        text: 'UK business banking relationships require ongoing relationship management aligned with FCA principles for treating customers fairly. Relationship managers must: (1) Conduct annual business review meetings with all corporate clients above £500K annual turnover, (2) Document changes in business model, ownership, or geographic footprint within 30 days, (3) Update risk assessments following material changes in regulatory status or business activities, (4) Maintain current beneficial ownership information in compliance with PSC register requirements, and (5) Escalate to senior management any accounts showing signs of potential regulatory non-compliance or reputational risk.',
+        metadata: {
+          jurisdiction: ['UK'],
+          productType: ['commercial-banking', 'wealth-management'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'medium',
+          lastReviewed: '2024-01-15'
+        },
+        evidence: [
+          { id: 'ev135', type: 'relationship-management', description: 'UK Business Banking Relationship Management Framework', quality: 'excellent' },
+          { id: 'ev136', type: 'review-procedures', description: 'Annual Business Review Meeting Procedures', quality: 'good' },
+          { id: 'ev137', type: 'psc-compliance', description: 'PSC Register Compliance and Beneficial Ownership Tracking', quality: 'excellent' }
+        ],
+        linkedRules: ['rule-9', 'rule-10']
       }
     ]
   },
@@ -730,7 +872,7 @@ export const regulatoryDocuments = [
           { id: 'ev85', type: 'internal-reporting', description: 'Internal Suspicious Activity Reporting System', quality: 'good' },
           { id: 'ev86', type: 'sar-statistics', description: 'SAR Filing Statistics and Quality Review', quality: 'good' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-87',
@@ -749,7 +891,7 @@ export const regulatoryDocuments = [
           { id: 'ev88', type: 'disclosure-controls', description: 'Information Disclosure Control Procedures', quality: 'good' },
           { id: 'ev89', type: 'communication-protocols', description: 'Customer Communication Protocol Review', quality: 'good' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-24',
@@ -806,7 +948,7 @@ export const regulatoryDocuments = [
           { id: 'ev97', type: 'equivalence-assessment', description: 'Third Country AML Requirement Equivalence Assessment', quality: 'excellent' },
           { id: 'ev98', type: 'fca-reporting', description: 'FCA Notification of Third Country Compliance Issues', quality: 'good' }
         ],
-        linkedRules: ['rule-6', 'rule-7', 'rule-10']
+        linkedRules: ["rule-10"]
       },
       {
         id: 'uk-mlr-2017-reg-39',
@@ -929,7 +1071,7 @@ export const regulatoryDocuments = [
           { id: 'ev28', type: 'regulatory-mapping', description: 'AMLD5 Compliance Framework', quality: 'excellent' },
           { id: 'ev29', type: 'backtest-results', description: 'EU Payment Pattern Recognition', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-6', 'rule-12']
+        linkedRules: ["rule-1","rule-12"]
       },
       {
         id: 'eu-amld5-art18a',
@@ -965,7 +1107,7 @@ export const regulatoryDocuments = [
           { id: 'ev32', type: 'str-metrics', description: 'Suspicious Transaction Report Statistics', quality: 'fair' },
           { id: 'ev33', type: 'workflow-documentation', description: 'EU STR Filing Process Documentation', quality: 'good' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       }
     ]
   },
@@ -1010,7 +1152,7 @@ export const regulatoryDocuments = [
           { id: 'ev29', type: 'str-analysis', description: 'Suspicious Transaction Report Quality Review', quality: 'good' },
           { id: 'ev30', type: 'training-records', description: 'FINTRAC Reporting Requirements Training', quality: 'excellent' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       },
       {
         id: 'pcmla-s6-1',
@@ -1073,7 +1215,7 @@ export const regulatoryDocuments = [
           { id: 'ev35', type: 'smr-metrics', description: 'AUSTRAC Suspicious Matter Report Statistics', quality: 'excellent' },
           { id: 'ev36', type: 'investigation-outcomes', description: 'SMR Follow-up Investigation Results', quality: 'good' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       },
       {
         id: 'aml-ctf-s82',
@@ -1118,7 +1260,7 @@ export const regulatoryDocuments = [
           { id: 'ev39', type: 'str-filing', description: 'MAS STR Filing Performance Metrics', quality: 'excellent' },
           { id: 'ev40', type: 'compliance-audit', description: 'MAS AML/CFT Inspection Report', quality: 'good' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       },
       {
         id: 'cdsa-s48f',
@@ -1163,7 +1305,7 @@ export const regulatoryDocuments = [
           { id: 'ev43', type: 'cdd-compliance', description: 'HKMA CDD Compliance Review', quality: 'excellent' },
           { id: 'ev44', type: 'threshold-monitoring', description: 'HK$120,000 Transaction Threshold Monitoring', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-6', 'rule-7']
+        linkedRules: ["rule-2"]
       },
       {
         id: 'amlo-s25a',
@@ -1181,7 +1323,7 @@ export const regulatoryDocuments = [
           { id: 'ev45', type: 'str-metrics', description: 'JFIU STR Filing Statistics and Quality', quality: 'good' },
           { id: 'ev46', type: 'training-completion', description: 'STR Recognition and Filing Training', quality: 'excellent' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       }
     ]
   },
@@ -1226,7 +1368,7 @@ export const regulatoryDocuments = [
           { id: 'ev49', type: 'str-filing', description: 'JAFIC STR Filing Performance and Quality', quality: 'good' },
           { id: 'ev50', type: 'suspicious-activity', description: 'Suspicious Activity Detection Effectiveness', quality: 'fair' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       }
     ]
   },
@@ -1271,7 +1413,7 @@ export const regulatoryDocuments = [
           { id: 'ev53', type: 'mros-reporting', description: 'MROS Suspicious Activity Report Statistics', quality: 'excellent' },
           { id: 'ev54', type: 'investigation-outcomes', description: 'SAR Investigation and Follow-up Results', quality: 'good' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       }
     ]
   },
@@ -1316,7 +1458,7 @@ export const regulatoryDocuments = [
           { id: 'ev57', type: 'fiu-reporting', description: 'UAE FIU STR Filing Performance Metrics', quality: 'good' },
           { id: 'ev58', type: 'compliance-monitoring', description: 'AML Compliance Monitoring Effectiveness', quality: 'excellent' }
         ],
-        linkedRules: ['rule-5']
+        linkedRules: []
       }
     ]
   }
@@ -1360,7 +1502,7 @@ export const rules = [
       lastAdded: '2024-01-20',
       types: ['backtest-results', 'threshold-analysis']
     },
-    linkedClauses: ['bsa-1020-320-a-1', 'bsa-1020-320-b']
+    linkedClauses: ["bsa-1020-210","bsa-1010-313","bsa-1020-700","bsa-1020-800","bsa-1020-900","bsa-1020-1000","bsa-1020-1100","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-21","uk-mlr-2017-reg-22","uk-mlr-2017-reg-24","uk-mlr-2017-reg-26","uk-mlr-2017-reg-40","eu-amld5-art13","pcmla-s9-1","aml-ctf-s82"]
   },
   {
     id: 'rule-2',
@@ -1394,7 +1536,7 @@ export const rules = [
       lastAdded: '2024-01-12',
       types: ['pattern-analysis', 'behavior-modeling']
     },
-    linkedClauses: ['bsa-1020-320-a-1']
+    linkedClauses: ["bsa-1020-220","bsa-1020-320-a","bsa-1020-400","bsa-1020-410","bsa-1020-700","bsa-1020-800","bsa-1020-900","bsa-1020-1000","bsa-1020-1100","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-21","uk-mlr-2017-reg-22","uk-mlr-2017-reg-24","uk-mlr-2017-reg-26","uk-mlr-2017-reg-27","uk-mlr-2017-reg-28","uk-mlr-2017-reg-29","uk-mlr-2017-reg-30","uk-mlr-2017-reg-35","uk-mlr-2017-reg-37","uk-mlr-2017-reg-39","uk-mlr-2017-reg-40","amlo-s7","pcmla-s6-1","aml-ctf-s43","cdsa-s48f","narcotics-s4","amla-art6","uae-aml-art16","tmp-006"]
   },
   {
     id: 'rule-3',
@@ -1432,7 +1574,7 @@ export const rules = [
       lastAdded: '2024-01-08',
       types: ['wire-analysis', 'geographic-risk']
     },
-    linkedClauses: ['bsa-1020-320-a-1']
+    linkedClauses: ["bsa-1020-240","bsa-1020-315","bsa-1020-800","bsa-1020-1100","uk-mlr-2017-reg-19","uk-mlr-2017-reg-26","pcmla-s9-1","tmp-006"]
   },
   {
     id: 'rule-8',
@@ -1466,7 +1608,7 @@ export const rules = [
       lastAdded: '2024-01-22',
       types: ['geographic-analysis', 'cross-border-monitoring']
     },
-    linkedClauses: ['uk-mlr-2017-reg-28', 'uk-mlr-2017-reg-19']
+    linkedClauses: ["bsa-1020-600","patriot-326-a","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-28","aml-ctf-s82","uktmp-001","uktmp-002","uktmp-003","uktmp-004"]
   },
   {
     id: 'rule-9',
@@ -1500,7 +1642,7 @@ export const rules = [
       lastBacktest: '2024-01-25',
       backtestScore: 4
     },
-    linkedClauses: ['uk-mlr-2017-reg-19', 'eu-amld5-art18a']
+    linkedClauses: ["bsa-1020-220","bsa-1020-250","bsa-1020-400","bsa-1020-410","patriot-326-a","patriot-326-b","uk-mlr-2017-reg-19","uk-mlr-2017-reg-27","uk-mlr-2017-reg-28","uk-mlr-2017-reg-29","uk-mlr-2017-reg-30","uk-mlr-2017-reg-33","uk-mlr-2017-reg-35","uk-mlr-2017-reg-37","uk-mlr-2017-reg-39","eu-amld5-art18a","pcmla-s6-1","aml-ctf-s43","cdsa-s48f","narcotics-s4","amla-art6","uae-aml-art16","uktmp-001","uktmp-003","uktmp-005","uktmp-006"]
   },
   {
     id: 'rule-10',
@@ -1523,7 +1665,7 @@ export const rules = [
       lastBacktest: '2024-01-15',
       backtestScore: 5
     },
-    linkedClauses: ['uk-mlr-2017-reg-19']
+    linkedClauses: ["bsa-1020-250","patriot-326-b","uk-mlr-2017-reg-19","uk-mlr-2017-reg-20","uk-mlr-2017-reg-33","aml-ctf-s43","amla-art6","uktmp-002","uktmp-004","uktmp-005","uktmp-006"]
   },
   {
     id: 'rule-12',
@@ -1550,7 +1692,7 @@ export const rules = [
       lastBacktest: '2024-01-22',
       backtestScore: 4
     },
-    linkedClauses: ['eu-amld5-art13', 'eu-amld5-art18a']
+    linkedClauses: ["finra-tm-001","eu-amld5-art13","eu-amld5-art18a","uktmp-003"]
   },
   {
     id: 'rule-13',

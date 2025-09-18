@@ -235,9 +235,12 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               // Calculate accuracy (true positive rate as percentage)
               const accuracy = Math.round(rule.performance.truePositiveRate * 100);
 
-              // Generate simulated recent change percentage based on rule performance
+              // Generate deterministic recent change percentage based on rule performance
               const baseChange = (rule.performance.truePositiveRate - 0.5) * 10; // Better performing rules tend to have smaller changes
-              const recentChange = (baseChange + (Math.random() * 10 - 5)).toFixed(1); // Some randomness but performance-influenced
+              // Use rule ID to create deterministic "randomness"
+              const seed = rule.id.charCodeAt(rule.id.length - 1);
+              const pseudoRandom = (seed % 100) / 100 - 0.5; // Convert to -0.5 to 0.5 range
+              const recentChange = (baseChange + (pseudoRandom * 10)).toFixed(1); // Deterministic but performance-influenced
 
               return (
                 <div

@@ -30,7 +30,7 @@ export function useDocumentSelection() {
 // Filter State Hook
 export function useFilterState() {
   const [filters, setFilters] = useState({
-    jurisdiction: 'US',
+    jurisdiction: '',
     productType: '',
     customerType: '',
     searchTerm: ''
@@ -42,7 +42,7 @@ export function useFilterState() {
 
   const resetFilters = useCallback(() => {
     setFilters({
-      jurisdiction: 'US',
+      jurisdiction: '',
       productType: '',
       customerType: '',
       searchTerm: ''

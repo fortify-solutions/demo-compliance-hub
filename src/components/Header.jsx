@@ -17,7 +17,7 @@ export function Header({ filters, onFilterChange, onCapacityClick }) {
               />
               <div>
                 <h1 className="text-lg font-bold font-serif" style={{color: '#79189C'}}>
-                  Fortify AML Compliance Hub
+                  FortifyAML Compliance Hub
                 </h1>
               </div>
             </div>

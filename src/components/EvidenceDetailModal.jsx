@@ -25,10 +25,14 @@ export function EvidenceDetailModal({ isOpen, onClose, evidence }) {
 
   const getTypeIcon = (type) => {
     switch (type) {
-      case 'backtest-results':
-      case 'performance-data':
+      case 'rule-backtest':
+      case 'parallel-run':
+      case 'threshold-sensitivity':
+      case 'performance-monitoring':
         return FileText;
-      case 'audit-report':
+      case 'scenario-testing':
+      case 'model-validation':
+      case 'coverage-analysis':
         return Award;
       default:
         return FileText;
@@ -41,9 +45,9 @@ export function EvidenceDetailModal({ isOpen, onClose, evidence }) {
   // Generate simulated detailed content based on evidence type
   const getDetailedContent = () => {
     switch (evidence.type) {
-      case 'backtest-results':
+      case 'rule-backtest':
         return {
-          summary: 'Comprehensive backtest analysis covering the last 24 months of transaction data.',
+          summary: 'Comprehensive backtest analysis covering the last 24 months of transaction monitoring rule performance.',
           details: [
             { label: 'Test Period', value: '24 months (Jan 2023 - Dec 2024)' },
             { label: 'Total Transactions Analyzed', value: '2,847,329' },
@@ -54,47 +58,85 @@ export function EvidenceDetailModal({ isOpen, onClose, evidence }) {
             { label: 'F1 Score', value: '79.0%' }
           ],
           files: [
-            'backtest_results_2024_q4.pdf',
+            'rule_backtest_results_2024_q4.pdf',
             'performance_metrics_summary.xlsx',
             'validation_methodology.docx'
           ]
         };
 
-      case 'performance-data':
+      case 'parallel-run':
         return {
-          summary: 'Real-time performance monitoring data collected from production systems.',
+          summary: 'Parallel validation testing comparing new transaction monitoring rules against legacy system performance.',
           details: [
-            { label: 'Monitoring Period', value: 'Last 90 days' },
-            { label: 'Average Daily Alerts', value: '47.3' },
-            { label: 'Peak Alert Day', value: '89 alerts (Dec 15, 2024)' },
-            { label: 'Investigation Rate', value: '68.4%' },
-            { label: 'Average Resolution Time', value: '4.7 hours' },
-            { label: 'System Uptime', value: '99.97%' },
-            { label: 'Data Quality Score', value: '94.2%' }
+            { label: 'Test Duration', value: '90 days parallel processing' },
+            { label: 'Transaction Volume', value: '1,245,678 transactions' },
+            { label: 'Alert Concordance Rate', value: '94.7%' },
+            { label: 'New System Alerts', value: '1,847 alerts' },
+            { label: 'Legacy System Alerts', value: '1,923 alerts' },
+            { label: 'False Positive Reduction', value: '12.3%' },
+            { label: 'Processing Speed Improvement', value: '34%' }
           ],
           files: [
-            'performance_dashboard_export.csv',
-            'alert_volume_trends.png',
-            'investigation_metrics.json'
+            'parallel_run_comparison.xlsx',
+            'alert_analysis_report.pdf',
+            'performance_metrics.json'
           ]
         };
 
-      case 'audit-report':
+      case 'threshold-sensitivity':
         return {
-          summary: 'External regulatory audit findings and compliance assessment results.',
+          summary: 'Sensitivity analysis testing for transaction monitoring rule thresholds and parameters.',
           details: [
-            { label: 'Audit Date', value: 'November 2024' },
-            { label: 'Regulatory Body', value: 'Federal Financial Institutions Examination Council' },
-            { label: 'Audit Scope', value: 'Transaction Monitoring Systems' },
-            { label: 'Overall Rating', value: 'Satisfactory' },
-            { label: 'Findings', value: '3 observations, 0 violations' },
-            { label: 'Recommendations', value: '5 process improvements' },
-            { label: 'Compliance Score', value: '92%' }
+            { label: 'Threshold Range Tested', value: '$5K - $100K' },
+            { label: 'Sensitivity Points', value: '15 threshold levels' },
+            { label: 'Optimal Threshold', value: '$25,000' },
+            { label: 'Alert Volume at Optimal', value: '47 daily avg' },
+            { label: 'True Positive Rate', value: '78.9%' },
+            { label: 'Coverage Impact', value: '92.4% transaction coverage' },
+            { label: 'Investigation Capacity', value: '85% analyst utilization' }
           ],
           files: [
-            'ffiec_audit_report_nov2024.pdf',
-            'management_response.docx',
-            'corrective_action_plan.xlsx'
+            'threshold_sensitivity_analysis.pdf',
+            'optimization_curves.png',
+            'threshold_recommendations.docx'
+          ]
+        };
+
+      case 'scenario-testing':
+        return {
+          summary: 'Comprehensive scenario testing using known money laundering typologies and attack patterns.',
+          details: [
+            { label: 'Test Scenarios', value: '27 ML typologies tested' },
+            { label: 'Detection Rate', value: '89.3% scenarios detected' },
+            { label: 'Average Detection Time', value: '2.4 days' },
+            { label: 'Structuring Detection', value: '95.7% success rate' },
+            { label: 'Layering Detection', value: '84.2% success rate' },
+            { label: 'Trade-Based ML Detection', value: '76.8% success rate' },
+            { label: 'False Negatives', value: '3 scenarios missed' }
+          ],
+          files: [
+            'scenario_test_results.pdf',
+            'typology_detection_matrix.xlsx',
+            'missed_scenarios_analysis.docx'
+          ]
+        };
+
+      case 'model-validation':
+        return {
+          summary: 'Independent validation of machine learning models and algorithms used in transaction monitoring.',
+          details: [
+            { label: 'Validation Date', value: 'November 2024' },
+            { label: 'Models Tested', value: '5 ML algorithms validated' },
+            { label: 'Validation Scope', value: 'Transaction Pattern Recognition' },
+            { label: 'Overall Model Performance', value: 'Satisfactory' },
+            { label: 'Bias Testing Results', value: 'No significant bias detected' },
+            { label: 'Drift Detection', value: '2% model drift identified' },
+            { label: 'Retraining Recommendation', value: 'Quarterly updates needed' }
+          ],
+          files: [
+            'model_validation_report_nov2024.pdf',
+            'bias_testing_results.xlsx',
+            'drift_analysis.json'
           ]
         };
 
@@ -205,22 +247,42 @@ export function EvidenceDetailModal({ isOpen, onClose, evidence }) {
               </div>
             </div>
 
-            {evidence.type === 'audit-report' && (
+            {evidence.type === 'model-validation' && (
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-blue-500 rounded-full mr-4"></div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">Audit Completed</p>
+                  <p className="text-sm font-medium text-gray-900">Model Validation Completed</p>
                   <p className="text-xs text-gray-500">November 15, 2024</p>
                 </div>
               </div>
             )}
 
-            {evidence.type === 'backtest-results' && (
+            {evidence.type === 'rule-backtest' && (
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-purple-500 rounded-full mr-4"></div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">Backtest Analysis Completed</p>
+                  <p className="text-sm font-medium text-gray-900">Rule Backtest Completed</p>
                   <p className="text-xs text-gray-500">December 10, 2024</p>
+                </div>
+              </div>
+            )}
+
+            {evidence.type === 'parallel-run' && (
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">Parallel Run Testing Completed</p>
+                  <p className="text-xs text-gray-500">December 5, 2024</p>
+                </div>
+              </div>
+            )}
+
+            {evidence.type === 'scenario-testing' && (
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-orange-500 rounded-full mr-4"></div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">Scenario Testing Completed</p>
+                  <p className="text-xs text-gray-500">November 28, 2024</p>
                 </div>
               </div>
             )}
