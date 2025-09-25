@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, XCircle, Clock } from 'lucide-react';
+import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, XCircle, Clock, Shield } from 'lucide-react';
 import { getRuleById } from '../services/mockData';
+import { complianceAnalysisService } from '../services/data/complianceAnalysisService';
+import { ruleService } from '../services/data';
 import { RuleDetailModal } from './RuleDetailModal';
 import { EvidenceDetailModal } from './EvidenceDetailModal';
 
@@ -63,10 +65,19 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
                               clause.metadata.riskLevel === 'medium' ? Clock : CheckCircle;
               const RiskIcon = riskIcon;
 
+              // Get coverage analysis for this clause
+              const associatedRules = ruleService.getRulesByClauseId(clause.id);
+              const coverageAnalysis = complianceAnalysisService.analyzeRequirementCoverage(clause, associatedRules);
+              const hasWarnings = coverageAnalysis.warnings.length > 0;
+
               return (
                 <div
                   key={clause.id}
-                  className="p-4 rounded-lg border-2 border-gray-200 cursor-pointer transition-all hover:shadow-md hover:border-blue-300"
+                  className={`p-4 rounded-lg border-2 cursor-pointer transition-all hover:shadow-md ${
+                    hasWarnings
+                      ? 'border-red-300 bg-red-50 hover:border-red-400'
+                      : 'border-gray-200 hover:border-blue-300'
+                  }`}
                   onClick={() => onClauseSelect(clause)}
                 >
                   <div className="flex items-start justify-between mb-3">
@@ -82,6 +93,20 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
                       </div>
                     </div>
                     <div className="flex items-center space-x-2">
+                      {hasWarnings && (
+                        <div className="flex items-center space-x-1 px-2 py-1 bg-red-100 rounded-full">
+                          <AlertTriangle className="w-3 h-3 text-red-600" />
+                          <span className="text-xs font-medium text-red-700">Coverage Warning</span>
+                        </div>
+                      )}
+                      {coverageAnalysis.hasMultipleObligations && (
+                        <div className="flex items-center space-x-1 px-2 py-1 bg-orange-100 rounded-full">
+                          <Shield className="w-3 h-3 text-orange-600" />
+                          <span className="text-xs font-medium text-orange-700">
+                            {coverageAnalysis.identifiedObligations.length} Obligations
+                          </span>
+                        </div>
+                      )}
                       <span className="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
                         {clause.linkedRules.length} rules
                       </span>

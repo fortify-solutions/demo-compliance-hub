@@ -5,7 +5,7 @@
 AMLBoost Audit is an advanced React application demonstrating a comprehensive AML (Anti-Money Laundering) transaction monitoring compliance system for financial institutions. The system focuses specifically on **transaction monitoring capabilities** rather than case management or sanctions screening, providing a dedicated interface for monitoring rule performance, alert investigation workflows, and regulatory compliance tracking.
 
 **Live Application:** https://scaling-adventure-gg8gvqm.pages.github.io/  
-**Repository:** https://github.com/fortify-solutions/amlboost-audit (Internal)
+**Repository:** https://github.com/fortify-solutions/demo-aml-compliance-hub (Internal)
 
 The application was designed and built through collaborative sessions between a human product owner and Claude, with a focus on creating a Risk Manager-centric interface for ongoing compliance monitoring and audit readiness.
 
@@ -54,7 +54,8 @@ src/
 │       ├── documentService.js         # Document and requirement management
 │       ├── alertService.js            # Alert lifecycle and filtering
 │       ├── ruleService.js             # Rule performance analytics
-│       └── riskCalibrationService.js  # Editable risk parameter management
+│       ├── riskCalibrationService.js  # Editable risk parameter management
+│       └── complianceAnalysisService.js # Multi-obligation parsing and semantic rule matching
 ├── config/
 │   └── layoutConfig.js          # Configurable panel and layout system
 └── utils/
@@ -426,6 +427,35 @@ npm run deploy
 - **Type Safety**: Robust parameter validation prevents runtime errors from invalid input ranges
 - **Memory Management**: Efficient listener cleanup and state optimization for performance
 
+## Recent Major Updates (v7.0) - Intelligent Multi-Obligation Coverage Analysis
+
+### Semantic Rule-Obligation Matching System
+- **Advanced Obligation Parsing**: Intelligent extraction of numbered regulatory obligations using improved regex patterns that correctly identify each distinct requirement (previously missed 3 out of 5 obligations in complex requirements)
+- **Semantic Coverage Analysis**: AI-powered matching between monitoring rules and regulatory obligations using keyword analysis, confidence scoring, and coverage level assessment (high/medium/low/none)
+- **Rule-Obligation Mapping**: Individual assessment of which existing rules cover which specific obligations, preventing false warnings about already-covered requirements
+- **Contextual Gap Analysis**: Distinguishes between truly uncovered obligations vs. those with partial coverage, providing more accurate compliance assessment
+
+### Enhanced Coverage Warning System
+- **Precise Gap Identification**: Shows exactly which numbered obligations lack adequate rule coverage instead of generic "insufficient rules" warnings
+- **Coverage Status Indicators**: Visual badges showing "Coverage Warning" only for requirements with actual gaps, not those already well-covered by existing rules
+- **Semantic Confidence Scoring**: Each rule-obligation match includes confidence score (0-95%) based on keyword overlap and contextual analysis
+- **Multi-Level Coverage Assessment**:
+  - **High Coverage**: Rule semantically matches obligation with 70%+ confidence (e.g., cash monitoring rule covers cash deposit obligations)
+  - **Medium Coverage**: Partial semantic match requiring potential enhancement (e.g., general transaction rule partially covers velocity monitoring)
+  - **Low Coverage**: Minimal overlap, dedicated rule recommended
+  - **No Coverage**: No semantic relationship found, new rule required
+
+### Intelligent Risk Calibration
+- **Accurate Risk Assessment**: Risk levels now account for existing rule coverage, reducing from "Critical" to "Medium" when some obligations are already addressed
+- **Specific Recommendations**: Instead of "create 5 rules," provides targeted guidance like "add wire transfer monitoring rule for obligation (2), velocity analytics for obligation (3)"
+- **Coverage Mapping Visualization**: Shows which obligations are covered, partially covered, or uncovered with specific reasoning for each assessment
+
+### Technical Implementation
+- **ComplianceAnalysisService**: New dedicated service for multi-obligation detection and semantic analysis with comprehensive keyword matching across financial monitoring domains
+- **Semantic Keyword Engine**: Analyzes cash, wire transfer, velocity, business ratio, cross-border, threshold, and real-time monitoring patterns
+- **Enhanced UI Integration**: Coverage warnings now display in both requirement list view (red backgrounds/badges) and detailed compliance insights panel with specific obligation breakdowns
+- **Performance Optimization**: Efficient caching and analysis with confidence-based filtering to prevent false positives
+
 ## Recent Major Updates (v6.0) - Enhanced Modal System & Detailed Views
 
 ### Comprehensive Modal Architecture
@@ -473,6 +503,9 @@ npm run deploy
 8. **Interactive Configuration Systems**: Transforming static displays into editable interfaces dramatically improves user engagement and system utility
 9. **Reactive State Management**: Event-driven architecture with shared services enables seamless data propagation across complex component hierarchies
 10. **Realistic Demo Data**: Using varied, business-realistic values instead of random data significantly improves demonstration credibility
+11. **Semantic Analysis Precision**: Parsing regulatory text requires sophisticated pattern recognition - simple keyword matching fails to identify distinct obligations within complex requirements
+12. **Contextual Rule Coverage**: Existing monitoring rules often provide partial coverage for regulatory obligations, requiring nuanced analysis rather than binary covered/uncovered assessments
+13. **Intelligent Gap Analysis**: Effective compliance tools must distinguish between truly missing capabilities vs. areas where existing controls provide adequate coverage, preventing false alarms about well-managed risks
 
 This project demonstrates how thoughtful UX design and comprehensive data modeling can create sophisticated compliance tools that actually help risk managers do their jobs more effectively, rather than just checking regulatory boxes.
 

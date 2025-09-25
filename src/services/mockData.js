@@ -77,6 +77,23 @@ export const regulatoryDocuments = [
         linkedRules: ['rule-1']
       },
       {
+        id: 'bsa-complex-monitoring',
+        title: 'Comprehensive Transaction Monitoring Requirements',
+        reference: '31 CFR § 1020.315',
+        text: 'Financial institutions must implement comprehensive transaction monitoring systems that: (1) Monitor all cash deposits exceeding $8,000 for potential structuring patterns across all customer accounts within 24-hour periods, (2) Detect unusual wire transfer patterns including round-dollar amounts above $15,000, beneficiaries in high-risk jurisdictions, and incomplete beneficiary information, (3) Flag velocity anomalies when transaction frequency increases by more than 200% compared to customer historical patterns, (4) Apply enhanced scrutiny to business accounts with cash-to-deposit ratios exceeding 40%, and (5) Generate real-time alerts for cross-border transactions above $5,000 to non-cooperative FATF jurisdictions.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2024-01-20'
+        },
+        evidence: [
+          { id: 'ev-comp-1', type: 'rule-backtest', description: 'Partial Coverage Analysis - Cash Monitoring Only', quality: 'fair' }
+        ],
+        linkedRules: ['rule-1']  // Only 1 rule for 5 distinct obligations
+      },
+      {
         id: 'bsa-1020-220',
         title: 'Customer Identification Program',
         reference: '31 CFR § 1020.220',

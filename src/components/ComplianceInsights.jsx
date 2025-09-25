@@ -14,6 +14,7 @@ import {
   Settings
 } from 'lucide-react';
 import { ruleService, riskCalibrationService } from '../services/data';
+import { complianceAnalysisService } from '../services/data/complianceAnalysisService';
 import { useRiskCalibrationState } from '../hooks/useAppState';
 
 export function ComplianceInsights({ selectedClause }) {
@@ -123,13 +124,20 @@ export function ComplianceInsights({ selectedClause }) {
     // Get risk calibration parameters from shared service
     const riskCalibration = getRiskCalibrationData(associatedRules);
 
+    // Analyze requirement coverage for multi-obligations and gaps
+    const coverageAnalysis = complianceAnalysisService.analyzeRequirementCoverage(
+      selectedClause,
+      associatedRules
+    );
+
     return {
       ruleCount,
       lastAssessment,
       alertsPerDay,
       alertTrend,
       riskCalibration,
-      associatedRules
+      associatedRules,
+      coverageAnalysis
     };
   }, [selectedClause]);
 
@@ -202,6 +210,146 @@ export function ComplianceInsights({ selectedClause }) {
       <div className="flex-1 overflow-y-auto p-4">
         {activeTab === 'measures' && (
           <div className="space-y-4">
+            {/* Coverage Warnings Section */}
+            {complianceData.coverageAnalysis.warnings.length > 0 && (
+              <div className="bg-red-50 border-l-4 border-red-400 p-4">
+                <h4 className="font-medium text-red-800 mb-3 flex items-center space-x-2">
+                  <AlertTriangle className="w-5 h-5" />
+                  <span>Coverage Warnings</span>
+                </h4>
+                <div className="space-y-3">
+                  {complianceData.coverageAnalysis.warnings.map((warning, index) => (
+                    <div key={index} className={`p-3 rounded-lg border-l-2 ${
+                      warning.color === 'red' ? 'bg-red-100 border-red-300' :
+                      warning.color === 'orange' ? 'bg-orange-100 border-orange-300' :
+                      'bg-yellow-100 border-yellow-300'
+                    }`}>
+                      <div className="flex items-start space-x-2">
+                        <AlertTriangle className={`w-4 h-4 mt-0.5 ${
+                          warning.color === 'red' ? 'text-red-600' :
+                          warning.color === 'orange' ? 'text-orange-600' :
+                          'text-yellow-600'
+                        }`} />
+                        <div>
+                          <p className={`font-medium text-sm ${
+                            warning.color === 'red' ? 'text-red-800' :
+                            warning.color === 'orange' ? 'text-orange-800' :
+                            'text-yellow-800'
+                          }`}>
+                            {warning.title}
+                          </p>
+                          <p className={`text-sm mt-1 ${
+                            warning.color === 'red' ? 'text-red-700' :
+                            warning.color === 'orange' ? 'text-orange-700' :
+                            'text-yellow-700'
+                          }`}>
+                            {warning.message}
+                          </p>
+                          {warning.details && (
+                            <p className={`text-xs mt-2 ${
+                              warning.color === 'red' ? 'text-red-600' :
+                              warning.color === 'orange' ? 'text-orange-600' :
+                              'text-yellow-600'
+                            }`}>
+                              {warning.details}
+                            </p>
+                          )}
+                          {warning.specificGaps && warning.specificGaps.length > 0 && (
+                            <div className="mt-2">
+                              <p className={`text-xs font-medium ${
+                                warning.color === 'red' ? 'text-red-700' :
+                                warning.color === 'orange' ? 'text-orange-700' :
+                                'text-yellow-700'
+                              }`}>
+                                Uncovered obligations:
+                              </p>
+                              <ul className={`text-xs mt-1 space-y-1 ${
+                                warning.color === 'red' ? 'text-red-600' :
+                                warning.color === 'orange' ? 'text-orange-600' :
+                                'text-yellow-600'
+                              }`}>
+                                {warning.specificGaps.slice(0, 3).map((gap, gapIndex) => (
+                                  <li key={gapIndex} className="flex items-start space-x-1">
+                                    <span>•</span>
+                                    <span>{gap}</span>
+                                  </li>
+                                ))}
+                                {warning.specificGaps.length > 3 && (
+                                  <li className="italic">
+                                    +{warning.specificGaps.length - 3} more obligations
+                                  </li>
+                                )}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Rule-Obligation Mapping Details */}
+                {complianceData.coverageAnalysis.hasMultipleObligations && (
+                  <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h5 className="font-medium text-blue-800 text-sm mb-2">
+                      Coverage Analysis ({complianceData.coverageAnalysis.identifiedObligations.length} obligations)
+                    </h5>
+                    <div className="space-y-2">
+                      {complianceData.coverageAnalysis.identifiedObligations.slice(0, 3).map((obligation, index) => {
+                        const mapping = complianceData.coverageAnalysis.coverageGaps?.length > 0
+                          ? null // Will be shown in gaps
+                          : null;
+
+                        return (
+                          <div key={index} className="text-xs bg-blue-100 rounded p-2">
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <span className="font-medium">{obligation.number}</span> {obligation.text.substring(0, 100)}
+                                {obligation.text.length > 100 && '...'}
+                              </div>
+                              <div className="ml-2 flex-shrink-0">
+                                <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${
+                                  // This will show actual coverage status when mapping is available
+                                  'bg-gray-100 text-gray-600'
+                                }`}>
+                                  Analyzing...
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                      {complianceData.coverageAnalysis.identifiedObligations.length > 3 && (
+                        <p className="text-xs text-blue-600">
+                          +{complianceData.coverageAnalysis.identifiedObligations.length - 3} more obligations
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Recommendations */}
+                {complianceData.coverageAnalysis.recommendations.length > 0 && (
+                  <div className="mt-4">
+                    <h5 className="font-medium text-gray-800 text-sm mb-2">Recommendations</h5>
+                    <div className="space-y-2">
+                      {complianceData.coverageAnalysis.recommendations.slice(0, 2).map((rec, index) => (
+                        <div key={index} className="flex items-center space-x-2 text-sm text-gray-700">
+                          <div className={`w-2 h-2 rounded-full ${
+                            rec.priority === 'critical' ? 'bg-red-500' :
+                            rec.priority === 'high' ? 'bg-orange-500' :
+                            'bg-yellow-500'
+                          }`} />
+                          <span className="font-medium">{rec.title}:</span>
+                          <span>{rec.description}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Rule Count */}
             <div className="bg-white rounded-lg p-4 border border-gray-200">
               <div className="flex items-center justify-between">

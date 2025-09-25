@@ -3,6 +3,7 @@ export { documentService, DocumentService } from './documentService';
 export { alertService, AlertService } from './alertService';
 export { ruleService, RuleService } from './ruleService';
 export { riskCalibrationService, RiskCalibrationService } from './riskCalibrationService';
+export { complianceAnalysisService, ComplianceAnalysisService } from './complianceAnalysisService';
 
 // Re-export commonly used utilities from mockData for backward compatibility
 export {
@@ -42,8 +43,10 @@ import { documentService } from './documentService';
 import { alertService } from './alertService';
 import { ruleService } from './ruleService';
 import { riskCalibrationService } from './riskCalibrationService';
+import { complianceAnalysisService } from './complianceAnalysisService';
 
 serviceFactory.register('documents', documentService);
 serviceFactory.register('alerts', alertService);
 serviceFactory.register('rules', ruleService);
 serviceFactory.register('riskCalibration', riskCalibrationService);
+serviceFactory.register('complianceAnalysis', complianceAnalysisService);
