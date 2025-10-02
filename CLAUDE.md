@@ -4,8 +4,8 @@
 
 AMLBoost Audit is an advanced React application demonstrating a comprehensive AML (Anti-Money Laundering) transaction monitoring compliance system for financial institutions. The system focuses specifically on **transaction monitoring capabilities** rather than case management or sanctions screening, providing a dedicated interface for monitoring rule performance, alert investigation workflows, and regulatory compliance tracking.
 
-**Live Application:** https://scaling-adventure-gg8gvqm.pages.github.io/  
-**Repository:** https://github.com/fortify-solutions/demo-aml-compliance-hub (Internal)
+**Live Application:** https://fortify-solutions.github.io/demo-aml-compliance-hub/
+**Repository:** https://github.com/fortify-solutions/amlboost-audit (Internal)
 
 The application was designed and built through collaborative sessions between a human product owner and Claude, with a focus on creating a Risk Manager-centric interface for ongoing compliance monitoring and audit readiness.
 
@@ -186,11 +186,11 @@ src/
 - **Result**: Fully functional styling with proper color schemes and layouts
 
 ### GitHub Pages Deployment Challenges
-- **Issue**: Internal repository deployment with incorrect base paths
-- **Root Cause**: Internal repos use different URL structure than public repos
-- **Solution**: Set Vite base to '/' instead of '/repo-name/' for internal repositories
-- **Cache Issues**: Required deleting and recreating gh-pages branch to clear old builds
-- **Final Result**: Successfully deployed to https://scaling-adventure-gg8gvqm.pages.github.io/
+- **Issue**: GitHub Pages deployment configuration for iframe compatibility
+- **Root Cause**: Project page deployment pattern needed to match working repositories
+- **Solution**: Set Vite base to '/demo-aml-compliance-hub/' for proper GitHub Pages project deployment
+- **Cache Issues**: May require deleting and recreating gh-pages branch to clear old builds
+- **Final Result**: Successfully deployed to https://fortify-solutions.github.io/demo-aml-compliance-hub/
 
 ## Mock Data Highlights
 
