@@ -7,24 +7,7 @@ export function Header({ filters, onFilterChange, onCapacityClick }) {
     <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm h-20">
       <div className="px-6 py-3 h-full">
         <div className="flex items-center justify-between h-full">
-          {/* Left Section: Title and Status */}
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/fortify-logo.svg" 
-                alt="Fortify Logo" 
-                className="w-8 h-8 object-contain"
-              />
-              <div>
-                <h1 className="text-lg font-bold font-serif" style={{color: '#79189C'}}>
-                  FortifyAML Compliance Hub
-                </h1>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Center Section: Filters */}
+          {/* Filters */}
           <div className="flex items-center space-x-2">
             <select
               value={filters.jurisdiction}
