@@ -2099,7 +2099,7 @@ export const regulatoryDocuments = [
           { id: 'ev118', type: 'regulatory-guidance', description: 'GwG Section 10 Implementation', quality: 'excellent' },
           { id: 'ev119', type: 'policy-documentation', description: 'Continuous Monitoring Procedures', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       },
       {
         id: 'germany-aml-section-2',
@@ -2117,7 +2117,7 @@ export const regulatoryDocuments = [
           { id: 'ev120', type: 'regulatory-guidance', description: 'BaFin Guidance (February 1, 2025)', quality: 'excellent' },
           { id: 'ev121', type: 'compliance-monitoring', description: 'KYC Update Timeliness Tracking', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9']
       },
       {
         id: 'germany-aml-section-3',
@@ -2135,7 +2135,7 @@ export const regulatoryDocuments = [
           { id: 'ev122', type: 'compliance-monitoring', description: 'FIU Reporting Quality Metrics', quality: 'excellent' },
           { id: 'ev123', type: 'audit-report', description: 'Suspicious Activity Detection Review', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       },
       {
         id: 'germany-aml-section-4',
@@ -2153,7 +2153,7 @@ export const regulatoryDocuments = [
           { id: 'ev124', type: 'performance-data', description: 'Cash Transaction Monitoring Metrics', quality: 'excellent' },
           { id: 'ev125', type: 'audit-report', description: 'Cross-Border Wire Transfer Review', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-12']
       },
       {
         id: 'germany-aml-section-5',
@@ -2171,7 +2171,7 @@ export const regulatoryDocuments = [
           { id: 'ev126', type: 'backtest-results', description: 'Monitoring System Validation Results', quality: 'excellent' },
           { id: 'ev127', type: 'audit-report', description: 'Governance Framework Review', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       }
     ]
   },
@@ -2199,7 +2199,7 @@ export const regulatoryDocuments = [
           { id: 'ev128', type: 'regulatory-filing', description: 'D.Lgs. 231/2007 Article 35', quality: 'excellent' },
           { id: 'ev129', type: 'policy-documentation', description: 'Continuous Monitoring Procedures', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       },
       {
         id: 'italy-aml-section-2',
@@ -2217,7 +2217,7 @@ export const regulatoryDocuments = [
           { id: 'ev130', type: 'regulatory-guidance', description: 'UIF Anomaly Indicators', quality: 'excellent' },
           { id: 'ev131', type: 'performance-data', description: 'Threshold Monitoring Metrics', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-12']
       },
       {
         id: 'italy-aml-section-3',
@@ -2235,7 +2235,7 @@ export const regulatoryDocuments = [
           { id: 'ev132', type: 'compliance-monitoring', description: 'UIF Reporting Quality Metrics', quality: 'excellent' },
           { id: 'ev133', type: 'audit-report', description: 'Suspicious Activity Detection Review', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       },
       {
         id: 'italy-aml-section-4',
@@ -2253,7 +2253,7 @@ export const regulatoryDocuments = [
           { id: 'ev134', type: 'performance-data', description: 'PEP Monitoring Effectiveness', quality: 'excellent' },
           { id: 'ev135', type: 'audit-report', description: 'Enhanced Due Diligence Review', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9']
       },
       {
         id: 'italy-aml-section-5',
@@ -2271,7 +2271,7 @@ export const regulatoryDocuments = [
           { id: 'ev136', type: 'backtest-results', description: 'System Validation Results', quality: 'excellent' },
           { id: 'ev137', type: 'audit-report', description: 'Record-Keeping Compliance Review', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       }
     ]
   },
@@ -2299,7 +2299,7 @@ export const regulatoryDocuments = [
           { id: 'ev138', type: 'regulatory-filing', description: 'Law 10/2010 Article 7', quality: 'excellent' },
           { id: 'ev139', type: 'policy-documentation', description: 'Ongoing Monitoring Procedures', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       },
       {
         id: 'spain-aml-section-2',
@@ -2317,7 +2317,7 @@ export const regulatoryDocuments = [
           { id: 'ev140', type: 'compliance-monitoring', description: 'SEPBLAC Reporting Quality Metrics', quality: 'excellent' },
           { id: 'ev141', type: 'audit-report', description: 'Structured Review Documentation', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       },
       {
         id: 'spain-aml-section-3',
@@ -2335,7 +2335,7 @@ export const regulatoryDocuments = [
           { id: 'ev142', type: 'regulatory-guidance', description: 'SEPBLAC Risk Indicator Catalogues (2024-2025)', quality: 'excellent' },
           { id: 'ev143', type: 'performance-data', description: 'Systematic Reporting Metrics', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-12']
       },
       {
         id: 'spain-aml-section-4',
@@ -2353,7 +2353,7 @@ export const regulatoryDocuments = [
           { id: 'ev144', type: 'performance-data', description: 'PEP Enhanced Monitoring Effectiveness', quality: 'excellent' },
           { id: 'ev145', type: 'audit-report', description: 'High-Risk Country Transaction Review', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9']
       },
       {
         id: 'spain-aml-section-5',
@@ -2371,7 +2371,7 @@ export const regulatoryDocuments = [
           { id: 'ev146', type: 'backtest-results', description: 'System Testing and Validation', quality: 'excellent' },
           { id: 'ev147', type: 'audit-report', description: 'Internal Controls Review', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-9', 'rule-12']
       }
     ]
   },
@@ -2499,7 +2499,7 @@ export const regulatoryDocuments = [
           { id: 'ev158', type: 'regulatory-guidance', description: 'FATF Recommendation 10 Interpretive Note', quality: 'excellent' },
           { id: 'ev159', type: 'policy-documentation', description: 'Ongoing Monitoring Framework', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
       },
       {
         id: 'fatf-rec11-records',
@@ -2517,7 +2517,7 @@ export const regulatoryDocuments = [
           { id: 'ev160', type: 'audit-report', description: 'Record Retention Compliance Review', quality: 'excellent' },
           { id: 'ev161', type: 'performance-data', description: 'Transaction Record Audit Trail', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-3', 'rule-9', 'rule-12']
       },
       {
         id: 'fatf-rec16-wire',
@@ -2535,7 +2535,7 @@ export const regulatoryDocuments = [
           { id: 'ev162', type: 'performance-data', description: 'Wire Transfer Monitoring Effectiveness', quality: 'excellent' },
           { id: 'ev163', type: 'backtest-results', description: 'Travel Rule Compliance Testing', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-3', 'rule-12']
       },
       {
         id: 'fatf-rec20-suspicious',
@@ -2553,7 +2553,7 @@ export const regulatoryDocuments = [
           { id: 'ev164', type: 'performance-data', description: 'Suspicious Transaction Detection Metrics', quality: 'excellent' },
           { id: 'ev165', type: 'audit-report', description: 'FIU Reporting Quality Assessment', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
       },
       {
         id: 'fatf-complex-unusual',
@@ -2571,7 +2571,7 @@ export const regulatoryDocuments = [
           { id: 'ev166', type: 'backtest-results', description: 'Complex Transaction Detection Analysis', quality: 'good' },
           { id: 'ev167', type: 'performance-data', description: 'Unusual Pattern Monitoring', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-2', 'rule-9']
       }
     ]
   },
@@ -2599,7 +2599,7 @@ export const regulatoryDocuments = [
           { id: 'ev168', type: 'regulatory-guidance', description: 'FATF Correspondent Banking Guidance (2016)', quality: 'excellent' },
           { id: 'ev169', type: 'policy-documentation', description: 'Correspondent Relationship Monitoring Framework', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-3', 'rule-12']
       },
       {
         id: 'fatf-corr-risk-changes',
@@ -2617,7 +2617,7 @@ export const regulatoryDocuments = [
           { id: 'ev170', type: 'performance-data', description: 'Respondent Risk Profile Monitoring', quality: 'excellent' },
           { id: 'ev171', type: 'backtest-results', description: 'Transaction Pattern Analysis', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-3', 'rule-9']
       },
       {
         id: 'fatf-corr-unusual',
@@ -2635,7 +2635,7 @@ export const regulatoryDocuments = [
           { id: 'ev172', type: 'performance-data', description: 'Unusual Activity Detection Metrics', quality: 'excellent' },
           { id: 'ev173', type: 'audit-report', description: 'Real-Time Monitoring Effectiveness', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-2', 'rule-3', 'rule-12']
       },
       {
         id: 'fatf-corr-rfi',
@@ -2653,7 +2653,7 @@ export const regulatoryDocuments = [
           { id: 'ev174', type: 'policy-documentation', description: 'RFI Process and Escalation Procedures', quality: 'excellent' },
           { id: 'ev175', type: 'performance-data', description: 'RFI Response Quality Metrics', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-3']
       },
       {
         id: 'fatf-corr-nested',
@@ -2671,7 +2671,7 @@ export const regulatoryDocuments = [
           { id: 'ev176', type: 'backtest-results', description: 'Nested Relationship Detection Analysis', quality: 'good' },
           { id: 'ev177', type: 'performance-data', description: 'Sub-Account Monitoring Effectiveness', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-2', 'rule-3']
       }
     ]
   },
@@ -2699,7 +2699,7 @@ export const regulatoryDocuments = [
           { id: 'ev178', type: 'regulatory-guidance', description: 'FATF Methodology Technical Compliance Standards', quality: 'excellent' },
           { id: 'ev179', type: 'audit-report', description: 'Ongoing Monitoring Compliance Assessment', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
       },
       {
         id: 'fatf-method-rec11',
@@ -2717,7 +2717,7 @@ export const regulatoryDocuments = [
           { id: 'ev180', type: 'policy-documentation', description: 'Record Retention Policy Framework', quality: 'excellent' },
           { id: 'ev181', type: 'performance-data', description: 'Record Reconstruction Testing', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-3', 'rule-9', 'rule-12']
       },
       {
         id: 'fatf-method-rec16',
@@ -2735,7 +2735,7 @@ export const regulatoryDocuments = [
           { id: 'ev182', type: 'backtest-results', description: 'Wire Transfer Compliance Testing', quality: 'excellent' },
           { id: 'ev183', type: 'performance-data', description: 'Incomplete Transfer Handling Metrics', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-3', 'rule-12']
       },
       {
         id: 'fatf-method-rec20',
@@ -2753,7 +2753,7 @@ export const regulatoryDocuments = [
           { id: 'ev184', type: 'audit-report', description: 'STR Filing Compliance Review', quality: 'excellent' },
           { id: 'ev185', type: 'performance-data', description: 'Suspicious Activity Detection Metrics', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
       },
       {
         id: 'fatf-method-effectiveness',
@@ -2771,7 +2771,7 @@ export const regulatoryDocuments = [
           { id: 'ev186', type: 'performance-data', description: 'Monitoring System Effectiveness Analysis', quality: 'good' },
           { id: 'ev187', type: 'audit-report', description: 'Risk-Based Approach Assessment', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
       }
     ]
   },
@@ -2799,7 +2799,7 @@ export const regulatoryDocuments = [
           { id: 'ev188', type: 'regulatory-guidance', description: 'FATF Risk-Based Approach for Banking Sector (2014)', quality: 'excellent' },
           { id: 'ev189', type: 'policy-documentation', description: 'Risk-Based Monitoring Framework', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
       },
       {
         id: 'fatf-rba-continuous',
@@ -2817,7 +2817,7 @@ export const regulatoryDocuments = [
           { id: 'ev190', type: 'performance-data', description: 'Continuous Monitoring Effectiveness Metrics', quality: 'excellent' },
           { id: 'ev191', type: 'backtest-results', description: 'Peer Group Comparison Analysis', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9']
       },
       {
         id: 'fatf-rba-automated',
@@ -2835,7 +2835,7 @@ export const regulatoryDocuments = [
           { id: 'ev192', type: 'audit-report', description: 'Automated System Validation Review', quality: 'excellent' },
           { id: 'ev193', type: 'performance-data', description: 'System Integrity Testing Results', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
       },
       {
         id: 'fatf-rba-technology',
@@ -2853,7 +2853,7 @@ export const regulatoryDocuments = [
           { id: 'ev194', type: 'performance-data', description: 'AI/ML False Positive Reduction Analysis', quality: 'good' },
           { id: 'ev195', type: 'backtest-results', description: 'Advanced Analytics Detection Testing', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-2', 'rule-9']
       },
       {
         id: 'fatf-rba-testing',
@@ -2871,7 +2871,7 @@ export const regulatoryDocuments = [
           { id: 'ev196', type: 'audit-report', description: 'Independent Monitoring System Testing', quality: 'excellent' },
           { id: 'ev197', type: 'performance-data', description: 'Detection Capability Validation', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
       }
     ]
   }
@@ -2915,7 +2915,7 @@ export const rules = [
       lastAdded: '2024-01-20',
       types: ['backtest-results', 'threshold-analysis']
     },
-    linkedClauses: ["bsa-1020-210","bsa-1010-313","bsa-1020-700","bsa-1020-800","bsa-1020-900","bsa-1020-1000","bsa-1020-1100","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-21","uk-mlr-2017-reg-22","uk-mlr-2017-reg-24","uk-mlr-2017-reg-26","uk-mlr-2017-reg-40","eu-amld5-art13","pcmla-s9-1","aml-ctf-s82"]
+    linkedClauses: ["bsa-1020-210","bsa-1010-313","bsa-1020-700","bsa-1020-800","bsa-1020-900","bsa-1020-1000","bsa-1020-1100","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-21","uk-mlr-2017-reg-22","uk-mlr-2017-reg-24","uk-mlr-2017-reg-26","uk-mlr-2017-reg-40","eu-amld5-art13","pcmla-s9-1","aml-ctf-s82","fatf-rec10-monitoring","fatf-rec11-records","fatf-rec20-suspicious","fatf-method-rec10","fatf-method-rec11","fatf-method-rec20","fatf-method-effectiveness","fatf-rba-approach","fatf-rba-continuous","fatf-rba-automated","fatf-rba-testing"]
   },
   {
     id: 'rule-2',
@@ -2949,7 +2949,7 @@ export const rules = [
       lastAdded: '2024-01-12',
       types: ['pattern-analysis', 'behavior-modeling']
     },
-    linkedClauses: ["bsa-1020-220","bsa-1020-320-a","bsa-1020-400","bsa-1020-410","bsa-1020-700","bsa-1020-800","bsa-1020-900","bsa-1020-1000","bsa-1020-1100","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-21","uk-mlr-2017-reg-22","uk-mlr-2017-reg-24","uk-mlr-2017-reg-26","uk-mlr-2017-reg-27","uk-mlr-2017-reg-28","uk-mlr-2017-reg-29","uk-mlr-2017-reg-30","uk-mlr-2017-reg-35","uk-mlr-2017-reg-37","uk-mlr-2017-reg-39","uk-mlr-2017-reg-40","amlo-s7","pcmla-s6-1","aml-ctf-s43","cdsa-s48f","narcotics-s4","amla-art6","uae-aml-art16","tmp-006"]
+    linkedClauses: ["bsa-1020-220","bsa-1020-320-a","bsa-1020-400","bsa-1020-410","bsa-1020-700","bsa-1020-800","bsa-1020-900","bsa-1020-1000","bsa-1020-1100","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-21","uk-mlr-2017-reg-22","uk-mlr-2017-reg-24","uk-mlr-2017-reg-26","uk-mlr-2017-reg-27","uk-mlr-2017-reg-28","uk-mlr-2017-reg-29","uk-mlr-2017-reg-30","uk-mlr-2017-reg-35","uk-mlr-2017-reg-37","uk-mlr-2017-reg-39","uk-mlr-2017-reg-40","amlo-s7","pcmla-s6-1","aml-ctf-s43","cdsa-s48f","narcotics-s4","amla-art6","uae-aml-art16","tmp-006","fatf-rec10-monitoring","fatf-rec11-records","fatf-rec20-suspicious","fatf-complex-unusual","fatf-corr-unusual","fatf-corr-nested","fatf-method-rec10","fatf-method-rec11","fatf-method-rec20","fatf-method-effectiveness","fatf-rba-approach","fatf-rba-continuous","fatf-rba-automated","fatf-rba-technology","fatf-rba-testing"]
   },
   {
     id: 'rule-3',
@@ -2987,7 +2987,7 @@ export const rules = [
       lastAdded: '2024-01-08',
       types: ['wire-analysis', 'geographic-risk']
     },
-    linkedClauses: ["bsa-1020-240","bsa-1020-315","bsa-1020-800","bsa-1020-1100","uk-mlr-2017-reg-19","uk-mlr-2017-reg-26","pcmla-s9-1","tmp-006"]
+    linkedClauses: ["bsa-1020-240","bsa-1020-315","bsa-1020-800","bsa-1020-1100","uk-mlr-2017-reg-19","uk-mlr-2017-reg-26","pcmla-s9-1","tmp-006","fatf-rec16-wire","fatf-rec11-records","fatf-corr-ongoing","fatf-corr-risk-changes","fatf-corr-unusual","fatf-corr-rfi","fatf-corr-nested","fatf-method-rec11","fatf-method-rec16"]
   },
   {
     id: 'rule-8',
@@ -3055,7 +3055,7 @@ export const rules = [
       lastBacktest: '2024-01-25',
       backtestScore: 4
     },
-    linkedClauses: ["bsa-1020-220","bsa-1020-250","bsa-1020-400","bsa-1020-410","patriot-326-a","patriot-326-b","uk-mlr-2017-reg-19","uk-mlr-2017-reg-27","uk-mlr-2017-reg-28","uk-mlr-2017-reg-29","uk-mlr-2017-reg-30","uk-mlr-2017-reg-33","uk-mlr-2017-reg-35","uk-mlr-2017-reg-37","uk-mlr-2017-reg-39","eu-amld5-art18a","pcmla-s6-1","aml-ctf-s43","cdsa-s48f","narcotics-s4","amla-art6","uae-aml-art16","uktmp-001","uktmp-003","uktmp-005","uktmp-006"]
+    linkedClauses: ["bsa-1020-220","bsa-1020-250","bsa-1020-400","bsa-1020-410","patriot-326-a","patriot-326-b","uk-mlr-2017-reg-19","uk-mlr-2017-reg-27","uk-mlr-2017-reg-28","uk-mlr-2017-reg-29","uk-mlr-2017-reg-30","uk-mlr-2017-reg-33","uk-mlr-2017-reg-35","uk-mlr-2017-reg-37","uk-mlr-2017-reg-39","eu-amld5-art18a","pcmla-s6-1","aml-ctf-s43","cdsa-s48f","narcotics-s4","amla-art6","uae-aml-art16","uktmp-001","uktmp-003","uktmp-005","uktmp-006","germany-aml-section-1","germany-aml-section-2","germany-aml-section-3","germany-aml-section-5","italy-aml-section-1","italy-aml-section-3","italy-aml-section-4","italy-aml-section-5","spain-aml-section-1","spain-aml-section-2","spain-aml-section-4","spain-aml-section-5","fatf-rec10-monitoring","fatf-rec11-records","fatf-rec20-suspicious","fatf-complex-unusual","fatf-corr-risk-changes","fatf-method-rec10","fatf-method-rec11","fatf-method-rec20","fatf-method-effectiveness","fatf-rba-approach","fatf-rba-continuous","fatf-rba-automated","fatf-rba-technology","fatf-rba-testing"]
   },
   {
     id: 'rule-10',
@@ -3105,7 +3105,7 @@ export const rules = [
       lastBacktest: '2024-01-22',
       backtestScore: 4
     },
-    linkedClauses: ["finra-tm-001","eu-amld5-art13","eu-amld5-art18a","uktmp-003"]
+    linkedClauses: ["finra-tm-001","eu-amld5-art13","eu-amld5-art18a","uktmp-003","germany-aml-section-1","germany-aml-section-3","germany-aml-section-4","germany-aml-section-5","italy-aml-section-1","italy-aml-section-2","italy-aml-section-3","italy-aml-section-5","spain-aml-section-1","spain-aml-section-2","spain-aml-section-3","spain-aml-section-5","fatf-rec10-monitoring","fatf-rec11-records","fatf-rec16-wire","fatf-rec20-suspicious","fatf-corr-ongoing","fatf-corr-unusual","fatf-method-rec10","fatf-method-rec11","fatf-method-rec16","fatf-method-rec20","fatf-method-effectiveness","fatf-rba-approach","fatf-rba-automated","fatf-rba-testing"]
   },
   {
     id: 'rule-13',
