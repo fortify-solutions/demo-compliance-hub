@@ -7,9 +7,9 @@ export class DocumentService {
     this.cache = new Map();
   }
 
-  // Get all documents
+  // Get all documents (only visible ones)
   getAllDocuments() {
-    return this.documents;
+    return this.documents.filter(doc => doc.visible !== false);
   }
 
   // Get document by ID
@@ -56,12 +56,12 @@ export class DocumentService {
     return null;
   }
 
-  // Filter clauses across all documents
+  // Filter clauses across all documents (only visible ones)
   filterClauses(filters = {}) {
     const { jurisdiction, productType, customerType, searchTerm } = filters;
     let results = [];
 
-    for (const document of this.documents) {
+    for (const document of this.documents.filter(doc => doc.visible !== false)) {
       const filteredClauses = document.clauses.filter(clause => {
         // Jurisdiction filter
         if (jurisdiction && !clause.metadata.jurisdiction.includes(jurisdiction)) {
@@ -104,14 +104,14 @@ export class DocumentService {
     return results;
   }
 
-  // Get compliance statistics
+  // Get compliance statistics (only visible documents)
   getComplianceStats() {
     let totalClauses = 0;
     const jurisdictionStats = {};
     const riskStats = { critical: 0, high: 0, medium: 0, low: 0 };
     let totalRules = 0;
 
-    for (const document of this.documents) {
+    for (const document of this.documents.filter(doc => doc.visible !== false)) {
       document.clauses.forEach(clause => {
         totalClauses++;
         totalRules += clause.linkedRules ? clause.linkedRules.length : 0;
@@ -135,13 +135,13 @@ export class DocumentService {
     };
   }
 
-  // Search functionality
+  // Search functionality (only visible documents)
   search(query, options = {}) {
     const { limit = 50, includeDocument = true } = options;
     const searchTerm = query.toLowerCase();
     const results = [];
 
-    for (const document of this.documents) {
+    for (const document of this.documents.filter(doc => doc.visible !== false)) {
       for (const clause of document.clauses) {
         const score = this.calculateRelevanceScore(clause, searchTerm);
         if (score > 0) {

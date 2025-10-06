@@ -48,6 +48,7 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
 
   // Separate documents by type
   const regulatoryDocuments = filteredDocuments.filter(doc => doc.type === 'regulatory');
+  const supplementDocuments = filteredDocuments.filter(doc => doc.type === 'supplement');
   const internalPolicies = filteredDocuments.filter(doc => doc.type === 'internal');
 
   // Component to render individual documents
@@ -62,6 +63,8 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
           className={`p-3 rounded-lg cursor-pointer transition-all ${
             document.type === 'internal'
               ? `internal-policy-document ${isSelected ? 'selected' : ''}`
+              : document.type === 'supplement'
+              ? `hover:bg-amber-50 ${isSelected ? 'bg-amber-100 border-2 border-amber-300' : 'border border-amber-200'}`
               : `hover:bg-gray-50 ${isSelected ? 'bg-blue-50 border-2 border-blue-200' : 'border border-gray-200'}`
           }`}
           onClick={() => {
@@ -202,6 +205,15 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
         <Scale className="w-5 h-5" />,
         'bg-slate-50',
         'text-slate-900'
+      )}
+
+      {/* Supplement Documents Section */}
+      {supplementDocuments.length > 0 && renderDocumentSection(
+        supplementDocuments,
+        'Supplements',
+        <FileText className="w-5 h-5" />,
+        'bg-amber-50',
+        'text-amber-900'
       )}
 
       {/* Internal Policies Section */}

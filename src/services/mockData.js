@@ -56,6 +56,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'US',
     lastUpdated: '2023-12-15',
+    visible: false,
     clauses: [
       {
         id: 'bsa-1020-210',
@@ -424,6 +425,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'US',
     lastUpdated: '2023-11-30',
+    visible: false,
     clauses: [
       {
         id: 'patriot-326-a',
@@ -469,6 +471,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'US',
     lastUpdated: '2024-01-31',
+    visible: false,
     clauses: [
       {
         id: 'finra-tm-001',
@@ -496,6 +499,7 @@ export const regulatoryDocuments = [
     type: 'internal',
     jurisdiction: 'US',
     lastUpdated: '2024-02-15',
+    visible: false,
     clauses: [
       {
         id: 'tmp-001',
@@ -596,6 +600,7 @@ export const regulatoryDocuments = [
     type: 'internal',
     jurisdiction: 'UK',
     lastUpdated: '2024-01-30',
+    visible: false,
     clauses: [
       {
         id: 'uktmp-001',
@@ -719,6 +724,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'UK',
     lastUpdated: '2023-10-15',
+    visible: false,
     clauses: [
       {
         id: 'uk-mlr-2017-reg-18',
@@ -1070,6 +1076,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'EU',
     lastUpdated: '2023-11-28',
+    visible: true,
     clauses: [
       {
         id: 'eu-amld5-art13',
@@ -1134,6 +1141,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'CA',
     lastUpdated: '2024-03-26',
+    visible: false,
     clauses: [
       {
         id: 'pcmla-s9-1',
@@ -1197,6 +1205,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'AU',
     lastUpdated: '2024-02-15',
+    visible: false,
     clauses: [
       {
         id: 'aml-ctf-s43',
@@ -1260,6 +1269,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'SG',
     lastUpdated: '2024-01-20',
+    visible: false,
     clauses: [
       {
         id: 'cdsa-s39',
@@ -1305,6 +1315,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'HK',
     lastUpdated: '2024-01-25',
+    visible: false,
     clauses: [
       {
         id: 'amlo-s7',
@@ -1350,6 +1361,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'JP',
     lastUpdated: '2023-12-10',
+    visible: false,
     clauses: [
       {
         id: 'narcotics-s4',
@@ -1395,6 +1407,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'CH',
     lastUpdated: '2024-01-01',
+    visible: false,
     clauses: [
       {
         id: 'amla-art6',
@@ -1440,6 +1453,7 @@ export const regulatoryDocuments = [
     type: 'regulatory',
     jurisdiction: 'AE',
     lastUpdated: '2024-02-01',
+    visible: false,
     clauses: [
       {
         id: 'uae-aml-art16',
@@ -1474,6 +1488,1388 @@ export const regulatoryDocuments = [
         evidence: [
           { id: 'ev57', type: 'fiu-reporting', description: 'UAE FIU STR Filing Performance Metrics', quality: 'good' },
           { id: 'ev58', type: 'compliance-monitoring', description: 'AML Compliance Monitoring Effectiveness', quality: 'excellent' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'amla-2020',
+    title: 'Anti-Money Laundering Act of 2020 (AMLA)',
+    type: 'regulatory',
+    jurisdiction: 'US',
+    lastUpdated: '2025-01-15',
+    visible: false,
+    clauses: [
+      {
+        id: 'amla-2020-section-1',
+        title: 'National AML/CFT Priorities - Risk-Based Monitoring',
+        reference: 'Section 6101 (31 U.S.C. 5318(h)(4))',
+        text: 'Financial institutions must incorporate FinCEN\'s national AML/CFT priorities into risk assessments and transaction monitoring systems. Monitoring scenarios must be designed to detect priority threat patterns including corruption, cybercrime, terrorist financing, fraud, transnational criminal organization activity, drug trafficking, human trafficking, and proliferation financing. Institutions must document how monitoring addresses each relevant priority and update monitoring parameters based on priorities refreshed every 4 years.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev60', type: 'regulatory-guidance', description: 'FinCEN National Priorities (June 2021)', quality: 'excellent' },
+          { id: 'ev61', type: 'policy-documentation', description: 'Priority Integration Documentation', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'amla-2020-section-2',
+        title: 'Beneficial Ownership Information (Corporate Transparency Act)',
+        reference: 'Title LXIV (31 CFR 1010.380)',
+        text: 'The Corporate Transparency Act establishes a federal beneficial ownership registry at FinCEN. Financial institutions can access this database to enhance customer risk profiles and transaction monitoring scenarios. Monitoring systems must incorporate beneficial ownership data to detect transactions inconsistent with beneficial owner profiles, monitor for structuring using multiple entities with common beneficial owners, and cross-reference transactions across entities with the same beneficial owners.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['commercial-banking', 'wealth-management'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev62', type: 'regulatory-filing', description: 'CTA Final Rule (September 2022)', quality: 'excellent' },
+          { id: 'ev63', type: 'backtest-results', description: 'Beneficial Owner Monitoring Effectiveness', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'amla-2020-section-3',
+        title: 'Effectiveness Standard for Risk-Based AML Programs',
+        reference: 'Section 6101 (31 U.S.C. 5318(h))',
+        text: 'Financial institutions must maintain "effective, risk-based" AML programs with demonstrably effective transaction monitoring. Monitoring must be reasonably designed to detect and report suspicious activity, not merely compliant on paper. Institutions must conduct regular testing and validation of monitoring effectiveness, measure and document performance metrics including false positive and false negative rates, and demonstrate continuous improvement of monitoring systems with senior management oversight.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev64', type: 'audit-report', description: 'Monitoring Effectiveness Testing Results', quality: 'excellent' },
+          { id: 'ev65', type: 'performance-data', description: 'False Positive Rate Analysis', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'amla-2020-section-4',
+        title: 'Innovation and Technology Adoption',
+        reference: 'Sections 6205 and 6207',
+        text: 'AMLA encourages adoption of innovative technologies including artificial intelligence (AI) and machine learning (ML) for transaction monitoring. Financial institutions should consider innovative approaches to monitoring, implement risk-based assessments of new technologies, and validate AI/ML monitoring models. Institutions must document model risk management for automated systems, ensure explainability of AI/ML decisions, maintain human oversight of automated monitoring, and conduct regular review and recalibration of ML models.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'medium',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev66', type: 'policy-documentation', description: 'AI/ML Model Risk Management Framework', quality: 'good' },
+          { id: 'ev67', type: 'backtest-results', description: 'ML Model Validation Results', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'amla-2020-section-5',
+        title: 'Enhanced Monitoring for Large Transactions',
+        reference: 'Section 6308 (Enhanced Penalties)',
+        text: 'AMLA significantly increases penalties for AML violations, creating heightened obligations for transaction monitoring. Monitoring systems must detect concealment schemes and enhanced monitoring of transactions exceeding $1,000,000. Systems should monitor for false or misleading information in large transactions, detect patterns of information concealment, flag involvement of politically exposed persons and their associates, and maintain enhanced investigation procedures for suspicious large transactions.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['commercial-banking', 'wealth-management'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev68', type: 'performance-data', description: 'Large Transaction Monitoring Metrics', quality: 'excellent' },
+          { id: 'ev69', type: 'audit-report', description: 'Enhanced Penalty Compliance Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'amla-2020-section-6',
+        title: 'Comprehensive Documentation and Subpoena Readiness',
+        reference: 'Section 6308 (Expanded Subpoena Authority)',
+        text: 'AMLA expands FinCEN\'s subpoena authority requiring financial institutions to maintain comprehensive documentation of monitoring systems. Institutions must document monitoring scenario logic and parameters, retain records of alert generation, review, and disposition, maintain audit trails of monitoring system changes, document rationale for monitoring thresholds and parameters, and ensure monitoring data is accessible and producible upon regulatory request. All documentation must support detailed regulatory inquiries regarding monitoring decisions.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev70', type: 'audit-report', description: 'Documentation Completeness Review', quality: 'excellent' },
+          { id: 'ev71', type: 'compliance-monitoring', description: 'Audit Trail Validation', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'basel-committee',
+    title: 'Basel Committee Guidelines',
+    type: 'supplement',
+    jurisdiction: 'International',
+    lastUpdated: '2025-01-15',
+    visible: true,
+    clauses: [
+      {
+        id: 'basel-committee-section-1',
+        title: 'Risk-Based Monitoring Framework',
+        reference: 'BCBS d353 - General Principles',
+        text: 'Banks should have adequate policies and processes, including transaction monitoring, designed and implemented to adequately control identified inherent ML/FT risks. Monitoring measures should be proportional and risk-based, informed by banks\' own risk assessment. Institutions must conduct risk assessments to identify ML/FT risks, design monitoring policies based on identified risks, implement controls proportional to risk level, and regularly review and update risk assessments while adjusting monitoring intensity accordingly.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev72', type: 'regulatory-guidance', description: 'Basel Committee Guidelines (BCBS d353)', quality: 'excellent' },
+          { id: 'ev73', type: 'policy-documentation', description: 'Risk-Based Monitoring Framework', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'basel-committee-section-2',
+        title: 'Ongoing Monitoring and Tiered Due Diligence',
+        reference: 'BCBS d353 - Customer Due Diligence',
+        text: 'Banks should apply commensurate due diligence and ongoing monitoring as the level of risk varies. Monitoring systems must scrutinize transactions to ensure consistency with customer knowledge, business, and risk profile. Enhanced measures are required for higher-risk customers with more intensive monitoring, more frequent reviews, lower alert thresholds, and senior management involvement. Simplified measures may be permitted for lower-risk customers where allowed by law, though ongoing monitoring remains required.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev74', type: 'audit-report', description: 'Tiered Monitoring Effectiveness Review', quality: 'excellent' },
+          { id: 'ev75', type: 'performance-data', description: 'Risk-Based Alert Calibration', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'basel-committee-section-3',
+        title: 'Detection and Reporting of Suspicious Transactions',
+        reference: 'BCBS d353 - Suspicious Activity Reporting',
+        text: 'Banks should have internal procedures for detecting and reporting suspicious transactions according to applicable laws and regulations. Transaction monitoring systems must detect patterns indicative of money laundering and terrorist financing, flag unusual transactions for investigation, and report suspicious activity to the Financial Intelligence Unit (FIU). Banks must maintain records of suspicious activity detection and reporting, and train staff to identify red flags and suspicious patterns.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev76', type: 'compliance-monitoring', description: 'Suspicious Activity Detection Rate', quality: 'excellent' },
+          { id: 'ev77', type: 'audit-report', description: 'FIU Reporting Quality Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'basel-committee-section-4',
+        title: 'Correspondent Banking Ongoing Monitoring',
+        reference: 'BCBS d405 - Correspondent Banking Annex',
+        text: 'Correspondent banking relationships should always be subject to ongoing monitoring. Banks must assess ML/FT risks associated with correspondent banking activities and apply appropriate due diligence measures. Mandatory ongoing monitoring is required for all correspondent relationships to monitor transactions for consistency with respondent\'s expected activity, gather information about respondent banks on a continuing basis, assess changes in risk profile, and escalate concerns to appropriate levels.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['commercial-banking'],
+          customerType: ['corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev78', type: 'performance-data', description: 'Correspondent Banking Monitoring Metrics', quality: 'excellent' },
+          { id: 'ev79', type: 'audit-report', description: 'Respondent Risk Assessment Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'basel-committee-section-5',
+        title: 'Technology Systems and Validation',
+        reference: 'BCBS d353 - Systems Integrity',
+        text: 'Banks should ensure technology systems used for transaction monitoring are appropriate, regularly tested, and validated. Systems must be sized appropriately to bank\'s complexity and risk profile, undergo regular testing of functionality, validate detection of relevant scenarios, assess false positive and false negative rates, and maintain system integrity checks. Banks must implement change management procedures for system updates, document system rules and logic, and conduct independent reviews of system effectiveness with regular updates based on new typologies.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev80', type: 'backtest-results', description: 'System Validation Testing Results', quality: 'excellent' },
+          { id: 'ev81', type: 'audit-report', description: 'Independent System Review', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'fincen-cdd',
+    title: 'FinCEN Customer Due Diligence (CDD) Rule',
+    type: 'regulatory',
+    jurisdiction: 'US',
+    lastUpdated: '2025-01-15',
+    visible: false,
+    clauses: [
+      {
+        id: 'fincen-cdd-section-1',
+        title: 'Customer Due Diligence as Fifth Pillar of AML Programs',
+        reference: '31 CFR Chapter X',
+        text: 'The CDD Final Rule formally identifies customer due diligence as the fifth essential pillar of an AML program. Financial institutions must implement customer due diligence as an integral part of their AML program, ensure CDD is risk-based and appropriate to the institution\'s risk profile, document CDD policies and procedures, and integrate CDD information with transaction monitoring systems. Regular review, independent testing of CDD effectiveness, and training on CDD requirements are mandatory.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev82', type: 'regulatory-filing', description: 'CDD Final Rule (May 2016)', quality: 'excellent' },
+          { id: 'ev83', type: 'policy-documentation', description: 'Fifth Pillar Implementation', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-cdd-section-2',
+        title: 'Ongoing Monitoring for Suspicious Transactions',
+        reference: '31 CFR Chapter X - Element 4',
+        text: 'Financial institutions must conduct ongoing monitoring to identify and report suspicious transactions. Monitoring must identify transactions unusual or inconsistent with customer profile, detect patterns indicative of suspicious activity, and monitor for transactions that lack business or lawful purpose. Monitoring approach must be appropriate to the institution\'s size, location, activities, and risk profile. Institutions must investigate flagged transactions in a timely manner and report suspicious activity through SARs.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev84', type: 'performance-data', description: 'Ongoing Monitoring Effectiveness Metrics', quality: 'excellent' },
+          { id: 'ev85', type: 'audit-report', description: 'SAR Quality Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-cdd-section-3',
+        title: 'Beneficial Ownership Identification and Verification',
+        reference: '31 CFR 1010.230',
+        text: 'Financial institutions must identify and verify beneficial owners of legal entity customers at account opening using a two-prong test: ownership prong (each individual owning 25% or more of equity interests) and control prong (a single individual with significant control responsibility). Transaction monitoring systems must use beneficial ownership information to monitor for consistency with beneficial owner profiles, detect transactions indicating changes in ownership, monitor for structuring across entities with common beneficial owners, and apply enhanced monitoring when beneficial ownership involves high-risk individuals.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['commercial-banking', 'wealth-management'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev86', type: 'regulatory-filing', description: 'Beneficial Ownership Requirements (31 CFR 1010.230)', quality: 'excellent' },
+          { id: 'ev87', type: 'performance-data', description: 'Beneficial Owner Monitoring Results', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-cdd-section-4',
+        title: 'Customer Risk Profiling and Monitoring Intensity',
+        reference: '31 CFR Chapter X - Element 3',
+        text: 'Financial institutions must develop customer risk profiles based on understanding of the nature and purpose of customer relationships. Risk profiles inform monitoring intensity with higher-risk customers receiving more intensive monitoring, lower alert thresholds, and more frequent reviews. Lower-risk customers receive less intensive but still required monitoring with higher alert thresholds. Institutions must document risk rating rationale, conduct regular reassessment of customer risk ratings, and update risk ratings based on monitoring findings.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev88', type: 'audit-report', description: 'Risk Profiling Effectiveness Review', quality: 'excellent' },
+          { id: 'ev89', type: 'policy-documentation', description: 'Risk-Based Monitoring Calibration', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-cdd-section-5',
+        title: 'Trigger Events and Customer Review',
+        reference: 'CDD Rule Guidance',
+        text: 'Financial institutions must establish trigger events that prompt review and update of customer information and risk profile. Trigger events include significant deviation from expected transaction patterns, unusual increases in transaction volumes or values, multiple monitoring alerts within short timeframe, detection of potentially suspicious activity, and changes in customer circumstances. Response to triggers must include customer review, information updates, risk reassessment, and adjustment of monitoring parameters as appropriate.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'medium',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev90', type: 'compliance-monitoring', description: 'Trigger Event Response Metrics', quality: 'good' },
+          { id: 'ev91', type: 'audit-report', description: 'Customer Review Process Validation', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'fincen-ctr',
+    title: 'FinCEN Currency Transaction Reporting (CTR)',
+    type: 'regulatory',
+    jurisdiction: 'US',
+    lastUpdated: '2025-01-15',
+    visible: false,
+    clauses: [
+      {
+        id: 'fincen-ctr-section-1',
+        title: 'CTR Filing and Aggregation Requirements',
+        reference: '31 U.S.C. 5313(a); 31 CFR § 1010.311',
+        text: 'Financial institutions must file a Currency Transaction Report (FinCEN Report 112) for each transaction in currency of more than $10,000. Aggregation is required when multiple currency transactions by or on behalf of any person result in either cash in or cash out totaling more than $10,000 during any one business day. Transaction monitoring systems must aggregate transactions by the same person throughout the institution, track both cash in and cash out separately, aggregate across branches and account types, and use common identifiers to link transactions.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking'],
+          customerType: ['individual', 'business'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev92', type: 'regulatory-filing', description: 'CTR Regulations (31 CFR § 1010.311)', quality: 'excellent' },
+          { id: 'ev93', type: 'performance-data', description: 'CTR Filing Accuracy Metrics', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-ctr-section-2',
+        title: 'Structuring Detection and Monitoring',
+        reference: '31 U.S.C. 5324; 31 CFR § 1010.314',
+        text: 'No person shall structure transactions for the purpose of evading CTR filing requirements. Structuring includes breaking down a single sum of currency exceeding $10,000 into smaller sums including sums at or below $10,000. Transaction monitoring must detect multiple cash transactions just below $10,000, track patterns of near-threshold transactions, monitor frequency of transactions across branches, detect patterns over multiple days, and flag unusual patterns of cash activity. SAR filing is required when an institution suspects structuring.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking'],
+          customerType: ['individual', 'business'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev94', type: 'performance-data', description: 'Structuring Detection Effectiveness', quality: 'excellent' },
+          { id: 'ev95', type: 'audit-report', description: 'Structuring SAR Quality Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-ctr-section-3',
+        title: 'Exemptions and Ongoing Monitoring',
+        reference: '31 CFR § 1020.315',
+        text: 'Banks may exempt certain categories of customers from CTR filing requirements but must continue to monitor for suspicious activity. Exempt categories include Phase I entities (banks, government entities, listed public companies) and Phase II entities (certain non-listed businesses). Annual review of exempt person status is required. Transaction monitoring must continue for exempt persons to detect suspicious activity, file SARs when appropriate, monitor for changes in transaction patterns, and detect unusual increases in currency transactions that may trigger SAR filing obligations despite CTR exemption.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['commercial-banking'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev96', type: 'compliance-monitoring', description: 'Exempt Person Annual Review', quality: 'excellent' },
+          { id: 'ev97', type: 'audit-report', description: 'Exemption Eligibility Validation', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-ctr-section-4',
+        title: 'Multiple Participants and "On Behalf Of" Monitoring',
+        reference: '31 CFR § 1010.313',
+        text: 'Transaction monitoring must detect and aggregate transactions involving multiple participants. "On behalf of" transactions conducted by agents, authorized signers, employees, or nominees acting for another person must be aggregated with that person\'s transactions. Monitoring systems must detect authorized signers conducting transactions for account holders, identify agents acting on behalf of principals, monitor employees conducting transactions for employers, detect nominees or intermediaries, and identify patterns of multiple individuals transacting for the same entity.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking'],
+          customerType: ['business'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev98', type: 'performance-data', description: '"On Behalf Of" Detection Metrics', quality: 'good' },
+          { id: 'ev99', type: 'audit-report', description: 'Multi-Participant Aggregation Review', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'fincen-sar',
+    title: 'FinCEN Suspicious Activity Reporting (SAR)',
+    type: 'regulatory',
+    jurisdiction: 'US',
+    lastUpdated: '2025-01-15',
+    visible: false,
+    clauses: [
+      {
+        id: 'fincen-sar-section-1',
+        title: 'General SAR Filing Obligation and Triggering Conditions',
+        reference: '31 CFR Chapter X (by institution type)',
+        text: 'Financial institutions must file a Suspicious Activity Report (SAR) when they know, suspect, or have reason to suspect that a transaction meets one of four triggering conditions: involves funds derived from illegal activities, is designed to evade BSA requirements, has no business or lawful purpose with no reasonable explanation after examining available facts, or involves use of the institution to facilitate criminal activity. Dollar thresholds vary by institution type, with banks at $5,000 for most transactions and no minimum for insider abuse.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev100', type: 'regulatory-filing', description: 'SAR Regulations (31 CFR § 1020.320)', quality: 'excellent' },
+          { id: 'ev101', type: 'performance-data', description: 'SAR Quality Metrics', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-sar-section-2',
+        title: 'SAR Filing Deadlines and Continuing Activity',
+        reference: '31 CFR Chapter X - SAR Regulations',
+        text: 'Standard SAR filing deadline is 30 calendar days after initial detection of facts that may constitute a basis for filing. If no suspect was identified, institutions may delay filing for an additional 30 days but no more than 60 calendar days total. For continuing activity, institutions must review suspicious activity at least every 90 days to determine if a continuing activity SAR is warranted, with a 120-day filing deadline. Transaction monitoring systems must enable timely identification to meet filing deadlines and track cumulative suspicious activity over time.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev102', type: 'compliance-monitoring', description: 'SAR Filing Timeliness Metrics', quality: 'excellent' },
+          { id: 'ev103', type: 'audit-report', description: 'Continuing Activity SAR Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-sar-section-3',
+        title: 'Transaction Monitoring Systems for Suspicious Activity Detection',
+        reference: 'BSA Regulations and Regulatory Guidance',
+        text: 'Financial institutions must have systems and processes reasonably designed to detect suspicious activity requiring SAR filing. Transaction monitoring systems must be appropriate to institution\'s size, complexity, and risk profile, detect unusual patterns in amounts, frequencies, and types of transactions, monitor for transactions inconsistent with customer profile, identify transactions with no apparent business purpose, detect structuring and BSA evasion attempts, monitor for money laundering typologies, and flag transactions involving high-risk countries or parties.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev104', type: 'backtest-results', description: 'Monitoring System Detection Effectiveness', quality: 'excellent' },
+          { id: 'ev105', type: 'audit-report', description: 'System Calibration Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-sar-section-4',
+        title: 'SAR Aggregation and Pattern Detection',
+        reference: 'SAR Regulations and Guidance',
+        text: 'Institutions should aggregate related transactions to determine if they meet SAR filing thresholds and to identify suspicious patterns. Transaction monitoring must aggregate transactions by the same customer over relevant timeframes, aggregate transactions on behalf of the same customer, consider multiple transactions that appear related or connected, aggregate across accounts controlled by same individual or entity, monitor cumulative activity to detect structuring, and track activity across branches and business lines to assess entire relationship for suspicious activity.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev106', type: 'performance-data', description: 'Aggregation Logic Effectiveness', quality: 'good' },
+          { id: 'ev107', type: 'audit-report', description: 'Pattern Detection Validation', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-sar-section-5',
+        title: 'SAR Confidentiality and Record Retention',
+        reference: '31 U.S.C. 5318(g)(2)',
+        text: 'No institution or its personnel shall disclose a SAR or any information that would reveal the existence of a SAR. Monitoring alerts and investigations must maintain confidentiality, cannot inform customers that transactions are being monitored for SAR purposes, and must protect SAR-related information in systems. Institutions must maintain copies of filed SARs and original or business record equivalent of supporting documentation for five years from the date of filing, including monitoring alerts, investigation documentation, and decision-making rationale.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev108', type: 'compliance-monitoring', description: 'SAR Confidentiality Controls', quality: 'excellent' },
+          { id: 'ev109', type: 'audit-report', description: 'Record Retention Compliance', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'fincen-travel-rule',
+    title: 'FinCEN Travel Rule – Funds Transfer',
+    type: 'regulatory',
+    jurisdiction: 'US',
+    lastUpdated: '2025-01-15',
+    visible: false,
+    clauses: [
+      {
+        id: 'fincen-travel-rule-section-1',
+        title: 'Funds Transfers - Originator Information Requirements',
+        reference: '31 U.S.C. 5318(a)(2); 31 CFR § 1010.410(e)',
+        text: 'For each payment order of $3,000 or more that a financial institution accepts as an originator\'s bank, the institution must obtain and retain specified information about the originator including name, address, amount, execution date, payment instructions, and beneficiary\'s bank identity. Information must be transmitted with the transfer including originator\'s name, account number, and address. Records must be maintained for five years and be retrievable by reference to originator name and account number.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking'],
+          customerType: ['individual', 'business'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev110', type: 'regulatory-filing', description: 'Travel Rule Regulations (31 CFR § 1010.410)', quality: 'excellent' },
+          { id: 'ev111', type: 'compliance-monitoring', description: 'Originator Information Completeness', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-travel-rule-section-2',
+        title: 'Intermediary and Beneficiary Bank Obligations',
+        reference: '31 CFR § 1010.410(f)',
+        text: 'Intermediary banks must retain records of payment orders and include in transmittal orders all information received from the sender with a pass-through obligation for all data. Beneficiary banks must retain records of payment orders and all information received from the sender. Transaction monitoring must detect payment orders with missing or incomplete originator information, identify patterns of incomplete information from specific sending institutions, flag wires with missing information for review, and request missing information from sending institutions when appropriate.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['commercial-banking'],
+          customerType: ['corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev112', type: 'performance-data', description: 'Wire Transfer Data Quality Metrics', quality: 'excellent' },
+          { id: 'ev113', type: 'audit-report', description: 'Intermediary Bank Compliance Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-travel-rule-section-3',
+        title: 'Wire Transfer Monitoring for Suspicious Activity',
+        reference: 'SAR Regulations and BSA Requirements',
+        text: 'Institutions must monitor wire transfers for suspicious activity requiring SAR filing independent of Travel Rule recordkeeping requirements. Monitoring scenarios must detect rapid movement of funds (deposit followed by immediate wire out), round-dollar amounts suggesting structuring, high-risk jurisdictions with weak AML controls, transactions lacking economic purpose or inconsistent with customer business, structuring patterns with multiple wires to same beneficiary just below threshold, funnel accounts, layering through multiple accounts or countries, and circular transfers.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['retail-banking', 'commercial-banking'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev114', type: 'performance-data', description: 'Wire Transfer SAR Detection Rate', quality: 'excellent' },
+          { id: 'ev115', type: 'backtest-results', description: 'Suspicious Wire Pattern Detection', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fincen-travel-rule-section-4',
+        title: 'Missing Information and Data Quality Controls',
+        reference: 'Regulatory Guidance and Examination Expectations',
+        text: 'Institutions should have procedures to address missing or incomplete Travel Rule information. Transaction monitoring must monitor for incoming wires with missing originator information, track sending institutions with frequent data quality issues, detect patterns of incomplete information, flag transactions for enhanced review when information is missing, document requests for missing information, and consider filing SARs for suspicious transfers with incomplete information. Institutions should assess whether to continue relationships with institutions providing poor quality data.',
+        metadata: {
+          jurisdiction: ['US'],
+          productType: ['commercial-banking'],
+          customerType: ['corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev116', type: 'compliance-monitoring', description: 'Data Quality Improvement Tracking', quality: 'good' },
+          { id: 'ev117', type: 'audit-report', description: 'Correspondent Relationship Assessment', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'germany-aml',
+    title: 'Germany – Anti-Money Laundering',
+    type: 'regulatory',
+    jurisdiction: 'DE',
+    lastUpdated: '2025-01-15',
+    visible: true,
+    clauses: [
+      {
+        id: 'germany-aml-section-1',
+        title: 'Ongoing Monitoring of Business Relationships (Laufende Überwachung)',
+        reference: 'Section 10 GwG',
+        text: 'Obliged entities must continuously monitor business relationships including transactions carried out throughout the relationship. Monitoring must ensure transactions are consistent with documents and information about the contracting party, beneficial owner, and customer\'s business and risk profile. Continuous monitoring frequency and intensity must be appropriate to customer\'s risk profile with reviews conducted when circumstances change or red flags arise. Transaction monitoring systems must flag transactions inconsistent with known customer activity, business type, or risk assessment.',
+        metadata: {
+          jurisdiction: ['DE'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev118', type: 'regulatory-guidance', description: 'GwG Section 10 Implementation', quality: 'excellent' },
+          { id: 'ev119', type: 'policy-documentation', description: 'Continuous Monitoring Procedures', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'germany-aml-section-2',
+        title: 'Risk-Based Approach and Periodic KYC Updates',
+        reference: 'Section 10 GwG; BaFin Guidance (Feb 2025)',
+        text: 'Apply transaction monitoring intensity proportionate to assessed ML/FT risks. Enhanced due diligence customers require information updates at least every one year with intensified monitoring, lower alert thresholds, and senior management notification. General due diligence customers require updates every five years. Simplified due diligence permitted for low-risk customers with less frequent reviews where allowed. Systems must track customer information age and trigger periodic reviews at prescribed intervals with automated workflows prompting compliance teams.',
+        metadata: {
+          jurisdiction: ['DE'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev120', type: 'regulatory-guidance', description: 'BaFin Guidance (February 1, 2025)', quality: 'excellent' },
+          { id: 'ev121', type: 'compliance-monitoring', description: 'KYC Update Timeliness Tracking', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'germany-aml-section-3',
+        title: 'Suspicious Transaction Detection and FIU Reporting',
+        reference: 'Section 43 GwG',
+        text: 'Detect and report transactions suspected of money laundering or terrorist financing to Germany\'s Financial Intelligence Unit (FIU) without delay. Base suspicion detection on deviation from normal customer patterns, transaction characteristics inconsistent with customer profile, transactions matching known typologies, and unusual patterns. Generate alerts for transactions matching suspicious typologies or deviating significantly from customer profiles. Maintain written documentation of analysis leading to suspicious transaction reports and continue monitoring after filing without customer notification.',
+        metadata: {
+          jurisdiction: ['DE'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev122', type: 'compliance-monitoring', description: 'FIU Reporting Quality Metrics', quality: 'excellent' },
+          { id: 'ev123', type: 'audit-report', description: 'Suspicious Activity Detection Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'germany-aml-section-4',
+        title: 'Cash and Cross-Border Transaction Monitoring',
+        reference: 'GwG; Future EU AMLR',
+        text: 'Monitor cash transactions for unusual patterns and enforce future Europe-wide upper limit of €10,000 for cash payments effective July 10, 2027. Systems must aggregate cash transactions to detect structuring, alert for unusual cash patterns and round-number amounts, and identify customers systematically avoiding detection thresholds. Cross-border wire transfers require enhanced scrutiny with monitoring for transactions to high-risk jurisdictions, incomplete wire transfer information, unusual routing patterns, and threshold avoidance through aggregated cross-border transfers.',
+        metadata: {
+          jurisdiction: ['DE'],
+          productType: ['retail-banking', 'commercial-banking'],
+          customerType: ['individual', 'business'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev124', type: 'performance-data', description: 'Cash Transaction Monitoring Metrics', quality: 'excellent' },
+          { id: 'ev125', type: 'audit-report', description: 'Cross-Border Wire Transfer Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'germany-aml-section-5',
+        title: 'System Testing, Validation, and Governance',
+        reference: 'BaFin Guidance; GwG Internal Controls',
+        text: 'Establish adequate internal controls, policies, and procedures for transaction monitoring with formal governance frameworks. Conduct regular testing and validation of monitoring systems including periodic scenario testing, false positive rate analysis, detection of known suspicious activity through back-testing, and review of alert disposition outcomes. Document monitoring system configurations, rule and threshold calibration rationale, testing methodologies and results, and system performance metrics. Provide training to staff and report effectiveness to senior management.',
+        metadata: {
+          jurisdiction: ['DE'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev126', type: 'backtest-results', description: 'Monitoring System Validation Results', quality: 'excellent' },
+          { id: 'ev127', type: 'audit-report', description: 'Governance Framework Review', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'italy-aml',
+    title: 'Italy – Anti-Money Laundering',
+    type: 'regulatory',
+    jurisdiction: 'IT',
+    lastUpdated: '2025-01-15',
+    visible: true,
+    clauses: [
+      {
+        id: 'italy-aml-section-1',
+        title: 'Ongoing Monitoring of Customer Relationships',
+        reference: 'Article 35 D.Lgs. 231/2007',
+        text: 'Obliged entities must carry out ongoing monitoring of business relationships on a continuous basis, scrutinizing transactions throughout the course of the relationship. Monitoring must ensure transactions are consistent with knowledge of the customer and beneficial owner, customer\'s business and activity profile, risk profile, and source of funds where necessary. Implement objective procedures consistent with risk-based criteria considering type of customer, geographic area, delivery channels, and products and services offered. Conduct monitoring with frequency appropriate to the risk level.',
+        metadata: {
+          jurisdiction: ['IT'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev128', type: 'regulatory-filing', description: 'D.Lgs. 231/2007 Article 35', quality: 'excellent' },
+          { id: 'ev129', type: 'policy-documentation', description: 'Continuous Monitoring Procedures', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'italy-aml-section-2',
+        title: 'Threshold-Based Monitoring and UIF Anomaly Indicators',
+        reference: 'Article 12, 16 D.Lgs. 231/2007; UIF Indicators',
+        text: 'Monitor occasional transactions ≥€15,000 and fund transfers ≥€1,000 (non-SEPA) with detection of structuring and aggregation patterns. Implement UIF anomaly indicators as detection scenarios including cash-related anomalies, geographic anomalies, beneficial ownership anomalies, third-party transaction anomalies, and structuring anomalies. Systems must aggregate transactions to detect threshold avoidance with alerts triggering when customers approach or exceed €15,000 in transactions or €1,000 in non-SEPA transfers. Update monitoring scenarios as UIF publishes new typologies.',
+        metadata: {
+          jurisdiction: ['IT'],
+          productType: ['retail-banking', 'commercial-banking'],
+          customerType: ['individual', 'business'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev130', type: 'regulatory-guidance', description: 'UIF Anomaly Indicators', quality: 'excellent' },
+          { id: 'ev131', type: 'performance-data', description: 'Threshold Monitoring Metrics', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'italy-aml-section-3',
+        title: 'Suspicious Transaction Reporting to UIF',
+        reference: 'Article 35, 41 D.Lgs. 231/2007',
+        text: 'Identify suspicious transactions based on specific anomaly indicators adopted by UIF and assess objective risk of money laundering or terrorist financing. Report suspicious transactions to UIF without delay based on deviation from normal patterns, characteristics inconsistent with customer profile, transactions matching UIF anomaly typologies, and unusual patterns. Maintain written documentation of analysis leading to suspicious transaction reports and continue monitoring customer relationships after filing without customer disclosure.',
+        metadata: {
+          jurisdiction: ['IT'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev132', type: 'compliance-monitoring', description: 'UIF Reporting Quality Metrics', quality: 'excellent' },
+          { id: 'ev133', type: 'audit-report', description: 'Suspicious Activity Detection Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'italy-aml-section-4',
+        title: 'Enhanced Monitoring for PEPs and High-Risk Customers',
+        reference: 'Article 25, 24 D.Lgs. 231/2007',
+        text: 'Apply enhanced transaction monitoring for politically exposed persons (Italian and foreign), family members of PEPs, known close associates of PEPs, customers from high-risk third countries, and customers with complex beneficial ownership structures. PEP and high-risk customer accounts must have specialized monitoring profiles with lower thresholds, more sensitive rules, and automated escalation to senior management. Obtain senior management approval to establish or continue relationships, apply intensified ongoing monitoring, scrutinize source of wealth and funds, and maintain enhanced monitoring for at least one year after PEP ceases prominent function.',
+        metadata: {
+          jurisdiction: ['IT'],
+          productType: ['commercial-banking', 'wealth-management'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev134', type: 'performance-data', description: 'PEP Monitoring Effectiveness', quality: 'excellent' },
+          { id: 'ev135', type: 'audit-report', description: 'Enhanced Due Diligence Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'italy-aml-section-5',
+        title: 'System Testing, Validation, and Record-Keeping',
+        reference: 'Article 36 D.Lgs. 231/2007; Bank of Italy Provisions',
+        text: 'Maintain transaction records for at least ten years from date of last transaction including transaction details, customer identification information, supporting documentation, analysis and investigation records for alerts, and risk assessments. Conduct periodic testing of monitoring scenarios including false positive rate analysis, assessment of detection of known suspicious activity, and review of alert disposition outcomes. Document testing methodologies, results, and remediation actions. Update scenarios based on testing outcomes and emerging typologies with formal governance frameworks supporting effective monitoring.',
+        metadata: {
+          jurisdiction: ['IT'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev136', type: 'backtest-results', description: 'System Validation Results', quality: 'excellent' },
+          { id: 'ev137', type: 'audit-report', description: 'Record-Keeping Compliance Review', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'spain-aml',
+    title: 'Spain – Anti-Money Laundering',
+    type: 'regulatory',
+    jurisdiction: 'ES',
+    lastUpdated: '2025-01-15',
+    visible: true,
+    clauses: [
+      {
+        id: 'spain-aml-section-1',
+        title: 'Ongoing Monitoring and Risk-Based Approach',
+        reference: 'Article 7 Law 10/2010; Royal Decree 304/2014',
+        text: 'Obliged subjects must obtain information on the purpose and intended nature of business relationships and conduct ongoing monitoring on transactions undertaken throughout the relationship. Scrutinize transactions to ensure consistency with knowledge of the customer, customer\'s business and risk profile, commercial activity, and source of funds where necessary. Apply ongoing monitoring throughout entire duration of business relationships on a risk-sensitive basis with intensified monitoring when customer circumstances change or red flags arise. Update documents, data, and information with appropriate frequency.',
+        metadata: {
+          jurisdiction: ['ES'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev138', type: 'regulatory-filing', description: 'Law 10/2010 Article 7', quality: 'excellent' },
+          { id: 'ev139', type: 'policy-documentation', description: 'Ongoing Monitoring Procedures', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'spain-aml-section-2',
+        title: 'Detection and Reporting of Suspicious Transactions to SEPBLAC',
+        reference: 'Article 17, 18 Law 10/2010',
+        text: 'Pay special attention to any event or transaction regardless of its size which by its nature could be related to money laundering or terrorist financing. Record results of analysis in writing and conduct structured special review (examen especial) of suspicious transactions. Report to SEPBLAC on their own initiative any act or transaction (even mere attempts) that following structured review shows any indication or certainty of relation to money laundering or terrorist financing. Submit suspicious transaction reports to SEPBLAC without delay (sin demora) while continuing monitoring after filing without customer disclosure.',
+        metadata: {
+          jurisdiction: ['ES'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev140', type: 'compliance-monitoring', description: 'SEPBLAC Reporting Quality Metrics', quality: 'excellent' },
+          { id: 'ev141', type: 'audit-report', description: 'Structured Review Documentation', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'spain-aml-section-3',
+        title: 'SEPBLAC Risk Indicators and Systematic Reporting',
+        reference: 'Article 17 Law 10/2010; Article 27.1 RD 304/2014',
+        text: 'Implement transaction monitoring scenarios based on SEPBLAC-published risk indicators including customer behavior indicators, transaction characteristic indicators, geographic indicators, and product/service indicators. Risk indicators are not exhaustive lists but examples requiring obliged subjects to develop their own lists adapted to their experience and risk assessment. Obliged subjects must report to SEPBLAC monthly the transactions referred to in Article 27.1 for systematic reporting in addition to suspicious transaction reports. Update monitoring scenarios as SEPBLAC issues new or revised risk indicators.',
+        metadata: {
+          jurisdiction: ['ES'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev142', type: 'regulatory-guidance', description: 'SEPBLAC Risk Indicator Catalogues (2024-2025)', quality: 'excellent' },
+          { id: 'ev143', type: 'performance-data', description: 'Systematic Reporting Metrics', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'spain-aml-section-4',
+        title: 'Enhanced Monitoring for PEPs and High-Risk Countries',
+        reference: 'Law 10/2010; Royal Decree 304/2014',
+        text: 'Conduct enhanced monitoring for foreign and domestic politically exposed persons, PEPs in international organizations, family members of PEPs, and known close associates of PEPs. Apply enhanced monitoring for transactions involving EU-designated high-risk third countries with additional information gathering, increased controls on specific business relationships, and senior management approval prior to establishing or continuing relationships. PEP-flagged accounts require specialized monitoring profiles with lower detection thresholds, more sensitive rules, and automated escalation to senior management.',
+        metadata: {
+          jurisdiction: ['ES'],
+          productType: ['commercial-banking', 'wealth-management'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev144', type: 'performance-data', description: 'PEP Enhanced Monitoring Effectiveness', quality: 'excellent' },
+          { id: 'ev145', type: 'audit-report', description: 'High-Risk Country Transaction Review', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'spain-aml-section-5',
+        title: 'Internal Controls, Testing, and Record-Keeping',
+        reference: 'Article 26, 27 Law 10/2010',
+        text: 'Adopt in writing and implement adequate policies and procedures covering customer due diligence, information gathering and analysis, record keeping, internal control, risk assessment and management, compliance ensuring, reporting, and customer acceptance. Policies must be designed to prevent and forestall transactions related to money laundering or terrorist financing. Conduct periodic testing of monitoring scenarios including false positive analysis, back-testing against known suspicious activity, and alert disposition review. Retain records for minimum five years extendable to ten years with comprehensive audit trails supporting regulatory examinations.',
+        metadata: {
+          jurisdiction: ['ES'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev146', type: 'backtest-results', description: 'System Testing and Validation', quality: 'excellent' },
+          { id: 'ev147', type: 'audit-report', description: 'Internal Controls Review', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'wolfsberg',
+    title: 'Wolfsberg Group Standards',
+    type: 'supplement',
+    jurisdiction: 'International',
+    lastUpdated: '2025-01-15',
+    visible: true,
+    clauses: [
+      {
+        id: 'wolfsberg-section-1',
+        title: 'Risk-Based Monitoring for Suspicious Activity',
+        reference: 'Wolfsberg Statement on Effective Monitoring (2024)',
+        text: 'Financial institutions should prioritize activities that monitor crystallized risk rather than theoretical risk, casting a wider net than just transaction monitoring to include customer behavior and attributes. Monitor transactions in combination with customer behavior and attributes, focus on effectiveness over volume of alerts, prioritize crystallized risk over theoretical risk, apply risk-based approach to monitoring intensity, design monitoring to produce actionable intelligence, and avoid excessive false positives that dilute effectiveness.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev148', type: 'regulatory-guidance', description: 'Wolfsberg Effective Monitoring Statement (2024)', quality: 'excellent' },
+          { id: 'ev149', type: 'policy-documentation', description: 'Risk-Based Monitoring Framework', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'wolfsberg-section-2',
+        title: 'Ongoing Monitoring and Enhanced Measures for Higher-Risk Customers',
+        reference: 'Wolfsberg AML Principles for Private Banking',
+        text: 'Financial institutions must conduct ongoing monitoring of client transactions to ensure consistency with the institution\'s knowledge of the customer, their business, and risk profile. Relationships with higher-risk customers should be subject to more intensive ongoing monitoring with more frequent review of high-risk accounts, lower alert thresholds for high-risk customers, enhanced investigation of alerts, trigger event reviews when risk indicators appear, and review when materially adverse media reports, sanctions, or regulatory actions occur.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['wealth-management'],
+          customerType: ['individual', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev150', type: 'policy-documentation', description: 'Private Banking AML Principles', quality: 'excellent' },
+          { id: 'ev151', type: 'performance-data', description: 'Enhanced Monitoring Effectiveness', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'wolfsberg-section-3',
+        title: 'Correspondent Banking and RFI Process',
+        reference: 'Wolfsberg Correspondent Banking Principles (2022); RFI Guidance',
+        text: 'Monitor the respondent institution\'s transactions and review that these are in line with information collected during customer due diligence. Monitor for changes in transaction volumes or patterns, unusual activity, and adherence to agreed relationship terms. When transaction monitoring identifies potentially suspicious or unusual activity, issue Requests for Information (RFIs) to obtain clarification. Provide clear specific questions about flagged transactions, set reasonable timeframes for responses, document RFI process, and escalate non-responsive or inadequate responses with consideration of relationship termination for repeated inadequate responses.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['commercial-banking'],
+          customerType: ['corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev152', type: 'regulatory-guidance', description: 'Correspondent Banking Principles (2022)', quality: 'excellent' },
+          { id: 'ev153', type: 'policy-documentation', description: 'RFI Best Practice Guidance (2022)', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'wolfsberg-section-4',
+        title: 'Innovation and Technology Adoption',
+        reference: 'Wolfsberg Statement on Effective Monitoring Part II (2024)',
+        text: 'Financial institutions should establish a responsible transition framework for innovation in suspicious activity monitoring including use of artificial intelligence (AI) and machine learning (ML). Three core pillars for responsible innovation include transition and validation of new monitoring approaches, balancing model risk with financial crime risk, and explainability to demonstrate transparency in coverage and effectiveness. Use AI and ML to enhance detection, leverage ML models to analyze transaction patterns, predict potential risks based on behavioral anomalies, document model validation and testing, and maintain human oversight of automated decisions.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'medium',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev154', type: 'regulatory-guidance', description: 'Wolfsberg Innovation Statement (2024)', quality: 'excellent' },
+          { id: 'ev155', type: 'backtest-results', description: 'AI/ML Model Validation', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'wolfsberg-section-5',
+        title: 'Focus on Outcomes and Effectiveness',
+        reference: 'Wolfsberg Statement on Effective Monitoring (2024)',
+        text: 'Financial institutions should measure effectiveness of monitoring programs based on quality of outcomes not volume of alerts or reports. Measure quality of suspicious activity reports (SARs/STRs) not just quantity, assess whether monitoring contributes to effective outcomes in fight against financial crime, evaluate whether increased volumes provide proportionate value, focus resources on high-quality detection and investigation, reduce noise from low-quality alerts, and demonstrate value to law enforcement and regulators through feedback loop between CDD and transaction monitoring.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev156', type: 'performance-data', description: 'SAR Quality Metrics and Law Enforcement Feedback', quality: 'excellent' },
+          { id: 'ev157', type: 'audit-report', description: 'Monitoring Effectiveness Assessment', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'fatf-40-recommendations',
+    title: 'FATF 40 Recommendations',
+    type: 'regulatory',
+    jurisdiction: 'International',
+    lastUpdated: '2025-06-01',
+    visible: true,
+    clauses: [
+      {
+        id: 'fatf-rec10-monitoring',
+        title: 'Ongoing Monitoring and Transaction Scrutiny',
+        reference: 'Recommendation 10',
+        text: 'Financial institutions must conduct ongoing due diligence and scrutiny of transactions throughout the business relationship to ensure transactions are consistent with the institution\'s knowledge of the customer, their business and risk profile, including the source of funds where necessary. Enhanced scrutiny is required when transactions do not match the customer\'s expected risk profile.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev158', type: 'regulatory-guidance', description: 'FATF Recommendation 10 Interpretive Note', quality: 'excellent' },
+          { id: 'ev159', type: 'policy-documentation', description: 'Ongoing Monitoring Framework', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-rec11-records',
+        title: 'Record-Keeping for Transaction Monitoring',
+        reference: 'Recommendation 11',
+        text: 'Financial institutions must maintain records of all transactions, both domestic and international, for at least five years to allow reconstruction of individual transactions and provide evidence for potential criminal proceedings. Records must be sufficient to permit transaction tracing and be accessible for investigation purposes.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev160', type: 'audit-report', description: 'Record Retention Compliance Review', quality: 'excellent' },
+          { id: 'ev161', type: 'performance-data', description: 'Transaction Record Audit Trail', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-rec16-wire',
+        title: 'Monitoring of Wire Transfers',
+        reference: 'Recommendation 16',
+        text: 'Financial institutions must collect, verify, and transmit originator and beneficiary information for wire transfers to create a suitable AML/CFT audit trail. Institutions must implement risk-based policies for handling transfers with incomplete information, monitor for repeated non-compliance, and apply to both traditional institutions and virtual asset service providers.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev162', type: 'performance-data', description: 'Wire Transfer Monitoring Effectiveness', quality: 'excellent' },
+          { id: 'ev163', type: 'backtest-results', description: 'Travel Rule Compliance Testing', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-rec20-suspicious',
+        title: 'Detection and Reporting of Suspicious Transactions',
+        reference: 'Recommendation 20',
+        text: 'Financial institutions must monitor all transactions to detect suspicious activity and report promptly to the FIU when suspecting funds are proceeds of criminal activity or related to terrorist financing. Monitoring systems must flag unusual movements, implement case management for timely scrutiny, and report all suspicious transactions regardless of amount.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev164', type: 'performance-data', description: 'Suspicious Transaction Detection Metrics', quality: 'excellent' },
+          { id: 'ev165', type: 'audit-report', description: 'FIU Reporting Quality Assessment', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-complex-unusual',
+        title: 'Special Attention to Complex and Unusual Transactions',
+        reference: 'Recommendations 10, 11, 20',
+        text: 'Financial institutions must pay special attention to all complex, unusual large transactions, and unusual patterns of transactions with no apparent economic or visible lawful purpose. Institutions must investigate such transactions, document findings, and keep findings available for competent authorities and auditors for at least five years.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev166', type: 'backtest-results', description: 'Complex Transaction Detection Analysis', quality: 'good' },
+          { id: 'ev167', type: 'performance-data', description: 'Unusual Pattern Monitoring', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'fatf-correspondent-banking',
+    title: 'FATF Correspondent Banking Guidance',
+    type: 'regulatory',
+    jurisdiction: 'International',
+    lastUpdated: '2016-10-01',
+    visible: true,
+    clauses: [
+      {
+        id: 'fatf-corr-ongoing',
+        title: 'Mandatory Ongoing Monitoring Requirement',
+        reference: 'FATF Correspondent Banking Guidance',
+        text: 'Correspondent banking relationships must always be subject to ongoing monitoring throughout the relationship life. Monitoring is essential for detecting changes in risk profile and ensuring compliance with AML/CFT measures, with no exceptions for lower-risk relationships though monitoring intensity may vary based on risk assessment.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['commercial-banking'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev168', type: 'regulatory-guidance', description: 'FATF Correspondent Banking Guidance (2016)', quality: 'excellent' },
+          { id: 'ev169', type: 'policy-documentation', description: 'Correspondent Relationship Monitoring Framework', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-corr-risk-changes',
+        title: 'Monitoring for Risk Profile Changes',
+        reference: 'FATF Correspondent Banking Guidance',
+        text: 'Correspondent institutions must monitor respondent transactions to detect changes in the respondent\'s risk profile or implementation of risk mitigation measures. Monitoring must cover transaction volumes, types, patterns, and geographic focus to identify deviations from expected activity profiles and changes indicating increased risk.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['commercial-banking'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev170', type: 'performance-data', description: 'Respondent Risk Profile Monitoring', quality: 'excellent' },
+          { id: 'ev171', type: 'backtest-results', description: 'Transaction Pattern Analysis', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-corr-unusual',
+        title: 'Detection of Unusual Activity',
+        reference: 'FATF Correspondent Banking Guidance',
+        text: 'Correspondent institutions must monitor for unusual activity or transactions by respondent institutions, including transactions inconsistent with the respondent\'s business model, unusual sizes, frequencies, geographic patterns, counterparties, or transactions with no apparent economic purpose. Enhanced monitoring with real-time capabilities is required for higher-risk relationships.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['commercial-banking'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev172', type: 'performance-data', description: 'Unusual Activity Detection Metrics', quality: 'excellent' },
+          { id: 'ev173', type: 'audit-report', description: 'Real-Time Monitoring Effectiveness', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-corr-rfi',
+        title: 'Request for Information Process',
+        reference: 'FATF Correspondent Banking Guidance',
+        text: 'When monitoring detects concerns, correspondent institutions must follow up with respondents through formal Request for Information (RFI) procedures. Institutions must document flagged transactions, request clarification, set response timeframes, track response quality, and escalate unresponsive or inadequate responses as part of assessing the respondent\'s AML/CFT program quality.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['commercial-banking'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev174', type: 'policy-documentation', description: 'RFI Process and Escalation Procedures', quality: 'excellent' },
+          { id: 'ev175', type: 'performance-data', description: 'RFI Response Quality Metrics', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-corr-nested',
+        title: 'Nested Relationships and Payable-Through Accounts Monitoring',
+        reference: 'FATF Correspondent Banking Guidance',
+        text: 'Where correspondent relationships involve nested relationships or payable-through accounts, institutions must apply enhanced monitoring to address increased risks. Monitoring must detect nested relationship indicators, sub-account structures, indirect access arrangements, and ultimate transaction parties while identifying shell bank indicators and structuring across sub-accounts.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['commercial-banking'],
+          customerType: ['business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev176', type: 'backtest-results', description: 'Nested Relationship Detection Analysis', quality: 'good' },
+          { id: 'ev177', type: 'performance-data', description: 'Sub-Account Monitoring Effectiveness', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'fatf-methodology',
+    title: 'FATF Methodology for Technical Compliance',
+    type: 'regulatory',
+    jurisdiction: 'International',
+    lastUpdated: '2025-06-01',
+    visible: true,
+    clauses: [
+      {
+        id: 'fatf-method-rec10',
+        title: 'Assessment Criteria for Ongoing Monitoring',
+        reference: 'FATF Methodology Criterion 10.7',
+        text: 'Financial institutions must be legally required to conduct ongoing due diligence and transaction scrutiny throughout business relationships to verify consistency with customer knowledge, business profile, and risk profile including source of funds. Risk-based application required with enhanced measures for higher-risk situations and simplified measures permitted for lower risks based on reasonable monetary thresholds.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev178', type: 'regulatory-guidance', description: 'FATF Methodology Technical Compliance Standards', quality: 'excellent' },
+          { id: 'ev179', type: 'audit-report', description: 'Ongoing Monitoring Compliance Assessment', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-method-rec11',
+        title: 'Transaction Record Retention Requirements',
+        reference: 'FATF Methodology Criterion 11.1',
+        text: 'Financial institutions must maintain all transaction records for minimum five years to permit reconstruction of individual transactions and provide evidence for prosecution. Records must be sufficient to allow transaction tracing, be accessible to competent authorities, and cover both domestic and international transactions with preliminary business relationship analyses.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev180', type: 'policy-documentation', description: 'Record Retention Policy Framework', quality: 'excellent' },
+          { id: 'ev181', type: 'performance-data', description: 'Record Reconstruction Testing', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-method-rec16',
+        title: 'Wire Transfer Information Assessment Criteria',
+        reference: 'FATF Methodology Criteria 16.1-16.8',
+        text: 'Countries must ensure institutions obtain and maintain originator and beneficiary information for wire transfers with required verification of accuracy. Beneficiary institutions must detect missing information, implement risk-based procedures for incomplete transfers including execution, rejection, or suspension decisions, and monitor repeated compliance failures with termination procedures for non-compliant counterparties.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev182', type: 'backtest-results', description: 'Wire Transfer Compliance Testing', quality: 'excellent' },
+          { id: 'ev183', type: 'performance-data', description: 'Incomplete Transfer Handling Metrics', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-method-rec20',
+        title: 'Suspicious Transaction Reporting Requirements',
+        reference: 'FATF Methodology Criteria 20.1-20.2',
+        text: 'Direct mandatory legal obligation required for institutions to report suspicions promptly to FIU when suspecting or having reasonable grounds to suspect funds are proceeds of criminal activity or related to terrorist financing. Transaction monitoring systems must be in place to detect suspicious transactions, with reporting required for all suspicious transactions including attempted transactions regardless of amount.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev184', type: 'audit-report', description: 'STR Filing Compliance Review', quality: 'excellent' },
+          { id: 'ev185', type: 'performance-data', description: 'Suspicious Activity Detection Metrics', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-method-effectiveness',
+        title: 'Effectiveness Assessment for Preventive Measures',
+        reference: 'FATF Methodology Immediate Outcome 4',
+        text: 'Financial institutions must demonstrate effective application of appropriate CDD including ongoing monitoring, with quality and accuracy of transaction monitoring systems being critical. Assessment focuses on risk-based monitoring intensity, detection of unusual or suspicious transactions, timely identification of risk changes, and overall effectiveness of preventive measures in practice.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-06-01'
+        },
+        evidence: [
+          { id: 'ev186', type: 'performance-data', description: 'Monitoring System Effectiveness Analysis', quality: 'good' },
+          { id: 'ev187', type: 'audit-report', description: 'Risk-Based Approach Assessment', quality: 'good' }
+        ],
+        linkedRules: []
+      }
+    ]
+  },
+  {
+    id: 'fatf-risk-based-guidance',
+    title: 'FATF Risk-Based Approach Guidance',
+    type: 'regulatory',
+    jurisdiction: 'International',
+    lastUpdated: '2021-07-01',
+    visible: true,
+    clauses: [
+      {
+        id: 'fatf-rba-approach',
+        title: 'Risk-Based Transaction Monitoring',
+        reference: 'FATF Risk-Based Approach Guidance',
+        text: 'Financial institutions must identify and understand ML/TF risks and adjust transaction monitoring processes according to customer risk profiles. Monitoring intensity must be risk-based with enhanced monitoring for high-risk customers, simplified measures for lower-risk customers while still monitoring, and regular review and updating of risk assessments with corresponding monitoring adjustments.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev188', type: 'regulatory-guidance', description: 'FATF Risk-Based Approach for Banking Sector (2014)', quality: 'excellent' },
+          { id: 'ev189', type: 'policy-documentation', description: 'Risk-Based Monitoring Framework', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-rba-continuous',
+        title: 'Continuous and Triggered Monitoring',
+        reference: 'Risk-Based Approach for Banking Sector',
+        text: 'Monitoring must be conducted continuously or triggered by specific transactions, with comparison of customer activity against peer groups. Systems must monitor for deviations from expected behavior and peer group norms, implementing both continuous monitoring and event-triggered monitoring capabilities to detect inconsistencies with customer profiles.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev190', type: 'performance-data', description: 'Continuous Monitoring Effectiveness Metrics', quality: 'excellent' },
+          { id: 'ev191', type: 'backtest-results', description: 'Peer Group Comparison Analysis', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-rba-automated',
+        title: 'Automated Transaction Monitoring Systems',
+        reference: 'Risk-Based Approach for Banking Sector',
+        text: 'For high-volume transaction environments, automated systems may be the only realistic monitoring method. Institutions must understand operating rules of monitoring systems, verify system integrity regularly, validate that systems address identified ML/TF risks, test detection capabilities, and document all system rules and parameters.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'critical',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev192', type: 'audit-report', description: 'Automated System Validation Review', quality: 'excellent' },
+          { id: 'ev193', type: 'performance-data', description: 'System Integrity Testing Results', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-rba-technology',
+        title: 'Technology and Innovation in Monitoring',
+        reference: 'Opportunities and Challenges of New Technologies (2021)',
+        text: 'Financial institutions should leverage modern technologies to improve transaction monitoring effectiveness, including systems that reduce manual input and false positives, identify complex cases, and facilitate risk management. Implementation of AI, machine learning for large volume analysis, real-time monitoring capabilities, and advanced analytics for sophisticated schemes detection is encouraged.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev194', type: 'performance-data', description: 'AI/ML False Positive Reduction Analysis', quality: 'good' },
+          { id: 'ev195', type: 'backtest-results', description: 'Advanced Analytics Detection Testing', quality: 'good' }
+        ],
+        linkedRules: []
+      },
+      {
+        id: 'fatf-rba-testing',
+        title: 'Periodic Review and Testing of Monitoring Systems',
+        reference: 'Risk-Based Supervision Guidance',
+        text: 'Financial institutions must conduct regular risk assessments and testing to ensure transaction monitoring systems remain effective. Required activities include periodic monitoring effectiveness reviews, testing against known scenarios, validation of detection capabilities, assessment of false positive and negative rates, updating monitoring rules based on emerging risks, and independent testing with documented results and remediation actions.',
+        metadata: {
+          jurisdiction: ['International'],
+          productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+          customerType: ['individual', 'business', 'corporate'],
+          riskLevel: 'high',
+          lastReviewed: '2025-01-15'
+        },
+        evidence: [
+          { id: 'ev196', type: 'audit-report', description: 'Independent Monitoring System Testing', quality: 'excellent' },
+          { id: 'ev197', type: 'performance-data', description: 'Detection Capability Validation', quality: 'good' }
         ],
         linkedRules: []
       }
@@ -1987,15 +3383,15 @@ export const analystCapacity = {
 export const complianceMetrics = {
   lastCalculated: '2024-02-01T08:00:00Z',
   statistics: {
-    totalDocuments: 7,
-    totalClauses: 11,
+    totalDocuments: 28,
+    totalClauses: 139,
     totalRules: 12,
     activeAlerts: 8,
     evidenceItems: 29
   },
   coverage: {
-    documentsCovered: 7,
-    clausesCovered: 11,
+    documentsCovered: 28,
+    clausesCovered: 139,
     rulesCovered: 12
   }
 };

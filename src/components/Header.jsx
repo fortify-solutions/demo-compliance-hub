@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Search, Settings, BarChart3, Users, Download, FileText } from 'lucide-react';
 
-export function Header({ filters, onFilterChange, onCapacityClick }) {
+export function Header({ filters, onFilterChange, onCapacityClick, documents = [] }) {
+
+  // Extract unique jurisdictions from visible documents
+  const availableJurisdictions = useMemo(() => {
+    const jurisdictions = new Set();
+    documents.forEach(doc => {
+      doc.clauses.forEach(clause => {
+        clause.metadata.jurisdiction.forEach(j => jurisdictions.add(j));
+      });
+    });
+    return Array.from(jurisdictions).sort();
+  }, [documents]);
+
+  // Map jurisdiction codes to display names
+  const jurisdictionNames = {
+    'US': 'US',
+    'UK': 'UK',
+    'EU': 'EU',
+    'CA': 'Canada',
+    'AU': 'Australia',
+    'SG': 'Singapore',
+    'HK': 'Hong Kong',
+    'JP': 'Japan',
+    'CH': 'Switzerland',
+    'AE': 'UAE',
+    'DE': 'Germany',
+    'IT': 'Italy',
+    'ES': 'Spain',
+    'International': 'International'
+  };
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm h-20">
@@ -16,16 +45,11 @@ export function Header({ filters, onFilterChange, onCapacityClick }) {
               aria-label="Filter by jurisdiction"
             >
               <option value="">All Jurisdictions</option>
-              <option value="US">US</option>
-              <option value="UK">UK</option>
-              <option value="EU">EU</option>
-              <option value="CA">Canada</option>
-              <option value="AU">Australia</option>
-              <option value="SG">Singapore</option>
-              <option value="HK">Hong Kong</option>
-              <option value="JP">Japan</option>
-              <option value="CH">Switzerland</option>
-              <option value="AE">UAE</option>
+              {availableJurisdictions.map(code => (
+                <option key={code} value={code}>
+                  {jurisdictionNames[code] || code}
+                </option>
+              ))}
             </select>
 
             <select 

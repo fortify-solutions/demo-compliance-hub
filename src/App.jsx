@@ -101,6 +101,7 @@ function App() {
         filters={filters}
         onFilterChange={handleFilterChange}
         onCapacityClick={openCapacityModal}
+        documents={documentService.getAllDocuments()}
       />
       
       <div className="flex pt-20" style={{height: '100vh'}} role="main"> {/* Add top padding for fixed header */}

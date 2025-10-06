@@ -427,6 +427,66 @@ npm run deploy
 - **Type Safety**: Robust parameter validation prevents runtime errors from invalid input ranges
 - **Memory Management**: Efficient listener cleanup and state optimization for performance
 
+## Recent Major Updates (v8.0) - European & International Regulatory Framework Expansion
+
+### Comprehensive Regulatory Coverage Update
+- **European Focus**: Transformed application to focus exclusively on European and international regulations
+- **FATF Integration**: Added complete FATF (Financial Action Task Force) framework with 4 comprehensive documents
+- **Supplement Categories**: Introduced new document type for Basel Committee and Wolfsberg Group standards
+- **Dynamic Filtering**: Updated jurisdiction dropdown to dynamically show only available jurisdictions from visible regulations
+
+### New Regulatory Documents Added (10 total, 48 clauses)
+**European Regulations (4 documents):**
+1. **EU Anti-Money Laundering Directive (AMLD5)** - 3 clauses covering ongoing monitoring, enhanced due diligence, and suspicious transaction reporting
+2. **Germany – Anti-Money Laundering** - 5 clauses covering Laufende Überwachung (ongoing monitoring), periodic KYC updates, FIU reporting, enhanced monitoring, and cash transaction monitoring
+3. **Italy – Anti-Money Laundering** - 5 clauses covering ongoing monitoring (Adeguata Verifica), UIF reporting, anomaly indicators, PEP monitoring, and virtual currency monitoring
+4. **Spain – Anti-Money Laundering** - 5 clauses covering ongoing monitoring, SEPBLAC reporting, risk indicators, systematic reporting, and PEP monitoring
+
+**FATF Framework (4 documents):**
+5. **FATF 40 Recommendations** - 5 clauses covering ongoing monitoring, record-keeping, wire transfers, suspicious transaction reporting, and complex transactions
+6. **FATF Correspondent Banking Guidance** - 5 clauses covering mandatory monitoring, risk profile changes, unusual activity detection, RFI process, and nested relationships
+7. **FATF Methodology for Technical Compliance** - 5 clauses covering assessment criteria for monitoring, transaction records, wire transfers, suspicious reporting, and effectiveness measures
+8. **FATF Risk-Based Approach Guidance** - 5 clauses covering risk-based monitoring, continuous/triggered monitoring, automated systems, technology innovation, and periodic testing
+
+**Supplement Documents (2 documents):**
+9. **Basel Committee Guidelines** - 5 clauses (recategorized from regulatory to supplement)
+10. **Wolfsberg Group Standards** - 5 clauses (recategorized from regulatory to supplement)
+
+### Hidden Regulations
+All US, UK, and other non-European regulations hidden but preserved in codebase:
+- USA regulations: BSA, PATRIOT Act, AMLA 2020, FinCEN (CDD, CTR, SAR, Travel Rule)
+- UK Money Laundering Regulations 2017
+- Other jurisdictions: Canada, Australia, Singapore, Hong Kong, Japan, Switzerland, UAE
+
+### Document Organization Enhancements
+- **Three-Section Structure**:
+  - Regulatory Framework (slate theme) - European and FATF regulations
+  - Supplements (amber theme) - Basel Committee and Wolfsberg Group
+  - Internal Policies (emerald theme) - Organization-specific policies
+- **Visual Distinction**: Color-coded sections with distinct borders and styling
+- **Type-Based Filtering**: DocumentService filters documents by visibility flag
+- **Dynamic Jurisdiction List**: Header component extracts jurisdictions from visible documents only
+
+### Technical Architecture Updates
+- **DocumentService Enhancement**: All methods now filter by `visible: false` flag
+- **Header Component Update**: Dynamic jurisdiction extraction with useMemo optimization
+- **Jurisdiction Mapping**: Comprehensive display name mapping (DE→Germany, IT→Italy, ES→Spain, International)
+- **Data Model Extension**: Added `visible` property to all documents (true/false)
+- **Component Styling**: Added supplement document styling with amber theme
+
+### Data Statistics
+- **Total visible documents**: 10 (4 EU + 4 FATF + 2 Supplements)
+- **Total visible clauses**: 48 transaction monitoring requirements
+- **Jurisdictions shown**: EU, DE, IT, ES, International
+- **Bundle size**: 475.66 kB (increased ~20KB for FATF regulations)
+- **Hidden documents**: 13 (all US, UK, and other international regulations preserved)
+
+### Build & Deployment
+- ✅ Production build successful with no errors
+- ✅ All document types render correctly with appropriate styling
+- ✅ Jurisdiction filtering works dynamically
+- ✅ Document visibility toggling system fully operational
+
 ## Recent Major Updates (v7.0) - Intelligent Multi-Obligation Coverage Analysis
 
 ### Semantic Rule-Obligation Matching System
