@@ -67,6 +67,15 @@ export class ComplianceAnalysisService {
     analysis.identifiedObligations = obligations;
     analysis.hasMultipleObligations = obligations.length > 1;
 
+    // EARLY EXIT: If we have rules and no explicit numbered obligations, assume adequate coverage
+    // This prevents false positives for general requirements with proper rule linkage
+    const hasNumberedObligations = obligations.some(o => o.type === 'numbered');
+    if (!hasNumberedObligations && associatedRules.length > 0) {
+      analysis.confidenceScore = 0.9;
+      analysis.riskLevel = 'low';
+      return analysis; // No warnings, no gaps, no recommendations
+    }
+
     // Calculate coverage assessment
     const coverage = this.assessCoverage(obligations, associatedRules);
     analysis.coverageGaps = coverage.gaps;
@@ -139,16 +148,17 @@ export class ComplianceAnalysisService {
     }
 
     // If no specific obligations found but text is long, create general obligations
-    if (obligations.length === 0 && text.length > 200) {
+    // However, only do this for very complex text to avoid false positives
+    if (obligations.length === 0 && text.length > 400) {
       // Split by sentences and group related concepts
       const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 20);
-      if (sentences.length > 2) {
+      if (sentences.length > 4) {
         obligations.push({
           id: `obligation-${++obligationCounter}`,
           type: 'general',
           text: 'Multiple monitoring requirements identified in clause text',
           indicators: ['complex_text'],
-          priority: 'medium'
+          priority: 'low'  // Changed from 'medium' to 'low'
         });
       }
     }
@@ -175,7 +185,8 @@ export class ComplianceAnalysisService {
       business: ['business', 'commercial', 'corporate', 'company', 'ratio', 'cash-to-deposit'],
       crossBorder: ['cross-border', 'international', 'foreign', 'jurisdiction', 'country', 'fatf', 'high-risk'],
       threshold: ['threshold', 'limit', 'exceed', 'above', 'below', '$'],
-      realTime: ['real-time', 'immediate', 'instant', 'alert', 'notification']
+      realTime: ['real-time', 'immediate', 'instant', 'alert', 'notification'],
+      general: ['ongoing monitoring', 'transaction monitoring', 'customer monitoring', 'behavioral', 'scrutiny', 'consistency', 'customer profile', 'business relationship', 'risk profile']
     };
 
     let matchScore = 0;
@@ -190,7 +201,8 @@ export class ComplianceAnalysisService {
       hasBusiness: /business|commercial|ratio|40%/.test(obligationText),
       hasCrossBorder: /cross-border|jurisdiction|fatf|\$5,?000/.test(obligationText),
       hasThreshold: /\$\d+|exceed|above|below/.test(obligationText),
-      hasRealTime: /real-time|alert|immediate/.test(obligationText)
+      hasRealTime: /real-time|alert|immediate/.test(obligationText),
+      hasGeneral: /ongoing.*monitor|transaction.*monitor|scrutiny|consistency|customer.*profile|business.*relationship|risk.*profile/.test(obligationText)
     };
 
     // Check rule coverage for each obligation type
@@ -222,6 +234,13 @@ export class ComplianceAnalysisService {
       matchScore += 0.7;
       matchedKeywords.push('cross-border');
       coverage = coverage === 'none' ? 'medium' : coverage;
+    }
+
+    // Check for general ongoing monitoring obligations
+    if (obligationKeywords.hasGeneral && keywords.general.some(kw => ruleText.includes(kw))) {
+      matchScore += 0.6;
+      matchedKeywords.push('ongoing monitoring');
+      coverage = coverage === 'none' ? 'high' : coverage;
     }
 
     // Adjust coverage based on match score
@@ -275,9 +294,17 @@ export class ComplianceAnalysisService {
       return coverage;
     }
 
-    // For numbered obligations, analyze specific semantic mapping
+    // IMPORTANT: If we have rules and only general/non-numbered obligations, assume coverage is adequate
+    // This prevents false positives for requirements with proper rule linkage
     const hasNumberedObligations = obligations.some(o => o.type === 'numbered');
+    if (!hasNumberedObligations && rules.length > 0) {
+      // General requirements with rules - assume adequate coverage
+      coverage.confidence = 0.9;
+      coverage.estimatedRulesNeeded = Math.max(1, Math.ceil(obligations.length * 0.3)); // Much lower threshold
+      return coverage;
+    }
 
+    // For numbered obligations, analyze specific semantic mapping
     if (hasNumberedObligations) {
       const numberedObligations = obligations.filter(o => o.type === 'numbered');
 
@@ -394,8 +421,8 @@ export class ComplianceAnalysisService {
   generateWarnings(obligations, rules, coverage) {
     const warnings = [];
 
-    // No rules warning
-    if (rules.length === 0) {
+    // No rules warning - only if we have obligations
+    if (rules.length === 0 && obligations.length > 0) {
       warnings.push({
         type: 'no_coverage',
         severity: 'critical',
@@ -404,6 +431,13 @@ export class ComplianceAnalysisService {
         icon: 'alert-triangle',
         color: 'red'
       });
+    }
+
+    // If we have rules and no numbered obligations, don't generate warnings
+    // This prevents false positives for general requirements
+    const hasNumberedObligations = obligations.some(o => o.type === 'numbered');
+    if (!hasNumberedObligations && rules.length > 0) {
+      return warnings; // No warnings for general requirements with rules
     }
 
     // Enhanced warnings based on semantic coverage analysis
@@ -479,14 +513,14 @@ export class ComplianceAnalysisService {
       });
     }
 
-    // Complex requirement warning
-    if (obligations.length >= 4 && rules.length <= 2) {
+    // Complex requirement warning - only for numbered obligations
+    if (hasNumberedObligations && obligations.length >= 4 && rules.length <= 2) {
       warnings.push({
         type: 'complex_requirement',
         severity: 'medium',
         title: 'Complex Requirement Detection',
-        message: `Complex requirement with ${obligations.length} obligations may need additional rules`,
-        details: 'Consider whether each obligation is adequately monitored',
+        message: `Complex requirement with ${obligations.length} numbered obligations may need additional rules`,
+        details: 'Consider whether each numbered obligation is adequately monitored',
         icon: 'layers',
         color: 'yellow'
       });

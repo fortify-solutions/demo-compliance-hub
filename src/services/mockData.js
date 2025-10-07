@@ -75,7 +75,7 @@ export const regulatoryDocuments = [
           { id: 'ev2', type: 'parallel-run', description: 'Parallel Run Validation - New vs Legacy TM Rules', quality: 'good' },
           { id: 'ev3', type: 'threshold-sensitivity', description: 'Threshold Sensitivity Analysis - $10K CTR Rules', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1']
+        linkedRules: []
       },
       {
         id: 'bsa-complex-monitoring',
@@ -92,7 +92,7 @@ export const regulatoryDocuments = [
         evidence: [
           { id: 'ev-comp-1', type: 'rule-backtest', description: 'Partial Coverage Analysis - Cash Monitoring Only', quality: 'fair' }
         ],
-        linkedRules: ['rule-1']  // Only 1 rule for 5 distinct obligations
+        linkedRules: []  // Only 1 rule for 5 distinct obligations
       },
       {
         id: 'bsa-1020-220',
@@ -111,7 +111,7 @@ export const regulatoryDocuments = [
           { id: 'ev5', type: 'model-validation', description: 'Identity Verification Algorithm Model Validation', quality: 'good' },
           { id: 'ev6', type: 'coverage-analysis', description: 'Customer Risk Tier Coverage Gap Analysis', quality: 'excellent' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-320-a',
@@ -130,7 +130,7 @@ export const regulatoryDocuments = [
           { id: 'ev8', type: 'false-positive-analysis', description: 'Investigation False Positive Rate Analysis', quality: 'excellent' },
           { id: 'ev9', type: 'regulatory-lookback', description: 'FinCEN Pattern Recognition Lookback Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-2']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-320-b',
@@ -149,7 +149,7 @@ export const regulatoryDocuments = [
           { id: 'ev11', type: 'data-lineage-audit', description: 'Transaction Data Lineage and Quality Audit', quality: 'good' },
           { id: 'ev12', type: 'stress-testing', description: 'Peak Volume Transaction Processing Stress Test', quality: 'excellent' }
         ],
-        linkedRules: ["rule-1"]
+        linkedRules: []
       },
       {
         id: 'bsa-1020-320-c',
@@ -187,7 +187,7 @@ export const regulatoryDocuments = [
           { id: 'ev17', type: 'aggregation-algorithm-test', description: 'Multi-Transaction Aggregation Algorithm Testing', quality: 'good' },
           { id: 'ev18', type: 'exception-handling-test', description: 'CTR Exception Processing Logic Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-240',
@@ -206,7 +206,7 @@ export const regulatoryDocuments = [
           { id: 'ev20', type: 'risk-scoring-validation', description: 'Foreign Institution Risk Scoring Model Validation', quality: 'good' },
           { id: 'ev21', type: 'jurisdiction-rule-tuning', description: 'High-Risk Jurisdiction Rule Threshold Tuning', quality: 'good' }
         ],
-        linkedRules: ['rule-3']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-250',
@@ -225,7 +225,7 @@ export const regulatoryDocuments = [
           { id: 'ev23', type: 'entity-resolution-testing', description: 'Beneficial Owner Entity Resolution Algorithm Testing', quality: 'good' },
           { id: 'ev24', type: 'velocity-threshold-testing', description: 'Source of Wealth Velocity Threshold Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-9', 'rule-10']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-315',
@@ -244,7 +244,7 @@ export const regulatoryDocuments = [
           { id: 'ev26', type: 'incomplete-wire-testing', description: 'Incomplete Wire Data Pattern Recognition Testing', quality: 'good' },
           { id: 'ev27', type: 'beneficiary-fuzzy-matching', description: 'Wire Beneficiary Fuzzy Matching Algorithm Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-3']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-400',
@@ -263,7 +263,7 @@ export const regulatoryDocuments = [
           { id: 'ev29', type: 'behavior-baseline-testing', description: 'Customer Behavior Baseline Model Performance Testing', quality: 'good' },
           { id: 'ev30', type: 'risk-tier-calibration', description: 'Risk-Based Monitoring Tier Calibration Analysis', quality: 'excellent' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-410',
@@ -282,7 +282,7 @@ export const regulatoryDocuments = [
           { id: 'ev32', type: 'ownership-change-detection', description: 'Ownership Structure Change Detection Testing', quality: 'good' },
           { id: 'ev33', type: 'control-relationship-mapping', description: 'Control Person Relationship Mapping Validation', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-500',
@@ -320,7 +320,7 @@ export const regulatoryDocuments = [
           { id: 'ev38', type: 'location-based-monitoring', description: 'Location-Based Transaction Monitoring Algorithm Testing', quality: 'excellent' },
           { id: 'ev39', type: 'reporting-automation-test', description: 'GTO Automated Reporting System Testing', quality: 'good' }
         ],
-        linkedRules: ["rule-8"]
+        linkedRules: []
       },
       {
         id: 'bsa-1020-700',
@@ -339,7 +339,7 @@ export const regulatoryDocuments = [
           { id: 'ev41', type: 'workflow-testing', description: 'Alert Investigation Workflow Testing', quality: 'good' },
           { id: 'ev42', type: 'training-data-validation', description: 'ML Model Training Data Validation Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-800',
@@ -358,7 +358,7 @@ export const regulatoryDocuments = [
           { id: 'ev44', type: 'load-testing', description: 'Transaction Volume Load Testing Results', quality: 'good' },
           { id: 'ev45', type: 'disaster-recovery-testing', description: 'TM System Disaster Recovery Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-3']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-900',
@@ -377,7 +377,7 @@ export const regulatoryDocuments = [
           { id: 'ev47', type: 'escalation-testing', description: 'Alert Escalation Workflow Testing', quality: 'good' },
           { id: 'ev48', type: 'capacity-testing', description: 'System Capacity and Resource Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-1000',
@@ -396,7 +396,7 @@ export const regulatoryDocuments = [
           { id: 'ev50', type: 'api-testing', description: 'Regulatory Data Access API Testing', quality: 'good' },
           { id: 'ev51', type: 'archival-testing', description: 'Historical Transaction Data Archival Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2']
+        linkedRules: []
       },
       {
         id: 'bsa-1020-1100',
@@ -415,7 +415,7 @@ export const regulatoryDocuments = [
           { id: 'ev53', type: 'access-control-testing', description: 'Role-Based Access Control Testing', quality: 'good' },
           { id: 'ev54', type: 'reporting-automation-testing', description: 'Automated Management Reporting Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-3']
+        linkedRules: []
       }
     ]
   },
@@ -443,7 +443,7 @@ export const regulatoryDocuments = [
           { id: 'ev8', type: 'policy-documentation', description: 'Enhanced Monitoring Policy and Procedures', quality: 'excellent' },
           { id: 'ev9', type: 'training-records', description: 'Staff Transaction Monitoring Training', quality: 'good' }
         ],
-        linkedRules: ['rule-8', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'patriot-326-b',
@@ -461,7 +461,7 @@ export const regulatoryDocuments = [
           { id: 'ev10', type: 'system-validation', description: 'Identity Verification System Audit', quality: 'fair' },
           { id: 'ev11', type: 'sample-testing', description: 'Customer Onboarding Sample Review', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-10']
+        linkedRules: []
       }
     ]
   },
@@ -489,7 +489,7 @@ export const regulatoryDocuments = [
           { id: 'ev12', type: 'performance-monitoring', description: 'Real-Time TM System Performance Monitoring', quality: 'good' },
           { id: 'ev13', type: 'alert-quality-testing', description: 'Alert Generation Quality Assessment Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-12']
+        linkedRules: []
       }
     ]
   },
@@ -517,7 +517,7 @@ export const regulatoryDocuments = [
           { id: 'ev14', type: 'blocking-rule-testing', description: 'Crypto Exchange Blocking Rule Performance Testing', quality: 'excellent' },
           { id: 'ev15', type: 'transaction-review-testing', description: 'Crypto Transaction Pattern Recognition Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-13']
+        linkedRules: []
       },
       {
         id: 'tmp-002',
@@ -535,7 +535,7 @@ export const regulatoryDocuments = [
           { id: 'ev16', type: 'closure-workflow-testing', description: 'Cash Business Account Closure Workflow Testing', quality: 'excellent' },
           { id: 'ev17', type: 'edd-process-testing', description: 'Enhanced Due Diligence Process Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-14']
+        linkedRules: []
       },
       {
         id: 'tmp-003',
@@ -553,7 +553,7 @@ export const regulatoryDocuments = [
           { id: 'ev18', type: 'geographic-filter-testing', description: 'Geographic Risk Filter Algorithm Testing', quality: 'excellent' },
           { id: 'ev19', type: 'sanctions-screening-testing', description: 'OFAC Sanctions Screening Performance Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-15']
+        linkedRules: []
       },
       {
         id: 'tmp-005',
@@ -571,7 +571,7 @@ export const regulatoryDocuments = [
           { id: 'ev22', type: 'pattern-analysis-testing', description: 'Merchant Settlement Pattern Analysis Algorithm Testing', quality: 'good' },
           { id: 'ev23', type: 'ratio-monitoring-testing', description: 'Real-Time Transaction Ratio Monitoring Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-16']
+        linkedRules: []
       },
       {
         id: 'tmp-006',
@@ -590,7 +590,7 @@ export const regulatoryDocuments = [
           { id: 'ev141', type: 'ownership-verification-testing', description: 'Beneficial Ownership Verification Algorithm Testing', quality: 'good' },
           { id: 'ev142', type: 'business-purpose-validation', description: 'Corporate Business Purpose Validation Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-2', 'rule-3']
+        linkedRules: []
       }
     ]
   },
@@ -619,7 +619,7 @@ export const regulatoryDocuments = [
           { id: 'ev121', type: 'compliance-testing', description: 'Transaction Monitoring SMR Compliance Testing', quality: 'good' },
           { id: 'ev122', type: 'dashboard-testing', description: 'MLRO Performance Dashboard Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-8', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uktmp-002',
@@ -638,7 +638,7 @@ export const regulatoryDocuments = [
           { id: 'ev124', type: 'system-configuration', description: 'Enhanced Monitoring Rules for EU/EEA Transactions', quality: 'good' },
           { id: 'ev125', type: 'compliance-testing', description: 'EU/EEA Enhanced Monitoring Effectiveness Testing', quality: 'excellent' }
         ],
-        linkedRules: ['rule-8', 'rule-10']
+        linkedRules: []
       },
       {
         id: 'uktmp-003',
@@ -657,7 +657,7 @@ export const regulatoryDocuments = [
           { id: 'ev127', type: 'blocking-procedures', description: 'Sanctioned Entity Transaction Blocking Procedures', quality: 'excellent' },
           { id: 'ev128', type: 'reporting-metrics', description: 'UK Sanctions Screening Performance Metrics', quality: 'good' }
         ],
-        linkedRules: ['rule-8', 'rule-9', 'rule-12']
+        linkedRules: []
       },
       {
         id: 'uktmp-004',
@@ -676,7 +676,7 @@ export const regulatoryDocuments = [
           { id: 'ev130', type: 'technical-controls', description: 'Automated Data Retention and Deletion Controls', quality: 'good' },
           { id: 'ev131', type: 'privacy-assessment', description: 'Transaction Monitoring GDPR Impact Assessment', quality: 'excellent' }
         ],
-        linkedRules: ['rule-8', 'rule-10']
+        linkedRules: []
       },
       {
         id: 'uktmp-005',
@@ -695,7 +695,7 @@ export const regulatoryDocuments = [
           { id: 'ev133', type: 'enhanced-monitoring', description: 'UK PEP Enhanced Transaction Monitoring Rules', quality: 'good' },
           { id: 'ev134', type: 'review-procedures', description: 'UK PEP Account Review and Approval Procedures', quality: 'excellent' }
         ],
-        linkedRules: ['rule-9', 'rule-10']
+        linkedRules: []
       },
       {
         id: 'uktmp-006',
@@ -714,7 +714,7 @@ export const regulatoryDocuments = [
           { id: 'ev136', type: 'review-procedures', description: 'Annual Business Review Meeting Procedures', quality: 'good' },
           { id: 'ev137', type: 'psc-compliance', description: 'PSC Register Compliance and Beneficial Ownership Tracking', quality: 'excellent' }
         ],
-        linkedRules: ['rule-9', 'rule-10']
+        linkedRules: []
       }
     ]
   },
@@ -743,7 +743,7 @@ export const regulatoryDocuments = [
           { id: 'ev61', type: 'risk-review', description: 'Annual Risk Assessment Update and Review', quality: 'good' },
           { id: 'ev62', type: 'fca-guidance', description: 'FCA Risk Assessment Guidance Implementation', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-8']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-19',
@@ -762,7 +762,7 @@ export const regulatoryDocuments = [
           { id: 'ev64', type: 'board-approval', description: 'Board Approval of AML/CTF Policies Documentation', quality: 'good' },
           { id: 'ev65', type: 'policy-review', description: 'Regular Policy Review and Update Process', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-3']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-21',
@@ -781,7 +781,7 @@ export const regulatoryDocuments = [
           { id: 'ev67', type: 'internal-controls', description: 'Internal Controls Framework Documentation', quality: 'good' },
           { id: 'ev68', type: 'employee-screening', description: 'AML-relevant Employee Screening Procedures', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-27',
@@ -800,7 +800,7 @@ export const regulatoryDocuments = [
           { id: 'ev70', type: 'threshold-monitoring', description: '€15,000 Transaction Threshold Monitoring System', quality: 'good' },
           { id: 'ev71', type: 'identity-verification', description: 'Customer Identity Verification Process Review', quality: 'excellent' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-28',
@@ -819,7 +819,7 @@ export const regulatoryDocuments = [
           { id: 'ev73', type: 'transaction-scrutiny', description: 'Transaction Scrutiny and Pattern Analysis', quality: 'good' },
           { id: 'ev74', type: 'cdd-updates', description: 'Customer Due Diligence Information Update Process', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-33',
@@ -838,7 +838,7 @@ export const regulatoryDocuments = [
           { id: 'ev76', type: 'pep-screening', description: 'Politically Exposed Person Screening and Monitoring', quality: 'good' },
           { id: 'ev77', type: 'high-risk-countries', description: 'High-Risk Third Country Transaction Monitoring', quality: 'excellent' }
         ],
-        linkedRules: ['rule-9', 'rule-10']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-35',
@@ -857,7 +857,7 @@ export const regulatoryDocuments = [
           { id: 'ev79', type: 'risk-assessment', description: 'Lower-Risk Situation Risk Assessment Process', quality: 'excellent' },
           { id: 'ev80', type: 'monitoring-procedures', description: 'Simplified Due Diligence Monitoring Procedures', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-30',
@@ -876,7 +876,7 @@ export const regulatoryDocuments = [
           { id: 'ev82', type: 'control-verification', description: 'Control Structure Verification and Documentation', quality: 'good' },
           { id: 'ev83', type: 'psc-register', description: 'People with Significant Control Register Verification', quality: 'excellent' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-86',
@@ -933,7 +933,7 @@ export const regulatoryDocuments = [
           { id: 'ev91', type: 'completion-records', description: 'Employee Training Completion and Effectiveness Tracking', quality: 'good' },
           { id: 'ev92', type: 'specialized-training', description: 'Role-Specific AML Training for High-Risk Functions', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-40',
@@ -952,7 +952,7 @@ export const regulatoryDocuments = [
           { id: 'ev94', type: 'data-protection', description: 'GDPR Compliant AML Record Retention Implementation', quality: 'good' },
           { id: 'ev95', type: 'authority-access', description: 'Competent Authority Record Access Procedures', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-20',
@@ -971,7 +971,7 @@ export const regulatoryDocuments = [
           { id: 'ev97', type: 'equivalence-assessment', description: 'Third Country AML Requirement Equivalence Assessment', quality: 'excellent' },
           { id: 'ev98', type: 'fca-reporting', description: 'FCA Notification of Third Country Compliance Issues', quality: 'good' }
         ],
-        linkedRules: ["rule-10"]
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-39',
@@ -990,7 +990,7 @@ export const regulatoryDocuments = [
           { id: 'ev100', type: 'equivalence-verification', description: 'Third Party AML Requirement Equivalence Verification', quality: 'good' },
           { id: 'ev101', type: 'oversight-procedures', description: 'Third Party CDD Oversight and Quality Assurance', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-37',
@@ -1009,7 +1009,7 @@ export const regulatoryDocuments = [
           { id: 'ev103', type: 'delayed-verification', description: 'Delayed Verification Risk Management Procedures', quality: 'good' },
           { id: 'ev104', type: 'relationship-restrictions', description: 'Business Relationship Restriction Controls', quality: 'excellent' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-29',
@@ -1028,7 +1028,7 @@ export const regulatoryDocuments = [
           { id: 'ev106', type: 'risk-profiling', description: 'Customer Risk Profiling Based on Business Purpose', quality: 'good' },
           { id: 'ev107', type: 'monitoring-parameters', description: 'Purpose-Based Transaction Monitoring Parameters', quality: 'excellent' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-26',
@@ -1047,7 +1047,7 @@ export const regulatoryDocuments = [
           { id: 'ev109', type: 'risk-mitigation', description: 'Risk Mitigation Measures Implementation', quality: 'good' },
           { id: 'ev110', type: 'approval-procedures', description: 'New Product/Service Approval Procedures', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-3']
+        linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-22',
@@ -1066,7 +1066,7 @@ export const regulatoryDocuments = [
           { id: 'ev112', type: 'information-sharing', description: 'Group Information Sharing Agreements and Procedures', quality: 'good' },
           { id: 'ev113', type: 'data-protection', description: 'GDPR Compliant Group Data Sharing Implementation', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-2']
+        linkedRules: []
       }
     ]
   },
@@ -1095,7 +1095,7 @@ export const regulatoryDocuments = [
           { id: 'ev28', type: 'regulatory-mapping', description: 'AMLD5 Compliance Framework', quality: 'excellent' },
           { id: 'ev29', type: 'backtest-results', description: 'EU Payment Pattern Recognition', quality: 'good' }
         ],
-        linkedRules: ["rule-1","rule-12"]
+        linkedRules: ['rule-eu-05']
       },
       {
         id: 'eu-amld5-art18a',
@@ -1113,7 +1113,7 @@ export const regulatoryDocuments = [
           { id: 'ev30', type: 'geographic-screening', description: 'High-Risk Country Monitoring Rules', quality: 'excellent' },
           { id: 'ev31', type: 'policy-documentation', description: 'EU Enhanced Due Diligence Procedures', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-07', 'rule-eu-21']
       },
       {
         id: 'eu-amld5-art33',
@@ -1131,7 +1131,7 @@ export const regulatoryDocuments = [
           { id: 'ev32', type: 'str-metrics', description: 'Suspicious Transaction Report Statistics', quality: 'fair' },
           { id: 'ev33', type: 'workflow-documentation', description: 'EU STR Filing Process Documentation', quality: 'good' }
         ],
-        linkedRules: []
+        linkedRules: ['rule-eu-25']
       }
     ]
   },
@@ -1159,7 +1159,7 @@ export const regulatoryDocuments = [
           { id: 'ev27', type: 'filing-metrics', description: 'FINTRAC Large Cash Transaction Report Statistics', quality: 'excellent' },
           { id: 'ev28', type: 'audit-report', description: 'OSFI AML Examination Report 2024', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-3']
+        linkedRules: []
       },
       {
         id: 'pcmla-s7',
@@ -1195,7 +1195,7 @@ export const regulatoryDocuments = [
           { id: 'ev31', type: 'record-keeping', description: 'Client Identification Record Retention Audit', quality: 'good' },
           { id: 'ev32', type: 'compliance-testing', description: 'KYC Documentation Completeness Review', quality: 'fair' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       }
     ]
   },
@@ -1223,7 +1223,7 @@ export const regulatoryDocuments = [
           { id: 'ev33', type: 'cdd-review', description: 'Customer Due Diligence Process Assessment', quality: 'excellent' },
           { id: 'ev34', type: 'risk-assessment', description: 'Enhanced Due Diligence Risk Categorization', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9', 'rule-10']
+        linkedRules: []
       },
       {
         id: 'aml-ctf-s41',
@@ -1259,7 +1259,7 @@ export const regulatoryDocuments = [
           { id: 'ev37', type: 'program-documentation', description: 'AML/CTF Program Annual Review', quality: 'good' },
           { id: 'ev38', type: 'monitoring-effectiveness', description: 'Transaction Monitoring System Performance', quality: 'excellent' }
         ],
-        linkedRules: ['rule-1', 'rule-8']
+        linkedRules: []
       }
     ]
   },
@@ -1305,7 +1305,7 @@ export const regulatoryDocuments = [
           { id: 'ev41', type: 'cdd-procedures', description: 'Customer Due Diligence Process Documentation', quality: 'excellent' },
           { id: 'ev42', type: 'risk-profiling', description: 'Customer Risk Assessment Framework', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       }
     ]
   },
@@ -1333,7 +1333,7 @@ export const regulatoryDocuments = [
           { id: 'ev43', type: 'cdd-compliance', description: 'HKMA CDD Compliance Review', quality: 'excellent' },
           { id: 'ev44', type: 'threshold-monitoring', description: 'HK$120,000 Transaction Threshold Monitoring', quality: 'good' }
         ],
-        linkedRules: ["rule-2"]
+        linkedRules: []
       },
       {
         id: 'amlo-s25a',
@@ -1379,7 +1379,7 @@ export const regulatoryDocuments = [
           { id: 'ev47', type: 'identity-verification', description: 'Customer Identity Verification Process Audit', quality: 'good' },
           { id: 'ev48', type: 'record-retention', description: 'Customer Record Retention Compliance Review', quality: 'excellent' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'narcotics-s8',
@@ -1425,7 +1425,7 @@ export const regulatoryDocuments = [
           { id: 'ev51', type: 'beneficial-ownership', description: 'Beneficial Ownership Identification Procedures', quality: 'excellent' },
           { id: 'ev52', type: 'finma-audit', description: 'FINMA Due Diligence Compliance Review', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9', 'rule-10']
+        linkedRules: []
       },
       {
         id: 'amla-art9',
@@ -1471,7 +1471,7 @@ export const regulatoryDocuments = [
           { id: 'ev55', type: 'cbuae-guidance', description: 'CBUAE Customer Due Diligence Standards', quality: 'excellent' },
           { id: 'ev56', type: 'cdd-implementation', description: 'Enhanced CDD Process Implementation', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: []
       },
       {
         id: 'uae-aml-art15',
@@ -2099,7 +2099,7 @@ export const regulatoryDocuments = [
           { id: 'ev118', type: 'regulatory-guidance', description: 'GwG Section 10 Implementation', quality: 'excellent' },
           { id: 'ev119', type: 'policy-documentation', description: 'Continuous Monitoring Procedures', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-05', 'rule-eu-18', 'rule-eu-21', 'rule-eu-22']
       },
       {
         id: 'germany-aml-section-2',
@@ -2117,7 +2117,7 @@ export const regulatoryDocuments = [
           { id: 'ev120', type: 'regulatory-guidance', description: 'BaFin Guidance (February 1, 2025)', quality: 'excellent' },
           { id: 'ev121', type: 'compliance-monitoring', description: 'KYC Update Timeliness Tracking', quality: 'good' }
         ],
-        linkedRules: ['rule-9']
+        linkedRules: ['rule-eu-05', 'rule-eu-18', 'rule-eu-21', 'rule-eu-22']
       },
       {
         id: 'germany-aml-section-3',
@@ -2135,7 +2135,7 @@ export const regulatoryDocuments = [
           { id: 'ev122', type: 'compliance-monitoring', description: 'FIU Reporting Quality Metrics', quality: 'excellent' },
           { id: 'ev123', type: 'audit-report', description: 'Suspicious Activity Detection Review', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-13', 'rule-eu-25']
       },
       {
         id: 'germany-aml-section-4',
@@ -2153,7 +2153,7 @@ export const regulatoryDocuments = [
           { id: 'ev124', type: 'performance-data', description: 'Cash Transaction Monitoring Metrics', quality: 'excellent' },
           { id: 'ev125', type: 'audit-report', description: 'Cross-Border Wire Transfer Review', quality: 'good' }
         ],
-        linkedRules: ['rule-12']
+        linkedRules: ['rule-eu-01', 'rule-eu-07', 'rule-eu-08', 'rule-eu-19']
       },
       {
         id: 'germany-aml-section-5',
@@ -2171,7 +2171,7 @@ export const regulatoryDocuments = [
           { id: 'ev126', type: 'backtest-results', description: 'Monitoring System Validation Results', quality: 'excellent' },
           { id: 'ev127', type: 'audit-report', description: 'Governance Framework Review', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-13', 'rule-eu-25']
       }
     ]
   },
@@ -2199,7 +2199,7 @@ export const regulatoryDocuments = [
           { id: 'ev128', type: 'regulatory-filing', description: 'D.Lgs. 231/2007 Article 35', quality: 'excellent' },
           { id: 'ev129', type: 'policy-documentation', description: 'Continuous Monitoring Procedures', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-02', 'rule-eu-05', 'rule-eu-09', 'rule-eu-10', 'rule-eu-11', 'rule-eu-23', 'rule-eu-24']
       },
       {
         id: 'italy-aml-section-2',
@@ -2217,7 +2217,7 @@ export const regulatoryDocuments = [
           { id: 'ev130', type: 'regulatory-guidance', description: 'UIF Anomaly Indicators', quality: 'excellent' },
           { id: 'ev131', type: 'performance-data', description: 'Threshold Monitoring Metrics', quality: 'good' }
         ],
-        linkedRules: ['rule-12']
+        linkedRules: ['rule-eu-02', 'rule-eu-03', 'rule-eu-19']
       },
       {
         id: 'italy-aml-section-3',
@@ -2235,7 +2235,7 @@ export const regulatoryDocuments = [
           { id: 'ev132', type: 'compliance-monitoring', description: 'UIF Reporting Quality Metrics', quality: 'excellent' },
           { id: 'ev133', type: 'audit-report', description: 'Suspicious Activity Detection Review', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-06', 'rule-eu-07', 'rule-eu-11', 'rule-eu-23', 'rule-eu-25']
       },
       {
         id: 'italy-aml-section-4',
@@ -2253,7 +2253,7 @@ export const regulatoryDocuments = [
           { id: 'ev134', type: 'performance-data', description: 'PEP Monitoring Effectiveness', quality: 'excellent' },
           { id: 'ev135', type: 'audit-report', description: 'Enhanced Due Diligence Review', quality: 'good' }
         ],
-        linkedRules: ['rule-9']
+        linkedRules: ['rule-eu-06']
       },
       {
         id: 'italy-aml-section-5',
@@ -2271,7 +2271,7 @@ export const regulatoryDocuments = [
           { id: 'ev136', type: 'backtest-results', description: 'System Validation Results', quality: 'excellent' },
           { id: 'ev137', type: 'audit-report', description: 'Record-Keeping Compliance Review', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-05', 'rule-eu-09', 'rule-eu-10', 'rule-eu-11', 'rule-eu-23', 'rule-eu-24', 'rule-eu-25']
       }
     ]
   },
@@ -2299,7 +2299,7 @@ export const regulatoryDocuments = [
           { id: 'ev138', type: 'regulatory-filing', description: 'Law 10/2010 Article 7', quality: 'excellent' },
           { id: 'ev139', type: 'policy-documentation', description: 'Ongoing Monitoring Procedures', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-05', 'rule-eu-18', 'rule-eu-23']
       },
       {
         id: 'spain-aml-section-2',
@@ -2317,7 +2317,7 @@ export const regulatoryDocuments = [
           { id: 'ev140', type: 'compliance-monitoring', description: 'SEPBLAC Reporting Quality Metrics', quality: 'excellent' },
           { id: 'ev141', type: 'audit-report', description: 'Structured Review Documentation', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-06', 'rule-eu-07', 'rule-eu-23', 'rule-eu-25']
       },
       {
         id: 'spain-aml-section-3',
@@ -2335,7 +2335,7 @@ export const regulatoryDocuments = [
           { id: 'ev142', type: 'regulatory-guidance', description: 'SEPBLAC Risk Indicator Catalogues (2024-2025)', quality: 'excellent' },
           { id: 'ev143', type: 'performance-data', description: 'Systematic Reporting Metrics', quality: 'good' }
         ],
-        linkedRules: ['rule-12']
+        linkedRules: ['rule-eu-12']
       },
       {
         id: 'spain-aml-section-4',
@@ -2353,7 +2353,7 @@ export const regulatoryDocuments = [
           { id: 'ev144', type: 'performance-data', description: 'PEP Enhanced Monitoring Effectiveness', quality: 'excellent' },
           { id: 'ev145', type: 'audit-report', description: 'High-Risk Country Transaction Review', quality: 'good' }
         ],
-        linkedRules: ['rule-9']
+        linkedRules: ['rule-eu-06', 'rule-eu-25']
       },
       {
         id: 'spain-aml-section-5',
@@ -2371,7 +2371,7 @@ export const regulatoryDocuments = [
           { id: 'ev146', type: 'backtest-results', description: 'System Testing and Validation', quality: 'excellent' },
           { id: 'ev147', type: 'audit-report', description: 'Internal Controls Review', quality: 'good' }
         ],
-        linkedRules: ['rule-9', 'rule-12']
+        linkedRules: ['rule-eu-12']
       }
     ]
   },
@@ -2499,7 +2499,7 @@ export const regulatoryDocuments = [
           { id: 'ev158', type: 'regulatory-guidance', description: 'FATF Recommendation 10 Interpretive Note', quality: 'excellent' },
           { id: 'ev159', type: 'policy-documentation', description: 'Ongoing Monitoring Framework', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-05', 'rule-eu-14', 'rule-eu-22', 'rule-eu-23']
       },
       {
         id: 'fatf-rec11-records',
@@ -2517,7 +2517,7 @@ export const regulatoryDocuments = [
           { id: 'ev160', type: 'audit-report', description: 'Record Retention Compliance Review', quality: 'excellent' },
           { id: 'ev161', type: 'performance-data', description: 'Transaction Record Audit Trail', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-3', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-14']
       },
       {
         id: 'fatf-rec16-wire',
@@ -2535,7 +2535,7 @@ export const regulatoryDocuments = [
           { id: 'ev162', type: 'performance-data', description: 'Wire Transfer Monitoring Effectiveness', quality: 'excellent' },
           { id: 'ev163', type: 'backtest-results', description: 'Travel Rule Compliance Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-3', 'rule-12']
+        linkedRules: ['rule-eu-03', 'rule-eu-04']
       },
       {
         id: 'fatf-rec20-suspicious',
@@ -2553,7 +2553,7 @@ export const regulatoryDocuments = [
           { id: 'ev164', type: 'performance-data', description: 'Suspicious Transaction Detection Metrics', quality: 'excellent' },
           { id: 'ev165', type: 'audit-report', description: 'FIU Reporting Quality Assessment', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-14']
       },
       {
         id: 'fatf-complex-unusual',
@@ -2571,7 +2571,7 @@ export const regulatoryDocuments = [
           { id: 'ev166', type: 'backtest-results', description: 'Complex Transaction Detection Analysis', quality: 'good' },
           { id: 'ev167', type: 'performance-data', description: 'Unusual Pattern Monitoring', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: ['rule-eu-14']
       }
     ]
   },
@@ -2599,7 +2599,7 @@ export const regulatoryDocuments = [
           { id: 'ev168', type: 'regulatory-guidance', description: 'FATF Correspondent Banking Guidance (2016)', quality: 'excellent' },
           { id: 'ev169', type: 'policy-documentation', description: 'Correspondent Relationship Monitoring Framework', quality: 'good' }
         ],
-        linkedRules: ['rule-3', 'rule-12']
+        linkedRules: ['rule-eu-15']
       },
       {
         id: 'fatf-corr-risk-changes',
@@ -2617,7 +2617,7 @@ export const regulatoryDocuments = [
           { id: 'ev170', type: 'performance-data', description: 'Respondent Risk Profile Monitoring', quality: 'excellent' },
           { id: 'ev171', type: 'backtest-results', description: 'Transaction Pattern Analysis', quality: 'good' }
         ],
-        linkedRules: ['rule-3', 'rule-9']
+        linkedRules: ['rule-eu-15']
       },
       {
         id: 'fatf-corr-unusual',
@@ -2635,7 +2635,7 @@ export const regulatoryDocuments = [
           { id: 'ev172', type: 'performance-data', description: 'Unusual Activity Detection Metrics', quality: 'excellent' },
           { id: 'ev173', type: 'audit-report', description: 'Real-Time Monitoring Effectiveness', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-3', 'rule-12']
+        linkedRules: ['rule-eu-15']
       },
       {
         id: 'fatf-corr-rfi',
@@ -2653,7 +2653,7 @@ export const regulatoryDocuments = [
           { id: 'ev174', type: 'policy-documentation', description: 'RFI Process and Escalation Procedures', quality: 'excellent' },
           { id: 'ev175', type: 'performance-data', description: 'RFI Response Quality Metrics', quality: 'good' }
         ],
-        linkedRules: ['rule-3']
+        linkedRules: ['rule-eu-16']
       },
       {
         id: 'fatf-corr-nested',
@@ -2671,7 +2671,7 @@ export const regulatoryDocuments = [
           { id: 'ev176', type: 'backtest-results', description: 'Nested Relationship Detection Analysis', quality: 'good' },
           { id: 'ev177', type: 'performance-data', description: 'Sub-Account Monitoring Effectiveness', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-3']
+        linkedRules: ['rule-eu-08']
       }
     ]
   },
@@ -2699,7 +2699,7 @@ export const regulatoryDocuments = [
           { id: 'ev178', type: 'regulatory-guidance', description: 'FATF Methodology Technical Compliance Standards', quality: 'excellent' },
           { id: 'ev179', type: 'audit-report', description: 'Ongoing Monitoring Compliance Assessment', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-17']
       },
       {
         id: 'fatf-method-rec11',
@@ -2717,7 +2717,7 @@ export const regulatoryDocuments = [
           { id: 'ev180', type: 'policy-documentation', description: 'Record Retention Policy Framework', quality: 'excellent' },
           { id: 'ev181', type: 'performance-data', description: 'Record Reconstruction Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-3', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-14']
       },
       {
         id: 'fatf-method-rec16',
@@ -2735,7 +2735,7 @@ export const regulatoryDocuments = [
           { id: 'ev182', type: 'backtest-results', description: 'Wire Transfer Compliance Testing', quality: 'excellent' },
           { id: 'ev183', type: 'performance-data', description: 'Incomplete Transfer Handling Metrics', quality: 'good' }
         ],
-        linkedRules: ['rule-3', 'rule-12']
+        linkedRules: ['rule-eu-04', 'rule-eu-08']
       },
       {
         id: 'fatf-method-rec20',
@@ -2753,7 +2753,7 @@ export const regulatoryDocuments = [
           { id: 'ev184', type: 'audit-report', description: 'STR Filing Compliance Review', quality: 'excellent' },
           { id: 'ev185', type: 'performance-data', description: 'Suspicious Activity Detection Metrics', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-14']
       },
       {
         id: 'fatf-method-effectiveness',
@@ -2771,7 +2771,7 @@ export const regulatoryDocuments = [
           { id: 'ev186', type: 'performance-data', description: 'Monitoring System Effectiveness Analysis', quality: 'good' },
           { id: 'ev187', type: 'audit-report', description: 'Risk-Based Approach Assessment', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-20', 'rule-eu-21']
       }
     ]
   },
@@ -2799,7 +2799,7 @@ export const regulatoryDocuments = [
           { id: 'ev188', type: 'regulatory-guidance', description: 'FATF Risk-Based Approach for Banking Sector (2014)', quality: 'excellent' },
           { id: 'ev189', type: 'policy-documentation', description: 'Risk-Based Monitoring Framework', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-05']
       },
       {
         id: 'fatf-rba-continuous',
@@ -2817,7 +2817,7 @@ export const regulatoryDocuments = [
           { id: 'ev190', type: 'performance-data', description: 'Continuous Monitoring Effectiveness Metrics', quality: 'excellent' },
           { id: 'ev191', type: 'backtest-results', description: 'Peer Group Comparison Analysis', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9']
+        linkedRules: ['rule-eu-05', 'rule-eu-17']
       },
       {
         id: 'fatf-rba-automated',
@@ -2835,7 +2835,7 @@ export const regulatoryDocuments = [
           { id: 'ev192', type: 'audit-report', description: 'Automated System Validation Review', quality: 'excellent' },
           { id: 'ev193', type: 'performance-data', description: 'System Integrity Testing Results', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-18']
       },
       {
         id: 'fatf-rba-technology',
@@ -2853,7 +2853,7 @@ export const regulatoryDocuments = [
           { id: 'ev194', type: 'performance-data', description: 'AI/ML False Positive Reduction Analysis', quality: 'good' },
           { id: 'ev195', type: 'backtest-results', description: 'Advanced Analytics Detection Testing', quality: 'good' }
         ],
-        linkedRules: ['rule-2', 'rule-9']
+        linkedRules: ['rule-eu-20']
       },
       {
         id: 'fatf-rba-testing',
@@ -2871,7 +2871,7 @@ export const regulatoryDocuments = [
           { id: 'ev196', type: 'audit-report', description: 'Independent Monitoring System Testing', quality: 'excellent' },
           { id: 'ev197', type: 'performance-data', description: 'Detection Capability Validation', quality: 'good' }
         ],
-        linkedRules: ['rule-1', 'rule-2', 'rule-9', 'rule-12']
+        linkedRules: ['rule-eu-05']
       }
     ]
   }
@@ -2880,371 +2880,912 @@ export const regulatoryDocuments = [
 // Rule Performance Data
 export const rules = [
   {
-    id: 'rule-1',
-    name: 'Large Cash Transaction Detection',
+    id: 'rule-eu-01',
+    name: 'EU Cash Transaction Monitoring (€10K Threshold)',
     category: 'Cash Monitoring',
-    description: 'Implements BSA § 1020.210 requirement for automated detection of cash transactions above $10,000 and aggregated transactions exceeding $10,000 within 24-hour periods. Monitors all cash deposits, withdrawals, and cash equivalents including cashier\'s checks and money orders. Generates CTR alerts and identifies potential structuring patterns.',
-    regulatoryBasis: 'BSA § 1020.210 Internal Controls, BSA § 1010.313 Currency Transaction Reports',
+    description: 'Monitors all cash transactions against the EU-wide €10,000 upper limit (effective July 2027). Detects structuring patterns through 24-hour rolling aggregation, flags round-number amounts, and identifies systematic threshold avoidance. Applies to all cash deposits, withdrawals, and cash equivalents across all customer segments.',
+    regulatoryBasis: 'Germany GwG Section 4; EU AMLR Cash Limit Regulation',
     implementedRequirements: [
       {
-        requirementId: 'bsa-1020-210',
-        description: 'Automated cash transaction monitoring above $10,000'
-      },
-      {
-        requirementId: 'bsa-1010-313',
-        description: 'CTR filing for currency transactions and aggregated transactions'
+        requirementId: 'germany-aml-section-4',
+        description: '€10,000 cash transaction limit with structuring detection'
       }
     ],
-    lastUpdated: '2024-01-15',
+    lastUpdated: '2024-12-15',
     metadata: {
-      jurisdiction: ['US'],
+      jurisdiction: ['EU', 'DE'],
       productType: ['retail-banking', 'commercial-banking'],
-      customerType: ['individual', 'business'],
-      riskLevel: 'high'
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'critical'
     },
     performance: {
-      alertsPerMonth: 2847,
-      truePositiveRate: 0.23,
-      alertsInvestigated: 656,
-      coverage: 5,
-      avgResolutionDays: 12,
-      lastBacktest: '2024-01-15',
-      backtestScore: 3
+      alertsPerMonth: 245,
+      truePositiveRate: 0.87,
+      alertsInvestigated: 213,
+      coverage: 92,
+      avgResolutionDays: 2,
+      lastBacktest: '2024-12-10',
+      backtestScore: 4.5
     },
     evidence: {
-      lastAdded: '2024-01-20',
-      types: ['backtest-results', 'threshold-analysis']
+      lastAdded: '2024-12-12',
+      types: ['cash-structuring-analysis', 'threshold-testing', 'aggregation-validation']
     },
-    linkedClauses: ["bsa-1020-210","bsa-1010-313","bsa-1020-700","bsa-1020-800","bsa-1020-900","bsa-1020-1000","bsa-1020-1100","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-21","uk-mlr-2017-reg-22","uk-mlr-2017-reg-24","uk-mlr-2017-reg-26","uk-mlr-2017-reg-40","eu-amld5-art13","pcmla-s9-1","aml-ctf-s82","fatf-rec10-monitoring","fatf-rec11-records","fatf-rec20-suspicious","fatf-method-rec10","fatf-method-rec11","fatf-method-rec20","fatf-method-effectiveness","fatf-rba-approach","fatf-rba-continuous","fatf-rba-automated","fatf-rba-testing"]
+    linkedClauses: ['germany-aml-section-4']
   },
   {
-    id: 'rule-2',
-    name: 'Structuring Pattern Analysis',
-    category: 'Behavioral Analytics',
-    description: 'Implements BSA § 1020.320 requirement to detect suspicious structuring patterns. Analyzes multiple transactions just below $10,000 reporting thresholds within 7-day periods. Applies machine learning to identify unusual transaction velocity and round-number transaction patterns that may indicate layering activities.',
-    regulatoryBasis: 'BSA § 1020.320(a) Suspicious Activity Reporting',
+    id: 'rule-eu-02',
+    name: 'Italy Occasional Transaction Monitoring (€15K)',
+    category: 'Transaction Threshold Monitoring',
+    description: 'Monitors all occasional transactions at or above €15,000 threshold per Italian AML requirements. Implements aggregation logic to detect structured transactions approaching the threshold. Generates alerts for single transactions ≥€15,000 and multiple transactions totaling ≥€15,000 within rolling 24-hour periods.',
+    regulatoryBasis: 'Italy D.Lgs. 231/2007 Articles 12, 16',
     implementedRequirements: [
       {
-        requirementId: 'bsa-1020-320-a',
-        description: 'Detection of transactions involving funds from illegal activity through pattern analysis'
+        requirementId: 'italy-art-12',
+        description: '€15,000 occasional transaction monitoring with aggregation'
       }
     ],
-    lastUpdated: '2024-01-10',
+    lastUpdated: '2024-12-18',
     metadata: {
-      jurisdiction: ['US'],
-      productType: ['retail-banking'],
-      customerType: ['individual', 'business'],
+      jurisdiction: ['IT'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
       riskLevel: 'high'
     },
     performance: {
-      alertsPerMonth: 1203,
-      truePositiveRate: 0.31,
-      alertsInvestigated: 373,
-      coverage: 5,
-      avgResolutionDays: 15,
-      lastBacktest: '2024-01-10',
-      backtestScore: 4
+      alertsPerMonth: 178,
+      truePositiveRate: 0.82,
+      alertsInvestigated: 146,
+      coverage: 89,
+      avgResolutionDays: 3,
+      lastBacktest: '2024-12-15',
+      backtestScore: 4.2
     },
     evidence: {
-      lastAdded: '2024-01-12',
-      types: ['pattern-analysis', 'behavior-modeling']
+      lastAdded: '2024-12-16',
+      types: ['threshold-sensitivity', 'aggregation-testing']
     },
-    linkedClauses: ["bsa-1020-220","bsa-1020-320-a","bsa-1020-400","bsa-1020-410","bsa-1020-700","bsa-1020-800","bsa-1020-900","bsa-1020-1000","bsa-1020-1100","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-21","uk-mlr-2017-reg-22","uk-mlr-2017-reg-24","uk-mlr-2017-reg-26","uk-mlr-2017-reg-27","uk-mlr-2017-reg-28","uk-mlr-2017-reg-29","uk-mlr-2017-reg-30","uk-mlr-2017-reg-35","uk-mlr-2017-reg-37","uk-mlr-2017-reg-39","uk-mlr-2017-reg-40","amlo-s7","pcmla-s6-1","aml-ctf-s43","cdsa-s48f","narcotics-s4","amla-art6","uae-aml-art16","tmp-006","fatf-rec10-monitoring","fatf-rec11-records","fatf-rec20-suspicious","fatf-complex-unusual","fatf-corr-unusual","fatf-corr-nested","fatf-method-rec10","fatf-method-rec11","fatf-method-rec20","fatf-method-effectiveness","fatf-rba-approach","fatf-rba-continuous","fatf-rba-automated","fatf-rba-technology","fatf-rba-testing"]
+    linkedClauses: ['italy-aml-section-1', 'italy-aml-section-2']
   },
   {
-    id: 'rule-3',
-    name: 'Cross-Border Wire Monitoring',
+    id: 'rule-eu-03',
+    name: 'Italy Non-SEPA Wire Transfer Monitoring (€1K)',
     category: 'Wire Transfer Monitoring',
-    description: 'Implements BSA § 1020.315 funds transfer recordkeeping and BSA § 1020.240 correspondent account due diligence requirements. Monitors wire transfers above $3,000 for complete originator/beneficiary information, screens against sanctions lists, and applies enhanced scrutiny to high-risk jurisdictions and correspondent banking relationships.',
-    regulatoryBasis: 'BSA § 1020.315 Funds Transfer Records, BSA § 1020.240 Correspondent Account Due Diligence',
+    description: 'Monitors all non-SEPA fund transfers at or above €1,000 per Italian regulatory requirements. Flags incomplete beneficiary information, detects repetitive transfers just under threshold, and cross-references beneficiaries against sanctions/PEP lists. Applies enhanced scrutiny to transfers involving high-risk jurisdictions.',
+    regulatoryBasis: 'Italy D.Lgs. 231/2007 Article 16; FATF Recommendation 16',
     implementedRequirements: [
       {
-        requirementId: 'bsa-1020-315',
-        description: 'Wire transfer recordkeeping and incomplete transfer monitoring above $3,000'
-      },
-      {
-        requirementId: 'bsa-1020-240',
-        description: 'Enhanced monitoring for correspondent account transactions'
+        requirementId: 'italy-art-16',
+        description: '€1,000 non-SEPA wire transfer monitoring with beneficiary validation'
       }
     ],
-    lastUpdated: '2024-01-05',
+    lastUpdated: '2024-12-20',
     metadata: {
-      jurisdiction: ['US'],
-      productType: ['retail-banking', 'commercial-banking'],
+      jurisdiction: ['IT'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
       customerType: ['individual', 'business', 'corporate'],
       riskLevel: 'high'
     },
     performance: {
-      alertsPerMonth: 892,
-      truePositiveRate: 0.18,
-      alertsInvestigated: 161,
-      coverage: 4,
-      avgResolutionDays: 18,
-      lastBacktest: '2024-01-05',
-      backtestScore: 3
+      alertsPerMonth: 312,
+      truePositiveRate: 0.76,
+      alertsInvestigated: 237,
+      coverage: 94,
+      avgResolutionDays: 2,
+      lastBacktest: '2024-12-18',
+      backtestScore: 4.3
     },
     evidence: {
-      lastAdded: '2024-01-08',
-      types: ['wire-analysis', 'geographic-risk']
+      lastAdded: '2024-12-19',
+      types: ['wire-monitoring-backtest', 'beneficiary-validation', 'sanctions-screening']
     },
-    linkedClauses: ["bsa-1020-240","bsa-1020-315","bsa-1020-800","bsa-1020-1100","uk-mlr-2017-reg-19","uk-mlr-2017-reg-26","pcmla-s9-1","tmp-006","fatf-rec16-wire","fatf-rec11-records","fatf-corr-ongoing","fatf-corr-risk-changes","fatf-corr-unusual","fatf-corr-rfi","fatf-corr-nested","fatf-method-rec11","fatf-method-rec16"]
+    linkedClauses: ['fatf-rec16-wire', 'italy-aml-section-2']
   },
   {
-    id: 'rule-8',
-    name: 'UK Enhanced Transaction Monitoring',
-    description: 'Implements UK MLR 2017 Regulation 28 ongoing monitoring requirements. Conducts enhanced scrutiny of transactions for consistency with customer knowledge, business and risk profile. Applies risk-based monitoring parameters that account for customer type, geographic factors, and established transaction patterns per UK regulatory guidance.',
-    regulatoryBasis: 'UK MLR 2017 Regulation 28 Ongoing Monitoring',
-    category: 'Geographic Risk Monitoring',
+    id: 'rule-eu-04',
+    name: 'FATF Wire Transfer Recordkeeping ($3K Threshold)',
+    category: 'Wire Transfer Monitoring',
+    description: 'Captures and validates complete originator and beneficiary information for all wire transfers ≥$3,000 per FATF Recommendation 16. Flags missing/incomplete beneficiary data, detects repetitive transfers just under $3,000 (structuring), cross-references against sanctions/PEP lists, monitors geographic patterns to high-risk countries, and tracks correspondent banking concentration risk.',
+    regulatoryBasis: 'FATF Recommendation 16; FATF Methodology Criteria 16.1-16.8',
     implementedRequirements: [
       {
-        requirementId: 'uk-mlr-2017-reg-28',
-        description: 'Ongoing monitoring of business relationships with transaction scrutiny'
+        requirementId: 'fatf-rec-16',
+        description: '$3,000 wire transfer recordkeeping with complete originator/beneficiary data'
       }
     ],
-    status: 'active',
-    lastUpdated: '2024-01-20',
+    lastUpdated: '2024-12-22',
     metadata: {
-      jurisdiction: ['UK'],
-      productType: ['retail-banking', 'commercial-banking'],
+      jurisdiction: ['International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
       customerType: ['individual', 'business', 'corporate'],
-      riskLevel: 'high'
+      riskLevel: 'critical'
     },
     performance: {
-      alertsPerMonth: 145,
-      truePositiveRate: 0.24,
-      alertsInvestigated: 145,
-      coverage: 5,
-      lastBacktest: '2024-01-20',
-      backtestScore: 5
+      alertsPerMonth: 456,
+      truePositiveRate: 0.81,
+      alertsInvestigated: 370,
+      coverage: 96,
+      avgResolutionDays: 2,
+      lastBacktest: '2024-12-20',
+      backtestScore: 4.6
     },
     evidence: {
-      lastAdded: '2024-01-22',
-      types: ['geographic-analysis', 'cross-border-monitoring']
+      lastAdded: '2024-12-21',
+      types: ['wire-monitoring-backtest', 'swift-validation', 'incomplete-wire-testing']
     },
-    linkedClauses: ["bsa-1020-600","patriot-326-a","uk-mlr-2017-reg-18","uk-mlr-2017-reg-19","uk-mlr-2017-reg-28","aml-ctf-s82","uktmp-001","uktmp-002","uktmp-003","uktmp-004"]
+    linkedClauses: ['fatf-method-rec16', 'fatf-rec16-wire']
   },
   {
-    id: 'rule-9',
-    name: 'Enhanced Due Diligence Monitoring',
-    description: 'Implements UK MLR 2017 Regulation 33 and EU AMLD5 Article 18a enhanced due diligence requirements. Applies enhanced monitoring for high-risk customers including PEPs, high-risk third countries, and other elevated ML/TF risk situations. Transaction thresholds set 50% lower than standard customers with enhanced scrutiny protocols.',
-    regulatoryBasis: 'UK MLR 2017 Regulation 33 Enhanced Due Diligence, EU AMLD5 Article 18a High-Risk Third Countries',
-    category: 'Risk-Based Monitoring',
+    id: 'rule-eu-05',
+    name: 'Customer Behavioral Baseline Deviation Detection',
+    category: 'Behavioral Analytics',
+    description: 'Establishes customer-specific transaction baselines and detects deviations indicating suspicious activity. Flags velocity anomalies (frequency increases >200%), transaction amount increases >150% from baseline, and activity inconsistent with customer business profile. Applies risk-based thresholds with enhanced sensitivity for high-risk customers.',
+    regulatoryBasis: 'Germany GwG Section 10; Italy D.Lgs. 231/2007 Article 35; FATF Recommendation 10; FATF Risk-Based Approach Guidance',
     implementedRequirements: [
       {
-        requirementId: 'uk-mlr-2017-reg-33',
-        description: 'Enhanced due diligence for high-risk business relationships'
+        requirementId: 'gwg-section-10',
+        description: 'Continuous transaction consistency monitoring against customer profile'
       },
       {
-        requirementId: 'eu-amld5-art18a',
-        description: 'Enhanced monitoring for high-risk third country transactions'
+        requirementId: 'italy-art-35',
+        description: 'Transaction scrutiny against customer business and risk profile'
+      },
+      {
+        requirementId: 'fatf-rec-10',
+        description: 'Ongoing monitoring with enhanced scrutiny for profile inconsistencies'
       }
     ],
-    status: 'active',
-    lastUpdated: '2024-01-25',
+    lastUpdated: '2024-12-28',
     metadata: {
-      jurisdiction: ['UK', 'EU'],
-      productType: ['wealth-management', 'private-banking'],
+      jurisdiction: ['EU', 'DE', 'IT', 'ES', 'International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'critical'
+    },
+    performance: {
+      alertsPerMonth: 523,
+      truePositiveRate: 0.73,
+      alertsInvestigated: 382,
+      coverage: 91,
+      avgResolutionDays: 4,
+      lastBacktest: '2024-12-25',
+      backtestScore: 4.4
+    },
+    evidence: {
+      lastAdded: '2024-12-26',
+      types: ['behavior-baseline-testing', 'velocity-analysis', 'peer-group-comparison']
+    },
+    linkedClauses: ['eu-amld5-art13', 'fatf-rba-approach', 'fatf-rba-continuous', 'fatf-rba-testing', 'fatf-rec10-monitoring', 'germany-aml-section-1', 'germany-aml-section-2', 'italy-aml-section-1', 'italy-aml-section-5', 'spain-aml-section-1']
+  },
+  {
+    id: 'rule-eu-06',
+    name: 'PEP Enhanced Transaction Monitoring',
+    category: 'Enhanced Due Diligence',
+    description: 'Applies specialized monitoring profiles to Politically Exposed Persons (PEPs), family members, and close associates with 50% reduced thresholds compared to standard customers. Automated senior management escalation for all alerts. Maintains enhanced monitoring for minimum 1 year after PEP status cessation. Covers Italian, Spanish, and foreign PEPs across all jurisdictions.',
+    regulatoryBasis: 'Italy D.Lgs. 231/2007 Articles 24, 25; Spain Law 10/2010 Article 11; FATF Risk-Based Approach Guidance',
+    implementedRequirements: [
+      {
+        requirementId: 'italy-art-24',
+        description: 'PEP enhanced monitoring with lower thresholds and senior management escalation'
+      },
+      {
+        requirementId: 'spain-art-11',
+        description: 'Enhanced monitoring for Spanish and foreign PEPs with intensified scrutiny'
+      }
+    ],
+    lastUpdated: '2024-12-30',
+    metadata: {
+      jurisdiction: ['EU', 'IT', 'ES', 'International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
       customerType: ['individual', 'corporate'],
       riskLevel: 'critical'
     },
     performance: {
-      alertsPerMonth: 78,
-      truePositiveRate: 0.35,
-      alertsInvestigated: 78,
-      coverage: 5,
-      lastBacktest: '2024-01-25',
-      backtestScore: 4
+      alertsPerMonth: 67,
+      truePositiveRate: 0.91,
+      alertsInvestigated: 61,
+      coverage: 88,
+      avgResolutionDays: 1,
+      lastBacktest: '2024-12-28',
+      backtestScore: 4.8
     },
-    linkedClauses: ["bsa-1020-220","bsa-1020-250","bsa-1020-400","bsa-1020-410","patriot-326-a","patriot-326-b","uk-mlr-2017-reg-19","uk-mlr-2017-reg-27","uk-mlr-2017-reg-28","uk-mlr-2017-reg-29","uk-mlr-2017-reg-30","uk-mlr-2017-reg-33","uk-mlr-2017-reg-35","uk-mlr-2017-reg-37","uk-mlr-2017-reg-39","eu-amld5-art18a","pcmla-s6-1","aml-ctf-s43","cdsa-s48f","narcotics-s4","amla-art6","uae-aml-art16","uktmp-001","uktmp-003","uktmp-005","uktmp-006","germany-aml-section-1","germany-aml-section-2","germany-aml-section-3","germany-aml-section-5","italy-aml-section-1","italy-aml-section-3","italy-aml-section-4","italy-aml-section-5","spain-aml-section-1","spain-aml-section-2","spain-aml-section-4","spain-aml-section-5","fatf-rec10-monitoring","fatf-rec11-records","fatf-rec20-suspicious","fatf-complex-unusual","fatf-corr-risk-changes","fatf-method-rec10","fatf-method-rec11","fatf-method-rec20","fatf-method-effectiveness","fatf-rba-approach","fatf-rba-continuous","fatf-rba-automated","fatf-rba-technology","fatf-rba-testing"]
+    evidence: {
+      lastAdded: '2024-12-29',
+      types: ['pep-screening', 'enhanced-monitoring-validation', 'source-of-wealth-verification']
+    },
+    linkedClauses: ['italy-aml-section-3', 'italy-aml-section-4', 'spain-aml-section-2', 'spain-aml-section-4']
   },
   {
-    id: 'rule-10',
-    name: 'UK High-Risk Relationship Monitoring',
-    description: 'Implements UK MLR 2017 Regulation 19 policies, controls and procedures for managing PEP and high-risk relationship monitoring. Maintains continuous screening against PEP databases, monitors for source of wealth consistency, and applies enhanced transaction monitoring proportionate to ML/TF risks identified.',
-    regulatoryBasis: 'UK MLR 2017 Regulation 19 Policies, Controls and Procedures',
-    category: 'PEP and High-Risk Monitoring',
-    implementedRequirements: [
-      {
-        requirementId: 'uk-mlr-2017-reg-19',
-        description: 'Risk-based policies and controls for high-risk relationship monitoring'
-      }
-    ],
-    status: 'active',
-    performance: {
-      alertsPerMonth: 34,
-      truePositiveRate: 0.42,
-      alertsInvestigated: 34,
-      coverage: 4,
-      lastBacktest: '2024-01-15',
-      backtestScore: 5
-    },
-    linkedClauses: ["bsa-1020-250","patriot-326-b","uk-mlr-2017-reg-19","uk-mlr-2017-reg-20","uk-mlr-2017-reg-33","aml-ctf-s43","amla-art6","uktmp-002","uktmp-004","uktmp-005","uktmp-006"]
-  },
-  {
-    id: 'rule-12',
-    name: 'EU Cross-Border Transaction Analysis',
-    description: 'Implements EU AMLD5 Article 13 ongoing customer due diligence and Article 18a enhanced measures for high-risk third countries. Monitors cross-border transactions for consistency with customer knowledge and business profile, with enhanced scrutiny for transactions involving countries identified by the European Commission as high-risk.',
-    regulatoryBasis: 'EU AMLD5 Article 13 Ongoing CDD, EU AMLD5 Article 18a High-Risk Third Countries',
+    id: 'rule-eu-07',
+    name: 'High-Risk Third Country Enhanced Monitoring',
     category: 'Geographic Risk Monitoring',
+    description: 'Applies enhanced ongoing monitoring to customers from EU Commission-identified high-risk third countries and entities established in such jurisdictions. Reduces alert thresholds by 60% for transactions involving high-risk countries, applies real-time processing (vs. batch), and integrates geographic risk factors into all monitoring scenarios.',
+    regulatoryBasis: 'EU AMLD5 Article 18a; Germany GwG Section 4; Italy D.Lgs. 231/2007 Article 24; Spain Law 10/2010 Article 11',
     implementedRequirements: [
       {
-        requirementId: 'eu-amld5-art13',
-        description: 'Ongoing monitoring and transaction scrutiny for business relationship consistency'
+        requirementId: 'amld5-art-18a',
+        description: 'Enhanced monitoring for high-risk third country customers and entities'
       },
       {
-        requirementId: 'eu-amld5-art18a',
-        description: 'Enhanced due diligence for high-risk third country transactions'
+        requirementId: 'germany-aml-section-4',
+        description: 'Cross-border transaction enhanced scrutiny for high-risk jurisdictions'
       }
     ],
-    status: 'active',
-    performance: {
-      alertsPerMonth: 189,
-      truePositiveRate: 0.24,
-      alertsInvestigated: 189,
-      coverage: 5,
-      lastBacktest: '2024-01-22',
-      backtestScore: 4
-    },
-    linkedClauses: ["finra-tm-001","eu-amld5-art13","eu-amld5-art18a","uktmp-003","germany-aml-section-1","germany-aml-section-3","germany-aml-section-4","germany-aml-section-5","italy-aml-section-1","italy-aml-section-2","italy-aml-section-3","italy-aml-section-5","spain-aml-section-1","spain-aml-section-2","spain-aml-section-3","spain-aml-section-5","fatf-rec10-monitoring","fatf-rec11-records","fatf-rec16-wire","fatf-rec20-suspicious","fatf-corr-ongoing","fatf-corr-unusual","fatf-method-rec10","fatf-method-rec11","fatf-method-rec16","fatf-method-rec20","fatf-method-effectiveness","fatf-rba-approach","fatf-rba-automated","fatf-rba-testing"]
-  },
-  {
-    id: 'rule-13',
-    name: 'Cryptocurrency Transaction Blocking',
-    category: 'Internal Policy Enforcement',
-    description: 'Implements Internal Transaction Monitoring Policy TMP-001 cryptocurrency prohibition. Real-time screening of wire transfer messages against cryptocurrency-related keywords, blocking of transactions to known cryptocurrency exchanges, and automated alerts for potential cryptocurrency conversion activities.',
-    regulatoryBasis: 'Internal Transaction Monitoring Policy TMP-001',
-    lastUpdated: '2024-01-20',
+    lastUpdated: '2025-01-02',
     metadata: {
-      jurisdiction: ['US'],
+      jurisdiction: ['EU', 'DE', 'IT', 'ES'],
       productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
       customerType: ['individual', 'business', 'corporate'],
       riskLevel: 'critical'
     },
     performance: {
-      alertsPerMonth: 342,
-      truePositiveRate: 0.89,
-      alertsInvestigated: 304,
-      coverage: 5,
+      alertsPerMonth: 134,
+      truePositiveRate: 0.88,
+      alertsInvestigated: 118,
+      coverage: 93,
       avgResolutionDays: 2,
-      lastBacktest: '2024-01-20',
-      backtestScore: 5
+      lastBacktest: '2024-12-30',
+      backtestScore: 4.7
     },
     evidence: {
-      lastAdded: '2024-01-22',
-      types: ['keyword-screening', 'blockchain-analysis']
+      lastAdded: '2025-01-01',
+      types: ['geographic-risk-testing', 'high-risk-jurisdiction-validation', 'real-time-blocking-test']
     },
-    implementedRequirements: [
-      {
-        requirementId: 'tmp-001',
-        description: 'Real-time blocking of cryptocurrency exchange transactions'
-      }
-    ],
-    linkedClauses: ['tmp-001']
+    linkedClauses: ['eu-amld5-art18a', 'germany-aml-section-4', 'italy-aml-section-3', 'spain-aml-section-2']
   },
   {
-    id: 'rule-14',
-    name: 'Cash-Intensive Business Monitoring',
-    category: 'Internal Policy Enforcement',
-    description: 'Implements Internal Transaction Monitoring Policy TMP-002 cash-intensive business restrictions. Enhanced monitoring of grandfathered accounts with daily cash transaction alerts, cash-to-deposit ratio analysis, and automated screening against state cannabis licensing databases.',
-    regulatoryBasis: 'Internal Transaction Monitoring Policy TMP-002',
-    lastUpdated: '2024-01-18',
+    id: 'rule-eu-08',
+    name: 'Cross-Border Wire Transfer Unusual Routing Detection',
+    category: 'Wire Transfer Monitoring',
+    description: 'Detects unusual routing patterns in cross-border wire transfers including excessive intermediary banks, illogical geographic routing, and nested correspondent banking relationships. Flags incomplete wire information, monitors for shell bank indicators, and detects structuring across correspondent sub-accounts.',
+    regulatoryBasis: 'Germany GwG Section 4; FATF Correspondent Banking Guidance; FATF Methodology Criteria 16.1-16.8',
+    implementedRequirements: [
+      {
+        requirementId: 'gwg-section-4-cb',
+        description: 'Cross-border wire transfer unusual routing detection'
+      },
+      {
+        requirementId: 'fatf-cb-nested',
+        description: 'Nested correspondent banking relationship monitoring'
+      }
+    ],
+    lastUpdated: '2025-01-05',
     metadata: {
-      jurisdiction: ['US'],
-      productType: ['retail-banking', 'commercial-banking'],
+      jurisdiction: ['EU', 'DE', 'International'],
+      productType: ['commercial-banking', 'wealth-management'],
       customerType: ['business', 'corporate'],
       riskLevel: 'high'
     },
     performance: {
-      alertsPerMonth: 128,
-      truePositiveRate: 0.67,
-      alertsInvestigated: 86,
-      coverage: 4,
-      avgResolutionDays: 8,
-      lastBacktest: '2024-01-18',
+      alertsPerMonth: 89,
+      truePositiveRate: 0.79,
+      alertsInvestigated: 70,
+      coverage: 87,
+      avgResolutionDays: 3,
+      lastBacktest: '2025-01-03',
+      backtestScore: 4.1
+    },
+    evidence: {
+      lastAdded: '2025-01-04',
+      types: ['routing-pattern-analysis', 'nested-relationship-detection', 'correspondent-risk-testing']
+    },
+    linkedClauses: ['fatf-corr-nested', 'fatf-method-rec16', 'germany-aml-section-4']
+  },
+  {
+    id: 'rule-eu-09',
+    name: 'Delivery Channel Risk-Based Monitoring',
+    category: 'Channel Monitoring',
+    description: 'Implements Italy Article 35 requirement for objective risk-based procedures considering delivery channels. Applies channel-specific thresholds (branch vs. online vs. mobile vs. ATM), performs cross-channel aggregation to detect structuring, and flags unusual channel-switching behavior. Enhanced monitoring for high-risk channels (online, mobile) with real-time fraud detection.',
+    regulatoryBasis: 'Italy D.Lgs. 231/2007 Article 35; FATF Risk-Based Approach Guidance',
+    implementedRequirements: [
+      {
+        requirementId: 'italy-art-35-channel',
+        description: 'Delivery channel risk-based monitoring with channel-specific parameters'
+      }
+    ],
+    lastUpdated: '2025-01-08',
+    metadata: {
+      jurisdiction: ['EU', 'IT', 'International'],
+      productType: ['retail-banking', 'commercial-banking'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'high'
+    },
+    performance: {
+      alertsPerMonth: 267,
+      truePositiveRate: 0.71,
+      alertsInvestigated: 190,
+      coverage: 90,
+      avgResolutionDays: 2,
+      lastBacktest: '2025-01-06',
       backtestScore: 4
     },
     evidence: {
-      lastAdded: '2024-01-20',
-      types: ['cash-ratio-analysis', 'business-verification']
+      lastAdded: '2025-01-07',
+      types: ['channel-pattern-analysis', 'cross-channel-aggregation', 'channel-switching-detection']
     },
-    implementedRequirements: [
-      {
-        requirementId: 'tmp-002',
-        description: 'Enhanced monitoring for grandfathered cash-intensive business accounts'
-      }
-    ],
-    linkedClauses: ['tmp-002']
+    linkedClauses: ['italy-aml-section-1', 'italy-aml-section-5']
   },
   {
-    id: 'rule-15',
-    name: 'Geographic Risk Transaction Screening',
-    category: 'Internal Policy Enforcement',
-    description: 'Implements Internal Transaction Monitoring Policy TMP-003 high-risk geography restrictions. Automated blocking of transactions to prohibited jurisdictions, enhanced screening for medium-risk countries above $5,000, and compliance officer approval requirements for large international transfers.',
-    regulatoryBasis: 'Internal Transaction Monitoring Policy TMP-003',
-    lastUpdated: '2024-01-25',
+    id: 'rule-eu-10',
+    name: 'Product/Service-Specific Transaction Monitoring',
+    category: 'Product Risk Monitoring',
+    description: 'Implements Italy Article 35 requirement for product/service-specific monitoring procedures. Applies distinct thresholds and detection logic for retail banking, commercial banking, and wealth management products. Monitors product combination risks (e.g., concurrent cash + wire activity) and unusual product usage patterns inconsistent with customer profile.',
+    regulatoryBasis: 'Italy D.Lgs. 231/2007 Article 35; FATF Risk-Based Approach Guidance',
+    implementedRequirements: [
+      {
+        requirementId: 'italy-art-35-product',
+        description: 'Product/service-specific monitoring with distinct thresholds'
+      }
+    ],
+    lastUpdated: '2025-01-10',
     metadata: {
-      jurisdiction: ['US'],
+      jurisdiction: ['EU', 'IT', 'International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'high'
+    },
+    performance: {
+      alertsPerMonth: 198,
+      truePositiveRate: 0.74,
+      alertsInvestigated: 147,
+      coverage: 86,
+      avgResolutionDays: 3,
+      lastBacktest: '2025-01-08',
+      backtestScore: 4.2
+    },
+    evidence: {
+      lastAdded: '2025-01-09',
+      types: ['product-risk-analysis', 'product-combination-testing', 'usage-pattern-validation']
+    },
+    linkedClauses: ['italy-aml-section-1', 'italy-aml-section-5']
+  },
+  {
+    id: 'rule-eu-11',
+    name: 'UIF Anomaly Indicator Implementation (Italy)',
+    category: 'Suspicious Transaction Detection',
+    description: 'Implements all Italian UIF-published anomaly indicators including cash-related anomalies, geographic anomalies, beneficial ownership anomalies, third-party transaction anomalies, and structuring anomalies. Automatically updates monitoring scenarios as UIF publishes new typologies. Generates alerts for transactions matching UIF patterns with documented analysis supporting potential UIF reports.',
+    regulatoryBasis: 'Italy D.Lgs. 231/2007 Articles 35, 41; UIF Anomaly Indicators',
+    implementedRequirements: [
+      {
+        requirementId: 'italy-art-35-uif',
+        description: 'UIF anomaly indicator adoption for suspicious transaction detection'
+      },
+      {
+        requirementId: 'italy-art-41',
+        description: 'UIF reporting for transactions matching anomaly indicators'
+      }
+    ],
+    lastUpdated: '2025-01-12',
+    metadata: {
+      jurisdiction: ['IT'],
       productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
       customerType: ['individual', 'business', 'corporate'],
       riskLevel: 'critical'
     },
     performance: {
-      alertsPerMonth: 89,
-      truePositiveRate: 0.94,
-      alertsInvestigated: 84,
-      coverage: 5,
-      avgResolutionDays: 1,
-      lastBacktest: '2024-01-25',
-      backtestScore: 5
+      alertsPerMonth: 156,
+      truePositiveRate: 0.83,
+      alertsInvestigated: 130,
+      coverage: 94,
+      avgResolutionDays: 3,
+      lastBacktest: '2025-01-10',
+      backtestScore: 4.5
     },
     evidence: {
-      lastAdded: '2024-01-26',
-      types: ['geographic-screening', 'sanctions-compliance']
+      lastAdded: '2025-01-11',
+      types: ['uif-indicator-testing', 'typology-validation', 'false-positive-analysis']
     },
-    implementedRequirements: [
-      {
-        requirementId: 'tmp-003',
-        description: 'Geographic risk-based transaction limits and blocking'
-      }
-    ],
-    linkedClauses: ['tmp-003']
+    linkedClauses: ['italy-aml-section-1', 'italy-aml-section-3', 'italy-aml-section-5']
   },
   {
-    id: 'rule-16',
-    name: 'Third-Party Payment Processor Analytics',
-    category: 'Internal Policy Enforcement',
-    description: 'Implements Internal Transaction Monitoring Policy TMP-005 third-party payment processor monitoring. Automated calculation of transaction-to-deposit ratios, detection of unusual clearing patterns, off-cycle settlement monitoring, and dormant account reactivation alerts.',
-    regulatoryBasis: 'Internal Transaction Monitoring Policy TMP-005',
-    lastUpdated: '2024-01-22',
+    id: 'rule-eu-12',
+    name: 'SEPBLAC Risk Indicator Monitoring (Spain)',
+    category: 'Suspicious Transaction Detection',
+    description: 'Implements all SEPBLAC-published risk indicator scenarios covering customer behavior, transaction characteristics, geographic indicators, and product/service indicators. Includes custom indicator development based on institutional experience. Supports monthly systematic reporting to SEPBLAC per Article 27.1 RD 304/2014 in addition to standard suspicious transaction reports.',
+    regulatoryBasis: 'Spain Law 10/2010 Articles 17, 27.1; Royal Decree 304/2014',
+    implementedRequirements: [
+      {
+        requirementId: 'spain-art-17',
+        description: 'SEPBLAC risk indicator implementation for special attention transactions'
+      },
+      {
+        requirementId: 'spain-art-27',
+        description: 'Monthly systematic reporting to SEPBLAC for Article 27.1 transactions'
+      }
+    ],
+    lastUpdated: '2025-01-15',
     metadata: {
-      jurisdiction: ['US'],
+      jurisdiction: ['ES'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'critical'
+    },
+    performance: {
+      alertsPerMonth: 189,
+      truePositiveRate: 0.85,
+      alertsInvestigated: 161,
+      coverage: 92,
+      avgResolutionDays: 2,
+      lastBacktest: '2025-01-13',
+      backtestScore: 4.6
+    },
+    evidence: {
+      lastAdded: '2025-01-14',
+      types: ['sepblac-indicator-testing', 'monthly-reporting-validation', 'custom-indicator-development']
+    },
+    linkedClauses: ['spain-aml-section-3', 'spain-aml-section-5']
+  },
+  {
+    id: 'rule-eu-13',
+    name: 'Germany FIU Suspicious Transaction Detection',
+    category: 'Suspicious Transaction Detection',
+    description: 'Detects transactions matching suspicious typologies under German GwG Section 43. Flags deviations from normal customer patterns, characteristics inconsistent with customer profile, transactions matching known typologies, and unusual patterns. Generates FIU reports without delay upon suspicion detection with written documentation. Continues monitoring post-FIU filing without customer notification.',
+    regulatoryBasis: 'Germany GwG Section 43; BaFin Guidance',
+    implementedRequirements: [
+      {
+        requirementId: 'germany-aml-section-3',
+        description: 'Suspicious transaction detection with FIU reporting without delay'
+      }
+    ],
+    lastUpdated: '2025-01-18',
+    metadata: {
+      jurisdiction: ['DE'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'critical'
+    },
+    performance: {
+      alertsPerMonth: 142,
+      truePositiveRate: 0.89,
+      alertsInvestigated: 126,
+      coverage: 91,
+      avgResolutionDays: 2,
+      lastBacktest: '2025-01-16',
+      backtestScore: 4.7
+    },
+    evidence: {
+      lastAdded: '2025-01-17',
+      types: ['fiu-typology-testing', 'pattern-recognition-validation', 'post-filing-monitoring']
+    },
+    linkedClauses: ['germany-aml-section-3', 'germany-aml-section-5']
+  },
+  {
+    id: 'rule-eu-14',
+    name: 'FATF Complex and Unusual Transaction Detection',
+    category: 'Suspicious Transaction Detection',
+    description: 'Applies special attention to complex large transactions, unusual large transactions, and unusual transaction patterns with no apparent economic or lawful purpose per FATF Recommendations 10, 11, 20. Requires transaction investigation, findings documentation, and 5-year record availability to competent authorities and auditors. Enhanced scrutiny for transactions not matching expected customer risk profile.',
+    regulatoryBasis: 'FATF Recommendations 10, 11, 20; FATF Methodology Criterion 10.7',
+    implementedRequirements: [
+      {
+        requirementId: 'fatf-rec-10-complex',
+        description: 'Special attention to complex and unusual transactions'
+      },
+      {
+        requirementId: 'fatf-rec-20',
+        description: 'Suspicious transaction detection and prompt FIU reporting'
+      }
+    ],
+    lastUpdated: '2025-01-20',
+    metadata: {
+      jurisdiction: ['International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'critical'
+    },
+    performance: {
+      alertsPerMonth: 98,
+      truePositiveRate: 0.86,
+      alertsInvestigated: 84,
+      coverage: 89,
+      avgResolutionDays: 4,
+      lastBacktest: '2025-01-18',
+      backtestScore: 4.5
+    },
+    evidence: {
+      lastAdded: '2025-01-19',
+      types: ['complex-transaction-analysis', 'economic-purpose-validation', 'investigation-documentation']
+    },
+    linkedClauses: ['fatf-complex-unusual', 'fatf-method-rec11', 'fatf-method-rec20', 'fatf-rec10-monitoring', 'fatf-rec11-records', 'fatf-rec20-suspicious']
+  },
+  {
+    id: 'rule-eu-15',
+    name: 'Correspondent Banking Risk Profile Change Detection',
+    category: 'Correspondent Banking Monitoring',
+    description: 'Monitors correspondent banking relationships for transaction volume changes, transaction type changes, transaction pattern changes, and geographic focus changes. Detects deviations from expected activity profiles and identifies increased risk indicators. Applies enhanced monitoring triggers for activity inconsistent with respondent business model, unusual sizes/frequencies, and unusual counterparties.',
+    regulatoryBasis: 'FATF Correspondent Banking Guidance',
+    implementedRequirements: [
+      {
+        requirementId: 'fatf-cb-risk-profile',
+        description: 'Correspondent banking risk profile change monitoring'
+      },
+      {
+        requirementId: 'fatf-cb-unusual',
+        description: 'Unusual activity detection in correspondent relationships'
+      }
+    ],
+    lastUpdated: '2025-01-22',
+    metadata: {
+      jurisdiction: ['International'],
       productType: ['commercial-banking'],
       customerType: ['business', 'corporate'],
+      riskLevel: 'high'
+    },
+    performance: {
+      alertsPerMonth: 45,
+      truePositiveRate: 0.8,
+      alertsInvestigated: 36,
+      coverage: 85,
+      avgResolutionDays: 3,
+      lastBacktest: '2025-01-20',
+      backtestScore: 4.3
+    },
+    evidence: {
+      lastAdded: '2025-01-21',
+      types: ['correspondent-profile-analysis', 'risk-change-detection', 'baseline-deviation-testing']
+    },
+    linkedClauses: ['fatf-corr-ongoing', 'fatf-corr-risk-changes', 'fatf-corr-unusual']
+  },
+  {
+    id: 'rule-eu-16',
+    name: 'Correspondent Banking RFI Process Automation',
+    category: 'Correspondent Banking Monitoring',
+    description: 'Automates Request for Information (RFI) process for flagged correspondent banking transactions. Documents flagged transaction details, generates clarification requests, tracks response timeframes and quality, escalates for unresponsive/inadequate responses, and assesses respondent AML/CFT program quality. Implements termination procedures for non-compliant counterparties.',
+    regulatoryBasis: 'FATF Correspondent Banking Guidance',
+    implementedRequirements: [
+      {
+        requirementId: 'fatf-cb-rfi',
+        description: 'Formal RFI procedures for flagged correspondent transactions'
+      }
+    ],
+    lastUpdated: '2025-01-24',
+    metadata: {
+      jurisdiction: ['International'],
+      productType: ['commercial-banking'],
+      customerType: ['business', 'corporate'],
+      riskLevel: 'high'
+    },
+    performance: {
+      alertsPerMonth: 28,
+      truePositiveRate: 0.93,
+      alertsInvestigated: 26,
+      coverage: 82,
+      avgResolutionDays: 5,
+      lastBacktest: '2025-01-22',
+      backtestScore: 4.6
+    },
+    evidence: {
+      lastAdded: '2025-01-23',
+      types: ['rfi-process-validation', 'response-quality-tracking', 'escalation-testing']
+    },
+    linkedClauses: ['fatf-corr-rfi']
+  },
+  {
+    id: 'rule-eu-17',
+    name: 'Peer Group Behavioral Comparison Analysis',
+    category: 'Behavioral Analytics',
+    description: 'Compares customer transaction activity against peer group norms to detect deviations from expected behavior. Segments customers by industry, size, location, and product usage. Flags significant deviations (>150% from peer median) in transaction volumes, amounts, frequencies, and patterns. Supports FATF Risk-Based Approach requirement for peer group comparison.',
+    regulatoryBasis: 'FATF Risk-Based Approach Guidance; FATF Methodology Criterion 10.7',
+    implementedRequirements: [
+      {
+        requirementId: 'fatf-rba-peer',
+        description: 'Customer activity comparison against peer groups for deviation detection'
+      }
+    ],
+    lastUpdated: '2025-01-26',
+    metadata: {
+      jurisdiction: ['International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
       riskLevel: 'medium'
     },
     performance: {
-      alertsPerMonth: 156,
-      truePositiveRate: 0.43,
-      alertsInvestigated: 67,
-      coverage: 4,
-      avgResolutionDays: 12,
-      lastBacktest: '2024-01-22',
-      backtestScore: 3
+      alertsPerMonth: 234,
+      truePositiveRate: 0.68,
+      alertsInvestigated: 159,
+      coverage: 88,
+      avgResolutionDays: 4,
+      lastBacktest: '2025-01-24',
+      backtestScore: 3.9
     },
     evidence: {
-      lastAdded: '2024-01-24',
-      types: ['settlement-analysis', 'merchant-verification']
+      lastAdded: '2025-01-25',
+      types: ['peer-group-segmentation', 'deviation-analysis', 'behavioral-comparison-testing']
     },
+    linkedClauses: ['fatf-method-rec10', 'fatf-rba-continuous']
+  },
+  {
+    id: 'rule-eu-18',
+    name: 'Event-Triggered Enhanced Monitoring',
+    category: 'Risk-Based Monitoring',
+    description: 'Implements event-triggered surveillance for circumstance changes and red flag indicators per German GwG Section 10 and Spanish Article 7. Automatically intensifies monitoring when customer circumstances change (ownership, business activity, geographic focus), regulatory updates occur, or red flags are identified. Temporarily reduces thresholds by 40% for 90-day observation period.',
+    regulatoryBasis: 'Germany GwG Section 10; Spain Law 10/2010 Article 7; FATF Risk-Based Approach Guidance',
     implementedRequirements: [
       {
-        requirementId: 'tmp-005',
-        description: 'Third-party payment processor transaction ratio and pattern monitoring'
+        requirementId: 'gwg-section-10-trigger',
+        description: 'Trigger-based monitoring intensification for circumstance changes'
+      },
+      {
+        requirementId: 'spain-art-7-trigger',
+        description: 'Risk-sensitive monitoring with intensification triggers'
       }
     ],
-    linkedClauses: ['tmp-005']
+    lastUpdated: '2025-01-28',
+    metadata: {
+      jurisdiction: ['EU', 'DE', 'ES', 'International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'high'
+    },
+    performance: {
+      alertsPerMonth: 167,
+      truePositiveRate: 0.77,
+      alertsInvestigated: 129,
+      coverage: 90,
+      avgResolutionDays: 3,
+      lastBacktest: '2025-01-26',
+      backtestScore: 4.2
+    },
+    evidence: {
+      lastAdded: '2025-01-27',
+      types: ['event-trigger-testing', 'circumstance-change-detection', 'red-flag-validation']
+    },
+    linkedClauses: ['fatf-rba-automated', 'germany-aml-section-1', 'germany-aml-section-2', 'spain-aml-section-1']
+  },
+  {
+    id: 'rule-eu-19',
+    name: 'Round-Number Amount Detection',
+    category: 'Structuring Detection',
+    description: 'Detects suspicious use of round-number transaction amounts (e.g., €10,000, €15,000, $10,000, $50,000) that may indicate deliberate threshold avoidance or money laundering behavior. Analyzes customer historical patterns to distinguish legitimate business transactions from suspicious round-amount usage. Enhanced detection for customers who historically use non-round amounts.',
+    regulatoryBasis: 'Germany GwG Section 4; Italy D.Lgs. 231/2007 Article 16',
+    implementedRequirements: [
+      {
+        requirementId: 'gwg-section-4-round',
+        description: 'Round-number amount detection for structuring identification'
+      }
+    ],
+    lastUpdated: '2025-01-30',
+    metadata: {
+      jurisdiction: ['EU', 'DE', 'IT'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'medium'
+    },
+    performance: {
+      alertsPerMonth: 312,
+      truePositiveRate: 0.65,
+      alertsInvestigated: 203,
+      coverage: 86,
+      avgResolutionDays: 2,
+      lastBacktest: '2025-01-28',
+      backtestScore: 3.8
+    },
+    evidence: {
+      lastAdded: '2025-01-29',
+      types: ['round-amount-pattern-analysis', 'historical-baseline-validation', 'false-positive-tuning']
+    },
+    linkedClauses: ['germany-aml-section-4', 'italy-aml-section-2']
+  },
+  {
+    id: 'rule-eu-20',
+    name: 'AI/ML Advanced Pattern Recognition',
+    category: 'Advanced Analytics',
+    description: 'Leverages artificial intelligence and machine learning for large transaction volume analysis, real-time monitoring, and sophisticated scheme detection per FATF Risk-Based Approach Guidance. Reduces manual input, decreases false positives through intelligent pattern learning, and identifies complex cases requiring investigation. Continuously improves detection accuracy through supervised learning from investigation outcomes.',
+    regulatoryBasis: 'FATF Risk-Based Approach Guidance - Technology and Innovation; FATF Methodology Immediate Outcome 4',
+    implementedRequirements: [
+      {
+        requirementId: 'fatf-rba-technology',
+        description: 'AI/ML implementation for large volume analysis and sophisticated scheme detection'
+      },
+      {
+        requirementId: 'fatf-io4-effectiveness',
+        description: 'Quality and accuracy of transaction monitoring systems'
+      }
+    ],
+    lastUpdated: '2025-02-01',
+    metadata: {
+      jurisdiction: ['International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'high'
+    },
+    performance: {
+      alertsPerMonth: 421,
+      truePositiveRate: 0.84,
+      alertsInvestigated: 354,
+      coverage: 95,
+      avgResolutionDays: 3,
+      lastBacktest: '2025-01-30',
+      backtestScore: 4.8
+    },
+    evidence: {
+      lastAdded: '2025-01-31',
+      types: ['ml-model-validation', 'false-positive-reduction-analysis', 'supervised-learning-testing']
+    },
+    linkedClauses: ['fatf-method-effectiveness', 'fatf-rba-technology']
+  },
+  {
+    id: 'rule-eu-21',
+    name: 'Real-Time High-Risk Transaction Blocking',
+    category: 'Real-Time Controls',
+    description: 'Implements real-time processing and blocking capabilities for critical high-risk scenarios: PEP transactions, high-risk third country transfers, sanctions screening hits, and transactions exceeding critical thresholds. Applies sub-second decision-making with automated holds and compliance officer notification. Supports Germany GwG, AMLD5 high-risk country requirements, and FATF effectiveness measures.',
+    regulatoryBasis: 'EU AMLD5 Article 18a; Germany GwG Sections 4, 10; FATF Methodology Immediate Outcome 4',
+    implementedRequirements: [
+      {
+        requirementId: 'amld5-art-18a-realtime',
+        description: 'Real-time enhanced monitoring for high-risk third countries'
+      },
+      {
+        requirementId: 'gwg-realtime',
+        description: 'Real-time transaction processing for critical risk scenarios'
+      }
+    ],
+    lastUpdated: '2025-02-03',
+    metadata: {
+      jurisdiction: ['EU', 'DE', 'International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'critical'
+    },
+    performance: {
+      alertsPerMonth: 56,
+      truePositiveRate: 0.96,
+      alertsInvestigated: 54,
+      coverage: 91,
+      avgResolutionDays: 0.5,
+      lastBacktest: '2025-02-01',
+      backtestScore: 4.9
+    },
+    evidence: {
+      lastAdded: '2025-02-02',
+      types: ['real-time-processing-validation', 'latency-testing', 'blocking-accuracy-testing']
+    },
+    linkedClauses: ['eu-amld5-art18a', 'fatf-method-effectiveness', 'germany-aml-section-1', 'germany-aml-section-2']
+  },
+  {
+    id: 'rule-eu-22',
+    name: 'Periodic KYC Update Workflow Automation',
+    category: 'Customer Due Diligence',
+    description: 'Automates periodic KYC update requirements per German GwG Section 10: Enhanced DD customers every 1 year, General DD customers every 5 years. Tracks customer information age, generates automated workflow triggers for review scheduling, escalates overdue reviews to compliance, and integrates with transaction monitoring to adjust thresholds based on KYC freshness.',
+    regulatoryBasis: 'Germany GwG Section 10; BaFin Guidance; FATF Recommendation 10',
+    implementedRequirements: [
+      {
+        requirementId: 'gwg-section-10-kyc',
+        description: 'Periodic KYC updates: 1-year EDD, 5-year General DD'
+      }
+    ],
+    lastUpdated: '2025-02-05',
+    metadata: {
+      jurisdiction: ['EU', 'DE', 'International'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'medium'
+    },
+    performance: {
+      alertsPerMonth: 423,
+      truePositiveRate: 0.92,
+      alertsInvestigated: 389,
+      coverage: 97,
+      avgResolutionDays: 7,
+      lastBacktest: '2025-02-03',
+      backtestScore: 4.7
+    },
+    evidence: {
+      lastAdded: '2025-02-04',
+      types: ['kyc-age-tracking', 'workflow-automation-testing', 'compliance-escalation-validation']
+    },
+    linkedClauses: ['fatf-rec10-monitoring', 'germany-aml-section-1', 'germany-aml-section-2']
+  },
+  {
+    id: 'rule-eu-23',
+    name: 'Source of Wealth/Funds Verification Monitoring',
+    category: 'Enhanced Due Diligence',
+    description: 'Monitors transactions for consistency with documented source of wealth and source of funds, particularly for PEPs, high-risk customers, and wealth management clients. Flags transactions exceeding documented income levels, inconsistent asset liquidation patterns, and unexplained wealth accumulation. Triggers source of funds verification workflows when thresholds exceeded.',
+    regulatoryBasis: 'Italy D.Lgs. 231/2007 Articles 24, 35; Spain Law 10/2010 Articles 7, 11; FATF Recommendation 10',
+    implementedRequirements: [
+      {
+        requirementId: 'italy-art-35-sow',
+        description: 'Transaction scrutiny against source of funds where necessary'
+      },
+      {
+        requirementId: 'spain-art-7-sow',
+        description: 'Source of funds consistency verification'
+      }
+    ],
+    lastUpdated: '2025-02-07',
+    metadata: {
+      jurisdiction: ['EU', 'IT', 'ES', 'International'],
+      productType: ['wealth-management', 'commercial-banking'],
+      customerType: ['individual', 'corporate'],
+      riskLevel: 'high'
+    },
+    performance: {
+      alertsPerMonth: 78,
+      truePositiveRate: 0.88,
+      alertsInvestigated: 69,
+      coverage: 84,
+      avgResolutionDays: 5,
+      lastBacktest: '2025-02-05',
+      backtestScore: 4.4
+    },
+    evidence: {
+      lastAdded: '2025-02-06',
+      types: ['source-of-funds-validation', 'wealth-accumulation-analysis', 'income-consistency-testing']
+    },
+    linkedClauses: ['fatf-rec10-monitoring', 'italy-aml-section-1', 'italy-aml-section-3', 'italy-aml-section-5', 'spain-aml-section-1', 'spain-aml-section-2']
+  },
+  {
+    id: 'rule-eu-24',
+    name: 'Beneficial Ownership Transaction Monitoring',
+    category: 'Beneficial Ownership Monitoring',
+    description: 'Applies enhanced monitoring to customers with complex beneficial ownership structures per Italian requirements. Detects third-party transaction anomalies, ownership structure changes, and unusual activity inconsistent with documented beneficial owners. Cross-references transactions against beneficial owner profiles and risk assessments. Flags potential nominee or shell company indicators.',
+    regulatoryBasis: 'Italy D.Lgs. 231/2007 Article 35; UIF Beneficial Ownership Anomaly Indicators',
+    implementedRequirements: [
+      {
+        requirementId: 'italy-art-35-bo',
+        description: 'Beneficial ownership anomaly detection and complex structure monitoring'
+      }
+    ],
+    lastUpdated: '2025-02-09',
+    metadata: {
+      jurisdiction: ['EU', 'IT'],
+      productType: ['commercial-banking', 'wealth-management'],
+      customerType: ['business', 'corporate'],
+      riskLevel: 'high'
+    },
+    performance: {
+      alertsPerMonth: 67,
+      truePositiveRate: 0.81,
+      alertsInvestigated: 54,
+      coverage: 87,
+      avgResolutionDays: 4,
+      lastBacktest: '2025-02-07',
+      backtestScore: 4.3
+    },
+    evidence: {
+      lastAdded: '2025-02-08',
+      types: ['beneficial-ownership-validation', 'third-party-anomaly-detection', 'ownership-change-monitoring']
+    },
+    linkedClauses: ['italy-aml-section-1', 'italy-aml-section-5']
+  },
+  {
+    id: 'rule-eu-25',
+    name: 'Continuous Post-STR Filing Monitoring',
+    category: 'Post-Filing Monitoring',
+    description: 'Maintains continuous monitoring of customer relationships after Suspicious Transaction Report (STR/SAR) filing without customer notification, per EU AMLD5 Article 33, German GwG Section 43, Italian Article 41, and Spanish Article 18. Applies enhanced surveillance (50% reduced thresholds) for 180 days post-filing. Documents all subsequent suspicious activity for supplemental reports.',
+    regulatoryBasis: 'EU AMLD5 Article 33; Germany GwG Section 43; Italy D.Lgs. 231/2007 Article 41; Spain Law 10/2010 Article 18',
+    implementedRequirements: [
+      {
+        requirementId: 'amld5-art-33-post',
+        description: 'Continuous monitoring post-STR filing without customer notification'
+      },
+      {
+        requirementId: 'gwg-section-43-post',
+        description: 'Continued monitoring post-FIU filing'
+      }
+    ],
+    lastUpdated: '2025-02-11',
+    metadata: {
+      jurisdiction: ['EU', 'DE', 'IT', 'ES'],
+      productType: ['retail-banking', 'commercial-banking', 'wealth-management'],
+      customerType: ['individual', 'business', 'corporate'],
+      riskLevel: 'critical'
+    },
+    performance: {
+      alertsPerMonth: 34,
+      truePositiveRate: 0.94,
+      alertsInvestigated: 32,
+      coverage: 89,
+      avgResolutionDays: 2,
+      lastBacktest: '2025-02-09',
+      backtestScore: 4.8
+    },
+    evidence: {
+      lastAdded: '2025-02-10',
+      types: ['post-filing-monitoring-validation', 'supplemental-report-tracking', 'enhanced-surveillance-testing']
+    },
+    linkedClauses: ['eu-amld5-art33', 'germany-aml-section-3', 'germany-aml-section-5', 'italy-aml-section-3', 'italy-aml-section-5', 'spain-aml-section-2', 'spain-aml-section-4']
   }
 ];
-
 // System Alerts
 export const alerts = [
   {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight, FileText, Scale, Building2, Settings, Sliders } from 'lucide-react';
+import { ruleService } from '../services/data';
 
 export function DocumentTree({ documents, selectedDocument, onDocumentSelect, onClauseSelect, onRiskCalibrationSelect, filters }) {
   const [expandedDocs, setExpandedDocs] = useState(new Set());
@@ -127,6 +128,9 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
         {isExpanded && (
           <div className="ml-4 mt-2 space-y-1">
             {document.clauses.map(clause => {
+              // SINGLE SOURCE OF TRUTH for rule count
+              const ruleCount = ruleService.getRulesByClauseId(clause.id, clause).length;
+
               return (
                 <div
                   key={clause.id}
@@ -166,7 +170,7 @@ export function DocumentTree({ documents, selectedDocument, onDocumentSelect, on
                       )}
                     </div>
                     <span className="px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
-                      {clause.linkedRules.length} rules
+                      {ruleCount} rules
                     </span>
                   </div>
                 </div>

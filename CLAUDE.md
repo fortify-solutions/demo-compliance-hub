@@ -602,6 +602,38 @@ All US, UK, and other non-European regulations hidden but preserved in codebase:
 - **Enhanced UI Integration**: Coverage warnings now display in both requirement list view (red backgrounds/badges) and detailed compliance insights panel with specific obligation breakdowns
 - **Performance Optimization**: Efficient caching and analysis with confidence-based filtering to prevent false positives
 
+## Recent Major Updates (v9.0) - Fully Editable Risk Calibration System
+
+### Complete Independent Threshold Management
+- **All Values Independently Editable**: Transformed risk calibration from calculated dependencies to fully independent field management
+- **Transaction Threshold Column**:
+  - Single-payment threshold (editable)
+  - Daily aggregate threshold (editable, independent of single-payment)
+  - Percentile indicators for both values
+- **Monthly Cumulative Column**:
+  - Monthly cumulative threshold (editable)
+  - Weekly cumulative threshold (editable, independent of monthly)
+  - Percentile indicators for both values
+- **Comprehensive Percentile Coverage**: Added exceed % indicators for all threshold types (single, daily, weekly, monthly)
+
+### Enhanced Data Architecture
+- **Independent Field Storage**: All threshold values stored as separate fields (baseAmount, dailyAggregate, weeklyCumulative, monthlyCumulative)
+- **Backward Compatibility**: Automatic data migration from calculated values to independent fields
+- **Realistic Percentile Modeling**: Hierarchical percentile patterns (e.g., 8.3% exceed single → 5.7% daily → 3.8% weekly → 2.9% monthly)
+- **Dynamic Percentile Adjustment**: Percentiles recalculate based on custom threshold values using inverse ratio logic
+
+### User Experience Improvements
+- **Dual Input Fields**: Clear labeling (Single/Daily, Monthly/Weekly) with independent input controls
+- **Inline Percentile Display**: Exceed % shown next to each threshold in both view and edit modes
+- **Enhanced Validation**: Comprehensive validation for all threshold ranges with clear error messages
+- **Improved Layout**: Side-by-side display of thresholds and percentiles for easy comparison
+
+### Technical Implementation
+- **Service Layer Enhancement**: RiskCalibrationService now manages 7 independent fields per segment (up from 4)
+- **Migration Logic**: Automatic conversion of old data using default multipliers (3x daily, 5x weekly, 20x monthly)
+- **Component Optimization**: RiskCalibrationTableBody supports flexible layout with percentile positioning
+- **localStorage Management**: Seamless persistence of all independent threshold values
+
 ## Recent Major Updates (v6.0) - Enhanced Modal System & Detailed Views
 
 ### Comprehensive Modal Architecture
@@ -652,6 +684,8 @@ All US, UK, and other non-European regulations hidden but preserved in codebase:
 11. **Semantic Analysis Precision**: Parsing regulatory text requires sophisticated pattern recognition - simple keyword matching fails to identify distinct obligations within complex requirements
 12. **Contextual Rule Coverage**: Existing monitoring rules often provide partial coverage for regulatory obligations, requiring nuanced analysis rather than binary covered/uncovered assessments
 13. **Intelligent Gap Analysis**: Effective compliance tools must distinguish between truly missing capabilities vs. areas where existing controls provide adequate coverage, preventing false alarms about well-managed risks
+14. **Independent Field Management**: Breaking calculated dependencies enables more flexible threshold configuration - users need direct control over all values rather than rigid mathematical relationships
+15. **Comprehensive Percentile Context**: Adding statistical context (% exceeding thresholds) transforms raw numbers into actionable insights about customer population distribution
 
 This project demonstrates how thoughtful UX design and comprehensive data modeling can create sophisticated compliance tools that actually help risk managers do their jobs more effectively, rather than just checking regulatory boxes.
 

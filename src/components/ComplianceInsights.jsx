@@ -112,8 +112,9 @@ export function ComplianceInsights({ selectedClause }) {
   const complianceData = useMemo(() => {
     if (!selectedClause) return null;
 
-    // Get rules associated with this clause
-    const associatedRules = ruleService.getRulesByClauseId(selectedClause.id);
+    // Get rules associated with this clause - SINGLE SOURCE OF TRUTH
+    // Pass the clause object so ruleService can check both directions
+    const associatedRules = ruleService.getRulesByClauseId(selectedClause.id, selectedClause);
 
     // Calculate success measures
     const ruleCount = associatedRules.length;

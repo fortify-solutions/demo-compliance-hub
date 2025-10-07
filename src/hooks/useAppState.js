@@ -2,12 +2,15 @@
 // Custom hooks for managing app-wide state with proper separation of concerns
 
 import { useState, useCallback, useEffect } from 'react';
-import { regulatoryDocuments } from '../services/mockData';
-import { riskCalibrationService } from '../services/data';
+import { documentService, riskCalibrationService } from '../services/data';
 
 // Document and Clause Selection Hook
 export function useDocumentSelection() {
-  const [selectedDocument, setSelectedDocument] = useState(regulatoryDocuments[0]);
+  const [selectedDocument, setSelectedDocument] = useState(() => {
+    // Get first visible document on initialization
+    const visibleDocs = documentService.getAllDocuments();
+    return visibleDocs.length > 0 ? visibleDocs[0] : null;
+  });
   const [selectedClause, setSelectedClause] = useState(null);
 
   const handleDocumentSelect = useCallback((document) => {

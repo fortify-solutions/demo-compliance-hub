@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, XCircle, Clock, Shield } from 'lucide-react';
-import { getRuleById } from '../services/mockData';
 import { complianceAnalysisService } from '../services/data/complianceAnalysisService';
 import { ruleService } from '../services/data';
 import { RuleDetailModal } from './RuleDetailModal';
 import { EvidenceDetailModal } from './EvidenceDetailModal';
+
+// Shared helper: Get last assessment date from rules (same logic as ComplianceInsights)
+const getLastAssessmentDate = (rules) => {
+  if (rules.length === 0) return null;
+
+  const dates = rules.map(rule => {
+    const ruleUpdate = new Date(rule.lastUpdated || Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000);
+    const evidenceDate = rule.evidence ? new Date(rule.evidence.lastAdded || ruleUpdate) : ruleUpdate;
+    return Math.max(ruleUpdate.getTime(), evidenceDate.getTime());
+  });
+
+  return new Date(Math.max(...dates));
+};
 
 export function ClauseContent({ document, clauses, selectedClause, onClauseSelect }) {
   const [selectedRule, setSelectedRule] = useState(null);
@@ -60,55 +72,97 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
         <div className="p-6">
           <div className="space-y-4">
             {clauses.map(clause => {
-              const riskIcon = clause.metadata.riskLevel === 'critical' ? XCircle :
-                              clause.metadata.riskLevel === 'high' ? AlertTriangle :
-                              clause.metadata.riskLevel === 'medium' ? Clock : CheckCircle;
-              const RiskIcon = riskIcon;
-
-              // Get coverage analysis for this clause
-              const associatedRules = ruleService.getRulesByClauseId(clause.id);
+              // Get coverage analysis for this clause - SINGLE SOURCE OF TRUTH
+              const associatedRules = ruleService.getRulesByClauseId(clause.id, clause);
               const coverageAnalysis = complianceAnalysisService.analyzeRequirementCoverage(clause, associatedRules);
-              const hasWarnings = coverageAnalysis.warnings.length > 0;
+
+              // Check for outdated assessment - CONSISTENT WITH COMPLIANCE INSIGHTS
+              // Use actual rule/evidence activity dates, not just clause metadata
+              const lastAssessmentDate = getLastAssessmentDate(associatedRules);
+              const daysSinceAssessment = lastAssessmentDate
+                ? Math.floor((new Date() - lastAssessmentDate) / (1000 * 60 * 60 * 24))
+                : 999; // If no rules, treat as very outdated
+
+              const isOutdated = daysSinceAssessment > 365; // Over 1 year
+              const monthsSinceAssessment = Math.floor(daysSinceAssessment / 30);
+
+              // Collect all warnings
+              const allWarnings = [...coverageAnalysis.warnings];
+              if (isOutdated && associatedRules.length > 0) { // Only show if has rules but they're stale
+                allWarnings.unshift({
+                  type: 'outdated_assessment',
+                  severity: daysSinceAssessment > 540 ? 'high' : 'medium', // 18 months
+                  title: 'Outdated Assessment',
+                  message: `Not reviewed for ${monthsSinceAssessment} months`,
+                  icon: 'clock',
+                  color: daysSinceAssessment > 540 ? 'red' : 'yellow'
+                });
+              }
+
+              const hasWarnings = allWarnings.length > 0;
 
               return (
                 <div
                   key={clause.id}
                   className={`p-4 rounded-lg border-2 cursor-pointer transition-all hover:shadow-md ${
                     hasWarnings
-                      ? 'border-red-300 bg-red-50 hover:border-red-400'
+                      ? 'border-orange-300 bg-orange-50 hover:border-orange-400'
                       : 'border-gray-200 hover:border-blue-300'
                   }`}
                   onClick={() => onClauseSelect(clause)}
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-start space-x-3">
-                      <RiskIcon className={`w-5 h-5 mt-0.5 ${
-                        clause.metadata.riskLevel === 'critical' ? 'text-red-500' :
-                        clause.metadata.riskLevel === 'high' ? 'text-orange-500' :
-                        clause.metadata.riskLevel === 'medium' ? 'text-yellow-500' : 'text-green-500'
-                      }`} />
-                      <div>
-                        <h3 className="font-semibold text-gray-900">{clause.reference}</h3>
-                        <h4 className="text-lg font-medium text-gray-800 mt-1">{clause.title}</h4>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900">{clause.reference}</h3>
+                      <h4 className="text-lg font-medium text-gray-800 mt-1">{clause.title}</h4>
+
+                      {/* Display specific warnings */}
                       {hasWarnings && (
-                        <div className="flex items-center space-x-1 px-2 py-1 bg-red-100 rounded-full">
-                          <AlertTriangle className="w-3 h-3 text-red-600" />
-                          <span className="text-xs font-medium text-red-700">Coverage Warning</span>
+                        <div className="mt-2 space-y-1">
+                          {allWarnings.slice(0, 2).map((warning, index) => (
+                            <div key={index} className="flex items-start space-x-2">
+                              <AlertTriangle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
+                                warning.severity === 'critical' ? 'text-red-600' :
+                                warning.severity === 'high' ? 'text-orange-600' :
+                                'text-yellow-600'
+                              }`} />
+                              <div>
+                                <span className={`text-sm font-medium ${
+                                  warning.severity === 'critical' ? 'text-red-900' :
+                                  warning.severity === 'high' ? 'text-orange-900' :
+                                  'text-yellow-900'
+                                }`}>
+                                  {warning.title}:
+                                </span>
+                                <span className={`text-sm ml-1 ${
+                                  warning.severity === 'critical' ? 'text-red-800' :
+                                  warning.severity === 'high' ? 'text-orange-800' :
+                                  'text-yellow-800'
+                                }`}>
+                                  {warning.message}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                          {allWarnings.length > 2 && (
+                            <div className="text-xs text-gray-600 ml-6">
+                              +{allWarnings.length - 2} more warning{allWarnings.length - 2 !== 1 ? 's' : ''}
+                            </div>
+                          )}
                         </div>
                       )}
+                    </div>
+                    <div className="flex items-center space-x-2 flex-shrink-0 ml-4">
                       {coverageAnalysis.hasMultipleObligations && (
-                        <div className="flex items-center space-x-1 px-2 py-1 bg-orange-100 rounded-full">
-                          <Shield className="w-3 h-3 text-orange-600" />
-                          <span className="text-xs font-medium text-orange-700">
+                        <div className="flex items-center space-x-1 px-2 py-1 bg-purple-100 rounded-full">
+                          <Shield className="w-3 h-3 text-purple-600" />
+                          <span className="text-xs font-medium text-purple-700">
                             {coverageAnalysis.identifiedObligations.length} Obligations
                           </span>
                         </div>
                       )}
                       <span className="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
-                        {clause.linkedRules.length} rules
+                        {associatedRules.length} rules
                       </span>
                       <ExternalLink className="w-4 h-4 text-gray-400" />
                     </div>
@@ -137,7 +191,7 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
                       )}
                     </div>
                     <div className="flex items-center space-x-4 text-sm text-gray-600">
-                      <span>{clause.linkedRules.length} rules</span>
+                      <span>{associatedRules.length} rules</span>
                       <span>{clause.evidence.length} evidence items</span>
                     </div>
                   </div>
@@ -157,8 +211,8 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
     );
   }
 
-  // Show detailed clause view
-  const linkedRules = selectedClause.linkedRules.map(ruleId => getRuleById(ruleId)).filter(Boolean);
+  // Show detailed clause view - SINGLE SOURCE OF TRUTH
+  const linkedRules = ruleService.getRulesByClauseId(selectedClause.id, selectedClause);
 
   return (
     <div className="h-full overflow-y-auto">
@@ -182,7 +236,7 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               <h2 className="text-xl font-semibold text-gray-800">{selectedClause.title}</h2>
             </div>
             <div className="px-4 py-2 rounded-lg text-lg font-bold bg-blue-100 text-blue-800">
-              {selectedClause.linkedRules.length} Rules
+              {linkedRules.length} Rules
             </div>
           </div>
 

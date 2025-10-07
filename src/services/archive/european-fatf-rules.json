@@ -1,0 +1,950 @@
+{
+  "rules": [
+    {
+      "id": "rule-eu-01",
+      "name": "EU Cash Transaction Monitoring (€10K Threshold)",
+      "category": "Cash Monitoring",
+      "description": "Monitors all cash transactions against the EU-wide €10,000 upper limit (effective July 2027). Detects structuring patterns through 24-hour rolling aggregation, flags round-number amounts, and identifies systematic threshold avoidance. Applies to all cash deposits, withdrawals, and cash equivalents across all customer segments.",
+      "regulatoryBasis": "Germany GwG Section 4; EU AMLR Cash Limit Regulation",
+      "lastUpdated": "2024-12-15",
+      "metadata": {
+        "jurisdiction": ["EU", "DE"],
+        "productType": ["retail-banking", "commercial-banking"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 245,
+        "truePositiveRate": 0.87,
+        "alertsInvestigated": 213,
+        "coverage": 92,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2024-12-10",
+        "backtestScore": 4.5
+      },
+      "evidence": {
+        "lastAdded": "2024-12-12",
+        "types": ["cash-structuring-analysis", "threshold-testing", "aggregation-validation"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "gwg-section-4",
+          "description": "€10,000 cash transaction limit with structuring detection"
+        }
+      ],
+      "linkedClauses": ["gwg-section-4"]
+    },
+    {
+      "id": "rule-eu-02",
+      "name": "Italy Occasional Transaction Monitoring (€15K)",
+      "category": "Transaction Threshold Monitoring",
+      "description": "Monitors all occasional transactions at or above €15,000 threshold per Italian AML requirements. Implements aggregation logic to detect structured transactions approaching the threshold. Generates alerts for single transactions ≥€15,000 and multiple transactions totaling ≥€15,000 within rolling 24-hour periods.",
+      "regulatoryBasis": "Italy D.Lgs. 231/2007 Articles 12, 16",
+      "lastUpdated": "2024-12-18",
+      "metadata": {
+        "jurisdiction": ["IT"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 178,
+        "truePositiveRate": 0.82,
+        "alertsInvestigated": 146,
+        "coverage": 89,
+        "avgResolutionDays": 3,
+        "lastBacktest": "2024-12-15",
+        "backtestScore": 4.2
+      },
+      "evidence": {
+        "lastAdded": "2024-12-16",
+        "types": ["threshold-sensitivity", "aggregation-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "italy-art-12",
+          "description": "€15,000 occasional transaction monitoring with aggregation"
+        }
+      ],
+      "linkedClauses": ["italy-art-12", "italy-art-16"]
+    },
+    {
+      "id": "rule-eu-03",
+      "name": "Italy Non-SEPA Wire Transfer Monitoring (€1K)",
+      "category": "Wire Transfer Monitoring",
+      "description": "Monitors all non-SEPA fund transfers at or above €1,000 per Italian regulatory requirements. Flags incomplete beneficiary information, detects repetitive transfers just under threshold, and cross-references beneficiaries against sanctions/PEP lists. Applies enhanced scrutiny to transfers involving high-risk jurisdictions.",
+      "regulatoryBasis": "Italy D.Lgs. 231/2007 Article 16; FATF Recommendation 16",
+      "lastUpdated": "2024-12-20",
+      "metadata": {
+        "jurisdiction": ["IT"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 312,
+        "truePositiveRate": 0.76,
+        "alertsInvestigated": 237,
+        "coverage": 94,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2024-12-18",
+        "backtestScore": 4.3
+      },
+      "evidence": {
+        "lastAdded": "2024-12-19",
+        "types": ["wire-monitoring-backtest", "beneficiary-validation", "sanctions-screening"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "italy-art-16",
+          "description": "€1,000 non-SEPA wire transfer monitoring with beneficiary validation"
+        }
+      ],
+      "linkedClauses": ["italy-art-16", "fatf-rec-16"]
+    },
+    {
+      "id": "rule-eu-04",
+      "name": "FATF Wire Transfer Recordkeeping ($3K Threshold)",
+      "category": "Wire Transfer Monitoring",
+      "description": "Captures and validates complete originator and beneficiary information for all wire transfers ≥$3,000 per FATF Recommendation 16. Flags missing/incomplete beneficiary data, detects repetitive transfers just under $3,000 (structuring), cross-references against sanctions/PEP lists, monitors geographic patterns to high-risk countries, and tracks correspondent banking concentration risk.",
+      "regulatoryBasis": "FATF Recommendation 16; FATF Methodology Criteria 16.1-16.8",
+      "lastUpdated": "2024-12-22",
+      "metadata": {
+        "jurisdiction": ["International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 456,
+        "truePositiveRate": 0.81,
+        "alertsInvestigated": 370,
+        "coverage": 96,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2024-12-20",
+        "backtestScore": 4.6
+      },
+      "evidence": {
+        "lastAdded": "2024-12-21",
+        "types": ["wire-monitoring-backtest", "swift-validation", "incomplete-wire-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "fatf-rec-16",
+          "description": "$3,000 wire transfer recordkeeping with complete originator/beneficiary data"
+        }
+      ],
+      "linkedClauses": ["fatf-rec-16", "fatf-methodology-16"]
+    },
+    {
+      "id": "rule-eu-05",
+      "name": "Customer Behavioral Baseline Deviation Detection",
+      "category": "Behavioral Analytics",
+      "description": "Establishes customer-specific transaction baselines and detects deviations indicating suspicious activity. Flags velocity anomalies (frequency increases >200%), transaction amount increases >150% from baseline, and activity inconsistent with customer business profile. Applies risk-based thresholds with enhanced sensitivity for high-risk customers.",
+      "regulatoryBasis": "Germany GwG Section 10; Italy D.Lgs. 231/2007 Article 35; FATF Recommendation 10; FATF Risk-Based Approach Guidance",
+      "lastUpdated": "2024-12-28",
+      "metadata": {
+        "jurisdiction": ["EU", "DE", "IT", "ES", "International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 523,
+        "truePositiveRate": 0.73,
+        "alertsInvestigated": 382,
+        "coverage": 91,
+        "avgResolutionDays": 4,
+        "lastBacktest": "2024-12-25",
+        "backtestScore": 4.4
+      },
+      "evidence": {
+        "lastAdded": "2024-12-26",
+        "types": ["behavior-baseline-testing", "velocity-analysis", "peer-group-comparison"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "gwg-section-10",
+          "description": "Continuous transaction consistency monitoring against customer profile"
+        },
+        {
+          "requirementId": "italy-art-35",
+          "description": "Transaction scrutiny against customer business and risk profile"
+        },
+        {
+          "requirementId": "fatf-rec-10",
+          "description": "Ongoing monitoring with enhanced scrutiny for profile inconsistencies"
+        }
+      ],
+      "linkedClauses": ["gwg-section-10", "italy-art-35", "spain-art-7", "fatf-rec-10", "fatf-rba-continuous"]
+    },
+    {
+      "id": "rule-eu-06",
+      "name": "PEP Enhanced Transaction Monitoring",
+      "category": "Enhanced Due Diligence",
+      "description": "Applies specialized monitoring profiles to Politically Exposed Persons (PEPs), family members, and close associates with 50% reduced thresholds compared to standard customers. Automated senior management escalation for all alerts. Maintains enhanced monitoring for minimum 1 year after PEP status cessation. Covers Italian, Spanish, and foreign PEPs across all jurisdictions.",
+      "regulatoryBasis": "Italy D.Lgs. 231/2007 Articles 24, 25; Spain Law 10/2010 Article 11; FATF Risk-Based Approach Guidance",
+      "lastUpdated": "2024-12-30",
+      "metadata": {
+        "jurisdiction": ["EU", "IT", "ES", "International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 67,
+        "truePositiveRate": 0.91,
+        "alertsInvestigated": 61,
+        "coverage": 88,
+        "avgResolutionDays": 1,
+        "lastBacktest": "2024-12-28",
+        "backtestScore": 4.8
+      },
+      "evidence": {
+        "lastAdded": "2024-12-29",
+        "types": ["pep-screening", "enhanced-monitoring-validation", "source-of-wealth-verification"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "italy-art-24",
+          "description": "PEP enhanced monitoring with lower thresholds and senior management escalation"
+        },
+        {
+          "requirementId": "spain-art-11",
+          "description": "Enhanced monitoring for Spanish and foreign PEPs with intensified scrutiny"
+        }
+      ],
+      "linkedClauses": ["italy-art-24", "italy-art-25", "spain-art-11"]
+    },
+    {
+      "id": "rule-eu-07",
+      "name": "High-Risk Third Country Enhanced Monitoring",
+      "category": "Geographic Risk Monitoring",
+      "description": "Applies enhanced ongoing monitoring to customers from EU Commission-identified high-risk third countries and entities established in such jurisdictions. Reduces alert thresholds by 60% for transactions involving high-risk countries, applies real-time processing (vs. batch), and integrates geographic risk factors into all monitoring scenarios.",
+      "regulatoryBasis": "EU AMLD5 Article 18a; Germany GwG Section 4; Italy D.Lgs. 231/2007 Article 24; Spain Law 10/2010 Article 11",
+      "lastUpdated": "2025-01-02",
+      "metadata": {
+        "jurisdiction": ["EU", "DE", "IT", "ES"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 134,
+        "truePositiveRate": 0.88,
+        "alertsInvestigated": 118,
+        "coverage": 93,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2024-12-30",
+        "backtestScore": 4.7
+      },
+      "evidence": {
+        "lastAdded": "2025-01-01",
+        "types": ["geographic-risk-testing", "high-risk-jurisdiction-validation", "real-time-blocking-test"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "amld5-art-18a",
+          "description": "Enhanced monitoring for high-risk third country customers and entities"
+        },
+        {
+          "requirementId": "gwg-section-4",
+          "description": "Cross-border transaction enhanced scrutiny for high-risk jurisdictions"
+        }
+      ],
+      "linkedClauses": ["amld5-art-18a", "gwg-section-4", "italy-art-24", "spain-art-11"]
+    },
+    {
+      "id": "rule-eu-08",
+      "name": "Cross-Border Wire Transfer Unusual Routing Detection",
+      "category": "Wire Transfer Monitoring",
+      "description": "Detects unusual routing patterns in cross-border wire transfers including excessive intermediary banks, illogical geographic routing, and nested correspondent banking relationships. Flags incomplete wire information, monitors for shell bank indicators, and detects structuring across correspondent sub-accounts.",
+      "regulatoryBasis": "Germany GwG Section 4; FATF Correspondent Banking Guidance; FATF Methodology Criteria 16.1-16.8",
+      "lastUpdated": "2025-01-05",
+      "metadata": {
+        "jurisdiction": ["EU", "DE", "International"],
+        "productType": ["commercial-banking", "wealth-management"],
+        "customerType": ["business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 89,
+        "truePositiveRate": 0.79,
+        "alertsInvestigated": 70,
+        "coverage": 87,
+        "avgResolutionDays": 3,
+        "lastBacktest": "2025-01-03",
+        "backtestScore": 4.1
+      },
+      "evidence": {
+        "lastAdded": "2025-01-04",
+        "types": ["routing-pattern-analysis", "nested-relationship-detection", "correspondent-risk-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "gwg-section-4-cb",
+          "description": "Cross-border wire transfer unusual routing detection"
+        },
+        {
+          "requirementId": "fatf-cb-nested",
+          "description": "Nested correspondent banking relationship monitoring"
+        }
+      ],
+      "linkedClauses": ["gwg-section-4", "fatf-cb-nested", "fatf-methodology-16"]
+    },
+    {
+      "id": "rule-eu-09",
+      "name": "Delivery Channel Risk-Based Monitoring",
+      "category": "Channel Monitoring",
+      "description": "Implements Italy Article 35 requirement for objective risk-based procedures considering delivery channels. Applies channel-specific thresholds (branch vs. online vs. mobile vs. ATM), performs cross-channel aggregation to detect structuring, and flags unusual channel-switching behavior. Enhanced monitoring for high-risk channels (online, mobile) with real-time fraud detection.",
+      "regulatoryBasis": "Italy D.Lgs. 231/2007 Article 35; FATF Risk-Based Approach Guidance",
+      "lastUpdated": "2025-01-08",
+      "metadata": {
+        "jurisdiction": ["EU", "IT", "International"],
+        "productType": ["retail-banking", "commercial-banking"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 267,
+        "truePositiveRate": 0.71,
+        "alertsInvestigated": 190,
+        "coverage": 90,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2025-01-06",
+        "backtestScore": 4.0
+      },
+      "evidence": {
+        "lastAdded": "2025-01-07",
+        "types": ["channel-pattern-analysis", "cross-channel-aggregation", "channel-switching-detection"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "italy-art-35-channel",
+          "description": "Delivery channel risk-based monitoring with channel-specific parameters"
+        }
+      ],
+      "linkedClauses": ["italy-art-35"]
+    },
+    {
+      "id": "rule-eu-10",
+      "name": "Product/Service-Specific Transaction Monitoring",
+      "category": "Product Risk Monitoring",
+      "description": "Implements Italy Article 35 requirement for product/service-specific monitoring procedures. Applies distinct thresholds and detection logic for retail banking, commercial banking, and wealth management products. Monitors product combination risks (e.g., concurrent cash + wire activity) and unusual product usage patterns inconsistent with customer profile.",
+      "regulatoryBasis": "Italy D.Lgs. 231/2007 Article 35; FATF Risk-Based Approach Guidance",
+      "lastUpdated": "2025-01-10",
+      "metadata": {
+        "jurisdiction": ["EU", "IT", "International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 198,
+        "truePositiveRate": 0.74,
+        "alertsInvestigated": 147,
+        "coverage": 86,
+        "avgResolutionDays": 3,
+        "lastBacktest": "2025-01-08",
+        "backtestScore": 4.2
+      },
+      "evidence": {
+        "lastAdded": "2025-01-09",
+        "types": ["product-risk-analysis", "product-combination-testing", "usage-pattern-validation"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "italy-art-35-product",
+          "description": "Product/service-specific monitoring with distinct thresholds"
+        }
+      ],
+      "linkedClauses": ["italy-art-35"]
+    },
+    {
+      "id": "rule-eu-11",
+      "name": "UIF Anomaly Indicator Implementation (Italy)",
+      "category": "Suspicious Transaction Detection",
+      "description": "Implements all Italian UIF-published anomaly indicators including cash-related anomalies, geographic anomalies, beneficial ownership anomalies, third-party transaction anomalies, and structuring anomalies. Automatically updates monitoring scenarios as UIF publishes new typologies. Generates alerts for transactions matching UIF patterns with documented analysis supporting potential UIF reports.",
+      "regulatoryBasis": "Italy D.Lgs. 231/2007 Articles 35, 41; UIF Anomaly Indicators",
+      "lastUpdated": "2025-01-12",
+      "metadata": {
+        "jurisdiction": ["IT"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 156,
+        "truePositiveRate": 0.83,
+        "alertsInvestigated": 130,
+        "coverage": 94,
+        "avgResolutionDays": 3,
+        "lastBacktest": "2025-01-10",
+        "backtestScore": 4.5
+      },
+      "evidence": {
+        "lastAdded": "2025-01-11",
+        "types": ["uif-indicator-testing", "typology-validation", "false-positive-analysis"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "italy-art-35-uif",
+          "description": "UIF anomaly indicator adoption for suspicious transaction detection"
+        },
+        {
+          "requirementId": "italy-art-41",
+          "description": "UIF reporting for transactions matching anomaly indicators"
+        }
+      ],
+      "linkedClauses": ["italy-art-35", "italy-art-41"]
+    },
+    {
+      "id": "rule-eu-12",
+      "name": "SEPBLAC Risk Indicator Monitoring (Spain)",
+      "category": "Suspicious Transaction Detection",
+      "description": "Implements all SEPBLAC-published risk indicator scenarios covering customer behavior, transaction characteristics, geographic indicators, and product/service indicators. Includes custom indicator development based on institutional experience. Supports monthly systematic reporting to SEPBLAC per Article 27.1 RD 304/2014 in addition to standard suspicious transaction reports.",
+      "regulatoryBasis": "Spain Law 10/2010 Articles 17, 27.1; Royal Decree 304/2014",
+      "lastUpdated": "2025-01-15",
+      "metadata": {
+        "jurisdiction": ["ES"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 189,
+        "truePositiveRate": 0.85,
+        "alertsInvestigated": 161,
+        "coverage": 92,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2025-01-13",
+        "backtestScore": 4.6
+      },
+      "evidence": {
+        "lastAdded": "2025-01-14",
+        "types": ["sepblac-indicator-testing", "monthly-reporting-validation", "custom-indicator-development"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "spain-art-17",
+          "description": "SEPBLAC risk indicator implementation for special attention transactions"
+        },
+        {
+          "requirementId": "spain-art-27",
+          "description": "Monthly systematic reporting to SEPBLAC for Article 27.1 transactions"
+        }
+      ],
+      "linkedClauses": ["spain-art-17", "spain-art-27"]
+    },
+    {
+      "id": "rule-eu-13",
+      "name": "Germany FIU Suspicious Transaction Detection",
+      "category": "Suspicious Transaction Detection",
+      "description": "Detects transactions matching suspicious typologies under German GwG Section 43. Flags deviations from normal customer patterns, characteristics inconsistent with customer profile, transactions matching known typologies, and unusual patterns. Generates FIU reports without delay upon suspicion detection with written documentation. Continues monitoring post-FIU filing without customer notification.",
+      "regulatoryBasis": "Germany GwG Section 43; BaFin Guidance",
+      "lastUpdated": "2025-01-18",
+      "metadata": {
+        "jurisdiction": ["DE"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 142,
+        "truePositiveRate": 0.89,
+        "alertsInvestigated": 126,
+        "coverage": 91,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2025-01-16",
+        "backtestScore": 4.7
+      },
+      "evidence": {
+        "lastAdded": "2025-01-17",
+        "types": ["fiu-typology-testing", "pattern-recognition-validation", "post-filing-monitoring"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "gwg-section-43",
+          "description": "Suspicious transaction detection with FIU reporting without delay"
+        }
+      ],
+      "linkedClauses": ["gwg-section-43"]
+    },
+    {
+      "id": "rule-eu-14",
+      "name": "FATF Complex and Unusual Transaction Detection",
+      "category": "Suspicious Transaction Detection",
+      "description": "Applies special attention to complex large transactions, unusual large transactions, and unusual transaction patterns with no apparent economic or lawful purpose per FATF Recommendations 10, 11, 20. Requires transaction investigation, findings documentation, and 5-year record availability to competent authorities and auditors. Enhanced scrutiny for transactions not matching expected customer risk profile.",
+      "regulatoryBasis": "FATF Recommendations 10, 11, 20; FATF Methodology Criterion 10.7",
+      "lastUpdated": "2025-01-20",
+      "metadata": {
+        "jurisdiction": ["International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 98,
+        "truePositiveRate": 0.86,
+        "alertsInvestigated": 84,
+        "coverage": 89,
+        "avgResolutionDays": 4,
+        "lastBacktest": "2025-01-18",
+        "backtestScore": 4.5
+      },
+      "evidence": {
+        "lastAdded": "2025-01-19",
+        "types": ["complex-transaction-analysis", "economic-purpose-validation", "investigation-documentation"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "fatf-rec-10-complex",
+          "description": "Special attention to complex and unusual transactions"
+        },
+        {
+          "requirementId": "fatf-rec-20",
+          "description": "Suspicious transaction detection and prompt FIU reporting"
+        }
+      ],
+      "linkedClauses": ["fatf-rec-10", "fatf-rec-11", "fatf-rec-20"]
+    },
+    {
+      "id": "rule-eu-15",
+      "name": "Correspondent Banking Risk Profile Change Detection",
+      "category": "Correspondent Banking Monitoring",
+      "description": "Monitors correspondent banking relationships for transaction volume changes, transaction type changes, transaction pattern changes, and geographic focus changes. Detects deviations from expected activity profiles and identifies increased risk indicators. Applies enhanced monitoring triggers for activity inconsistent with respondent business model, unusual sizes/frequencies, and unusual counterparties.",
+      "regulatoryBasis": "FATF Correspondent Banking Guidance",
+      "lastUpdated": "2025-01-22",
+      "metadata": {
+        "jurisdiction": ["International"],
+        "productType": ["commercial-banking"],
+        "customerType": ["business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 45,
+        "truePositiveRate": 0.80,
+        "alertsInvestigated": 36,
+        "coverage": 85,
+        "avgResolutionDays": 3,
+        "lastBacktest": "2025-01-20",
+        "backtestScore": 4.3
+      },
+      "evidence": {
+        "lastAdded": "2025-01-21",
+        "types": ["correspondent-profile-analysis", "risk-change-detection", "baseline-deviation-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "fatf-cb-risk-profile",
+          "description": "Correspondent banking risk profile change monitoring"
+        },
+        {
+          "requirementId": "fatf-cb-unusual",
+          "description": "Unusual activity detection in correspondent relationships"
+        }
+      ],
+      "linkedClauses": ["fatf-cb-risk-profile", "fatf-cb-unusual"]
+    },
+    {
+      "id": "rule-eu-16",
+      "name": "Correspondent Banking RFI Process Automation",
+      "category": "Correspondent Banking Monitoring",
+      "description": "Automates Request for Information (RFI) process for flagged correspondent banking transactions. Documents flagged transaction details, generates clarification requests, tracks response timeframes and quality, escalates for unresponsive/inadequate responses, and assesses respondent AML/CFT program quality. Implements termination procedures for non-compliant counterparties.",
+      "regulatoryBasis": "FATF Correspondent Banking Guidance",
+      "lastUpdated": "2025-01-24",
+      "metadata": {
+        "jurisdiction": ["International"],
+        "productType": ["commercial-banking"],
+        "customerType": ["business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 28,
+        "truePositiveRate": 0.93,
+        "alertsInvestigated": 26,
+        "coverage": 82,
+        "avgResolutionDays": 5,
+        "lastBacktest": "2025-01-22",
+        "backtestScore": 4.6
+      },
+      "evidence": {
+        "lastAdded": "2025-01-23",
+        "types": ["rfi-process-validation", "response-quality-tracking", "escalation-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "fatf-cb-rfi",
+          "description": "Formal RFI procedures for flagged correspondent transactions"
+        }
+      ],
+      "linkedClauses": ["fatf-cb-rfi"]
+    },
+    {
+      "id": "rule-eu-17",
+      "name": "Peer Group Behavioral Comparison Analysis",
+      "category": "Behavioral Analytics",
+      "description": "Compares customer transaction activity against peer group norms to detect deviations from expected behavior. Segments customers by industry, size, location, and product usage. Flags significant deviations (>150% from peer median) in transaction volumes, amounts, frequencies, and patterns. Supports FATF Risk-Based Approach requirement for peer group comparison.",
+      "regulatoryBasis": "FATF Risk-Based Approach Guidance; FATF Methodology Criterion 10.7",
+      "lastUpdated": "2025-01-26",
+      "metadata": {
+        "jurisdiction": ["International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "medium"
+      },
+      "performance": {
+        "alertsPerMonth": 234,
+        "truePositiveRate": 0.68,
+        "alertsInvestigated": 159,
+        "coverage": 88,
+        "avgResolutionDays": 4,
+        "lastBacktest": "2025-01-24",
+        "backtestScore": 3.9
+      },
+      "evidence": {
+        "lastAdded": "2025-01-25",
+        "types": ["peer-group-segmentation", "deviation-analysis", "behavioral-comparison-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "fatf-rba-peer",
+          "description": "Customer activity comparison against peer groups for deviation detection"
+        }
+      ],
+      "linkedClauses": ["fatf-rba-continuous", "fatf-methodology-10-7"]
+    },
+    {
+      "id": "rule-eu-18",
+      "name": "Event-Triggered Enhanced Monitoring",
+      "category": "Risk-Based Monitoring",
+      "description": "Implements event-triggered surveillance for circumstance changes and red flag indicators per German GwG Section 10 and Spanish Article 7. Automatically intensifies monitoring when customer circumstances change (ownership, business activity, geographic focus), regulatory updates occur, or red flags are identified. Temporarily reduces thresholds by 40% for 90-day observation period.",
+      "regulatoryBasis": "Germany GwG Section 10; Spain Law 10/2010 Article 7; FATF Risk-Based Approach Guidance",
+      "lastUpdated": "2025-01-28",
+      "metadata": {
+        "jurisdiction": ["EU", "DE", "ES", "International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 167,
+        "truePositiveRate": 0.77,
+        "alertsInvestigated": 129,
+        "coverage": 90,
+        "avgResolutionDays": 3,
+        "lastBacktest": "2025-01-26",
+        "backtestScore": 4.2
+      },
+      "evidence": {
+        "lastAdded": "2025-01-27",
+        "types": ["event-trigger-testing", "circumstance-change-detection", "red-flag-validation"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "gwg-section-10-trigger",
+          "description": "Trigger-based monitoring intensification for circumstance changes"
+        },
+        {
+          "requirementId": "spain-art-7-trigger",
+          "description": "Risk-sensitive monitoring with intensification triggers"
+        }
+      ],
+      "linkedClauses": ["gwg-section-10", "spain-art-7", "fatf-rba-triggered"]
+    },
+    {
+      "id": "rule-eu-19",
+      "name": "Round-Number Amount Detection",
+      "category": "Structuring Detection",
+      "description": "Detects suspicious use of round-number transaction amounts (e.g., €10,000, €15,000, $10,000, $50,000) that may indicate deliberate threshold avoidance or money laundering behavior. Analyzes customer historical patterns to distinguish legitimate business transactions from suspicious round-amount usage. Enhanced detection for customers who historically use non-round amounts.",
+      "regulatoryBasis": "Germany GwG Section 4; Italy D.Lgs. 231/2007 Article 16",
+      "lastUpdated": "2025-01-30",
+      "metadata": {
+        "jurisdiction": ["EU", "DE", "IT"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "medium"
+      },
+      "performance": {
+        "alertsPerMonth": 312,
+        "truePositiveRate": 0.65,
+        "alertsInvestigated": 203,
+        "coverage": 86,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2025-01-28",
+        "backtestScore": 3.8
+      },
+      "evidence": {
+        "lastAdded": "2025-01-29",
+        "types": ["round-amount-pattern-analysis", "historical-baseline-validation", "false-positive-tuning"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "gwg-section-4-round",
+          "description": "Round-number amount detection for structuring identification"
+        }
+      ],
+      "linkedClauses": ["gwg-section-4", "italy-art-16"]
+    },
+    {
+      "id": "rule-eu-20",
+      "name": "AI/ML Advanced Pattern Recognition",
+      "category": "Advanced Analytics",
+      "description": "Leverages artificial intelligence and machine learning for large transaction volume analysis, real-time monitoring, and sophisticated scheme detection per FATF Risk-Based Approach Guidance. Reduces manual input, decreases false positives through intelligent pattern learning, and identifies complex cases requiring investigation. Continuously improves detection accuracy through supervised learning from investigation outcomes.",
+      "regulatoryBasis": "FATF Risk-Based Approach Guidance - Technology and Innovation; FATF Methodology Immediate Outcome 4",
+      "lastUpdated": "2025-02-01",
+      "metadata": {
+        "jurisdiction": ["International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 421,
+        "truePositiveRate": 0.84,
+        "alertsInvestigated": 354,
+        "coverage": 95,
+        "avgResolutionDays": 3,
+        "lastBacktest": "2025-01-30",
+        "backtestScore": 4.8
+      },
+      "evidence": {
+        "lastAdded": "2025-01-31",
+        "types": ["ml-model-validation", "false-positive-reduction-analysis", "supervised-learning-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "fatf-rba-technology",
+          "description": "AI/ML implementation for large volume analysis and sophisticated scheme detection"
+        },
+        {
+          "requirementId": "fatf-io4-effectiveness",
+          "description": "Quality and accuracy of transaction monitoring systems"
+        }
+      ],
+      "linkedClauses": ["fatf-rba-technology", "fatf-methodology-io4"]
+    },
+    {
+      "id": "rule-eu-21",
+      "name": "Real-Time High-Risk Transaction Blocking",
+      "category": "Real-Time Controls",
+      "description": "Implements real-time processing and blocking capabilities for critical high-risk scenarios: PEP transactions, high-risk third country transfers, sanctions screening hits, and transactions exceeding critical thresholds. Applies sub-second decision-making with automated holds and compliance officer notification. Supports Germany GwG, AMLD5 high-risk country requirements, and FATF effectiveness measures.",
+      "regulatoryBasis": "EU AMLD5 Article 18a; Germany GwG Sections 4, 10; FATF Methodology Immediate Outcome 4",
+      "lastUpdated": "2025-02-03",
+      "metadata": {
+        "jurisdiction": ["EU", "DE", "International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 56,
+        "truePositiveRate": 0.96,
+        "alertsInvestigated": 54,
+        "coverage": 91,
+        "avgResolutionDays": 0.5,
+        "lastBacktest": "2025-02-01",
+        "backtestScore": 4.9
+      },
+      "evidence": {
+        "lastAdded": "2025-02-02",
+        "types": ["real-time-processing-validation", "latency-testing", "blocking-accuracy-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "amld5-art-18a-realtime",
+          "description": "Real-time enhanced monitoring for high-risk third countries"
+        },
+        {
+          "requirementId": "gwg-realtime",
+          "description": "Real-time transaction processing for critical risk scenarios"
+        }
+      ],
+      "linkedClauses": ["amld5-art-18a", "gwg-section-10", "fatf-methodology-io4"]
+    },
+    {
+      "id": "rule-eu-22",
+      "name": "Periodic KYC Update Workflow Automation",
+      "category": "Customer Due Diligence",
+      "description": "Automates periodic KYC update requirements per German GwG Section 10: Enhanced DD customers every 1 year, General DD customers every 5 years. Tracks customer information age, generates automated workflow triggers for review scheduling, escalates overdue reviews to compliance, and integrates with transaction monitoring to adjust thresholds based on KYC freshness.",
+      "regulatoryBasis": "Germany GwG Section 10; BaFin Guidance; FATF Recommendation 10",
+      "lastUpdated": "2025-02-05",
+      "metadata": {
+        "jurisdiction": ["EU", "DE", "International"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "medium"
+      },
+      "performance": {
+        "alertsPerMonth": 423,
+        "truePositiveRate": 0.92,
+        "alertsInvestigated": 389,
+        "coverage": 97,
+        "avgResolutionDays": 7,
+        "lastBacktest": "2025-02-03",
+        "backtestScore": 4.7
+      },
+      "evidence": {
+        "lastAdded": "2025-02-04",
+        "types": ["kyc-age-tracking", "workflow-automation-testing", "compliance-escalation-validation"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "gwg-section-10-kyc",
+          "description": "Periodic KYC updates: 1-year EDD, 5-year General DD"
+        }
+      ],
+      "linkedClauses": ["gwg-section-10", "fatf-rec-10"]
+    },
+    {
+      "id": "rule-eu-23",
+      "name": "Source of Wealth/Funds Verification Monitoring",
+      "category": "Enhanced Due Diligence",
+      "description": "Monitors transactions for consistency with documented source of wealth and source of funds, particularly for PEPs, high-risk customers, and wealth management clients. Flags transactions exceeding documented income levels, inconsistent asset liquidation patterns, and unexplained wealth accumulation. Triggers source of funds verification workflows when thresholds exceeded.",
+      "regulatoryBasis": "Italy D.Lgs. 231/2007 Articles 24, 35; Spain Law 10/2010 Articles 7, 11; FATF Recommendation 10",
+      "lastUpdated": "2025-02-07",
+      "metadata": {
+        "jurisdiction": ["EU", "IT", "ES", "International"],
+        "productType": ["wealth-management", "commercial-banking"],
+        "customerType": ["individual", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 78,
+        "truePositiveRate": 0.88,
+        "alertsInvestigated": 69,
+        "coverage": 84,
+        "avgResolutionDays": 5,
+        "lastBacktest": "2025-02-05",
+        "backtestScore": 4.4
+      },
+      "evidence": {
+        "lastAdded": "2025-02-06",
+        "types": ["source-of-funds-validation", "wealth-accumulation-analysis", "income-consistency-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "italy-art-35-sow",
+          "description": "Transaction scrutiny against source of funds where necessary"
+        },
+        {
+          "requirementId": "spain-art-7-sow",
+          "description": "Source of funds consistency verification"
+        }
+      ],
+      "linkedClauses": ["italy-art-24", "italy-art-35", "spain-art-7", "spain-art-11", "fatf-rec-10"]
+    },
+    {
+      "id": "rule-eu-24",
+      "name": "Beneficial Ownership Transaction Monitoring",
+      "category": "Beneficial Ownership Monitoring",
+      "description": "Applies enhanced monitoring to customers with complex beneficial ownership structures per Italian requirements. Detects third-party transaction anomalies, ownership structure changes, and unusual activity inconsistent with documented beneficial owners. Cross-references transactions against beneficial owner profiles and risk assessments. Flags potential nominee or shell company indicators.",
+      "regulatoryBasis": "Italy D.Lgs. 231/2007 Article 35; UIF Beneficial Ownership Anomaly Indicators",
+      "lastUpdated": "2025-02-09",
+      "metadata": {
+        "jurisdiction": ["EU", "IT"],
+        "productType": ["commercial-banking", "wealth-management"],
+        "customerType": ["business", "corporate"],
+        "riskLevel": "high"
+      },
+      "performance": {
+        "alertsPerMonth": 67,
+        "truePositiveRate": 0.81,
+        "alertsInvestigated": 54,
+        "coverage": 87,
+        "avgResolutionDays": 4,
+        "lastBacktest": "2025-02-07",
+        "backtestScore": 4.3
+      },
+      "evidence": {
+        "lastAdded": "2025-02-08",
+        "types": ["beneficial-ownership-validation", "third-party-anomaly-detection", "ownership-change-monitoring"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "italy-art-35-bo",
+          "description": "Beneficial ownership anomaly detection and complex structure monitoring"
+        }
+      ],
+      "linkedClauses": ["italy-art-35", "italy-uif-bo"]
+    },
+    {
+      "id": "rule-eu-25",
+      "name": "Continuous Post-STR Filing Monitoring",
+      "category": "Post-Filing Monitoring",
+      "description": "Maintains continuous monitoring of customer relationships after Suspicious Transaction Report (STR/SAR) filing without customer notification, per EU AMLD5 Article 33, German GwG Section 43, Italian Article 41, and Spanish Article 18. Applies enhanced surveillance (50% reduced thresholds) for 180 days post-filing. Documents all subsequent suspicious activity for supplemental reports.",
+      "regulatoryBasis": "EU AMLD5 Article 33; Germany GwG Section 43; Italy D.Lgs. 231/2007 Article 41; Spain Law 10/2010 Article 18",
+      "lastUpdated": "2025-02-11",
+      "metadata": {
+        "jurisdiction": ["EU", "DE", "IT", "ES"],
+        "productType": ["retail-banking", "commercial-banking", "wealth-management"],
+        "customerType": ["individual", "business", "corporate"],
+        "riskLevel": "critical"
+      },
+      "performance": {
+        "alertsPerMonth": 34,
+        "truePositiveRate": 0.94,
+        "alertsInvestigated": 32,
+        "coverage": 89,
+        "avgResolutionDays": 2,
+        "lastBacktest": "2025-02-09",
+        "backtestScore": 4.8
+      },
+      "evidence": {
+        "lastAdded": "2025-02-10",
+        "types": ["post-filing-monitoring-validation", "supplemental-report-tracking", "enhanced-surveillance-testing"]
+      },
+      "implementedRequirements": [
+        {
+          "requirementId": "amld5-art-33-post",
+          "description": "Continuous monitoring post-STR filing without customer notification"
+        },
+        {
+          "requirementId": "gwg-section-43-post",
+          "description": "Continued monitoring post-FIU filing"
+        }
+      ],
+      "linkedClauses": ["amld5-art-33", "gwg-section-43", "italy-art-41", "spain-art-18"]
+    }
+  ],
+  "metadata": {
+    "totalRules": 25,
+    "jurisdiction": {
+      "EU": 12,
+      "Germany": 9,
+      "Italy": 10,
+      "Spain": 6,
+      "International": 13
+    },
+    "riskLevelDistribution": {
+      "critical": 11,
+      "high": 11,
+      "medium": 3
+    },
+    "categoryDistribution": {
+      "Cash Monitoring": 1,
+      "Transaction Threshold Monitoring": 1,
+      "Wire Transfer Monitoring": 3,
+      "Behavioral Analytics": 2,
+      "Enhanced Due Diligence": 4,
+      "Geographic Risk Monitoring": 1,
+      "Channel Monitoring": 1,
+      "Product Risk Monitoring": 1,
+      "Suspicious Transaction Detection": 4,
+      "Correspondent Banking Monitoring": 2,
+      "Risk-Based Monitoring": 1,
+      "Structuring Detection": 1,
+      "Advanced Analytics": 1,
+      "Real-Time Controls": 1,
+      "Customer Due Diligence": 1,
+      "Beneficial Ownership Monitoring": 1,
+      "Post-Filing Monitoring": 1
+    },
+    "averageAlertVolume": 187,
+    "averageTruePositiveRate": 0.83,
+    "totalCoverage": 90,
+    "generatedDate": "2025-02-11",
+    "sourceDocument": "/Users/tom/Documents/AML/demo-aml-compliance-hub/src/services/mockData.js",
+    "analysisDocument": "/Users/tom/Documents/AML/demo-aml-compliance-hub/src/services/transaction-level-rule-requirements.md"
+  }
+}

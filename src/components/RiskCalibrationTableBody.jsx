@@ -26,30 +26,61 @@ export function RiskCalibrationTableBody({
               {/* Transaction Threshold */}
               <td className="px-6 py-4 whitespace-nowrap">
                 <div className="space-y-1">
-                  <input
-                    type="number"
-                    value={editValues.baseAmount || ''}
-                    onChange={(e) => handleInputChange('baseAmount', e.target.value)}
-                    className="w-20 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                    placeholder="Amount"
-                  />
-                  <div className="text-xs text-gray-500">
-                    Daily: ${((editValues.baseAmount || 0) * 3).toLocaleString()}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-1">
+                      <span className="text-xs text-gray-500">Single:</span>
+                      <input
+                        type="number"
+                        value={editValues.baseAmount || ''}
+                        onChange={(e) => handleInputChange('baseAmount', e.target.value)}
+                        className="w-24 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder="Amount"
+                      />
+                    </div>
+                    {item.percentiles?.transactionThreshold && (
+                      <div className="text-xs text-blue-600 font-medium">
+                        {item.percentiles.transactionThreshold}% exceed
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-1">
+                      <span className="text-xs text-gray-500">Daily:</span>
+                      <input
+                        type="number"
+                        value={editValues.dailyAggregate || ''}
+                        onChange={(e) => handleInputChange('dailyAggregate', e.target.value)}
+                        className="w-24 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder="Aggregate"
+                      />
+                    </div>
+                    {item.percentiles?.dailyAggregate && (
+                      <div className="text-xs text-blue-600 font-medium">
+                        {item.percentiles.dailyAggregate}% exceed
+                      </div>
+                    )}
                   </div>
                 </div>
               </td>
 
               {/* Velocity Limit */}
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="flex items-center space-x-1">
-                  <input
-                    type="number"
-                    value={editValues.velocityThreshold || ''}
-                    onChange={(e) => handleInputChange('velocityThreshold', e.target.value)}
-                    className="w-16 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                    placeholder="Qty"
-                  />
-                  <span className="text-xs text-gray-600">txn/day</span>
+                <div className="space-y-1">
+                  <div className="flex items-center space-x-1">
+                    <input
+                      type="number"
+                      value={editValues.velocityThreshold || ''}
+                      onChange={(e) => handleInputChange('velocityThreshold', e.target.value)}
+                      className="w-16 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                      placeholder="Qty"
+                    />
+                    <span className="text-xs text-gray-600">txn/day</span>
+                  </div>
+                  {item.percentiles?.velocityLimit && (
+                    <div className="text-xs text-blue-600 font-medium">
+                      {item.percentiles.velocityLimit}% exceed
+                    </div>
+                  )}
                 </div>
               </td>
 
@@ -70,6 +101,11 @@ export function RiskCalibrationTableBody({
                   <div className="text-xs text-gray-500">
                     {item.behaviourDelta?.cadence || 'Monthly'}
                   </div>
+                  {item.percentiles?.behaviourDelta && (
+                    <div className="text-xs text-blue-600 font-medium">
+                      {item.percentiles.behaviourDelta}% trigger
+                    </div>
+                  )}
                 </div>
               </td>
 
@@ -90,13 +126,52 @@ export function RiskCalibrationTableBody({
                   <div className="text-xs text-gray-500">
                     {item.comparisonToPeers?.cadence || 'Monthly'}
                   </div>
+                  {item.percentiles?.comparisonToPeers && (
+                    <div className="text-xs text-blue-600 font-medium">
+                      {item.percentiles.comparisonToPeers}% exceed
+                    </div>
+                  )}
                 </div>
               </td>
 
               {/* Monthly Cumulative */}
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                <div className="font-medium">${((editValues.baseAmount || 0) * 50).toLocaleString()}</div>
-                <div className="text-xs text-gray-500">Weekly: ${((editValues.baseAmount || 0) * 15).toLocaleString()}</div>
+              <td className="px-6 py-4 whitespace-nowrap">
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-1">
+                      <span className="text-xs text-gray-500">Monthly:</span>
+                      <input
+                        type="number"
+                        value={editValues.monthlyCumulative || ''}
+                        onChange={(e) => handleInputChange('monthlyCumulative', e.target.value)}
+                        className="w-28 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder="Amount"
+                      />
+                    </div>
+                    {item.percentiles?.monthlyCumulative && (
+                      <div className="text-xs text-blue-600 font-medium">
+                        {item.percentiles.monthlyCumulative}% exceed
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-1">
+                      <span className="text-xs text-gray-500">Weekly:</span>
+                      <input
+                        type="number"
+                        value={editValues.weeklyCumulative || ''}
+                        onChange={(e) => handleInputChange('weeklyCumulative', e.target.value)}
+                        className="w-28 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder="Amount"
+                      />
+                    </div>
+                    {item.percentiles?.weeklyCumulative && (
+                      <div className="text-xs text-blue-600 font-medium">
+                        {item.percentiles.weeklyCumulative}% exceed
+                      </div>
+                    )}
+                  </div>
+                </div>
               </td>
 
               {/* Last Updated */}
@@ -136,31 +211,78 @@ export function RiskCalibrationTableBody({
             <>
               {/* Transaction Threshold */}
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                <div className="font-medium">{item.parameters.transactionThreshold}</div>
-                <div className="text-xs text-gray-500">Daily: {item.parameters.cumulativeDaily}</div>
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <div className="font-medium">{item.parameters.transactionThreshold}</div>
+                    {item.percentiles?.transactionThreshold && (
+                      <div className="text-xs text-blue-600 font-medium ml-2">
+                        {item.percentiles.transactionThreshold}% exceed
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs text-gray-500">Daily: {item.parameters.cumulativeDaily}</div>
+                    {item.percentiles?.dailyAggregate && (
+                      <div className="text-xs text-blue-600 font-medium ml-2">
+                        {item.percentiles.dailyAggregate}% exceed
+                      </div>
+                    )}
+                  </div>
+                </div>
               </td>
 
               {/* Velocity Limit */}
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                {item.parameters.velocityLimit}
+                <div className="font-medium">{item.parameters.velocityLimit}</div>
+                {item.percentiles?.velocityLimit && (
+                  <div className="text-xs text-blue-600 font-medium">
+                    {item.percentiles.velocityLimit}% exceed
+                  </div>
+                )}
               </td>
 
               {/* Behaviour Delta */}
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                 <div className="font-medium">{item.behaviourDelta?.multiplier || item.rawValues?.behaviourDelta || 'N/A'}x</div>
                 <div className="text-xs text-gray-500">{item.behaviourDelta?.cadence || 'Monthly'}</div>
+                {item.percentiles?.behaviourDelta && (
+                  <div className="text-xs text-blue-600 font-medium">
+                    {item.percentiles.behaviourDelta}% trigger
+                  </div>
+                )}
               </td>
 
               {/* Comparison to Peers */}
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                 <div className="font-medium">{item.comparisonToPeers?.multiplier || item.rawValues?.comparisonToPeers || 'N/A'}x</div>
                 <div className="text-xs text-gray-500">{item.comparisonToPeers?.cadence || 'Monthly'}</div>
+                {item.percentiles?.comparisonToPeers && (
+                  <div className="text-xs text-blue-600 font-medium">
+                    {item.percentiles.comparisonToPeers}% exceed
+                  </div>
+                )}
               </td>
 
               {/* Monthly Cumulative */}
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                <div className="font-medium">{item.parameters.cumulativeMonthly}</div>
-                <div className="text-xs text-gray-500">Weekly: {item.parameters.cumulativeWeekly}</div>
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <div className="font-medium">{item.parameters.cumulativeMonthly}</div>
+                    {item.percentiles?.monthlyCumulative && (
+                      <div className="text-xs text-blue-600 font-medium ml-2">
+                        {item.percentiles.monthlyCumulative}% exceed
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs text-gray-500">Weekly: {item.parameters.cumulativeWeekly}</div>
+                    {item.percentiles?.weeklyCumulative && (
+                      <div className="text-xs text-blue-600 font-medium ml-2">
+                        {item.percentiles.weeklyCumulative}% exceed
+                      </div>
+                    )}
+                  </div>
+                </div>
               </td>
 
               {/* Last Updated */}

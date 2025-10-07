@@ -5,6 +5,12 @@ export class RuleService {
   constructor() {
     this.rules = rawRules;
     this.performanceCache = new Map();
+    this.clauseData = null; // Will be set by documentService
+  }
+
+  // Set clause data reference (called by documentService to enable bidirectional checks)
+  setClauseDataProvider(provider) {
+    this.clauseData = provider;
   }
 
   // Get all rules
@@ -17,16 +23,59 @@ export class RuleService {
     return this.rules.find(rule => rule.id === id);
   }
 
-  // Get rules for a specific clause
-  getRulesForClause(clauseId) {
-    return this.rules.filter(rule =>
-      rule.linkedClauses && rule.linkedClauses.includes(clauseId)
-    );
+  /**
+   * SINGLE SOURCE OF TRUTH for getting rules associated with a clause
+   * Checks BOTH directions and merges results to handle data inconsistencies gracefully
+   * @param {string} clauseId - The clause ID to get rules for
+   * @param {Object} clause - Optional clause object to check linkedRules array
+   * @returns {Array} Array of rule objects
+   */
+  getRulesForClause(clauseId, clause = null) {
+    const rulesFromRuleSide = new Set();
+    const rulesFromClauseSide = new Set();
+
+    // Method 1: Check rules that claim to be linked to this clause
+    this.rules.forEach(rule => {
+      if (rule.linkedClauses && rule.linkedClauses.includes(clauseId)) {
+        rulesFromRuleSide.add(rule.id);
+      }
+    });
+
+    // Method 2: Check clause's linkedRules array if provided
+    if (clause && clause.linkedRules && Array.isArray(clause.linkedRules)) {
+      clause.linkedRules.forEach(ruleId => {
+        rulesFromClauseSide.add(ruleId);
+      });
+    }
+
+    // Merge both sets - use union to be inclusive and catch all relationships
+    const allRuleIds = new Set([...rulesFromRuleSide, ...rulesFromClauseSide]);
+
+    // Detect and log inconsistencies
+    if (rulesFromRuleSide.size !== rulesFromClauseSide.size && clause) {
+      const onlyInRules = [...rulesFromRuleSide].filter(id => !rulesFromClauseSide.has(id));
+      const onlyInClause = [...rulesFromClauseSide].filter(id => !rulesFromRuleSide.has(id));
+
+      if (onlyInRules.length > 0 || onlyInClause.length > 0) {
+        console.warn(`[Data Consistency Warning] Clause ${clauseId}:`);
+        if (onlyInRules.length > 0) {
+          console.warn(`  - Rules claiming link but not in clause.linkedRules:`, onlyInRules);
+        }
+        if (onlyInClause.length > 0) {
+          console.warn(`  - Rules in clause.linkedRules but not claiming link:`, onlyInClause);
+        }
+      }
+    }
+
+    // Return actual rule objects
+    return Array.from(allRuleIds)
+      .map(ruleId => this.getRuleById(ruleId))
+      .filter(rule => rule !== undefined);
   }
 
   // Alias for getRulesForClause to match component usage
-  getRulesByClauseId(clauseId) {
-    return this.getRulesForClause(clauseId);
+  getRulesByClauseId(clauseId, clause = null) {
+    return this.getRulesForClause(clauseId, clause);
   }
 
   // Get rules by category
