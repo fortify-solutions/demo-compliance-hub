@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Search, Settings, BarChart3, Users, Download, FileText } from 'lucide-react';
 
-export function Header({ filters, onFilterChange, onCapacityClick, documents = [] }) {
+export function Header({ filters, onFilterChange, onCapacityClick, onExportClick, documents = [] }) {
 
   // Extract unique jurisdictions from visible documents
   const availableJurisdictions = useMemo(() => {
@@ -100,8 +100,9 @@ export function Header({ filters, onFilterChange, onCapacityClick, documents = [
               <span>Capacity</span>
             </button>
             
-            <button 
-              className="text-xs flex items-center space-x-1 px-2 py-1 rounded hover:opacity-90 transition-opacity" 
+            <button
+              onClick={onExportClick}
+              className="text-xs flex items-center space-x-1 px-2 py-1 rounded hover:opacity-90 transition-opacity"
               style={{backgroundColor: '#79189C', color: 'white'}}
               aria-label="Export compliance report"
             >

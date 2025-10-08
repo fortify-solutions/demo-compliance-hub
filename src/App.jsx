@@ -5,6 +5,7 @@ import { ClauseContent } from './components/ClauseContent';
 import { ComplianceInsights } from './components/ComplianceInsights';
 import { RiskCalibrationOverview } from './components/RiskCalibrationOverview';
 import { CapacityModal } from './components/CapacityModal';
+import { ExportConfigModal } from './components/ExportConfigModal';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ScoreSafelist } from './components/ScoreSafelist';
 import { useDebounce } from './hooks/useDebounce';
@@ -14,6 +15,9 @@ import { documentService, alertService } from './services/data';
 function App() {
   // Risk calibration overview state
   const [showRiskCalibration, setShowRiskCalibration] = useState(false);
+
+  // Export modal state
+  const [showExportModal, setShowExportModal] = useState(false);
 
   // Use centralized state management
   const {
@@ -40,6 +44,14 @@ function App() {
 
   const handleBackFromRiskCalibration = () => {
     setShowRiskCalibration(false);
+  };
+
+  const openExportModal = () => {
+    setShowExportModal(true);
+  };
+
+  const closeExportModal = () => {
+    setShowExportModal(false);
   };
 
   // Override document selection to exit risk calibration when any document is selected
@@ -101,6 +113,7 @@ function App() {
         filters={filters}
         onFilterChange={handleFilterChange}
         onCapacityClick={openCapacityModal}
+        onExportClick={openExportModal}
         documents={documentService.getAllDocuments()}
       />
       
@@ -144,6 +157,15 @@ function App() {
         <CapacityModal
           isOpen={showCapacityModal}
           onClose={closeCapacityModal}
+        />
+      )}
+
+      {showExportModal && (
+        <ExportConfigModal
+          isOpen={showExportModal}
+          onClose={closeExportModal}
+          documents={documentService.getAllDocuments()}
+          filters={filters}
         />
       )}
       

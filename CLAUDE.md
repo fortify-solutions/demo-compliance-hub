@@ -44,6 +44,7 @@ src/
 │   ├── RiskCalibrationOverview.jsx     # Editable risk calibration parameters management
 │   ├── RiskCalibrationTableBody.jsx    # Modular table component for risk calibration display
 │   ├── CapacityModal.jsx               # Analyst capacity planning interface
+│   ├── ExportConfigModal.jsx           # Export package configuration interface
 │   └── ErrorBoundary.jsx               # Application-wide error handling
 ├── hooks/
 │   ├── useDebounce.js           # Performance optimization for search
@@ -136,6 +137,14 @@ src/
 - Quality-scored evidence (Excellent, Good, Fair)
 - Multiple evidence types: rule performance, backtest results, audit reports
 - Audit trail preparation for regulatory examinations
+
+### 📦 Export Package Configuration
+- **Dual Export Types**: Internal operational reports vs. external audit packages with distinct theming
+- **Flexible Scope Selection**: Export by filters (jurisdiction/product/customer) or by specific regulations
+- **Content Customization**: Toggle inclusion of requirement text, rules, evidence, and risk calibration
+- **Document Attachment**: Upload external files (PDF, DOCX, XLSX) to include in export package
+- **Smart Regulation Picker**: Checkbox selection with requirement counts for precise export control
+- **Mock PDF Generation**: Configuration interface ready for backend integration
 
 ### 📊 Compliance Insights Panel
 - **Success Measures Dashboard**: Four critical compliance metrics per requirement
@@ -601,6 +610,42 @@ All US, UK, and other non-European regulations hidden but preserved in codebase:
 - **Semantic Keyword Engine**: Analyzes cash, wire transfer, velocity, business ratio, cross-border, threshold, and real-time monitoring patterns
 - **Enhanced UI Integration**: Coverage warnings now display in both requirement list view (red backgrounds/badges) and detailed compliance insights panel with specific obligation breakdowns
 - **Performance Optimization**: Efficient caching and analysis with confidence-based filtering to prevent false positives
+
+## Recent Major Updates (v10.0) - Export Package Configuration System
+
+### Comprehensive Export Interface
+- **Modal-Based Configuration**: Professional export configuration interface with full customization options
+- **Dual Export Modes**: Distinct workflows for internal reports vs. external audit packages
+  - **Internal Reports**: Operational analysis with emerald theme for internal stakeholders
+  - **External Audit Packages**: Formal regulatory documentation with purple theme
+- **Flexible Export Scope**: Toggle between filter-based and regulation-specific exports
+  - **By Filters**: Export all requirements matching jurisdiction, product, and customer filters
+  - **By Specific Regulation**: Checkbox selection with requirement counts for precise control
+
+### Content Inclusion Controls
+- **Granular Content Selection**: Individual toggles for each content type
+  - Requirement text and full regulatory language
+  - Monitoring rules with performance metrics
+  - Evidence artifacts and quality assessments
+  - Risk calibration parameters and thresholds
+- **Document Attachment System**: Upload external files to bundle with exports
+  - Multi-file upload interface with drag-and-drop support
+  - File preview with name, size, and remove functionality
+  - Support for PDF, DOCX, XLSX formats (ready for backend integration)
+
+### User Experience Features
+- **Visual Type Selection**: Card-based export type picker with icons and descriptions
+- **Segmented Scope Toggle**: Clean tab-style interface for scope switching
+- **Smart Regulation List**: All visible documents with clause counts for easy selection
+- **Configuration Summary**: Footer displays current selections before generation
+- **Mock PDF Generation**: Console logging and alert confirmation (ready for backend PDF service)
+
+### Technical Implementation
+- **ExportConfigModal Component**: Self-contained modal with comprehensive state management
+- **Header Integration**: Export button wired to modal trigger in main navigation
+- **App-Level State**: Modal visibility managed in App.jsx alongside other modals
+- **Filter Context Awareness**: Modal receives current filter state for pre-population
+- **Document Service Integration**: Dynamic regulation list from visible documents
 
 ## Recent Major Updates (v9.0) - Fully Editable Risk Calibration System
 
