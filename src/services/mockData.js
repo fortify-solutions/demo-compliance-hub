@@ -48,6 +48,59 @@ export const validateAlerts = (alerts) => {
   return alerts;
 };
 
+// Master Evidence List - Standard Rule Testing Evidence
+export const masterEvidenceList = [
+  // Backtest Evidence
+  { id: 'ev-backtest-001', type: 'backtest', description: 'Cash Structuring Rule 24-Month Backtest Analysis', quality: 'excellent', category: 'Cash Monitoring', lastAdded: '2024-12-15' },
+  { id: 'ev-backtest-002', type: 'backtest', description: 'Wire Transfer Monitoring Rule 12-Month Backtest', quality: 'excellent', category: 'Wire Transfer', lastAdded: '2024-11-20' },
+  { id: 'ev-backtest-003', type: 'backtest', description: 'Velocity Pattern Detection 18-Month Backtest', quality: 'good', category: 'Behavioral Analytics', lastAdded: '2024-10-10' },
+  { id: 'ev-backtest-004', type: 'backtest', description: 'Cross-Border Transaction Monitoring 24-Month Backtest', quality: 'excellent', category: 'Geographic Risk', lastAdded: '2024-12-01' },
+  { id: 'ev-backtest-005', type: 'backtest', description: 'High-Risk Customer Activity 12-Month Backtest', quality: 'good', category: 'Enhanced DD', lastAdded: '2024-09-15' },
+  { id: 'ev-backtest-006', type: 'backtest', description: 'PEP Transaction Monitoring 24-Month Backtest', quality: 'excellent', category: 'PEP Monitoring', lastAdded: '2024-11-30' },
+  { id: 'ev-backtest-007', type: 'backtest', description: 'Business Account Ratio Analysis 12-Month Backtest', quality: 'good', category: 'Business Ratio', lastAdded: '2024-10-25' },
+  { id: 'ev-backtest-008', type: 'backtest', description: 'Retail Customer Behavior 18-Month Backtest', quality: 'good', category: 'Behavioral Analytics', lastAdded: '2024-09-05' },
+  { id: 'ev-backtest-009', type: 'backtest', description: 'EU Cross-Border Wire Transfer 24-Month Backtest', quality: 'excellent', category: 'Cross-Border', lastAdded: '2024-12-10' },
+  { id: 'ev-backtest-010', type: 'backtest', description: 'Crypto Exchange Transaction 6-Month Backtest', quality: 'fair', category: 'Virtual Currency', lastAdded: '2024-11-01' },
+
+  // Threshold Sensitivity Analysis Evidence
+  { id: 'ev-threshold-001', type: 'threshold-sensitivity', description: 'CTR $10K Threshold Sensitivity Analysis', quality: 'excellent', category: 'Cash Monitoring', lastAdded: '2024-12-20' },
+  { id: 'ev-threshold-002', type: 'threshold-sensitivity', description: 'Wire Transfer Amount Threshold Tuning Analysis', quality: 'good', category: 'Wire Transfer', lastAdded: '2024-11-15' },
+  { id: 'ev-threshold-003', type: 'threshold-sensitivity', description: 'Velocity Count Threshold Sensitivity Testing', quality: 'excellent', category: 'Velocity Tracking', lastAdded: '2024-10-30' },
+  { id: 'ev-threshold-004', type: 'threshold-sensitivity', description: 'High-Risk Jurisdiction Amount Threshold Analysis', quality: 'good', category: 'Geographic Risk', lastAdded: '2024-12-05' },
+  { id: 'ev-threshold-005', type: 'threshold-sensitivity', description: 'Customer Risk Tier Threshold Calibration', quality: 'excellent', category: 'Risk-Based Monitoring', lastAdded: '2024-11-25' },
+  { id: 'ev-threshold-006', type: 'threshold-sensitivity', description: 'Daily Aggregate Threshold Optimization Analysis', quality: 'good', category: 'Aggregation', lastAdded: '2024-10-15' },
+  { id: 'ev-threshold-007', type: 'threshold-sensitivity', description: 'Business Cash Deposit Threshold Sensitivity', quality: 'excellent', category: 'Business Monitoring', lastAdded: '2024-12-18' },
+  { id: 'ev-threshold-008', type: 'threshold-sensitivity', description: 'PEP Transaction Amount Threshold Testing', quality: 'good', category: 'PEP Monitoring', lastAdded: '2024-11-10' },
+  { id: 'ev-threshold-009', type: 'threshold-sensitivity', description: 'EU €10K Cash Limit Threshold Analysis', quality: 'excellent', category: 'EU Cash Monitoring', lastAdded: '2024-12-22' },
+  { id: 'ev-threshold-010', type: 'threshold-sensitivity', description: 'Corporate Account Activity Threshold Tuning', quality: 'good', category: 'Corporate Banking', lastAdded: '2024-10-20' },
+
+  // ATL/BTL (Above-the-Line / Below-the-Line) Testing Evidence
+  { id: 'ev-atl-btl-001', type: 'atl-btl-test', description: 'Cash Structuring ATL/BTL Detection Validation', quality: 'excellent', category: 'Structuring Detection', lastAdded: '2024-12-12' },
+  { id: 'ev-atl-btl-002', type: 'atl-btl-test', description: 'Wire Transfer Pattern ATL/BTL Performance Test', quality: 'good', category: 'Wire Transfer', lastAdded: '2024-11-28' },
+  { id: 'ev-atl-btl-003', type: 'atl-btl-test', description: 'Velocity Threshold ATL/BTL Boundary Testing', quality: 'excellent', category: 'Velocity Tracking', lastAdded: '2024-10-18' },
+  { id: 'ev-atl-btl-004', type: 'atl-btl-test', description: 'Geographic Risk Rule ATL/BTL Coverage Test', quality: 'good', category: 'Geographic Risk', lastAdded: '2024-12-08' },
+  { id: 'ev-atl-btl-005', type: 'atl-btl-test', description: 'High-Risk Customer ATL/BTL Detection Validation', quality: 'excellent', category: 'Enhanced DD', lastAdded: '2024-11-22' },
+  { id: 'ev-atl-btl-006', type: 'atl-btl-test', description: 'Business Ratio Rule ATL/BTL Effectiveness Test', quality: 'good', category: 'Business Ratio', lastAdded: '2024-10-12' },
+  { id: 'ev-atl-btl-007', type: 'atl-btl-test', description: 'PEP Transaction ATL/BTL Performance Validation', quality: 'excellent', category: 'PEP Monitoring', lastAdded: '2024-12-15' },
+  { id: 'ev-atl-btl-008', type: 'atl-btl-test', description: 'Retail Customer Behavior ATL/BTL Testing', quality: 'good', category: 'Behavioral Analytics', lastAdded: '2024-11-05' },
+  { id: 'ev-atl-btl-009', type: 'atl-btl-test', description: 'Cross-Border Wire ATL/BTL Detection Test', quality: 'excellent', category: 'Cross-Border', lastAdded: '2024-12-20' },
+  { id: 'ev-atl-btl-010', type: 'atl-btl-test', description: 'Aggregation Logic ATL/BTL Boundary Validation', quality: 'good', category: 'Aggregation', lastAdded: '2024-10-28' },
+
+  // Scenario Testing Evidence
+  { id: 'ev-scenario-001', type: 'scenario-test', description: 'Known Structuring Typology Scenario Testing', quality: 'excellent', category: 'Structuring', lastAdded: '2024-12-18' },
+  { id: 'ev-scenario-002', type: 'scenario-test', description: 'Trade-Based Money Laundering Scenario Validation', quality: 'good', category: 'TBML', lastAdded: '2024-11-18' },
+  { id: 'ev-scenario-003', type: 'scenario-test', description: 'Layering Pattern Scenario Detection Testing', quality: 'excellent', category: 'Layering', lastAdded: '2024-10-22' },
+  { id: 'ev-scenario-004', type: 'scenario-test', description: 'Shell Company Activity Scenario Testing', quality: 'good', category: 'Shell Company', lastAdded: '2024-12-02' },
+  { id: 'ev-scenario-005', type: 'scenario-test', description: 'Smurfing Network Scenario Validation', quality: 'excellent', category: 'Smurfing', lastAdded: '2024-11-12' },
+  { id: 'ev-scenario-006', type: 'scenario-test', description: 'Rapid Movement of Funds Scenario Testing', quality: 'good', category: 'Velocity', lastAdded: '2024-10-08' },
+  { id: 'ev-scenario-007', type: 'scenario-test', description: 'PEP Corruption Typology Scenario Testing', quality: 'excellent', category: 'PEP', lastAdded: '2024-12-25' },
+  { id: 'ev-scenario-008', type: 'scenario-test', description: 'Round-Dollar Transaction Scenario Validation', quality: 'good', category: 'Cash Monitoring', lastAdded: '2024-11-08' },
+  { id: 'ev-scenario-009', type: 'scenario-test', description: 'Cross-Border Layering Scenario Testing', quality: 'excellent', category: 'Cross-Border', lastAdded: '2024-12-14' },
+  { id: 'ev-scenario-010', type: 'scenario-test', description: 'Beneficial Owner Concealment Scenario Test', quality: 'good', category: 'Corporate', lastAdded: '2024-10-16' },
+  { id: 'ev-scenario-011', type: 'scenario-test', description: 'Cash-Intensive Business Typology Testing', quality: 'excellent', category: 'Business Monitoring', lastAdded: '2024-11-30' },
+  { id: 'ev-scenario-012', type: 'scenario-test', description: 'High-Risk Jurisdiction Routing Scenario Test', quality: 'good', category: 'Geographic Risk', lastAdded: '2024-10-26' }
+];
+
 // Regulatory Documents with hierarchical structure
 export const regulatoryDocuments = [
   {
@@ -70,12 +123,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-15'
         },
-        evidence: [
-          { id: 'ev1', type: 'rule-backtest', description: 'Cash Structuring Rule 24-Month Backtest Analysis', quality: 'excellent' },
-          { id: 'ev2', type: 'parallel-run', description: 'Parallel Run Validation - New vs Legacy TM Rules', quality: 'good' },
-          { id: 'ev3', type: 'threshold-sensitivity', description: 'Threshold Sensitivity Analysis - $10K CTR Rules', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-complex-monitoring',
@@ -89,10 +137,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-20'
         },
-        evidence: [
-          { id: 'ev-comp-1', type: 'rule-backtest', description: 'Partial Coverage Analysis - Cash Monitoring Only', quality: 'fair' }
-        ],
-        linkedRules: []  // Only 1 rule for 5 distinct obligations
+                linkedRules: []  // Only 1 rule for 5 distinct obligations
       },
       {
         id: 'bsa-1020-220',
@@ -106,11 +151,6 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-12'
         },
-        evidence: [
-          { id: 'ev4', type: 'scenario-testing', description: 'CIP Bypass Scenario Testing - Known Typologies', quality: 'excellent' },
-          { id: 'ev5', type: 'model-validation', description: 'Identity Verification Algorithm Model Validation', quality: 'good' },
-          { id: 'ev6', type: 'coverage-analysis', description: 'Customer Risk Tier Coverage Gap Analysis', quality: 'excellent' }
-        ],
         linkedRules: []
       },
       {
@@ -125,12 +165,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-18'
         },
-        evidence: [
-          { id: 'ev7', type: 'alert-tuning', description: 'Suspicious Transaction Alert Tuning Performance', quality: 'good' },
-          { id: 'ev8', type: 'false-positive-analysis', description: 'Investigation False Positive Rate Analysis', quality: 'excellent' },
-          { id: 'ev9', type: 'regulatory-lookback', description: 'FinCEN Pattern Recognition Lookback Testing', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-320-b',
@@ -144,12 +179,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-22'
         },
-        evidence: [
-          { id: 'ev10', type: 'time-series-testing', description: 'Filing Timeline Impact on Alert Processing', quality: 'excellent' },
-          { id: 'ev11', type: 'data-lineage-audit', description: 'Transaction Data Lineage and Quality Audit', quality: 'good' },
-          { id: 'ev12', type: 'stress-testing', description: 'Peak Volume Transaction Processing Stress Test', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-320-c',
@@ -163,12 +193,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-01-08'
         },
-        evidence: [
-          { id: 'ev13', type: 'benchmark-testing', description: 'Transaction Confidentiality Rule Benchmark Testing', quality: 'good' },
-          { id: 'ev14', type: 'system-integration-test', description: 'TM System Integration Testing - Core Banking', quality: 'excellent' },
-          { id: 'ev15', type: 'data-quality-validation', description: 'Transaction Data Quality Validation Framework', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1010-313',
@@ -182,12 +207,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-25'
         },
-        evidence: [
-          { id: 'ev16', type: 'rule-performance-testing', description: 'CTR Auto-Generation Rule Performance Testing', quality: 'excellent' },
-          { id: 'ev17', type: 'aggregation-algorithm-test', description: 'Multi-Transaction Aggregation Algorithm Testing', quality: 'good' },
-          { id: 'ev18', type: 'exception-handling-test', description: 'CTR Exception Processing Logic Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-240',
@@ -201,12 +221,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-20'
         },
-        evidence: [
-          { id: 'ev19', type: 'geographic-risk-testing', description: 'Correspondent Account Geographic Risk Rule Testing', quality: 'excellent' },
-          { id: 'ev20', type: 'risk-scoring-validation', description: 'Foreign Institution Risk Scoring Model Validation', quality: 'good' },
-          { id: 'ev21', type: 'jurisdiction-rule-tuning', description: 'High-Risk Jurisdiction Rule Threshold Tuning', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-250',
@@ -220,12 +235,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-28'
         },
-        evidence: [
-          { id: 'ev22', type: 'transaction-pattern-analysis', description: 'Private Banking Transaction Pattern Analysis', quality: 'excellent' },
-          { id: 'ev23', type: 'entity-resolution-testing', description: 'Beneficial Owner Entity Resolution Algorithm Testing', quality: 'good' },
-          { id: 'ev24', type: 'velocity-threshold-testing', description: 'Source of Wealth Velocity Threshold Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-315',
@@ -239,12 +249,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-01'
         },
-        evidence: [
-          { id: 'ev25', type: 'wire-monitoring-backtest', description: 'Wire Transfer Monitoring Rule 12-Month Backtest', quality: 'excellent' },
-          { id: 'ev26', type: 'incomplete-wire-testing', description: 'Incomplete Wire Data Pattern Recognition Testing', quality: 'good' },
-          { id: 'ev27', type: 'beneficiary-fuzzy-matching', description: 'Wire Beneficiary Fuzzy Matching Algorithm Testing', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-400',
@@ -258,12 +263,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-05'
         },
-        evidence: [
-          { id: 'ev28', type: 'cdd-rule-optimization', description: 'Customer Due Diligence Rule Optimization Testing', quality: 'excellent' },
-          { id: 'ev29', type: 'behavior-baseline-testing', description: 'Customer Behavior Baseline Model Performance Testing', quality: 'good' },
-          { id: 'ev30', type: 'risk-tier-calibration', description: 'Risk-Based Monitoring Tier Calibration Analysis', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-410',
@@ -277,12 +277,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-08'
         },
-        evidence: [
-          { id: 'ev31', type: 'network-analysis-testing', description: 'Beneficial Owner Network Analysis Algorithm Testing', quality: 'excellent' },
-          { id: 'ev32', type: 'ownership-change-detection', description: 'Ownership Structure Change Detection Testing', quality: 'good' },
-          { id: 'ev33', type: 'control-relationship-mapping', description: 'Control Person Relationship Mapping Validation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-500',
@@ -296,12 +291,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-02-10'
         },
-        evidence: [
-          { id: 'ev34', type: 'special-measures-testing', description: 'Section 311 Transaction Blocking Rule Testing', quality: 'excellent' },
-          { id: 'ev35', type: 'real-time-blocking-test', description: 'Real-Time Prohibited Transaction Blocking Testing', quality: 'good' },
-          { id: 'ev36', type: 'regulatory-rule-deployment', description: 'Emergency Regulatory Rule Deployment Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-600',
@@ -315,12 +305,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-12'
         },
-        evidence: [
-          { id: 'ev37', type: 'gto-rule-testing', description: 'Geographic Targeting Order Rule Implementation Testing', quality: 'good' },
-          { id: 'ev38', type: 'location-based-monitoring', description: 'Location-Based Transaction Monitoring Algorithm Testing', quality: 'excellent' },
-          { id: 'ev39', type: 'reporting-automation-test', description: 'GTO Automated Reporting System Testing', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-700',
@@ -334,12 +319,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-15'
         },
-        evidence: [
-          { id: 'ev40', type: 'user-acceptance-testing', description: 'TM System User Acceptance Testing Results', quality: 'excellent' },
-          { id: 'ev41', type: 'workflow-testing', description: 'Alert Investigation Workflow Testing', quality: 'good' },
-          { id: 'ev42', type: 'training-data-validation', description: 'ML Model Training Data Validation Testing', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-800',
@@ -353,12 +333,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-18'
         },
-        evidence: [
-          { id: 'ev43', type: 'penetration-testing', description: 'AML System Security Penetration Testing Results', quality: 'excellent' },
-          { id: 'ev44', type: 'load-testing', description: 'Transaction Volume Load Testing Results', quality: 'good' },
-          { id: 'ev45', type: 'disaster-recovery-testing', description: 'TM System Disaster Recovery Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-900',
@@ -372,12 +347,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-20'
         },
-        evidence: [
-          { id: 'ev46', type: 'governance-testing', description: 'AML Governance Framework Model Testing', quality: 'excellent' },
-          { id: 'ev47', type: 'escalation-testing', description: 'Alert Escalation Workflow Testing', quality: 'good' },
-          { id: 'ev48', type: 'capacity-testing', description: 'System Capacity and Resource Testing', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-1000',
@@ -391,12 +361,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-22'
         },
-        evidence: [
-          { id: 'ev49', type: 'data-retention-testing', description: 'Transaction Data Retention Rule Testing', quality: 'excellent' },
-          { id: 'ev50', type: 'api-testing', description: 'Regulatory Data Access API Testing', quality: 'good' },
-          { id: 'ev51', type: 'archival-testing', description: 'Historical Transaction Data Archival Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'bsa-1020-1100',
@@ -410,12 +375,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-25'
         },
-        evidence: [
-          { id: 'ev52', type: 'control-framework-testing', description: 'Internal Control Framework Validation Testing', quality: 'excellent' },
-          { id: 'ev53', type: 'access-control-testing', description: 'Role-Based Access Control Testing', quality: 'good' },
-          { id: 'ev54', type: 'reporting-automation-testing', description: 'Automated Management Reporting Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -439,11 +399,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2023-12-01'
         },
-        evidence: [
-          { id: 'ev8', type: 'policy-documentation', description: 'Enhanced Monitoring Policy and Procedures', quality: 'excellent' },
-          { id: 'ev9', type: 'training-records', description: 'Staff Transaction Monitoring Training', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'patriot-326-b',
@@ -457,11 +413,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2023-11-15'
         },
-        evidence: [
-          { id: 'ev10', type: 'system-validation', description: 'Identity Verification System Audit', quality: 'fair' },
-          { id: 'ev11', type: 'sample-testing', description: 'Customer Onboarding Sample Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -485,11 +437,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-02-01'
         },
-        evidence: [
-          { id: 'ev12', type: 'performance-monitoring', description: 'Real-Time TM System Performance Monitoring', quality: 'good' },
-          { id: 'ev13', type: 'alert-quality-testing', description: 'Alert Generation Quality Assessment Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -513,11 +461,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-02-01'
         },
-        evidence: [
-          { id: 'ev14', type: 'blocking-rule-testing', description: 'Crypto Exchange Blocking Rule Performance Testing', quality: 'excellent' },
-          { id: 'ev15', type: 'transaction-review-testing', description: 'Crypto Transaction Pattern Recognition Testing', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'tmp-002',
@@ -531,11 +475,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-30'
         },
-        evidence: [
-          { id: 'ev16', type: 'closure-workflow-testing', description: 'Cash Business Account Closure Workflow Testing', quality: 'excellent' },
-          { id: 'ev17', type: 'edd-process-testing', description: 'Enhanced Due Diligence Process Testing', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'tmp-003',
@@ -549,11 +489,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-25'
         },
-        evidence: [
-          { id: 'ev18', type: 'geographic-filter-testing', description: 'Geographic Risk Filter Algorithm Testing', quality: 'excellent' },
-          { id: 'ev19', type: 'sanctions-screening-testing', description: 'OFAC Sanctions Screening Performance Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'tmp-005',
@@ -567,11 +503,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-01-20'
         },
-        evidence: [
-          { id: 'ev22', type: 'pattern-analysis-testing', description: 'Merchant Settlement Pattern Analysis Algorithm Testing', quality: 'good' },
-          { id: 'ev23', type: 'ratio-monitoring-testing', description: 'Real-Time Transaction Ratio Monitoring Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'tmp-006',
@@ -585,12 +517,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-10'
         },
-        evidence: [
-          { id: 'ev140', type: 'approval-workflow-testing', description: 'Corporate Account Approval Workflow Testing', quality: 'excellent' },
-          { id: 'ev141', type: 'ownership-verification-testing', description: 'Beneficial Ownership Verification Algorithm Testing', quality: 'good' },
-          { id: 'ev142', type: 'business-purpose-validation', description: 'Corporate Business Purpose Validation Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -614,12 +541,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-30'
         },
-        evidence: [
-          { id: 'ev120', type: 'governance-testing', description: 'SMR17 MLRO Oversight Framework Testing', quality: 'excellent' },
-          { id: 'ev121', type: 'compliance-testing', description: 'Transaction Monitoring SMR Compliance Testing', quality: 'good' },
-          { id: 'ev122', type: 'dashboard-testing', description: 'MLRO Performance Dashboard Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uktmp-002',
@@ -633,12 +555,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-25'
         },
-        evidence: [
-          { id: 'ev123', type: 'policy-documentation', description: 'Post-Brexit EU/EEA Transaction Monitoring Procedures', quality: 'excellent' },
-          { id: 'ev124', type: 'system-configuration', description: 'Enhanced Monitoring Rules for EU/EEA Transactions', quality: 'good' },
-          { id: 'ev125', type: 'compliance-testing', description: 'EU/EEA Enhanced Monitoring Effectiveness Testing', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uktmp-003',
@@ -652,12 +569,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-02-01'
         },
-        evidence: [
-          { id: 'ev126', type: 'sanctions-screening', description: 'UK Sanctions List Screening System Documentation', quality: 'excellent' },
-          { id: 'ev127', type: 'blocking-procedures', description: 'Sanctioned Entity Transaction Blocking Procedures', quality: 'excellent' },
-          { id: 'ev128', type: 'reporting-metrics', description: 'UK Sanctions Screening Performance Metrics', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uktmp-004',
@@ -671,12 +583,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-01-20'
         },
-        evidence: [
-          { id: 'ev129', type: 'data-governance', description: 'GDPR-Compliant AML Data Retention Policy', quality: 'excellent' },
-          { id: 'ev130', type: 'technical-controls', description: 'Automated Data Retention and Deletion Controls', quality: 'good' },
-          { id: 'ev131', type: 'privacy-assessment', description: 'Transaction Monitoring GDPR Impact Assessment', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uktmp-005',
@@ -690,12 +597,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-28'
         },
-        evidence: [
-          { id: 'ev132', type: 'pep-database', description: 'UK PEP Database and Screening System', quality: 'excellent' },
-          { id: 'ev133', type: 'enhanced-monitoring', description: 'UK PEP Enhanced Transaction Monitoring Rules', quality: 'good' },
-          { id: 'ev134', type: 'review-procedures', description: 'UK PEP Account Review and Approval Procedures', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uktmp-006',
@@ -709,12 +611,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-01-15'
         },
-        evidence: [
-          { id: 'ev135', type: 'relationship-management', description: 'UK Business Banking Relationship Management Framework', quality: 'excellent' },
-          { id: 'ev136', type: 'review-procedures', description: 'Annual Business Review Meeting Procedures', quality: 'good' },
-          { id: 'ev137', type: 'psc-compliance', description: 'PSC Register Compliance and Beneficial Ownership Tracking', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -738,12 +635,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-18'
         },
-        evidence: [
-          { id: 'ev60', type: 'risk-assessment', description: 'Whole-Firm ML/TF Risk Assessment Documentation', quality: 'excellent' },
-          { id: 'ev61', type: 'risk-review', description: 'Annual Risk Assessment Update and Review', quality: 'good' },
-          { id: 'ev62', type: 'fca-guidance', description: 'FCA Risk Assessment Guidance Implementation', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-19',
@@ -757,12 +649,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-22'
         },
-        evidence: [
-          { id: 'ev63', type: 'policy-framework', description: 'AML/CTF Policies, Controls and Procedures Framework', quality: 'excellent' },
-          { id: 'ev64', type: 'board-approval', description: 'Board Approval of AML/CTF Policies Documentation', quality: 'good' },
-          { id: 'ev65', type: 'policy-review', description: 'Regular Policy Review and Update Process', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-21',
@@ -776,12 +663,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-25'
         },
-        evidence: [
-          { id: 'ev66', type: 'mlco-appointment', description: 'Money Laundering Compliance Officer Appointment and Authority', quality: 'excellent' },
-          { id: 'ev67', type: 'internal-controls', description: 'Internal Controls Framework Documentation', quality: 'good' },
-          { id: 'ev68', type: 'employee-screening', description: 'AML-relevant Employee Screening Procedures', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-27',
@@ -795,12 +677,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-28'
         },
-        evidence: [
-          { id: 'ev69', type: 'cdd-procedures', description: 'Customer Due Diligence Procedures and Documentation', quality: 'excellent' },
-          { id: 'ev70', type: 'threshold-monitoring', description: '€15,000 Transaction Threshold Monitoring System', quality: 'good' },
-          { id: 'ev71', type: 'identity-verification', description: 'Customer Identity Verification Process Review', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-28',
@@ -814,12 +691,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-01'
         },
-        evidence: [
-          { id: 'ev72', type: 'ongoing-monitoring', description: 'Ongoing Customer Monitoring System Performance', quality: 'excellent' },
-          { id: 'ev73', type: 'transaction-scrutiny', description: 'Transaction Scrutiny and Pattern Analysis', quality: 'good' },
-          { id: 'ev74', type: 'cdd-updates', description: 'Customer Due Diligence Information Update Process', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-33',
@@ -833,12 +705,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-02-05'
         },
-        evidence: [
-          { id: 'ev75', type: 'edd-procedures', description: 'Enhanced Due Diligence Procedures and Implementation', quality: 'excellent' },
-          { id: 'ev76', type: 'pep-screening', description: 'Politically Exposed Person Screening and Monitoring', quality: 'good' },
-          { id: 'ev77', type: 'high-risk-countries', description: 'High-Risk Third Country Transaction Monitoring', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-35',
@@ -852,12 +719,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-08'
         },
-        evidence: [
-          { id: 'ev78', type: 'sdd-criteria', description: 'Simplified Due Diligence Criteria and Application', quality: 'good' },
-          { id: 'ev79', type: 'risk-assessment', description: 'Lower-Risk Situation Risk Assessment Process', quality: 'excellent' },
-          { id: 'ev80', type: 'monitoring-procedures', description: 'Simplified Due Diligence Monitoring Procedures', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-30',
@@ -871,12 +733,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-10'
         },
-        evidence: [
-          { id: 'ev81', type: 'bo-identification', description: 'Beneficial Ownership Identification Procedures', quality: 'excellent' },
-          { id: 'ev82', type: 'control-verification', description: 'Control Structure Verification and Documentation', quality: 'good' },
-          { id: 'ev83', type: 'psc-register', description: 'People with Significant Control Register Verification', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-86',
@@ -890,12 +747,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-02-12'
         },
-        evidence: [
-          { id: 'ev84', type: 'sar-procedures', description: 'Suspicious Activity Reporting Procedures to NCA', quality: 'excellent' },
-          { id: 'ev85', type: 'internal-reporting', description: 'Internal Suspicious Activity Reporting System', quality: 'good' },
-          { id: 'ev86', type: 'sar-statistics', description: 'SAR Filing Statistics and Quality Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-87',
@@ -909,12 +761,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-15'
         },
-        evidence: [
-          { id: 'ev87', type: 'tipping-off-training', description: 'Tipping Off Prevention Training and Procedures', quality: 'excellent' },
-          { id: 'ev88', type: 'disclosure-controls', description: 'Information Disclosure Control Procedures', quality: 'good' },
-          { id: 'ev89', type: 'communication-protocols', description: 'Customer Communication Protocol Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-24',
@@ -928,12 +775,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-18'
         },
-        evidence: [
-          { id: 'ev90', type: 'training-programs', description: 'AML/CTF Training Program Content and Delivery', quality: 'excellent' },
-          { id: 'ev91', type: 'completion-records', description: 'Employee Training Completion and Effectiveness Tracking', quality: 'good' },
-          { id: 'ev92', type: 'specialized-training', description: 'Role-Specific AML Training for High-Risk Functions', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-40',
@@ -947,12 +789,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-20'
         },
-        evidence: [
-          { id: 'ev93', type: 'record-retention', description: 'AML Record Retention Policy and Procedures', quality: 'excellent' },
-          { id: 'ev94', type: 'data-protection', description: 'GDPR Compliant AML Record Retention Implementation', quality: 'good' },
-          { id: 'ev95', type: 'authority-access', description: 'Competent Authority Record Access Procedures', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-20',
@@ -966,12 +803,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-22'
         },
-        evidence: [
-          { id: 'ev96', type: 'third-country-procedures', description: 'Third Country Branch/Subsidiary AML Procedures', quality: 'good' },
-          { id: 'ev97', type: 'equivalence-assessment', description: 'Third Country AML Requirement Equivalence Assessment', quality: 'excellent' },
-          { id: 'ev98', type: 'fca-reporting', description: 'FCA Notification of Third Country Compliance Issues', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-39',
@@ -985,12 +817,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-25'
         },
-        evidence: [
-          { id: 'ev99', type: 'third-party-agreements', description: 'Third Party Reliance Agreements and Due Diligence', quality: 'excellent' },
-          { id: 'ev100', type: 'equivalence-verification', description: 'Third Party AML Requirement Equivalence Verification', quality: 'good' },
-          { id: 'ev101', type: 'oversight-procedures', description: 'Third Party CDD Oversight and Quality Assurance', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-37',
@@ -1004,12 +831,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-28'
         },
-        evidence: [
-          { id: 'ev102', type: 'cdd-timing', description: 'Customer Due Diligence Timing Procedures and Controls', quality: 'excellent' },
-          { id: 'ev103', type: 'delayed-verification', description: 'Delayed Verification Risk Management Procedures', quality: 'good' },
-          { id: 'ev104', type: 'relationship-restrictions', description: 'Business Relationship Restriction Controls', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-29',
@@ -1023,12 +845,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-03-01'
         },
-        evidence: [
-          { id: 'ev105', type: 'purpose-documentation', description: 'Business Relationship Purpose Documentation Procedures', quality: 'excellent' },
-          { id: 'ev106', type: 'risk-profiling', description: 'Customer Risk Profiling Based on Business Purpose', quality: 'good' },
-          { id: 'ev107', type: 'monitoring-parameters', description: 'Purpose-Based Transaction Monitoring Parameters', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-26',
@@ -1042,12 +859,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-03-05'
         },
-        evidence: [
-          { id: 'ev108', type: 'product-risk-assessment', description: 'New Product ML/TF Risk Assessment Process', quality: 'excellent' },
-          { id: 'ev109', type: 'risk-mitigation', description: 'Risk Mitigation Measures Implementation', quality: 'good' },
-          { id: 'ev110', type: 'approval-procedures', description: 'New Product/Service Approval Procedures', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uk-mlr-2017-reg-22',
@@ -1061,12 +873,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-03-08'
         },
-        evidence: [
-          { id: 'ev111', type: 'group-policies', description: 'Group-wide AML Policy Framework Documentation', quality: 'excellent' },
-          { id: 'ev112', type: 'information-sharing', description: 'Group Information Sharing Agreements and Procedures', quality: 'good' },
-          { id: 'ev113', type: 'data-protection', description: 'GDPR Compliant Group Data Sharing Implementation', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1090,12 +897,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-20'
         },
-        evidence: [
-          { id: 'ev27', type: 'rule-performance', description: 'EU Cross-Border Transaction Analysis', quality: 'excellent' },
-          { id: 'ev28', type: 'regulatory-mapping', description: 'AMLD5 Compliance Framework', quality: 'excellent' },
-          { id: 'ev29', type: 'backtest-results', description: 'EU Payment Pattern Recognition', quality: 'good' }
-        ],
-        linkedRules: ['rule-eu-05']
+                linkedRules: ['rule-eu-05']
       },
       {
         id: 'eu-amld5-art18a',
@@ -1109,10 +911,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-25'
         },
-        evidence: [
-          { id: 'ev30', type: 'geographic-screening', description: 'High-Risk Country Monitoring Rules', quality: 'excellent' },
-          { id: 'ev31', type: 'policy-documentation', description: 'EU Enhanced Due Diligence Procedures', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-004', 'ev-threshold-004', 'ev-atl-btl-004'],
         linkedRules: ['rule-eu-07', 'rule-eu-21']
       },
       {
@@ -1127,10 +926,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-12'
         },
-        evidence: [
-          { id: 'ev32', type: 'str-metrics', description: 'Suspicious Transaction Report Statistics', quality: 'fair' },
-          { id: 'ev33', type: 'workflow-documentation', description: 'EU STR Filing Process Documentation', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-009', 'ev-atl-btl-009', 'ev-scenario-006'],
         linkedRules: ['rule-eu-25']
       }
     ]
@@ -1155,11 +951,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-03-15'
         },
-        evidence: [
-          { id: 'ev27', type: 'filing-metrics', description: 'FINTRAC Large Cash Transaction Report Statistics', quality: 'excellent' },
-          { id: 'ev28', type: 'audit-report', description: 'OSFI AML Examination Report 2024', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'pcmla-s7',
@@ -1173,11 +965,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-03-10'
         },
-        evidence: [
-          { id: 'ev29', type: 'str-analysis', description: 'Suspicious Transaction Report Quality Review', quality: 'good' },
-          { id: 'ev30', type: 'training-records', description: 'FINTRAC Reporting Requirements Training', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'pcmla-s6-1',
@@ -1191,11 +979,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2024-02-28'
         },
-        evidence: [
-          { id: 'ev31', type: 'record-keeping', description: 'Client Identification Record Retention Audit', quality: 'good' },
-          { id: 'ev32', type: 'compliance-testing', description: 'KYC Documentation Completeness Review', quality: 'fair' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1219,11 +1003,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-02-10'
         },
-        evidence: [
-          { id: 'ev33', type: 'cdd-review', description: 'Customer Due Diligence Process Assessment', quality: 'excellent' },
-          { id: 'ev34', type: 'risk-assessment', description: 'Enhanced Due Diligence Risk Categorization', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'aml-ctf-s41',
@@ -1237,11 +1017,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-02-05'
         },
-        evidence: [
-          { id: 'ev35', type: 'smr-metrics', description: 'AUSTRAC Suspicious Matter Report Statistics', quality: 'excellent' },
-          { id: 'ev36', type: 'investigation-outcomes', description: 'SMR Follow-up Investigation Results', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'aml-ctf-s82',
@@ -1255,11 +1031,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-30'
         },
-        evidence: [
-          { id: 'ev37', type: 'program-documentation', description: 'AML/CTF Program Annual Review', quality: 'good' },
-          { id: 'ev38', type: 'monitoring-effectiveness', description: 'Transaction Monitoring System Performance', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1283,11 +1055,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-15'
         },
-        evidence: [
-          { id: 'ev39', type: 'str-filing', description: 'MAS STR Filing Performance Metrics', quality: 'excellent' },
-          { id: 'ev40', type: 'compliance-audit', description: 'MAS AML/CFT Inspection Report', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'cdsa-s48f',
@@ -1301,11 +1069,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-10'
         },
-        evidence: [
-          { id: 'ev41', type: 'cdd-procedures', description: 'Customer Due Diligence Process Documentation', quality: 'excellent' },
-          { id: 'ev42', type: 'risk-profiling', description: 'Customer Risk Assessment Framework', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1329,11 +1093,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-20'
         },
-        evidence: [
-          { id: 'ev43', type: 'cdd-compliance', description: 'HKMA CDD Compliance Review', quality: 'excellent' },
-          { id: 'ev44', type: 'threshold-monitoring', description: 'HK$120,000 Transaction Threshold Monitoring', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'amlo-s25a',
@@ -1347,11 +1107,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-18'
         },
-        evidence: [
-          { id: 'ev45', type: 'str-metrics', description: 'JFIU STR Filing Statistics and Quality', quality: 'good' },
-          { id: 'ev46', type: 'training-completion', description: 'STR Recognition and Filing Training', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1375,11 +1131,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2023-12-05'
         },
-        evidence: [
-          { id: 'ev47', type: 'identity-verification', description: 'Customer Identity Verification Process Audit', quality: 'good' },
-          { id: 'ev48', type: 'record-retention', description: 'Customer Record Retention Compliance Review', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'narcotics-s8',
@@ -1393,11 +1145,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2023-11-30'
         },
-        evidence: [
-          { id: 'ev49', type: 'str-filing', description: 'JAFIC STR Filing Performance and Quality', quality: 'good' },
-          { id: 'ev50', type: 'suspicious-activity', description: 'Suspicious Activity Detection Effectiveness', quality: 'fair' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1421,11 +1169,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2023-12-20'
         },
-        evidence: [
-          { id: 'ev51', type: 'beneficial-ownership', description: 'Beneficial Ownership Identification Procedures', quality: 'excellent' },
-          { id: 'ev52', type: 'finma-audit', description: 'FINMA Due Diligence Compliance Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'amla-art9',
@@ -1439,11 +1183,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2023-12-15'
         },
-        evidence: [
-          { id: 'ev53', type: 'mros-reporting', description: 'MROS Suspicious Activity Report Statistics', quality: 'excellent' },
-          { id: 'ev54', type: 'investigation-outcomes', description: 'SAR Investigation and Follow-up Results', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1467,11 +1207,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2024-01-25'
         },
-        evidence: [
-          { id: 'ev55', type: 'cbuae-guidance', description: 'CBUAE Customer Due Diligence Standards', quality: 'excellent' },
-          { id: 'ev56', type: 'cdd-implementation', description: 'Enhanced CDD Process Implementation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'uae-aml-art15',
@@ -1485,11 +1221,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2024-01-20'
         },
-        evidence: [
-          { id: 'ev57', type: 'fiu-reporting', description: 'UAE FIU STR Filing Performance Metrics', quality: 'good' },
-          { id: 'ev58', type: 'compliance-monitoring', description: 'AML Compliance Monitoring Effectiveness', quality: 'excellent' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1513,11 +1245,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev60', type: 'regulatory-guidance', description: 'FinCEN National Priorities (June 2021)', quality: 'excellent' },
-          { id: 'ev61', type: 'policy-documentation', description: 'Priority Integration Documentation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'amla-2020-section-2',
@@ -1531,11 +1259,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev62', type: 'regulatory-filing', description: 'CTA Final Rule (September 2022)', quality: 'excellent' },
-          { id: 'ev63', type: 'backtest-results', description: 'Beneficial Owner Monitoring Effectiveness', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'amla-2020-section-3',
@@ -1549,11 +1273,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev64', type: 'audit-report', description: 'Monitoring Effectiveness Testing Results', quality: 'excellent' },
-          { id: 'ev65', type: 'performance-data', description: 'False Positive Rate Analysis', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'amla-2020-section-4',
@@ -1567,11 +1287,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev66', type: 'policy-documentation', description: 'AI/ML Model Risk Management Framework', quality: 'good' },
-          { id: 'ev67', type: 'backtest-results', description: 'ML Model Validation Results', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'amla-2020-section-5',
@@ -1585,11 +1301,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev68', type: 'performance-data', description: 'Large Transaction Monitoring Metrics', quality: 'excellent' },
-          { id: 'ev69', type: 'audit-report', description: 'Enhanced Penalty Compliance Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'amla-2020-section-6',
@@ -1603,11 +1315,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev70', type: 'audit-report', description: 'Documentation Completeness Review', quality: 'excellent' },
-          { id: 'ev71', type: 'compliance-monitoring', description: 'Audit Trail Validation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1631,11 +1339,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev72', type: 'regulatory-guidance', description: 'Basel Committee Guidelines (BCBS d353)', quality: 'excellent' },
-          { id: 'ev73', type: 'policy-documentation', description: 'Risk-Based Monitoring Framework', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'basel-committee-section-2',
@@ -1649,11 +1353,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev74', type: 'audit-report', description: 'Tiered Monitoring Effectiveness Review', quality: 'excellent' },
-          { id: 'ev75', type: 'performance-data', description: 'Risk-Based Alert Calibration', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'basel-committee-section-3',
@@ -1667,11 +1367,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev76', type: 'compliance-monitoring', description: 'Suspicious Activity Detection Rate', quality: 'excellent' },
-          { id: 'ev77', type: 'audit-report', description: 'FIU Reporting Quality Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'basel-committee-section-4',
@@ -1685,11 +1381,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev78', type: 'performance-data', description: 'Correspondent Banking Monitoring Metrics', quality: 'excellent' },
-          { id: 'ev79', type: 'audit-report', description: 'Respondent Risk Assessment Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'basel-committee-section-5',
@@ -1703,11 +1395,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev80', type: 'backtest-results', description: 'System Validation Testing Results', quality: 'excellent' },
-          { id: 'ev81', type: 'audit-report', description: 'Independent System Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1731,11 +1419,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev82', type: 'regulatory-filing', description: 'CDD Final Rule (May 2016)', quality: 'excellent' },
-          { id: 'ev83', type: 'policy-documentation', description: 'Fifth Pillar Implementation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-cdd-section-2',
@@ -1749,11 +1433,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev84', type: 'performance-data', description: 'Ongoing Monitoring Effectiveness Metrics', quality: 'excellent' },
-          { id: 'ev85', type: 'audit-report', description: 'SAR Quality Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-cdd-section-3',
@@ -1767,11 +1447,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev86', type: 'regulatory-filing', description: 'Beneficial Ownership Requirements (31 CFR 1010.230)', quality: 'excellent' },
-          { id: 'ev87', type: 'performance-data', description: 'Beneficial Owner Monitoring Results', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-cdd-section-4',
@@ -1785,11 +1461,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev88', type: 'audit-report', description: 'Risk Profiling Effectiveness Review', quality: 'excellent' },
-          { id: 'ev89', type: 'policy-documentation', description: 'Risk-Based Monitoring Calibration', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-cdd-section-5',
@@ -1803,11 +1475,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev90', type: 'compliance-monitoring', description: 'Trigger Event Response Metrics', quality: 'good' },
-          { id: 'ev91', type: 'audit-report', description: 'Customer Review Process Validation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1831,11 +1499,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev92', type: 'regulatory-filing', description: 'CTR Regulations (31 CFR § 1010.311)', quality: 'excellent' },
-          { id: 'ev93', type: 'performance-data', description: 'CTR Filing Accuracy Metrics', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-ctr-section-2',
@@ -1849,11 +1513,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev94', type: 'performance-data', description: 'Structuring Detection Effectiveness', quality: 'excellent' },
-          { id: 'ev95', type: 'audit-report', description: 'Structuring SAR Quality Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-ctr-section-3',
@@ -1867,11 +1527,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev96', type: 'compliance-monitoring', description: 'Exempt Person Annual Review', quality: 'excellent' },
-          { id: 'ev97', type: 'audit-report', description: 'Exemption Eligibility Validation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-ctr-section-4',
@@ -1885,11 +1541,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev98', type: 'performance-data', description: '"On Behalf Of" Detection Metrics', quality: 'good' },
-          { id: 'ev99', type: 'audit-report', description: 'Multi-Participant Aggregation Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -1913,11 +1565,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev100', type: 'regulatory-filing', description: 'SAR Regulations (31 CFR § 1020.320)', quality: 'excellent' },
-          { id: 'ev101', type: 'performance-data', description: 'SAR Quality Metrics', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-sar-section-2',
@@ -1931,11 +1579,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev102', type: 'compliance-monitoring', description: 'SAR Filing Timeliness Metrics', quality: 'excellent' },
-          { id: 'ev103', type: 'audit-report', description: 'Continuing Activity SAR Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-sar-section-3',
@@ -1949,11 +1593,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev104', type: 'backtest-results', description: 'Monitoring System Detection Effectiveness', quality: 'excellent' },
-          { id: 'ev105', type: 'audit-report', description: 'System Calibration Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-sar-section-4',
@@ -1967,11 +1607,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev106', type: 'performance-data', description: 'Aggregation Logic Effectiveness', quality: 'good' },
-          { id: 'ev107', type: 'audit-report', description: 'Pattern Detection Validation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-sar-section-5',
@@ -1985,11 +1621,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev108', type: 'compliance-monitoring', description: 'SAR Confidentiality Controls', quality: 'excellent' },
-          { id: 'ev109', type: 'audit-report', description: 'Record Retention Compliance', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -2013,11 +1645,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev110', type: 'regulatory-filing', description: 'Travel Rule Regulations (31 CFR § 1010.410)', quality: 'excellent' },
-          { id: 'ev111', type: 'compliance-monitoring', description: 'Originator Information Completeness', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-travel-rule-section-2',
@@ -2031,11 +1659,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev112', type: 'performance-data', description: 'Wire Transfer Data Quality Metrics', quality: 'excellent' },
-          { id: 'ev113', type: 'audit-report', description: 'Intermediary Bank Compliance Review', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-travel-rule-section-3',
@@ -2049,11 +1673,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev114', type: 'performance-data', description: 'Wire Transfer SAR Detection Rate', quality: 'excellent' },
-          { id: 'ev115', type: 'backtest-results', description: 'Suspicious Wire Pattern Detection', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'fincen-travel-rule-section-4',
@@ -2067,11 +1687,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev116', type: 'compliance-monitoring', description: 'Data Quality Improvement Tracking', quality: 'good' },
-          { id: 'ev117', type: 'audit-report', description: 'Correspondent Relationship Assessment', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -2095,11 +1711,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev118', type: 'regulatory-guidance', description: 'GwG Section 10 Implementation', quality: 'excellent' },
-          { id: 'ev119', type: 'policy-documentation', description: 'Continuous Monitoring Procedures', quality: 'good' }
-        ],
-        linkedRules: ['rule-eu-05', 'rule-eu-18', 'rule-eu-21', 'rule-eu-22']
+                linkedRules: ['rule-eu-05', 'rule-eu-18', 'rule-eu-21', 'rule-eu-22']
       },
       {
         id: 'germany-aml-section-2',
@@ -2113,10 +1725,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev120', type: 'regulatory-guidance', description: 'BaFin Guidance (February 1, 2025)', quality: 'excellent' },
-          { id: 'ev121', type: 'compliance-monitoring', description: 'KYC Update Timeliness Tracking', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-005', 'ev-threshold-005', 'ev-atl-btl-005'],
         linkedRules: ['rule-eu-05', 'rule-eu-18', 'rule-eu-21', 'rule-eu-22']
       },
       {
@@ -2131,10 +1740,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev122', type: 'compliance-monitoring', description: 'FIU Reporting Quality Metrics', quality: 'excellent' },
-          { id: 'ev123', type: 'audit-report', description: 'Suspicious Activity Detection Review', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-009', 'ev-atl-btl-009', 'ev-scenario-006'],
         linkedRules: ['rule-eu-13', 'rule-eu-25']
       },
       {
@@ -2149,10 +1755,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev124', type: 'performance-data', description: 'Cash Transaction Monitoring Metrics', quality: 'excellent' },
-          { id: 'ev125', type: 'audit-report', description: 'Cross-Border Wire Transfer Review', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-001', 'ev-threshold-009', 'ev-scenario-001'],
         linkedRules: ['rule-eu-01', 'rule-eu-07', 'rule-eu-08', 'rule-eu-19']
       },
       {
@@ -2167,10 +1770,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev126', type: 'backtest-results', description: 'Monitoring System Validation Results', quality: 'excellent' },
-          { id: 'ev127', type: 'audit-report', description: 'Governance Framework Review', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-009', 'ev-atl-btl-009', 'ev-scenario-006'],
         linkedRules: ['rule-eu-13', 'rule-eu-25']
       }
     ]
@@ -2195,11 +1795,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev128', type: 'regulatory-filing', description: 'D.Lgs. 231/2007 Article 35', quality: 'excellent' },
-          { id: 'ev129', type: 'policy-documentation', description: 'Continuous Monitoring Procedures', quality: 'good' }
-        ],
-        linkedRules: ['rule-eu-02', 'rule-eu-05', 'rule-eu-09', 'rule-eu-10', 'rule-eu-11', 'rule-eu-23', 'rule-eu-24']
+                linkedRules: ['rule-eu-02', 'rule-eu-05', 'rule-eu-09', 'rule-eu-10', 'rule-eu-11', 'rule-eu-23', 'rule-eu-24']
       },
       {
         id: 'italy-aml-section-2',
@@ -2213,10 +1809,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev130', type: 'regulatory-guidance', description: 'UIF Anomaly Indicators', quality: 'excellent' },
-          { id: 'ev131', type: 'performance-data', description: 'Threshold Monitoring Metrics', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-threshold-009', 'ev-atl-btl-009', 'ev-scenario-009'],
         linkedRules: ['rule-eu-02', 'rule-eu-03', 'rule-eu-19']
       },
       {
@@ -2231,10 +1824,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev132', type: 'compliance-monitoring', description: 'UIF Reporting Quality Metrics', quality: 'excellent' },
-          { id: 'ev133', type: 'audit-report', description: 'Suspicious Activity Detection Review', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-009', 'ev-atl-btl-009', 'ev-scenario-006'],
         linkedRules: ['rule-eu-06', 'rule-eu-07', 'rule-eu-11', 'rule-eu-23', 'rule-eu-25']
       },
       {
@@ -2249,10 +1839,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev134', type: 'performance-data', description: 'PEP Monitoring Effectiveness', quality: 'excellent' },
-          { id: 'ev135', type: 'audit-report', description: 'Enhanced Due Diligence Review', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-006', 'ev-threshold-008', 'ev-atl-btl-007'],
         linkedRules: ['rule-eu-06']
       },
       {
@@ -2267,10 +1854,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev136', type: 'backtest-results', description: 'System Validation Results', quality: 'excellent' },
-          { id: 'ev137', type: 'audit-report', description: 'Record-Keeping Compliance Review', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-009', 'ev-atl-btl-009', 'ev-scenario-006'],
         linkedRules: ['rule-eu-05', 'rule-eu-09', 'rule-eu-10', 'rule-eu-11', 'rule-eu-23', 'rule-eu-24', 'rule-eu-25']
       }
     ]
@@ -2295,11 +1879,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev138', type: 'regulatory-filing', description: 'Law 10/2010 Article 7', quality: 'excellent' },
-          { id: 'ev139', type: 'policy-documentation', description: 'Ongoing Monitoring Procedures', quality: 'good' }
-        ],
-        linkedRules: ['rule-eu-05', 'rule-eu-18', 'rule-eu-23']
+                linkedRules: ['rule-eu-05', 'rule-eu-18', 'rule-eu-23']
       },
       {
         id: 'spain-aml-section-2',
@@ -2313,10 +1893,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev140', type: 'compliance-monitoring', description: 'SEPBLAC Reporting Quality Metrics', quality: 'excellent' },
-          { id: 'ev141', type: 'audit-report', description: 'Structured Review Documentation', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-009', 'ev-atl-btl-009', 'ev-scenario-006'],
         linkedRules: ['rule-eu-06', 'rule-eu-07', 'rule-eu-23', 'rule-eu-25']
       },
       {
@@ -2331,10 +1908,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev142', type: 'regulatory-guidance', description: 'SEPBLAC Risk Indicator Catalogues (2024-2025)', quality: 'excellent' },
-          { id: 'ev143', type: 'performance-data', description: 'Systematic Reporting Metrics', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-004', 'ev-threshold-004', 'ev-scenario-009'],
         linkedRules: ['rule-eu-12']
       },
       {
@@ -2349,10 +1923,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev144', type: 'performance-data', description: 'PEP Enhanced Monitoring Effectiveness', quality: 'excellent' },
-          { id: 'ev145', type: 'audit-report', description: 'High-Risk Country Transaction Review', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-006', 'ev-threshold-008', 'ev-atl-btl-007'],
         linkedRules: ['rule-eu-06', 'rule-eu-25']
       },
       {
@@ -2367,10 +1938,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev146', type: 'backtest-results', description: 'System Testing and Validation', quality: 'excellent' },
-          { id: 'ev147', type: 'audit-report', description: 'Internal Controls Review', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-009', 'ev-atl-btl-009', 'ev-scenario-006'],
         linkedRules: ['rule-eu-12']
       }
     ]
@@ -2395,11 +1963,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev148', type: 'regulatory-guidance', description: 'Wolfsberg Effective Monitoring Statement (2024)', quality: 'excellent' },
-          { id: 'ev149', type: 'policy-documentation', description: 'Risk-Based Monitoring Framework', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'wolfsberg-section-2',
@@ -2413,11 +1977,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev150', type: 'policy-documentation', description: 'Private Banking AML Principles', quality: 'excellent' },
-          { id: 'ev151', type: 'performance-data', description: 'Enhanced Monitoring Effectiveness', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'wolfsberg-section-3',
@@ -2431,11 +1991,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev152', type: 'regulatory-guidance', description: 'Correspondent Banking Principles (2022)', quality: 'excellent' },
-          { id: 'ev153', type: 'policy-documentation', description: 'RFI Best Practice Guidance (2022)', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'wolfsberg-section-4',
@@ -2449,11 +2005,7 @@ export const regulatoryDocuments = [
           riskLevel: 'medium',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev154', type: 'regulatory-guidance', description: 'Wolfsberg Innovation Statement (2024)', quality: 'excellent' },
-          { id: 'ev155', type: 'backtest-results', description: 'AI/ML Model Validation', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       },
       {
         id: 'wolfsberg-section-5',
@@ -2467,11 +2019,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev156', type: 'performance-data', description: 'SAR Quality Metrics and Law Enforcement Feedback', quality: 'excellent' },
-          { id: 'ev157', type: 'audit-report', description: 'Monitoring Effectiveness Assessment', quality: 'good' }
-        ],
-        linkedRules: []
+                linkedRules: []
       }
     ]
   },
@@ -2495,11 +2043,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev158', type: 'regulatory-guidance', description: 'FATF Recommendation 10 Interpretive Note', quality: 'excellent' },
-          { id: 'ev159', type: 'policy-documentation', description: 'Ongoing Monitoring Framework', quality: 'good' }
-        ],
-        linkedRules: ['rule-eu-05', 'rule-eu-14', 'rule-eu-22', 'rule-eu-23']
+                linkedRules: ['rule-eu-05', 'rule-eu-14', 'rule-eu-22', 'rule-eu-23']
       },
       {
         id: 'fatf-rec11-records',
@@ -2513,10 +2057,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev160', type: 'audit-report', description: 'Record Retention Compliance Review', quality: 'excellent' },
-          { id: 'ev161', type: 'performance-data', description: 'Transaction Record Audit Trail', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-atl-btl-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-14']
       },
       {
@@ -2531,10 +2072,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev162', type: 'performance-data', description: 'Wire Transfer Monitoring Effectiveness', quality: 'excellent' },
-          { id: 'ev163', type: 'backtest-results', description: 'Travel Rule Compliance Testing', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-002', 'ev-threshold-002', 'ev-atl-btl-002'],
         linkedRules: ['rule-eu-03', 'rule-eu-04']
       },
       {
@@ -2549,10 +2087,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev164', type: 'performance-data', description: 'Suspicious Transaction Detection Metrics', quality: 'excellent' },
-          { id: 'ev165', type: 'audit-report', description: 'FIU Reporting Quality Assessment', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-atl-btl-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-14']
       },
       {
@@ -2567,10 +2102,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev166', type: 'backtest-results', description: 'Complex Transaction Detection Analysis', quality: 'good' },
-          { id: 'ev167', type: 'performance-data', description: 'Unusual Pattern Monitoring', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-threshold-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-14']
       }
     ]
@@ -2595,11 +2127,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev168', type: 'regulatory-guidance', description: 'FATF Correspondent Banking Guidance (2016)', quality: 'excellent' },
-          { id: 'ev169', type: 'policy-documentation', description: 'Correspondent Relationship Monitoring Framework', quality: 'good' }
-        ],
-        linkedRules: ['rule-eu-15']
+                linkedRules: ['rule-eu-15']
       },
       {
         id: 'fatf-corr-risk-changes',
@@ -2613,10 +2141,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev170', type: 'performance-data', description: 'Respondent Risk Profile Monitoring', quality: 'excellent' },
-          { id: 'ev171', type: 'backtest-results', description: 'Transaction Pattern Analysis', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-threshold-003', 'ev-atl-btl-003'],
         linkedRules: ['rule-eu-15']
       },
       {
@@ -2631,10 +2156,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev172', type: 'performance-data', description: 'Unusual Activity Detection Metrics', quality: 'excellent' },
-          { id: 'ev173', type: 'audit-report', description: 'Real-Time Monitoring Effectiveness', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-002', 'ev-atl-btl-002', 'ev-scenario-009'],
         linkedRules: ['rule-eu-15']
       },
       {
@@ -2649,10 +2171,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev174', type: 'policy-documentation', description: 'RFI Process and Escalation Procedures', quality: 'excellent' },
-          { id: 'ev175', type: 'performance-data', description: 'RFI Response Quality Metrics', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-002', 'ev-threshold-002', 'ev-scenario-009'],
         linkedRules: ['rule-eu-16']
       },
       {
@@ -2667,10 +2186,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev176', type: 'backtest-results', description: 'Nested Relationship Detection Analysis', quality: 'good' },
-          { id: 'ev177', type: 'performance-data', description: 'Sub-Account Monitoring Effectiveness', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-002', 'ev-threshold-002', 'ev-atl-btl-002'],
         linkedRules: ['rule-eu-08']
       }
     ]
@@ -2695,11 +2211,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev178', type: 'regulatory-guidance', description: 'FATF Methodology Technical Compliance Standards', quality: 'excellent' },
-          { id: 'ev179', type: 'audit-report', description: 'Ongoing Monitoring Compliance Assessment', quality: 'good' }
-        ],
-        linkedRules: ['rule-eu-17']
+                linkedRules: ['rule-eu-17']
       },
       {
         id: 'fatf-method-rec11',
@@ -2713,10 +2225,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev180', type: 'policy-documentation', description: 'Record Retention Policy Framework', quality: 'excellent' },
-          { id: 'ev181', type: 'performance-data', description: 'Record Reconstruction Testing', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-atl-btl-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-14']
       },
       {
@@ -2731,10 +2240,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev182', type: 'backtest-results', description: 'Wire Transfer Compliance Testing', quality: 'excellent' },
-          { id: 'ev183', type: 'performance-data', description: 'Incomplete Transfer Handling Metrics', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-002', 'ev-threshold-002', 'ev-atl-btl-002'],
         linkedRules: ['rule-eu-04', 'rule-eu-08']
       },
       {
@@ -2749,10 +2255,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev184', type: 'audit-report', description: 'STR Filing Compliance Review', quality: 'excellent' },
-          { id: 'ev185', type: 'performance-data', description: 'Suspicious Activity Detection Metrics', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-atl-btl-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-14']
       },
       {
@@ -2767,10 +2270,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-06-01'
         },
-        evidence: [
-          { id: 'ev186', type: 'performance-data', description: 'Monitoring System Effectiveness Analysis', quality: 'good' },
-          { id: 'ev187', type: 'audit-report', description: 'Risk-Based Approach Assessment', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-threshold-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-20', 'rule-eu-21']
       }
     ]
@@ -2795,11 +2295,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev188', type: 'regulatory-guidance', description: 'FATF Risk-Based Approach for Banking Sector (2014)', quality: 'excellent' },
-          { id: 'ev189', type: 'policy-documentation', description: 'Risk-Based Monitoring Framework', quality: 'good' }
-        ],
-        linkedRules: ['rule-eu-05']
+                linkedRules: ['rule-eu-05']
       },
       {
         id: 'fatf-rba-continuous',
@@ -2813,10 +2309,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev190', type: 'performance-data', description: 'Continuous Monitoring Effectiveness Metrics', quality: 'excellent' },
-          { id: 'ev191', type: 'backtest-results', description: 'Peer Group Comparison Analysis', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-threshold-003', 'ev-atl-btl-003'],
         linkedRules: ['rule-eu-05', 'rule-eu-17']
       },
       {
@@ -2831,10 +2324,7 @@ export const regulatoryDocuments = [
           riskLevel: 'critical',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev192', type: 'audit-report', description: 'Automated System Validation Review', quality: 'excellent' },
-          { id: 'ev193', type: 'performance-data', description: 'System Integrity Testing Results', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-atl-btl-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-18']
       },
       {
@@ -2849,10 +2339,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev194', type: 'performance-data', description: 'AI/ML False Positive Reduction Analysis', quality: 'good' },
-          { id: 'ev195', type: 'backtest-results', description: 'Advanced Analytics Detection Testing', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-threshold-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-20']
       },
       {
@@ -2867,10 +2354,7 @@ export const regulatoryDocuments = [
           riskLevel: 'high',
           lastReviewed: '2025-01-15'
         },
-        evidence: [
-          { id: 'ev196', type: 'audit-report', description: 'Independent Monitoring System Testing', quality: 'excellent' },
-          { id: 'ev197', type: 'performance-data', description: 'Detection Capability Validation', quality: 'good' }
-        ],
+        linkedEvidence: ['ev-backtest-003', 'ev-atl-btl-003', 'ev-scenario-006'],
         linkedRules: ['rule-eu-05']
       }
     ]

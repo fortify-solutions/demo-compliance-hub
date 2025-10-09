@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, XCircle, Clock, Shield } from 'lucide-react';
 import { complianceAnalysisService } from '../services/data/complianceAnalysisService';
 import { ruleService } from '../services/data';
+import { evidenceService } from '../services/data/evidenceService';
 import { RuleDetailModal } from './RuleDetailModal';
 import { EvidenceDetailModal } from './EvidenceDetailModal';
 
@@ -11,8 +12,7 @@ const getLastAssessmentDate = (rules) => {
 
   const dates = rules.map(rule => {
     const ruleUpdate = new Date(rule.lastUpdated || Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000);
-    const evidenceDate = rule.evidence ? new Date(rule.evidence.lastAdded || ruleUpdate) : ruleUpdate;
-    return Math.max(ruleUpdate.getTime(), evidenceDate.getTime());
+    return ruleUpdate.getTime();
   });
 
   return new Date(Math.max(...dates));
@@ -192,7 +192,7 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
                     </div>
                     <div className="flex items-center space-x-4 text-sm text-gray-600">
                       <span>{associatedRules.length} rules</span>
-                      <span>{clause.evidence.length} evidence items</span>
+                      <span>{evidenceService.resolveClauseEvidence(clause).length} evidence items</span>
                     </div>
                   </div>
                 </div>
@@ -410,9 +410,13 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
 
         {/* Evidence Items */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Supporting Evidence ({selectedClause.evidence.length})</h3>
-          <div className="space-y-3">
-            {selectedClause.evidence.map(evidence => (
+          {(() => {
+            const resolvedEvidence = evidenceService.resolveClauseEvidence(selectedClause);
+            return (
+              <>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Supporting Evidence ({resolvedEvidence.length})</h3>
+                <div className="space-y-3">
+                  {resolvedEvidence.map(evidence => (
               <div
                 key={evidence.id}
                 className="border border-gray-200 rounded-lg p-4 hover:shadow-md hover:border-blue-300 cursor-pointer transition-all"
@@ -434,6 +438,9 @@ export function ClauseContent({ document, clauses, selectedClause, onClauseSelec
               </div>
             ))}
           </div>
+              </>
+            );
+          })()}
         </div>
       </div>
 

@@ -29,8 +29,7 @@ export function ComplianceInsights({ selectedClause }) {
     // Find the most recent assessment across all rules
     const dates = rules.map(rule => {
       const ruleUpdate = new Date(rule.lastUpdated || Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000);
-      const evidenceDate = rule.evidence ? new Date(rule.evidence.lastAdded || ruleUpdate) : ruleUpdate;
-      return Math.max(ruleUpdate.getTime(), evidenceDate.getTime());
+      return ruleUpdate.getTime();
     });
 
     return new Date(Math.max(...dates));
