@@ -906,7 +906,7 @@ export const regulatoryDocuments = [
         text: 'Member States shall require obliged entities to apply enhanced due diligence measures when dealing with natural persons or legal entities established in high-risk third countries identified by the Commission, including enhanced ongoing monitoring.',
         metadata: {
           jurisdiction: ['EU'],
-          productType: ['commercial-banking', 'wealth-management'],
+          productType: ['retail-banking','commercial-banking', 'wealth-management'],
           customerType: ['business', 'corporate'],
           riskLevel: 'critical',
           lastReviewed: '2024-01-25'
